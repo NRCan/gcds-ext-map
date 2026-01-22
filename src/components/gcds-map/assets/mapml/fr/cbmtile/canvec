@@ -3,12 +3,11 @@
     <map-title>Canvec</map-title>
     <map-meta http-equiv="Content-Type" content="application/xml;charset=UTF-8"></map-meta>
     <map-meta charset="utf-8"></map-meta>
-
-    <map-link rel="license" href="https://example.org" title="Default license title"></map-link>
+    <map-link rel="license" href="https://www.nrcan.gc.ca/earth-sciences/geography/atlas-canada/read-about-topographic-maps/16840#topolicensing" title="Canvec &#xa9; Ressources naturelles Canada"></map-link>
   </map-head>
   <map-body>
     <map-extent units="CBMTILE" checked="checked" hidden="hidden">
-      <map-input name="z" type="zoom" value="18" min="2" max="18"></map-input>
+      <map-input name="z" type="zoom" value="18" min="2" max="21"></map-input>
       <map-input name="xmin" type="location" units="pcrs" position="top-left" axis="easting" min="-2465257.3" max="3078646.8"></map-input>
       <map-input name="ymin" type="location" units="pcrs" position="bottom-left" axis="northing" min="-883189.1" max="3952792.7"></map-input>
       <map-input name="xmax" type="location" units="pcrs" position="top-right" axis="easting" min="-2465257.3" max="3078646.8"></map-input>
