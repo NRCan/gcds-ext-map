@@ -91,6 +91,6 @@
     "prismjs": "^1.30.0"
   },
   "peerDependencies": {
-    "@cdssnc/gcds-components": "^0.46.0"
+    "@cdssnc/gcds-components": "^0.47.0"
   }
 }
