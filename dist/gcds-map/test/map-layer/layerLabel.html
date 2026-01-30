@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Layer Control Tests</title>
+    <script type="module" src="/build/gcds-map.esm.js"></script>
+
+</head>
+
+<body>
+  <gcds-map projection="CBMTILE" zoom="3" lat="37.176710163979834" lon="-62.070013924549045" controls>
+
+	<!-- Layer without a label -->
+	<map-layer checked>
+        <map-meta name="projection" content="CBMTILE"></map-meta>
+		<map-feature zoom="10">
+			<map-properties>Layer with no label</map-properties>
+			<map-geometry cs="gcrs">
+				<map-point>
+					<map-coordinates>-75.866089 45.463020</map-coordinates>
+				</map-point>
+			</map-geometry>
+        </map-feature>
+	</map-layer>
+
+  </gcds-map>
+</body>
+
+</html>

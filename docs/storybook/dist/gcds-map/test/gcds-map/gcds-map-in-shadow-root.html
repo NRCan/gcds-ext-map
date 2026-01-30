@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>gcds-map in shadow root test</title>
+    <meta charset="UTF-8">
+    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <style>
+      html {
+        height: 100%
+      }
+
+      body {
+        height: inherit
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* styles in here don't affect shadow dom contents */
+       gcds-map:defined { 
+         /* Responsive map. */ 
+          max-width: 100%;  
+          
+         /* Full viewport. */
+          width: 100%;  
+          height: 100%;  
+          
+         /* Remove default (native-like) border. */ 
+         border: none;
+         
+         vertical-align: middle;
+       }    </style>
+  </head>
+  <body>
+    <!-- notes:
+    * when the gcds-map executes gcds-map.requestFullscreen(), it is the
+    * host of the gcds-map, that is, host-element, that is returned by
+    * document.fullscreenElement. That is by design, as the user styles must
+    * be able to execute host-element:fullscreen { blah: blah }.  However, the
+    * gcds-map will also respond to gcds-map:fullscreen { blah: bleh; }
+     in shadow-tree scoped styles.  See this discussion for seemingly important
+     info: https://github.com/WICG/webcomponents/issues/180#issuecomment-224218060
+    
+    -->
+    <host-element>
+      <template shadowrootmode="open">
+        <gcds-map data-testid="map1" id="map1" style="height: 500px;width:500px;"  zoom="2" lat="63" lon="-87" controls projection="CBMTILE">
+          <map-layer data-testid="test-layer" label="Remote content" src="/test/data/cbmt.mapml" checked></map-layer>
+        </gcds-map>
+        <gcds-map data-testid="map2" id="map2" style="height: 500px;width:500px;"  zoom="2" lat="63" lon="-87" controls projection="CBMTILE">
+          <map-layer data-testid="test-layer2" label="Remote content" src="/test/data/cbmt.mapml" checked></map-layer>
+        </gcds-map>
+      </template>
+    </host-element>
+    <gcds-map data-testid="map3" id="map3" style="height: 500px;width:500px;"  zoom="2" lat="63" lon="-87" controls projection="CBMTILE">
+      <map-layer data-testid="test-layer3" label="Remote content" src="/test/data/cbmt.mapml" checked></map-layer>
+    </gcds-map>
+  </body>
+</html>

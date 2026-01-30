@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>domApi-HTMLLayerElement.html</title>
+    <meta charset="UTF-8">
+    <script type="module" src="/build/gcds-map.esm.js"></script>
+  </head>
+  <body>
+    <template>
+      <map-layer id="remote-with-title" label="This should not appear in layer control" src="with-title.mapml" checked></map-layer>
+      <map-layer id="remote-no-title" label="Layer with name settable via HTMLLayerElement.label" src="no-title.mapml" checked></map-layer>
+      <map-layer id="local-no-title" label="Another Layer with name settable via HTMLLayerElement.label" checked>
+        <map-meta name="projection" content="OSMTILE"></map-meta>
+        <map-feature id="hg" zoom="3" min="0" max="22">
+          <map-featurecaption>Statue of a guy with a hat</map-featurecaption>
+            <map-geometry cs="gcrs">
+              <map-point>
+                <map-coordinates>-75.70628 45.39878</map-coordinates>
+              </map-point>
+            </map-geometry>
+            <map-properties>
+              <h1>A Man With Two Hats</h1>
+            </map-properties>
+        </map-feature>
+      </map-layer>
+      <map-layer id="local-with-title" label="This should not appear in layer control" checked>
+        <map-title>Layer name set via local map-title element - unsettable via HTMLLayerelement.label</map-title>
+        <map-meta name="projection" content="OSMTILE"></map-meta>
+        <map-feature id="hg" zoom="3" min="0" max="22">
+          <map-featurecaption>Statue of a guy with a hat</map-featurecaption>
+            <map-geometry cs="gcrs">
+              <map-point>
+                <map-coordinates>-75.70528 45.39778</map-coordinates>
+              </map-point>
+            </map-geometry>
+            <map-properties>
+              <h1>A Man With Two Hats</h1>
+            </map-properties>
+        </map-feature>
+      </map-layer>
+    </template>
+  <gcds-map projection="OSMTILE" controls  zoom="15" lat="45.39778" lon="-75.70528" width="500" height="500">
+  </gcds-map>
+  </body>
+  <script type="module">
+    // TODO: re-enable map-feature when it is no longer a problem for testing
+    const elementsDefined = ['gcds-map','map-layer'/*,'map-feature'*/].map((e)=>{customElements.whenDefined(e);});
+    Promise.all(elementsDefined).then(()=>{
+      let remoteWithTitle = document.querySelector('template').content.cloneNode(true).querySelector('#remote-with-title');
+      remoteWithTitle = document.querySelector('gcds-map').appendChild(remoteWithTitle);
+      let remoteNoTitle = document.querySelector('template').content.cloneNode(true).querySelector('#remote-no-title');
+      remoteNoTitle  = document.querySelector('gcds-map').appendChild(remoteNoTitle);
+      let localNoTitle = document.querySelector('template').content.cloneNode(true).querySelector('#local-no-title');
+       localNoTitle = document.querySelector('gcds-map').appendChild(localNoTitle);
+      let localWithTitle = document.querySelector('template').content.cloneNode(true).querySelector('#local-with-title');
+      localWithTitle = document.querySelector('gcds-map').appendChild(localWithTitle);
+      document.querySelector('gcds-map').whenLayersReady().then(()=>{
+        remoteWithTitle.label = "Unforsettable in every way"; 
+        remoteNoTitle.label = "Bedtime For Bonzo";  
+        localWithTitle.label = "No dice, buddy!";
+        localNoTitle.label = "Go ahead, make my day!"; 
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,30 @@
+export declare class CustomDOMTokenList {
+    private element;
+    private valueSet;
+    private attribute;
+    private domain;
+    private domtokenlist;
+    constructor(initialValue: string | null, element: HTMLElement, attribute: string, domain: string[]);
+    get isValueSet(): boolean;
+    get length(): number;
+    get value(): string;
+    set value(val: string | null);
+    item(index: number): string | null;
+    contains(token: string): boolean;
+    add(token: string): void;
+    remove(token: string): void;
+    replace(oldToken: string, newToken: string): boolean;
+    supports(token: string): boolean;
+    toggle(token: string, force?: boolean): boolean;
+    entries(): IterableIterator<[number, string]>;
+    forEach(callback: (value: string, key: number, parent: CustomDOMTokenList) => void, thisArg?: any): void;
+    keys(): IterableIterator<number>;
+    values(): IterableIterator<string>;
+    [Symbol.iterator](): IterableIterator<string>;
+    private _manualEntries;
+    private _manualKeys;
+    private _manualValues;
+    [index: number]: string;
+}
+export { CustomDOMTokenList as DOMTokenList };
+export default CustomDOMTokenList;

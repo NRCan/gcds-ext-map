@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MapML Vector Tiles</title>
+  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <link rel="stylesheet" href="mapSpan.css">
+  <style>
+    gcds-map:defined {
+      height: 50%;
+      border: 0;
+      vertical-align: middle;
+    }
+
+    gcds-map:defined ~ gcds-map:defined {
+      border-top: 1px inset;
+    }
+  </style>
+</head>
+<body>
+<gcds-map projection="WGS84" zoom="0" lat="0" lon="0" controls>
+  <map-layer label="Countries - WorldCRS84Quad" checked>
+    <map-link rel="stylesheet" href="mapSpan.css" ></map-link>
+    <map-extent units="WGS84" checked hidden>
+      <map-input name="zoomLevel" type="zoom" min="0" max="2" value="0"></map-input>
+
+      <map-input name="row" type="location" axis="row" units="tilematrix" min="0" max="5"></map-input>
+      <map-input name="col" type="location" axis="column" units="tilematrix" min="0" max="5"></map-input>
+
+      <map-link rel='tile' type='text/mapml' title='Tiles for ne_10m_admin_0_countries (as MapML)' tref='/test/data/tiles/wgs84/{zoomLevel}/r{row}_c{col}.mapml'> </map-link>
+    </map-extent>
+  </map-layer>
+</gcds-map>
+
+<gcds-map projection="OSMTILE" zoom="2" lat="0" lon="0" controls>
+  <map-layer label="Countries - WebMercatorQuad" checked>
+    <map-link rel="stylesheet" href="mapSpan.css" ></map-link>
+    <map-extent units="OSMTILE" checked hidden>
+      <map-input  name="zoomLevel" type="zoom" min="2" max="2" value="2"></map-input>
+      <map-input  name="row" type="location" axis="row" units="tilematrix" min="0" max="2"></map-input>
+      <map-input  name="col" type="location" axis="column" units="tilematrix" min="0" max="3"></map-input>
+      <map-link rel='tile' type='text/mapml' tref='/test/data/tiles/osmtile/{zoomLevel}/{row}/{col}.mapml' ></map-link>
+    </map-extent>
+  </map-layer>
+</gcds-map>
+
+</body>
+</html>

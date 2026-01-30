@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Templated Features Test</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <style>
+    gcds-map {
+      width: 100%;
+      height: 400px;
+      max-width: 100%;
+    }
+
+    .transparency {
+      opacity: 0.2;
+    }
+  </style>
+</head>
+
+<body>
+  <gcds-map data-testid="map1" style="width: 500px;height: 500px;" projection="CBMTILE" zoom="3" lat="45.5052040" lon="-75.2202344"
+    controls>
+    <map-layer label="Alabama" checked>
+      <map-meta name="zoom" content="min=3,max=5"></map-meta>
+      <map-extent units="CBMTILE" checked hidden>
+        <map-input name="z" type="zoom" min="2" max="18" value="0" ></map-input>
+        <map-input name="xmin" type="location" units="gcrs" axis="longitude" position="top-left" min="-76" max="-74" ></map-input>
+        <map-input name="ymin" type="location" units="gcrs" axis="latitude" position="bottom-right" min="45" max="46" ></map-input>
+        <map-input name="xmax" type="location" units="gcrs" axis="longitude" position="bottom-right" min="-76" max="-74" ></map-input>
+        <map-input name="ymax" type="location" units="gcrs" axis="latitude" position="top-left" min="45" max="46" ></map-input>
+        <map-link rel="features" tref="/test/data/tiles/cbmt/alabama_feature.mapml?{xmin}{ymin}{xmax}{ymax}{z}" ></map-link>
+      </map-extent>
+    </map-layer>
+    <map-layer label="Static MapML with tiles" checked>
+      <map-meta name="zoom" content="min=0,max=10"></map-meta>
+      <map-meta name="projection" content="CBMTILE"></map-meta>
+      <map-link rel="license"
+        href="https://www.nrcan.gc.ca/earth-sciences/geography/topographic-information/free-data-geogratis/licence/17285"
+        title="Canada Base Map © Natural Resources Canada"></map-link>
+      <map-tile zoom="0" row="3" col="3" src="/test/data/tiles/cbmt/0/c3_r3.png"></map-tile>
+    </map-layer>
+  </gcds-map>
+  <gcds-map data-testid="map2" id="map2" data-testid="map2" style="width: 500px;height: 500px;" projection="CBMTILE" zoom="17" lat="45.4069740362364" lon="-75.70155300710053" controls>
+    <map-layer data-testid="restaurants" label="Restaurants" checked>
+      <map-meta name="cs" content="gcrs" ></map-meta>
+      <map-meta name="extent" content="top-left-easting=1509080.1964270622,top-left-northing=-169400.558801122,bottom-right-easting=1512094.3357886747,bottom-right-northing=-172702.5654051304" ></map-meta>
+      <map-extent units="CBMTILE" checked hidden>
+         <map-select id="restaurants" name="cuisine">
+            <map-option selected label="All cuisines" value="restaurants">restaurants</map-option>
+            <map-option label="Italian">italian</map-option>
+            <map-option label="African">african</map-option>
+            <map-option label="Asian">asian</map-option>
+            <map-option label="Cajun">cajun</map-option>
+            <map-option label="Mexican">mexican</map-option>
+            <map-option label="Indian">indian</map-option>
+          </map-select>
+        <map-link data-testid="restaurants-link" tref="/test/data/restaurants/{cuisine}.mapml" rel="features"></map-link>
+        </map-extent>
+    </map-layer>
+  </gcds-map>
+
+</body>
+
+</html>

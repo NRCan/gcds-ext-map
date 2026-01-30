@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Custom TCRS Test - Simple</title>
+  <script type="module" src="/build/gcds-map.esm.js"></script>
+</head>
+
+<body>
+  <gcds-map zoom="2" lat="45" lon="-90" controls>
+    <map-layer data-testid="projection-mismatched-layer" label="CBMT" src="/test/data/tiles/cbmt/cbmt.mapml" checked></map-layer>
+    <map-layer data-testid="projection-matched-layer" label="Static MapML with tiles" checked>
+      <map-meta name="zoom" content="min=1,max=4"></map-meta>
+      <map-meta name="projection" content="basic"></map-meta>
+
+      <map-tile zoom="2" row="-23" col="-9" src="/test/data/tiles/cbmt/3/c17_r18.png"></map-tile>
+      <map-tile zoom="2" row="-23" col="-10" src="/test/data/tiles/cbmt/3/c16_r18.png"></map-tile>
+    </map-layer>
+  </gcds-map>
+
+  <script type="module">
+    let template = `
+        {
+          "projection":"basic",
+          "proj4string":"+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
+          "resolutions":[8192, 4096, 2048, 1024, 512, 256, 128],
+          "origin":[0,0],
+          "bounds":[[-34655800, -39000000], [10000000, 39310000]],
+          "tilesize":265
+        }`
+    await customElements.whenDefined('gcds-map');
+    let map = document.querySelector("gcds-map");
+    await map.whenReady();
+    let custProj = map.defineCustomProjection(template);
+    map.projection = custProj;
+  </script>
+  
+</body>
+
+</html>
