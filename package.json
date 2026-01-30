@@ -37,6 +37,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o ./docs/storybook",
     "build-pages": "npm run build && npm run build-storybook && node scripts/copy-gcds-docs.js && node scripts/deploy-structure.js",
+    "build-pages:local": "cd ../gcds-docs && npm run build && cd ../gcds-map && npm run build && npm run build-storybook && node scripts/copy-gcds-docs.js && node scripts/deploy-structure.js",
+    "build-pages:deploy": "cd ../gcds-docs && PATH_PREFIX=/gcds-map npm run build && cd ../gcds-map && npm run build && npm run build-storybook && node scripts/copy-gcds-docs.js && node scripts/deploy-structure.js",
     "test:e2e": "playwright test",
     "test:spec": "stencil test --spec",
     "test.watch": "stencil test --spec --watchAll",
