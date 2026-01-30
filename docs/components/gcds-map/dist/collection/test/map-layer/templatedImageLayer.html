@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Templated Image Test</title>
+  <meta charset="utf-8" >
+  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <style>
+    html {
+      height: 100%
+    }
+
+    body,
+    gcds-map:defined {
+      height: inherit;
+      max-width: 100%;
+      width: 100%
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <gcds-map projection="CBMTILE" zoom="4" lat="53.331" lon="-91.667" controls>
+
+    <map-layer label="Toporama" checked>
+      <map-meta name="zoom" content="min=4,max=5"></map-meta>
+      <map-extent units="CBMTILE" checked hidden>
+        <map-input name="z" type="zoom" value="19" min="4" max="4" ></map-input>
+        <map-input name="w" type="width" ></map-input>
+        <map-input name="h" type="height" ></map-input>
+        <map-input name="xmin" type="location" units="pcrs" position="top-left" axis="easting" min="-6207743.103886206"
+          max="3952277.216154434" ></map-input>
+        <map-input name="ymin" type="location" units="pcrs" position="bottom-left" axis="northing" min="-3362085.3441706896"
+          max="3952277.216154434" ></map-input>
+        <map-input name="xmax" type="location" units="pcrs" position="top-right" axis="easting" min="-6207743.103886206"
+          max="3952277.216154434" ></map-input>
+        <map-input name="ymax" type="location" units="pcrs" position="top-left" axis="northing" min="-3362085.3441706896"
+          max="3952277.216154434" ></map-input>
+        <map-link rel="image"
+                  tref="/test/data/images/toporama_en.jpg?WIDTH={w}&amp;HEIGHT={h}&amp;CRS=EPSG:3978&amp;BBOX={xmin},{ymin},{xmax},{ymax}&amp;m4h=t" ></map-link>
+      </map-extent>
+    </map-layer>
+    <map-layer label="Static MapML with tiles" checked>
+      <map-meta name="zoom" content="min=0,max=10"></map-meta>
+      <map-meta name="projection" content="CBMTILE"></map-meta>
+      <map-link rel="license"
+        href="https://www.nrcan.gc.ca/earth-sciences/geography/topographic-information/free-data-geogratis/licence/17285"
+        title="Canada Base Map © Natural Resources Canada"></map-link>
+      <map-tile zoom="0" row="3" col="3" src="/test/data/tiles/cbmt/0/c3_r3.png"></map-tile>
+    </map-layer>
+  </gcds-map>
+</body>
+
+</html>
