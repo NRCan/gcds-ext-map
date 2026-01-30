@@ -1,2 +1,0 @@
-import{r as t,a as e}from"./p-PZrWUcjo.js";const n=class{constructor(e){t(this,e)}get el(){return e(this)}name;content;nameChanged(t,e){}contentChanged(t,e){}set contentValue(t){if(this.name==="cs"&&t&&!["tcrs","tilematrix","pcrs","gcrs","map","tile"].includes(t)){return}this.content=t}connectedCallback(){}disconnectedCallback(){}render(){return null}static get watchers(){return{name:["nameChanged"],content:["contentChanged"]}}};export{n as map_meta};
-//# sourceMappingURL=p-1412f74e.entry.js.map
