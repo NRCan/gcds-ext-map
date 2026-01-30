@@ -1,0 +1,4 @@
+[submodule "src/mapml-source"]
+	path = src/mapml-source
+	url = https://github.com/Maps4HTML/MapML.js.git
+	ignore = all

@@ -1,0 +1,268 @@
+<!-- Load GCDS tokens -->
+<link
+  rel="stylesheet"
+  href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@latest/dist/gcds/gcds.css"
+/>
+<style>
+  /* ----- SIDEBAR ----- */
+  .sidebar-container {
+    background-color: var(--gcds-bg-primary) !important;
+  }
+
+  .sidebar-container .os-content {
+    padding: var(--gcds-spacing-75) var(--gcds-spacing-175)
+      var(--gcds-spacing-300) !important;
+  }
+
+  .sidebar-container .css-d3imve {
+    padding: 0 !important;
+  }
+
+  /* Focus styling */
+  .sidebar-container a:focus,
+  .sidebar-container button:not(.sidebar-item):focus,
+  .sb-bar a:focus,
+  .sb-bar button:focus,
+  #panel-tab-content a:focus,
+  #panel-tab-content button:focus,
+  #storybook-preview-wrapper a:focus {
+    background-color: var(--gcds-link-focus-background) !important;
+    border-radius: var(--gcds-link-focus-border-radius) !important;
+    box-shadow: var(--gcds-link-focus-box-shadow) !important;
+    color: var(--gcds-link-focus-text) !important;
+    outline: var(--gcds-link-focus-outline-width) solid
+      var(--gcds-link-focus-background) !important;
+    outline-offset: var(--gcds-link-focus-outline-offset) !important;
+    text-decoration: none !important;
+  }
+
+  #panel-tab-content button:focus span {
+    color: inherit !important;
+  }
+
+  /* Sidebar header */
+  .sidebar-header {
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    padding-inline: var(--gcds-spacing-450) !important;
+  }
+
+  .sidebar-header .css-1jtjrtn {
+    flex-shrink: 0;
+    margin: var(--gcds-spacing-600) 0 0;
+  }
+
+  .sidebar-header .css-1rb1jn6 {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+
+  .sidebar-header .css-c3junj,
+  .sidebar-header .css-17fv6jh {
+    position: absolute;
+    top: var(--gcds-spacing-150);
+  }
+
+  .sidebar-header .css-c3junj {
+    right: var(--gcds-spacing-450);
+    margin: 0 0 var(--gcds-spacing-100);
+  }
+
+  .sidebar-header .css-17fv6jh {
+    right: var(--gcds-spacing-900);
+  }
+
+  .sidebar-header .css-c3junj button {
+    padding: 0;
+  }
+
+  .sidebar-header #button-run-tests svg {
+    color: var(--gcds-text-light) !important;
+  }
+
+  /* Sidebar subheadings + welcome story */
+  .sidebar-subheading,
+  div.sidebar-item[data-item-id='welcome--stories'] {
+    margin-block-end: var(--gcds-spacing-175) !important;
+  }
+
+  .sidebar-subheading,
+  div.sidebar-item[data-item-id='welcome--stories'] a {
+    font-size: 1rem !important;
+    font-weight: var(--gcds-font-weights-regular) !important;
+    letter-spacing: 0.1rem !important;
+    text-transform: none !important;
+  }
+
+  .sidebar-subheading .css-1q3s0lr {
+    margin: 0;
+  }
+
+  .sidebar-subheading .css-1h0aucu,
+  #welcome--stories svg {
+    display: none;
+  }
+
+  /* Sidebar search field */
+  .search-field {
+    margin: var(--gcds-spacing-450) 0 !important;
+    padding: 0 var(--gcds-spacing-450);
+  }
+
+  .search-field .css-1u13tiw {
+    left: calc(var(--gcds-spacing-450) + 8px);
+  }
+
+  .search-field svg,
+  .search-filed:focus-within svg,
+  .search-field input,
+  .search-result-recentlyOpened,
+  .search-result-item--label,
+  .search-result-item--label span,
+  .search-result-back svg,
+  .search-result-back span,
+  .search-result-clearHistory svg,
+  .search-result-clearHistory span,
+  .css-a6lbgo {
+    color: var(--gcds-text-light) !important;
+  }
+
+  .search-field input {
+    border-color: inherit;
+  }
+
+  .search-field input:focus,
+  .search-field input:active {
+    border-color: inherit;
+    background: transparent;
+  }
+
+  .search-result-item {
+    padding: var(--gcds-spacing-100) 0 !important;
+  }
+
+  .search-result-item--label strong {
+    display: block;
+    margin: 0 0 var(--gcds-spacing-75);
+  }
+
+  .search-result-item svg {
+    display: none !important;
+  }
+
+  /* Change colour of sidebar subheading + sidebar items */
+  .sidebar-header .css-c3junj button,
+  .sidebar-subheading,
+  .sidebar-subheading-action svg,
+  .sidebar-item,
+  .sidebar-item span {
+    color: var(--gcds-text-light) !important;
+  }
+
+  .sidebar-subheading,
+  .sidebar-item {
+    padding-inline: var(--gcds-spacing-450) !important;
+  }
+
+  .sidebar-subheading button {
+    padding: 0;
+  }
+
+  .sidebar-subheading button:hover {
+    background-color: transparent !important;
+  }
+
+  .sidebar-item {
+    padding-block: var(--gcds-spacing-100) !important;
+    border-radius: 0 !important;
+  }
+
+  .sidebar-item a {
+    padding-inline-start: 0 !important;
+  }
+
+  .sidebar-item:hover {
+    background-color: var(--gcds-bg-white) !important;
+    color: var(--gcds-text-primary) !important;
+  }
+
+  .sidebar-item a:focus {
+    background-color: transparent !important;
+    border: 0 !important;
+    color: var(--gcds-text-primary) !important;
+    outline: 0 !important;
+  }
+
+  .sidebar-item svg,
+  .sidebar-item div {
+    display: none !important;
+  }
+
+  button.sidebar-item {
+    border-block-start: var(--gcds-border-width-sm) solid
+      rgba(255, 255, 255, 0.15) !important;
+    padding: var(--gcds-spacing-175) var(--gcds-spacing-450) !important;
+  }
+
+  button.sidebar-item:last-of-type {
+    border-block-start: var(--gcds-border-width-sm) solid
+      rgba(255, 255, 255, 0.15) !important;
+  }
+
+  button.sidebar-item span {
+    margin-inline-start: 0;
+    margin-inline-end: var(--gcds-spacing-100);
+  }
+
+  div.sidebar-item:not([data-item-id='welcome--stories']) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Style selected sidebar item */
+  .sidebar-item[data-selected='true'] {
+    background-color: var(--gcds-bg-white) !important;
+    color: var(--gcds-color-blue-900) !important;
+  }
+
+  button.sidebar-item[aria-expanded='true'] {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-block-end: var(--gcds-border-width-sm) solid
+      rgba(255, 255, 255, 0.15) !important;
+  }
+
+  /* Hide all stories from sidebar, except playground story */
+  .sidebar-item[data-nodetype='story']:not([data-item-id*='playground']) {
+    display: none;
+  }
+
+  /* Hide skip-to-canvas button */
+  .css-4fs34v {
+    display: none !important;
+  }
+
+  /* Search results */
+  #storybook-explorer-menu .css-1iruc8t {
+    padding: 0 var(--gcds-spacing-450);
+  }
+
+  /* ----- MAIN ----- */
+  .css-8x7xhh {
+    box-shadow: none !important;
+  }
+
+  /* ----- PREVIEW FRAME ----- */
+  #storybook-preview-wrapper {
+    padding: 4rem 0;
+    background-color: var(--gcds-bg-white) !important;
+  }
+
+  #storybook-preview-wrapper iframe {
+    box-shadow: none !important;
+  }
+
+  #storybook-preview-wrapper:has(> a[href='#welcome--stories']) {
+    padding: 0;
+  }
+</style>
