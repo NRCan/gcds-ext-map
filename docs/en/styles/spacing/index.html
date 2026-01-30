@@ -1,0 +1,2818 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Spacing tokens - GC Design System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- GCDS CSS Shortcuts -->
+    <link rel="stylesheet" href="/gcds-css-shortcuts.min.css" />
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="/styles/prism.css">
+    <script src="/scripts/prism.min.js"></script>
+
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="/scripts/code-showcase.js"></script>
+    <script src="/scripts/code-copy.js"></script>
+    <script src="/scripts/component-preview.js"></script>
+    <script src="/scripts/general.js"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/favicon.ico">
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/scripts/search.js" type="module"></script>
+  </head>
+  <body>
+    
+
+
+  
+  
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+
+
+
+<gcds-header
+  lang="en"
+  skip-to-href="#mc"
+  lang-href='/fr/styles/espacement/'
+>
+  
+
+  <gcds-breadcrumbs lang="en" slot="breadcrumb">
+    
+      <gcds-breadcrumbs-item href=/en>
+        GC Design System
+      </gcds-breadcrumbs-item>
+
+      
+
+      
+      
+        
+          <gcds-breadcrumbs-item href=/en/styles/>
+            Styles
+          </gcds-breadcrumbs-item>
+        
+      
+    
+  </gcds-breadcrumbs>
+
+  
+<gcds-search search-id="search" slot="search" placeholder="GC Design System" action="/en/search">
+</gcds-search>
+
+
+</gcds-header>
+
+    <div class="content-wrapper">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<gcds-side-nav label="GC Design System" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75">
+  <gcds-nav-link href="/en">Home</gcds-nav-link>
+  <gcds-nav-link href="/en/start-to-use" >Start to use</gcds-nav-link>
+
+  
+  
+  <gcds-nav-group
+    menu-label="Page templates"
+    open-trigger="Page templates"
+    
+  >
+    <gcds-nav-link
+      href="/en/page-templates"
+      
+    >
+      Page templates overview
+    </gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/en/page-templates/basic/"
+      
+    >
+      Basic page
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+
+  
+  
+  <gcds-nav-group
+    menu-label="Components"
+    open-trigger="Components"
+    
+  >
+    <gcds-nav-link
+      href="/en/components"
+      
+    >
+      Components overview
+    </gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/en/components/breadcrumbs/"
+      
+    >
+      Breadcrumbs
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/button/"
+      
+    >
+      Button
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/card/"
+      
+    >
+      Card
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/checkboxes/"
+      
+    >
+      Checkboxes
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/container/"
+      
+    >
+      Container
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/date-input/"
+      
+    >
+      Date input
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/date-modified/"
+      
+    >
+      Date modified
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/details/"
+      
+    >
+      Details
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/error-message/"
+      
+    >
+      Error message
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/error-summary/"
+      
+    >
+      Error summary
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/fieldset/"
+      
+    >
+      Fieldset
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/file-uploader/"
+      
+    >
+      File uploader
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/footer/"
+      
+    >
+      Footer
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/grid/"
+      
+    >
+      Grid
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/header/"
+      
+    >
+      Header
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/heading/"
+      
+    >
+      Heading
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/icon/"
+      
+    >
+      Icon
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/input/"
+      
+    >
+      Input
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/language-toggle/"
+      
+    >
+      Language toggle
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/link/"
+      
+    >
+      Link
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/map/"
+      
+    >
+      Map
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/notice/"
+      
+    >
+      Notice
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/pagination/"
+      
+    >
+      Pagination
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/radios/"
+      
+    >
+      Radios
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/screenreader-only/"
+      
+    >
+      Screenreader-only
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/search/"
+      
+    >
+      Search
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/select/"
+      
+    >
+      Select
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/side-navigation/"
+      
+    >
+      Side navigation
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/signature/"
+      
+    >
+      Signature
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/stepper/"
+      
+    >
+      Stepper
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/text/"
+      
+    >
+      Text
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/textarea/"
+      
+    >
+      Textarea
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/theme-and-topic-menu/"
+      
+    >
+      Theme and topic menu
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/components/top-navigation/"
+      
+    >
+      Top navigation
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="CSS shortcuts"
+    open-trigger="CSS shortcuts"
+    
+  >
+    <gcds-nav-link
+      href="/en/css-shortcuts"
+      
+    >
+      CSS shortcuts overview
+    </gcds-nav-link>
+  
+    <gcds-nav-group
+      menu-label="Defaults"
+      open-trigger="Defaults"
+      
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/reset-styles/"
+      
+    >
+      Reset styles
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Conditional styling"
+      open-trigger="Conditional styling"
+      
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/responsive-layout/"
+      
+    >
+      Responsive layout
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/state/"
+      
+    >
+      State
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Layout"
+      open-trigger="Layout"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/box-sizing/"
+      
+    >
+      Box sizing
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/container-sizing/"
+      
+    >
+      Container sizing
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/display/"
+      
+    >
+      Display
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/overflow/"
+      
+    >
+      Overflow
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/position/"
+      
+    >
+      Position
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/visibility/"
+      
+    >
+      Visibility
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Typography"
+      open-trigger="Typography"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/font/"
+      
+    >
+      Font
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/font-family/"
+      
+    >
+      Font family
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/font-size/"
+      
+    >
+      Font size
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/font-style/"
+      
+    >
+      Font style
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/font-weight/"
+      
+    >
+      Font weight
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/line-height/"
+      
+    >
+      Line height
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/link-colour/"
+      
+    >
+      Link colour
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/link-size/"
+      
+    >
+      Link size
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/link-text-decoration/"
+      
+    >
+      Link text decoration
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/list-style/"
+      
+    >
+      List style
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/text-align/"
+      
+    >
+      Text align
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/text-colour/"
+      
+    >
+      Text colour
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/text-overflow/"
+      
+    >
+      Text overflow
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/text-transform/"
+      
+    >
+      Text transform
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/word-break/"
+      
+    >
+      Word break
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Spacing"
+      open-trigger="Spacing"
+      
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/margin/"
+      
+    >
+      Margin
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/padding/"
+      
+    >
+      Padding
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Flexbox and grid"
+      open-trigger="Flexbox and grid"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/align-content/"
+      
+    >
+      Align content
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/align-items/"
+      
+    >
+      Align items
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/align-self/"
+      
+    >
+      Align self
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/flex/"
+      
+    >
+      Flex
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/flex-direction/"
+      
+    >
+      Flex direction
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/flex-grow/"
+      
+    >
+      Flex grow
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/flex-shrink/"
+      
+    >
+      Flex shrink
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/flex-wrap/"
+      
+    >
+      Flex wrap
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/gap/"
+      
+    >
+      Gap
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/grid-columns/"
+      
+    >
+      Grid columns
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/grid-rows/"
+      
+    >
+      Grid rows
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/justify-content/"
+      
+    >
+      Justify content
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/justify-items/"
+      
+    >
+      Justify items
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/justify-self/"
+      
+    >
+      Justify self
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/order/"
+      
+    >
+      Order
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/place-content/"
+      
+    >
+      Place content
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/place-items/"
+      
+    >
+      Place items
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/place-self/"
+      
+    >
+      Place self
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Background and border"
+      open-trigger="Background and border"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/background-colour/"
+      
+    >
+      Background colour
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/border-colour/"
+      
+    >
+      Border colour
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/border-radius/"
+      
+    >
+      Border radius
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/border-style/"
+      
+    >
+      Border style
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/border-width/"
+      
+    >
+      Border width
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Icon and image"
+      open-trigger="Icon and image"
+      
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/icon-names/"
+      
+    >
+      Icon names
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/icon-size/"
+      
+    >
+      Icon size
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/image/"
+      
+    >
+      Image
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Interactive"
+      open-trigger="Interactive"
+      
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/cursor/"
+      
+    >
+      Cursor
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/pointer-events/"
+      
+    >
+      Pointer events
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/en/css-shortcuts/transition/"
+      
+    >
+      Transition
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Styles"
+    open-trigger="Styles"
+    open
+  >
+    <gcds-nav-link href="/en/styles">Styles overview</gcds-nav-link>
+    <gcds-nav-link href="/en/styles/design-tokens" >Design tokens</gcds-nav-link>
+    <gcds-nav-link href="/en/styles/colour" >Colour tokens</gcds-nav-link>
+    <gcds-nav-link href="/en/styles/spacing" current>Spacing tokens</gcds-nav-link>
+    <gcds-nav-link href="/en/styles/typography" >Typography tokens</gcds-nav-link>
+  </gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Contact"
+    open-trigger="Contact"
+    
+  
+    
+  
+    
+  
+    
+  
+  >
+    <gcds-nav-link href="/en/contact" >Contact us</gcds-nav-link>
+    <gcds-nav-link href="/en/get-involved" >Get involved</gcds-nav-link>
+    <gcds-nav-link href="/en/register-for-a-demo" >Find a demo</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-side-nav>
+        <main id="mc" class="general-layout" data-pagefind-body>
+          <h1 id="spacing-tokens">Spacing tokens</h1>
+<p>Spacing tokens help position elements onscreen and in components.</p>
+<h2 id="spacing-tokens-and-accessibility">Spacing tokens and accessibility</h2>
+<p>GC Design System components meet level AAA of the <gcds-link external href="https://www.w3.org/TR/WCAG21/#target-size" target="_blank">Web Content Accessibility Guidelines (WCAG 2.1)</gcds-link> for both tap targets and visual presentation.</p>
+<p>Spacing establishes visual hierarchy for content and guides focus to certain elements. Information that's too densely packed is difficult to read and increases cognitive load.</p>
+<h2 id="vertical-rhythm-and-rem-spacing-sizes">Vertical rhythm and rem spacing sizes</h2>
+<p>GC Design System spacing is based on vertical rhythm and calculated with the help of a base size.</p>
+<p>Vertical rhythm aligns text to evenly spaced horizontal lines in repeated patterns. Consistent vertical spacing helps make content easier to scan, read, and understand. Spacing sizes are configured with rem units. All spacing sizes are relative to a base size of 1.25rem (20px) and what we use to calculate all typography and spacing values.</p>
+<h2 id="global-spacing-tokens">Global spacing tokens</h2>
+<h3 id="alignment-and-spacing">Alignment and spacing</h3>
+<ul class="list-disc mb-300"><li>Use smaller spacing tokens to group related concepts together.</li>
+<li>Use larger spacing tokens to separate elements into logical groups.</li>
+<li>Whenever possible, line objects up both vertically and horizontally.</li>
+</ul>
+<div class="mb-300 table-overflow">
+    <table class="table-display-token-dimension">
+        <thead>
+            <tr><th>Preview</th><th>Token name</th><th>Pixel</th><th>Rem</th></tr>
+        </thead>
+    <tr class="row-0"><td><div class="spacing-preview" style="width: 0rem; height: 0rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-0</span></td><td>0px</td><td>0rem</td></tr><tr class="row-25"><td><div class="spacing-preview" style="width: 0.125rem; height: 0.125rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-25</span></td><td>2px</td><td>0.125rem</td></tr><tr class="row-50"><td><div class="spacing-preview" style="width: 0.25rem; height: 0.25rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-50</span></td><td>4px</td><td>0.25rem</td></tr><tr class="row-75"><td><div class="spacing-preview" style="width: 0.375rem; height: 0.375rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-75</span></td><td>6px</td><td>0.375rem</td></tr><tr class="row-100"><td><div class="spacing-preview" style="width: 0.5rem; height: 0.5rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-100</span></td><td>8px</td><td>0.5rem</td></tr><tr class="row-125"><td><div class="spacing-preview" style="width: 0.625rem; height: 0.625rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-125</span></td><td>10px</td><td>0.625rem</td></tr><tr class="row-150"><td><div class="spacing-preview" style="width: 0.75rem; height: 0.75rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-150</span></td><td>12px</td><td>0.75rem</td></tr><tr class="row-175"><td><div class="spacing-preview" style="width: 0.875rem; height: 0.875rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-175</span></td><td>14px</td><td>0.875rem</td></tr><tr class="row-200"><td><div class="spacing-preview" style="width: 1rem; height: 1rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-200</span></td><td>16px</td><td>1rem</td></tr><tr class="row-225"><td><div class="spacing-preview" style="width: 1.125rem; height: 1.125rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-225</span></td><td>18px</td><td>1.125rem</td></tr><tr class="row-250"><td><div class="spacing-preview" style="width: 1.25rem; height: 1.25rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-250</span></td><td>20px</td><td>1.25rem</td></tr><tr class="row-300"><td><div class="spacing-preview" style="width: 1.5rem; height: 1.5rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-300</span></td><td>24px</td><td>1.5rem</td></tr><tr class="row-350"><td><div class="spacing-preview" style="width: 1.75rem; height: 1.75rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-350</span></td><td>28px</td><td>1.75rem</td></tr><tr class="row-400"><td><div class="spacing-preview" style="width: 2rem; height: 2rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-400</span></td><td>32px</td><td>2rem</td></tr><tr class="row-450"><td><div class="spacing-preview" style="width: 2.25rem; height: 2.25rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-450</span></td><td>36px</td><td>2.25rem</td></tr><tr class="row-500"><td><div class="spacing-preview" style="width: 2.5rem; height: 2.5rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-500</span></td><td>40px</td><td>2.5rem</td></tr><tr class="row-550"><td><div class="spacing-preview" style="width: 2.75rem; height: 2.75rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-550</span></td><td>44px</td><td>2.75rem</td></tr><tr class="row-600"><td><div class="spacing-preview" style="width: 3rem; height: 3rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-600</span></td><td>48px</td><td>3rem</td></tr><tr class="row-650"><td><div class="spacing-preview" style="width: 3.25rem; height: 3.25rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-650</span></td><td>52px</td><td>3.25rem</td></tr><tr class="row-700"><td><div class="spacing-preview" style="width: 3.5rem; height: 3.5rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-700</span></td><td>56px</td><td>3.5rem</td></tr><tr class="row-750"><td><div class="spacing-preview" style="width: 3.75rem; height: 3.75rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-750</span></td><td>60px</td><td>3.75rem</td></tr><tr class="row-800"><td><div class="spacing-preview" style="width: 4rem; height: 4rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-800</span></td><td>64px</td><td>4rem</td></tr><tr class="row-850"><td><div class="spacing-preview" style="width: 4.25rem; height: 4.25rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-850</span></td><td>68px</td><td>4.25rem</td></tr><tr class="row-900"><td><div class="spacing-preview" style="width: 4.5rem; height: 4.5rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-900</span></td><td>72px</td><td>4.5rem</td></tr><tr class="row-950"><td><div class="spacing-preview" style="width: 4.75rem; height: 4.75rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-950</span></td><td>76px</td><td>4.75rem</td></tr><tr class="row-1000"><td><div class="spacing-preview" style="width: 5rem; height: 5rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-1000</span></td><td>80px</td><td>5rem</td></tr><tr class="row-1050"><td><div class="spacing-preview" style="width: 5.25rem; height: 5.25rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-1050</span></td><td>84px</td><td>5.25rem</td></tr><tr class="row-1100"><td><div class="spacing-preview" style="width: 5.5rem; height: 5.5rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-1100</span></td><td>88px</td><td>5.5rem</td></tr><tr class="row-1150"><td><div class="spacing-preview" style="width: 5.75rem; height: 5.75rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-1150</span></td><td>92px</td><td>5.75rem</td></tr><tr class="row-1200"><td><div class="spacing-preview" style="width: 6rem; height: 6rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-1200</span></td><td>96px</td><td>6rem</td></tr><tr class="row-1250"><td><div class="spacing-preview" style="width: 6.25rem; height: 6.25rem;"></div></td><td>
+                        <span lang="en">--gcds-spacing-1250</span></td><td>100px</td><td>6.25rem</td></tr></table>
+</div>
+<section data-pagefind-ignore class="my-600  ">
+  <h2>Help us improve</h2>
+  <p>Have questions or a request? Give feedback on our contact form.</p>
+  <p>
+    Something's wrong? Raise it through GitHub with an <gcds-link href='https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github' external>account</gcds-link>. You'll have access to the team's direct responses, progress made on your issue, and issues raised by others.
+  </p>
+<p><gcds-button
+    type="link"
+    button-role="secondary"
+    href="/en/contact/#contact-us"
+    class="mb-300"
+  >
+Give feedback
+</gcds-button>
+<gcds-button
+    type="link"
+    button-role="secondary"
+    href="https://github.com/cds-snc/gcds-components/issues/new/choose"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+Report an issue on GitHub
+</gcds-button></p>
+</section>
+
+
+          <gcds-date-modified class="mb-300">
+            2024-03-04
+          </gcds-date-modified>
+        </main>
+      </gcds-grid>
+
+    <gcds-footer
+  display="full"
+  lang="en"
+  contextual-heading="GC Design System"
+  contextual-links='{ "About us": "/en/about-us", "Accessibility statement": "/en/accessibility/", "Service level agreement": "/en/service-level-agreement/" }'
+  sub-links='{ "Social media": "https://www.canada.ca/en/social.html", "Mobile applications": "https://www.canada.ca/en/mobile.html", "About Canada.ca": "https://www.canada.ca/en/government/about-canada-ca.html", "Terms of use": "/en/terms-of-use", "Privacy": "/en/privacy-notice" }'
+></gcds-footer>
+
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>

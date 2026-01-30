@@ -1,0 +1,2853 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TBZBZVVK8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5TBZBZVVK8');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tests d&#39;accessibilité - Système de design GC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- GCDS CSS Shortcuts -->
+    <link rel="stylesheet" href="/gcds-css-shortcuts.min.css" />
+
+    <!-- Prism -->
+    <link rel="stylesheet" href="/styles/prism.css">
+    <script src="/scripts/prism.min.js"></script>
+
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="/scripts/code-showcase.js"></script>
+    <script src="/scripts/code-copy.js"></script>
+    <script src="/scripts/component-preview.js"></script>
+    <script src="/scripts/general.js"></script>
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/favicon.ico">
+
+    <!-- GC Design System  Components-->
+    <link rel="stylesheet" href="/components/dist/gcds/gcds.css">
+    <script type="module" src="/components/dist/gcds/gcds.esm.js"></script>
+    
+
+    <!-- Pagefind -->
+    <script src="/pagefind/pagefind.js" type="module"></script>
+    <script src="/scripts/search.js" type="module"></script>
+  </head>
+  <body>
+    
+
+
+  
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+  
+  
+
+
+
+
+<gcds-header
+  lang="fr"
+  skip-to-href="#mc"
+  lang-href='/en/accessibility/accessibility-testing/'
+>
+  
+
+  <gcds-breadcrumbs lang="fr" slot="breadcrumb">
+    
+      <gcds-breadcrumbs-item href=/fr>
+        Système de design GC
+      </gcds-breadcrumbs-item>
+
+      
+
+      
+      
+        
+          <gcds-breadcrumbs-item href=/fr/accessibilite/>
+            Accessibilité
+          </gcds-breadcrumbs-item>
+        
+      
+    
+  </gcds-breadcrumbs>
+
+  
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+</gcds-search>
+
+
+</gcds-header>
+
+    <div class="content-wrapper">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<gcds-side-nav label="Système de design GC" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75">
+  <gcds-nav-link href="/fr">Accueil</gcds-nav-link>
+  <gcds-nav-link href="/fr/demarrer" >Démarrer</gcds-nav-link>
+
+  
+  
+  <gcds-nav-group
+    menu-label="Modèles de page"
+    open-trigger="Modèles de page"
+    
+  >
+    <gcds-nav-link
+      href="/fr/modeles-de-page"
+      
+    >
+      Aperçu des modèles de page
+    </gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/fr/modeles-de-page/basic/"
+      
+    >
+      Page de base
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+
+  
+  
+  <gcds-nav-group
+    menu-label="Composants"
+    open-trigger="Composants"
+    
+  >
+    <gcds-nav-link
+      href="/fr/composants"
+      
+    >
+      Aperçu des composants
+    </gcds-nav-link>
+  
+    <gcds-nav-link
+      href="/fr/composants/avis/"
+      
+    >
+      Avis
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/barre-de-navigation-laterale/"
+      
+    >
+      Barre de navigation latérale
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/barre-de-navigation-superieure/"
+      
+    >
+      Barre de navigation supérieure
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/bascule-de-langue/"
+      
+    >
+      Bascule de langue
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/bouton/"
+      
+    >
+      Bouton
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/boutons-radio/"
+      
+    >
+      Boutons radio
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/carte/"
+      
+    >
+      Carte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/map/"
+      
+    >
+      Carte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/cases-a-cocher/"
+      
+    >
+      Cases à cocher
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/champ-de-date/"
+      
+    >
+      Champ de date
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/champ-de-saisie/"
+      
+    >
+      Champ de saisie
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/chemin-de-navigation/"
+      
+    >
+      Chemin de navigation
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/conteneur/"
+      
+    >
+      Conteneur
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/date-de-modification/"
+      
+    >
+      Date de modification
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/details/"
+      
+    >
+      Détails
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/en-tete/"
+      
+    >
+      En-tête
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/grille/"
+      
+    >
+      Grille
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/icone/"
+      
+    >
+      Icône
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/indicateur-detape/"
+      
+    >
+      Indicateur d&#39;étape
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/jeu-de-champs/"
+      
+    >
+      Jeu de champs
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/lien/"
+      
+    >
+      Lien
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/masquage-accessible/"
+      
+    >
+      Masquage accessible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/menu-thematique/"
+      
+    >
+      Menu thématique
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/message-derreur/"
+      
+    >
+      Message d&#39;erreur
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/pagination/"
+      
+    >
+      Pagination
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/pied-de-page/"
+      
+    >
+      Pied de page
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/recherche/"
+      
+    >
+      Recherche
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/resume-de-erreurs/"
+      
+    >
+      Résumé des erreurs
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/signature/"
+      
+    >
+      Signature
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/selection/"
+      
+    >
+      Sélection
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/texte/"
+      
+    >
+      Texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/titre/"
+      
+    >
+      Titre
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/televerseur-de-fichiers/"
+      
+    >
+      Téléverseur de fichiers
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/composants/zone-de-texte/"
+      
+    >
+      Zone de texte
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Raccourcis CSS"
+    open-trigger="Raccourcis CSS"
+    
+  >
+    <gcds-nav-link
+      href="/fr/raccourcis-css"
+      
+    >
+      Aperçu des raccourcis CSS
+    </gcds-nav-link>
+  
+    <gcds-nav-group
+      menu-label="Par défaut"
+      open-trigger="Par défaut"
+      
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/reinitialisation-des-styles/"
+      
+    >
+      Réinitialisation des styles
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Styles conditionnels"
+      open-trigger="Styles conditionnels"
+      
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/mise-en-page-reactive/"
+      
+    >
+      Mise en page réactive
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/etat/"
+      
+    >
+      État
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Mise en page"
+      open-trigger="Mise en page"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/affichage/"
+      
+    >
+      Affichage
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/dimensionnement-de-la-boite/"
+      
+    >
+      Dimensionnement de la boîte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/dimensionnement-du-conteneur/"
+      
+    >
+      Dimensionnement du conteneur
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/debordement/"
+      
+    >
+      Débordement
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/position/"
+      
+    >
+      Position
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/visibilite/"
+      
+    >
+      Visibilité
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Typographie"
+      open-trigger="Typographie"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/alignement-de-texte/"
+      
+    >
+      Alignement de texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/couleur-de-lien/"
+      
+    >
+      Couleur de lien
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/couleur-de-texte/"
+      
+    >
+      Couleur de texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/debordement-de-texte/"
+      
+    >
+      Débordement de texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/decoration-de-texte-de-lien/"
+      
+    >
+      Décoration de texte de lien
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/famille-de-police/"
+      
+    >
+      Famille de police
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/hauteur-de-ligne/"
+      
+    >
+      Hauteur de ligne
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/police/"
+      
+    >
+      Police
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/saut-de-mot/"
+      
+    >
+      Saut de mot
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/style-de-liste/"
+      
+    >
+      Style de liste
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/style-de-police/"
+      
+    >
+      Style de police
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/taille-de-lien/"
+      
+    >
+      Taille de lien
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/taille-de-police/"
+      
+    >
+      Taille de police
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/transformation-de-texte/"
+      
+    >
+      Transformation de texte
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/epaisseur-de-police/"
+      
+    >
+      Épaisseur de police
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Espacement"
+      open-trigger="Espacement"
+      
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/marge/"
+      
+    >
+      Marge
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/marge-interieure/"
+      
+    >
+      Marge intérieure
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Boîte d’élément flexible et grille"
+      open-trigger="Boîte d’élément flexible et grille"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/agencement-de-contenu/"
+      
+    >
+      Agencement de contenu
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/agencement-des-elements/"
+      
+    >
+      Agencement des éléments
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/agencement-individuel/"
+      
+    >
+      Agencement individuel
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/alignement-de-contenu/"
+      
+    >
+      Alignement de contenu
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/alignement-des-elements/"
+      
+    >
+      Alignement des éléments
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/alignement-individuel/"
+      
+    >
+      Alignement individuel
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/colonnes-de-grille/"
+      
+    >
+      Colonnes de grille
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/direction-de-lelement-flexible/"
+      
+    >
+      Direction de l’élément flexible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/degagement/"
+      
+    >
+      Dégagement
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/habillage-de-lelement-flexible/"
+      
+    >
+      Habillage de l’élément flexible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/justification-de-contenu/"
+      
+    >
+      Justification de contenu
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/justification-des-elements/"
+      
+    >
+      Justification des éléments
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/justification-individuelle/"
+      
+    >
+      Justification individuelle
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/lignes-de-grille/"
+      
+    >
+      Lignes de grille
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/ordre/"
+      
+    >
+      Ordre
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/retrecissement-de-lelement-flexible/"
+      
+    >
+      Rétrécissement de l’élément flexible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/elargissement-de-lelement-flexible/"
+      
+    >
+      Élargissement de l’élément flexible
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/element-flexible/"
+      
+    >
+      Élément flexible
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Arrière-plan et bordure"
+      open-trigger="Arrière-plan et bordure"
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/couleur-de-la-bordure/"
+      
+    >
+      Couleur de la bordure
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/couleur-de-larriere-plan/"
+      
+    >
+      Couleur de l’arrière-plan
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/largeur-de-la-bordure/"
+      
+    >
+      Largeur de la bordure
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/rayon-de-la-bordure/"
+      
+    >
+      Rayon de la bordure
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/style-de-la-bordure/"
+      
+    >
+      Style de la bordure
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Icône et image"
+      open-trigger="Icône et image"
+      
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/image/"
+      
+    >
+      Image
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/noms-des-icones/"
+      
+    >
+      Noms des icônes
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/taille-de-licone/"
+      
+    >
+      Taille de l&#39;icône
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+
+  
+    <gcds-nav-group
+      menu-label="Interactif"
+      open-trigger="Interactif"
+      
+    
+  
+    
+  
+    
+  
+     >
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/curseur/"
+      
+    >
+      Curseur
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/transition/"
+      
+    >
+      Transition
+    </gcds-nav-link>
+  
+
+  
+    <gcds-nav-link
+      href="/fr/raccourcis-css/evenements-de-pointeur/"
+      
+    >
+      Événements de pointeur
+    </gcds-nav-link>
+  
+</gcds-nav-group>
+  
+</gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Styles"
+    open-trigger="Styles"
+    
+  >
+    <gcds-nav-link href="/fr/styles">Aperçu des styles</gcds-nav-link>
+    <gcds-nav-link href="/fr/styles/unites-de-style" >Unités de style</gcds-nav-link>
+    <gcds-nav-link href="/fr/styles/couleur" >Unités de style de couleur</gcds-nav-link>
+    <gcds-nav-link href="/fr/styles/espacement" >Unités de style d&#39;espacement</gcds-nav-link>
+    <gcds-nav-link href="/fr/styles/typographie" >Unités de style typographie</gcds-nav-link>
+  </gcds-nav-group>
+
+  
+
+  <gcds-nav-group
+    menu-label="Contact"
+    open-trigger="Contact"
+    
+  
+    
+  
+    
+  
+    
+  
+  >
+    <gcds-nav-link href="/fr/contactez" >Contactez-nous</gcds-nav-link>
+    <gcds-nav-link href="/fr/simpliquer" >Impliquez-vous</gcds-nav-link>
+    <gcds-nav-link href="/fr/inscrivez-vous-a-une-demonstration" >Trouvez une démo</gcds-nav-link>
+  </gcds-nav-group>
+</gcds-side-nav>
+        <main id="mc" class="general-layout" data-pagefind-body>
+          <h1 id="outils-de-tests-daccessibilite">Outils de tests d'accessibilité</h1>
+<h2 id="tests-modernes-pour-des-composants-modernes">Tests modernes pour des composants modernes</h2>
+<p>Les outils et pratiques de test plus anciens peuvent ne pas fonctionner correctement avec les composants modernes. Voici comment vous assurer que votre produit numérique est accessible :</p>
+<ol class="list-decimal mb-300"><li>Utilisez nos composants Web modernes que <a href="/fr/accessibilite/">nous avons testés</a>.</li>
+<li>Suivez les conseils en matière d'accessibilité sur nos <a href="/fr/composants">pages de composants</a>.</li>
+<li>Testez votre produit numérique dans votre contexte pour vous assurer qu'il est clair et qu'il fonctionne pour les personnes utilisant des technologies d'assistance.</li>
+</ol>
+<h2 id="outils-de-test">Outils de test</h2>
+<p>Si vous voulez faire vos propres tests, voici quelques outils et processus que vous pouvez utiliser pour obtenir une meilleure couverture pour votre site Web ou votre application.</p>
+<p>Ces outils ne sont pas fournis ni approuvés par le gouvernement du Canada. Référencez nos <a href="/fr/conditions-dutilisation">Conditions d'utilisation</a> lorsque vous consultez des sites Web qui n'appartiennent pas au gouvernement du Canada.</p>
+<h3 id="tests-automatises">Tests automatisés</h3>
+<p>Utilisez des outils automatisés pour détecter les problèmes d'accessibilité courants.</p>
+<gcds-details details-title="Outils gratuits">
+<h4 id="code">Code</h4>
+<ul class="list-disc ps-400 mb-300">
+  <li>
+    <gcds-link external href="https://docs.deque.com/devtools-for-web/4/en/welcome-axe-devtools">
+      <span lang="en">Axe DevTools</span>
+    </gcds-link>
+  </li>
+  <li>
+    <gcds-link external href="https://developer.chrome.com/docs/lighthouse/overview">
+      <span lang="en">Google Lighthouse</span>
+    </gcds-link>
+  </li>
+  <li>
+    <gcds-link external href="https://pa11y.org/tutorials/">
+      <span lang="en">Pa11y CLI</span>
+    </gcds-link>
+  </li>
+  <li>
+    <gcds-link external href="https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html">
+      <span lang="en">Firefox Accessibility Inspector</span>
+    </gcds-link>
+  </li>
+  <li>
+    <p class="mb-0"><gcds-link external href="https://www.npmjs.com/package/axe-core"><span lang="en"> Axe-core</span></gcds-link> seul ou avec des cadres d’automatisation de navigateurs comme:</p>
+    <ul class="ps-400 mb-300">
+      <li>
+        <gcds-link external href="https://playwright.dev/docs/accessibility-testing">
+          <span lang="en">Playwright</span>
+        </gcds-link>
+      </li>
+      <li>
+        <gcds-link external href="https://www.npmjs.com/package/@axe-core/puppeteer">
+          <span lang="en">Puppeteer</span>
+        </gcds-link>
+      </li>
+    </ul>
+  </li>
+</ul>
+<h4 id="figma">Figma</h4>
+<ul class="list-disc mb-300"><li><gcds-link external href="https://www.figma.com/community/plugin/732603254453395948/stark-contrast-accessibility-checker"><span lang="en">Stark contrast and accessibility checker</span></gcds-link></li>
+</ul>
+</gcds-details>
+<gcds-details details-title="Outils payants">
+<h4 id="code">Code</h4>
+<ul class="list-disc mb-300"><li><gcds-link external href="https://www.deque.com/axe/devtools/"><span lang="en">Axe DevTools Pro</span></gcds-link></li>
+<li><gcds-link external href="https://help.siteimprove.com/support/solutions/folders/80000324160"><span lang="en">Siteimprove</span></gcds-link></li>
+<li><gcds-link external href="https://www.levelaccess.com/"><span lang="en">Level Access</span></gcds-link></li>
+</ul>
+</gcds-details>
+<h3 id="arborescence-daccessibilite">Arborescence d'accessibilité</h3>
+<p>Utilisez l'arborescence d'accessibilité pour le débogage des problèmes d'accessibilité Web. Elle affiche une version simplifiée des points d'arrêt DOM que les lecteurs d'écran et les technologies d'assistance utilisent pour interpréter le contenu.</p>
+<p>Voici comment accéder à l'aborescence d'accessibilité dans différents navigateurs :</p>
+<gcds-details details-title="Arborescence d'accessibilité Chrome">
+<ol class="list-decimal mb-300"><li>Ouvrez les <strong>outils de développement</strong> en appuyant sur ctrl+maj+i sur PC ou cmd+option+i sur Mac.</li>
+<li>Sélectionnez l'onglet <strong>éléments</strong>.</li>
+<li>Sélectionnez le panneau <strong>Accessibilité</strong>.<ul class="list-disc mb-300"><li>Si vous ne le voyez pas, sélectionnez (») puis <strong>Accessibilité</strong>.</li>
+</ul>
+</li>
+</ol>
+</gcds-details>
+<gcds-details details-title="Arborescence d'accessibilité Firefox">
+<ol class="list-decimal mb-300"><li>Ouvrez les <strong>outils de développement</strong> en appuyant sur ctrl+maj+i sur PC ou cmd+option+i sur Mac.</li>
+<li>Sélectionnez l'onglet <strong>Inspecteur</strong>.</li>
+<li>Sélectionnez un élément dans la <strong>structure HTML</strong>.</li>
+<li>Sélectionnez l'onglet <strong>Accessibilité</strong> dans la barre horizontale.<ul class="list-disc mb-300"><li>Si vous ne voyez pas l'onglet Accessibilité, sélectionnez le menu à <strong>trois points</strong> (…) dans la barre des outils de développement, puis <strong>Paramètres</strong>.</li>
+<li>Sous la rubrique Outils de développement par défaut, activez l'onglet <strong>Accessibilité</strong>.</li>
+</ul>
+</li>
+</ol>
+</gcds-details>
+<gcds-details details-title="Arborescence d'accessibilité Edge (Menus en anglais seulement)">
+<ol class="list-decimal mb-300"><li>Ouvrez les <strong>outils de développement</strong> en appuyant sur ctrl+maj+i sur PC ou cmd+option+i sur Mac.</li>
+<li>Sélectionnez l'onglet <strong>Elements</strong>.</li>
+<li>Sélectionnez le panneau <strong>Accessibility</strong>.</li>
+</ol>
+</gcds-details>
+<gcds-details details-title="Aborescence d'accessibilité Safari">
+<ol class="list-decimal mb-300"><li>Activez le menu <strong>développeur</strong>.<ul class="list-disc mb-300"><li>Dans la barre de menu MacOS, sélectionnez <strong>Safari</strong>, puis <strong>Paramètres</strong>, puis <strong>Avancés</strong>.</li>
+<li>Cochez la case <strong>Afficher</strong> les fonctionnalités de développement Web.</li>
+</ul>
+</li>
+<li>Ouvrez <strong>l'inspecteur Web</strong> en appuyant sur option+cmd+i.</li>
+<li>Sélectionnez l'onglet <strong>Éléments</strong>.</li>
+<li>Sélectionnez un élément, puis accédez à la section <strong>Noeud</strong> dans le menu de droite et faites défiler jusqu'au bas pour trouver la section <strong>Accessibilité</strong>.</li>
+</ol>
+</gcds-details>
+<h3 id="evaluations-et-tests-dutilisabilite">Évaluations et tests d'utilisabilité</h3>
+<p>Il est important d'effectuer des tests auprès de personnes handicapées pour s'assurer que votre produit numérique est accessible. Vous pouvez le faire en utilisant un service gouvernemental pour évaluer votre produit, en recrutant vous-même des personnes handicapées pour la recherche ou en utilisant des services payants qui le feront pour vous.</p>
+<gcds-details details-title="Services du gouvernement du Canada">
+<ul class="list-disc mb-300"><li><gcds-link external href="https://a11y.canada.ca/fr/">Boîte à outils de l'accessibilité numérique</gcds-link></li>
+</ul>
+</gcds-details>
+<gcds-details details-title="Services payants">
+<ul class="list-disc mb-300"><li><gcds-link external href="https://makeitfable.com/"><span lang="en">Fable</span></gcds-link></li>
+</ul>
+</gcds-details>
+<h2 id="contacteznous">Contactez-nous</h2>
+<p>Si vous avez des questions ou rencontrez des obstacles lors de tests d'accessibilité supplémentaires visant Système de design GC, <a href="/fr/contactez">contactez-nous</a>.</p>
+
+
+          <gcds-date-modified class="mb-300">
+            2026-01-20
+          </gcds-date-modified>
+        </main>
+      </gcds-grid>
+
+    <gcds-footer
+  display="full"
+  lang="fr"
+  contextual-heading="Système de design GC"
+  contextual-links='{ "À propos": "/fr/a-propos", "Déclaration d&#39;accessibilité": "/fr/accessibilite/", "Accord sur les niveaux de service": "/fr/entente-sur-les-niveaux-de-service/" }'
+  sub-links='{ "Médias sociaux": "https://www.canada.ca/fr/sociaux.html", "Applications mobiles": "https://www.canada.ca/fr/mobile.html", "À propos de Canada.ca": "https://www.canada.ca/fr/gouvernement/a-propos-canada-ca.html", "Conditions d&#39;utilisation": "/fr/conditions-dutilisation", "Confidentialité": "/fr/avis-de-confidentialite/" }'
+></gcds-footer>
+
+    </div>
+
+    <script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+  </body>
+</html>
