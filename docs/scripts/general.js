@@ -17,3 +17,30 @@ window.addEventListener('load', function () {
     }
   }
 });
+
+// Preserve scroll position when navigating between component documentation tabs
+// to prevent annoying scroll-to-top behavior
+(function() {
+  const SCROLL_STORAGE_KEY = 'componentTabScrollPosition';
+  
+  // Restore scroll position on page load if returning from a tab click
+  window.addEventListener('load', function() {
+    const savedScroll = sessionStorage.getItem(SCROLL_STORAGE_KEY);
+    if (savedScroll) {
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedScroll, 10));
+        sessionStorage.removeItem(SCROLL_STORAGE_KEY);
+      }, 100);
+    }
+  });
+  
+  // Save scroll position when clicking component tabs
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabLinks = document.querySelectorAll('.tabs a');
+    tabLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        sessionStorage.setItem(SCROLL_STORAGE_KEY, window.scrollY);
+      });
+    });
+  });
+})();
