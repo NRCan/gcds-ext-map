@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>North America sample imagery,USA Population</title>
+    <meta charset='utf-8'>
+    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <style>
+      html, body {
+        height: 100%;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      gcds-map:defined {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        border: none;
+        vertical-align: middle
+      }
+      gcds-map:not(:defined) > * {
+        display: none;
+      }
+      map-layer {
+        display: none;
+      }
+    </style>
+    <noscript>
+    <style>
+      gcds-map:not(:defined) > :not(map-layer) {
+        display: initial;
+      }
+    </style>
+    </noscript>
+  </head>
+  <body>
+  <gcds-map projection="OSMTILE" zoom="4" lat="37.163851" lon="-95.8506355" controls controlslist="geolocation">
+    <map-layer label="North America sample imagery,USA Population" src="/test/map-extent/map-extent-checked.mapml" checked></map-layer>
+  </gcds-map>
+</body>
+</html>

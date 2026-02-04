@@ -1,0 +1,6 @@
+<mapml- xmlns="http://www.w3.org/1999/xhtml">
+  <map-head>
+    <map-title>Empty Canada Base Map - Transportation (CBMT)</map-title>
+    <map-meta name="projection" content="OSMTILE"></map-meta>
+  </map-head>
+</mapml-> 

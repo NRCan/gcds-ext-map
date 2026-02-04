@@ -1,0 +1,370 @@
+import { langProp, eventProp, validatorProps, } from "../../../utils/storybook/component-properties";
+export default {
+    title: 'Components/Radios',
+    parameters: {
+        actions: {
+            argTypesRegex: '^gcds.*',
+            handles: ['RadioChange', 'focus', 'blur'],
+        },
+    },
+    argTypes: Object.assign(Object.assign(Object.assign({
+        // Props
+        name: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }, options: {
+            control: 'text',
+            table: {
+                type: {
+                    summary: `
+        {
+          id: string;
+          label: string;
+          value: string;
+          hint?: string;
+          checked?: boolean;
+          required?: boolean;
+          disabled?: boolean;
+        }
+        string | object[]`,
+                },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }, disabled: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, errorMessage: {
+            name: 'error-message',
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }, hint: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+        }, legend: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            type: {
+                required: true,
+            },
+        }, required: {
+            control: { type: 'select' },
+            options: [false, true],
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        }, value: {
+            control: 'text',
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: '-' },
+            },
+            autofocus: {
+                control: { type: 'select' },
+                options: [false, true],
+                table: {
+                    type: { summary: 'boolean' },
+                    defaultValue: { summary: false },
+                },
+            },
+            form: {
+                control: 'text',
+                table: {
+                    type: { summary: 'string' },
+                    defaultValue: { summary: '-' },
+                },
+            },
+            hideLegend: {
+                name: 'hide-legend',
+                control: { type: 'select' },
+                options: [false, true],
+                table: {
+                    type: { summary: 'boolean' },
+                    defaultValue: { summary: false },
+                },
+            },
+        }
+    }, langProp), validatorProps), {
+        // Events
+        gcdsChange: Object.assign({ action: 'change' }, eventProp), gcdsInput: Object.assign({ action: 'input' }, eventProp), gcdsFocus: Object.assign({ action: 'focus' }, eventProp), gcdsBlur: Object.assign({ action: 'blur' }, eventProp), gcdsError: Object.assign({ action: 'invalid' }, eventProp), gcdsValid: Object.assign({ action: 'valid' }, eventProp)
+    }),
+};
+const Template = args => `
+<!-- Web component code (HTML, Angular, Vue) -->
+<gcds-radios
+  name="${args.name}"
+  legend="${args.legend}"
+  options='${args.options}'
+  ${args.hint ? `hint="${args.hint}"` : null}
+  ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
+  ${args.required ? `required` : null}
+  ${args.disabled ? `disabled` : null}
+  ${args.value ? `value="${args.value}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.form ? `form="${args.form}"` : null}
+  ${args.hideLegend ? `hide-legend` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
+>
+</gcds-radios>
+
+<!-- React code -->
+<GcdsRadios
+  name="${args.name}"
+  legend="${args.legend}"
+  options='${args.options}'
+  ${args.hint ? `hint="${args.hint}"` : null}
+  ${args.errorMessage ? `errorMessage="${args.errorMessage}"` : null}
+  ${args.required ? `required` : null}
+  ${args.disabled ? `disabled` : null}
+  ${args.value ? `value="${args.value}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.form ? `form="${args.form}"` : null}
+  ${args.hideLegend ? `hideLegend` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
+>
+</GcdsRadios>
+`.replace(/\s\snull\n/g, '');
+const TemplatePlayground = args => `
+<!-- Web component code (Angular, Vue) -->
+<gcds-radios
+  name="${args.name}"
+  legend="${args.legend}"
+  options='${args.options}'
+  ${args.hint ? `hint="${args.hint}"` : null}
+  ${args.errorMessage ? `error-message="${args.errorMessage}"` : null}
+  ${args.required ? `required` : null}
+  ${args.disabled ? `disabled` : null}
+  ${args.value ? `value="${args.value}"` : null}
+  ${args.autofocus ? `autofocus` : null}
+  ${args.form ? `form="${args.form}"` : null}
+  ${args.hideLegend ? `hide-legend` : null}
+  ${args.validateOn != 'blur' ? `validate-on="${args.validateOn}"` : null}
+  ${args.lang != 'en' ? `lang="${args.lang}"` : null}
+>
+</gcds-radios>
+`.replace(/\s\snull\n/g, '');
+export const Default = Template.bind({});
+Default.args = {
+    name: 'radioDefault',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: '',
+};
+export const Hint = Template.bind({});
+Hint.args = {
+    name: 'radio',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1", "hint": "Description or example to make the option clearer."},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2", "hint": "Description or example to make the option clearer."}
+  ]`,
+    hint: 'Hint text',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: '',
+};
+export const Required = Template.bind({});
+Required.args = {
+    name: 'radio',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: true,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: '',
+};
+export const Disabled = Template.bind({});
+Disabled.args = {
+    name: 'radio',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: true,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: '',
+};
+export const CheckedProp = Template.bind({});
+CheckedProp.args = {
+    name: 'radio',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2", "checked": true}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: '',
+};
+export const CheckedValue = Template.bind({});
+CheckedValue.args = {
+    name: 'radio',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: 'radio1',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: '',
+};
+export const Error = Template.bind({});
+Error.args = {
+    name: 'radioDefault',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: 'Error message',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: '',
+};
+export const Form = Template.bind({});
+Form.args = {
+    name: 'radioDefault',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: 'form-id',
+};
+export const HideLegend = Template.bind({});
+HideLegend.args = {
+    name: 'radioDefault',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    hideLegend: true,
+};
+export const Props = Template.bind({});
+Props.args = {
+    name: 'radio',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: '',
+    hideLegend: false,
+};
+export const Playground = TemplatePlayground.bind({});
+Playground.args = {
+    name: 'radio',
+    legend: 'Legend',
+    options: `[
+    { "label": "Label for radio 1", "id": "radio1", "value": "radio1"},
+    { "label": "Label for radio 2", "id": "radio2", "value": "radio2"}
+  ]`,
+    hint: '',
+    errorMessage: '',
+    required: false,
+    disabled: false,
+    value: '',
+    validateOn: 'blur',
+    lang: 'en',
+    autofocus: false,
+    form: '',
+    hideLegend: false,
+};
+//# sourceMappingURL=gcds-radios.stories.js.map

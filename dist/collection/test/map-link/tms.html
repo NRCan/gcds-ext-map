@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TMS Tile Order Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="module" src="/build/gcds-map.esm.js"></script>
+        <style>
+            html {height: 100%} 
+            body {height: inherit} 
+            * {margin: 0; padding: 0;}
+            gcds-map {
+                width: 600px;
+                height: 600px;
+            }
+        </style>
+    </head>
+    <body>
+        <gcds-map projection="WGS84" zoom="1" lat="-10" lon="-112" controls>
+ 
+            <map-layer label="Inline Countries" checked>
+                <map-meta name="zoom" content="min=0,max=4"></map-meta>
+                <map-extent units="WGS84" checked hidden>
+                    <map-input name="zoomLevel" type="zoom" value="1" min="0" max="4"></map-input>
+
+                    <map-input name="row" type="location" axis="row" units="tilematrix" min="0" max="2"></map-input>
+                    <map-input name="col" type="location" axis="column" units="tilematrix" min="0" max="2"></map-input>
+
+                    <map-link tms rel="tile" tref="https://maps4html.org/TiledArt-Rousseau/TheBanksOfTheBièvreNearBicêtre/{zoomLevel}/{col}/{row}.png" ></map-link>
+
+                </map-extent>
+            </map-layer>
+        </gcds-map>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>map-caption tests</title>
+  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <style>
+    html {
+      height: 100%
+    }
+
+    body {
+      height: inherit
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <gcds-map id="nocontrols" style="height: 600px;width:500px;" projection="CBMTILE" zoom="0" lat="47" lon="-92">
+    <map-caption>This is a test for gcds-map</map-caption>
+    <map-caption id="test2">Test2</map-caption>
+    <map-caption id="test3">Test3</map-caption>
+    
+    <map-layer label="CBMT" src="/test/data/tiles/cbmt/cbmt.mapml" checked>
+      <map-caption> Layer Test</map-caption>
+    </map-layer>
+  </gcds-map>
+
+</body>
+</html>

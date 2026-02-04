@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>map-select test</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <style>
+    .transparency {
+      opacity: 0.2;
+    }
+  </style>
+</head>
+
+<body>
+  <gcds-map data-testid="viewer" style="width: 500px;height: 500px;" is="web-map" projection="CBMTILE" zoom="17" lat="45.4069740362364" lon="-75.70155300710053" controls>
+    <map-layer data-testid="layer" label="Minimum Snow and Ice"  checked>
+      <map-extent data-testid="extent" units="CBMTILE" checked>
+        <map-input name="z" type="zoom" value="25" min="4" max="25"></map-input>
+        <map-input name="txmin" type="location" rel="tile" position="top-left" axis="easting" units="tilematrix" min="-6105785.728719063" max="6174630.753072981"></map-input>
+        <map-input name="tymin" type="location" rel="tile" position="bottom-left" axis="northing" units="tilematrix" min="-1692155.9568245453" max="4482681.2054050295"></map-input>
+        <map-input name="txmax" type="location" rel="tile" position="top-right" axis="easting" units="tilematrix" min="-6105785.728719063" max="6174630.753072981"></map-input>
+        <map-input name="tymax" type="location" rel="tile" position="top-left" axis="northing" units="tilematrix" min="-1692155.9568245453" max="4482681.2054050295"></map-input>
+        <map-select data-testid="select" id="tie" name="time">
+          <map-option value="2000-08-15T00:00:00Z">2000</map-option>
+          <map-option value="2001-08-15T00:00:00Z">2001</map-option>
+          <map-option value="2002-08-15T00:00:00Z">2002</map-option>
+        </map-select>
+        <map-link data-testid="link" tref="https://datacube.services.geo.ca/ows/msi?SERVICE=WMS&amp;REQUEST=GetMap&amp;FORMAT=image/png&amp;TRANSPARENT=TRUE&amp;STYLES=msi-color&amp;VERSION=1.3.0&amp;LAYERS=msi&amp;WIDTH=256&amp;HEIGHT=256&amp;CRS=EPSG:3978&amp;BBOX={txmin},{tymin},{txmax},{tymax}&amp;TIME={time}" rel="tile"></map-link>
+      </map-extent>
+    </map-layer>
+  </gcds-map>
+
+</body>
+
+</html>
