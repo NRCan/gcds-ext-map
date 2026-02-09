@@ -49,12 +49,12 @@ export class GcdsDetails {
     }
     render() {
         const { detailsTitle, open } = this;
-        return (h(Host, { key: '165e069eb5507fe81e7f2e3f23d70cf3e5979aa7' }, h("div", { key: 'a9bbede603871396dcdbfe6d8a4a25952b611f58', class: "gcds-details" }, h("button", { key: 'fa1db12503e14a3e99781759a3fc5f1544a24235', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: 'a8855995ccdee282fc82fbc3faf8bd3640a8d5f9' }, h("div", { key: 'f84122872e89f4da0b2fce92ef38fb3628ad4c0f', class: "gcds-details" }, h("button", { key: '3caac4040fbbe5c65d702295dc47e3d2dcab26f4', "aria-expanded": open.toString(), "aria-controls": "details__panel", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggle();
                 }
-            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("details", { key: 'b63ec18b239b98bbb308989a4b71d4bda95372be', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, h("summary", { key: 'f64cf84f9a239e19e8978e8511b94bc7b2e7dfc0' }, detailsTitle), h("slot", { key: 'd438628d3f47d1a15f4e03a603a86f08bf25a658' })))));
+            }, class: "details__summary", id: "details__summary" }, detailsTitle), h("details", { key: '50968918b5228addc1dd75a22d84899cf505c5df', open: open, id: "details__panel", class: "details__panel", "aria-labelledby": "details__summary", onToggle: ev => this.handleToggle(ev), ref: element => (this.detailsElement = element) }, h("summary", { key: '913ae5d54310b2661f0f98f4a3c785fee46d8065' }, detailsTitle), h("slot", { key: '03045642ba8da8b1ccb58221cb91198aa10287dc' })))));
     }
     static get is() { return "gcds-details"; }
     static get encapsulation() { return "shadow"; }
@@ -72,7 +72,6 @@ export class GcdsDetails {
         return {
             "detailsTitle": {
                 "type": "string",
-                "attribute": "details-title",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -87,11 +86,11 @@ export class GcdsDetails {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "details-title"
             },
             "open": {
                 "type": "boolean",
-                "attribute": "open",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -107,6 +106,7 @@ export class GcdsDetails {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "open",
                 "defaultValue": "false"
             }
         };
@@ -197,4 +197,3 @@ export class GcdsDetails {
             }];
     }
 }
-//# sourceMappingURL=gcds-details.js.map

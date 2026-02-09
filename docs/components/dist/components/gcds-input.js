@@ -1,2 +1,1 @@
-import{G as o,d as s}from"./p-DjiKE_2U.js";const t=o;const p=s;export{t as GcdsInput,p as defineCustomElement};
-//# sourceMappingURL=gcds-input.js.map
+import{G as s,d as o}from"./p-DOKhTGbs.js";const p=s,r=o;export{p as GcdsInput,r as defineCustomElement}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>map-link-security.html</title>
+    <meta charset="UTF-8">
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
+    <style>
+      html { height: 100% }
+      body { height: inherit }
+      * { margin: 0; padding: 0; }
+    </style>
+    <script>
+      // Regression sentinel for the map-link XSS suite. Every
+      // attempted script execution below sets this to 1; a passing
+      // test leaves it at 0. `alert()` is also overridden so the
+      // test doesn't hang on a dialog if the sanitizer regresses.
+      window.__pwn = 0;
+      window.alert = function () { window.__pwn = 1; };
+      // Any onerror payload in the fixture will call this.
+      window.__mark = function () { window.__pwn = 1; };
+    </script>
+  </head>
+  <body>
+    <gcds-ext-map
+      data-testid="viewer"
+      style="height: 500px; width: 500px;"
+      zoom="3" lat="45" lon="-75"
+      projection="OSMTILE"
+      controls>
+      <!-- Baseline tiles so the viewer initialises cleanly. -->
+      <map-layer data-testid="baseline_tiles" label="Baseline" checked>
+        <map-extent units="OSMTILE" checked hidden>
+          <map-input name="z" type="zoom" value="3" min="0" max="3"></map-input>
+          <map-input name="x" type="location" units="tilematrix" axis="column" min="0" max="8"></map-input>
+          <map-input name="y" type="location" units="tilematrix" axis="row" min="0" max="8"></map-input>
+          <map-link rel="tile" tref="tiles/osmtile/{z}/{x}/{y}.png"></map-link>
+        </map-extent>
+      </map-layer>
+
+      <!--
+        Attack surface 1: license title/href attribute breakout.
+        Pre-patch this fires on layer check (no user click) because
+        the malicious title breaks out of `title="…"` and injects an
+        <img onerror> sibling, which the attribution control renders
+        via innerHTML.
+      -->
+      <map-layer data-testid="license_breakout" label="License breakout" checked>
+        <map-link rel="license"
+          href='" onclick="window.__mark()" x="'
+          title='"><img src=x onerror="window.__mark()">'></map-link>
+      </map-layer>
+
+      <!--
+        Attack surface 2: javascript:-scheme legend href.
+        Pre-patch a click on the layer title in the layer control
+        opens about:blank in modern browsers (browser mitigation),
+        but the URL still round-trips through `_legendUrl` and the
+        anchor's href attribute. Post-patch the URL is dropped at
+        parse time and the row renders as plain text.
+      -->
+      <map-layer data-testid="js_legend" label="JS legend" checked>
+        <map-link rel="legend" href="javascript:window.__mark()" title="JS legend"></map-link>
+      </map-layer>
+
+      <!--
+        Attack surface 3: legitimate license link. Must still render
+        as an anchor with the sanitised href and escaped title.
+      -->
+      <map-layer data-testid="good_license" label="Good license" checked>
+        <map-link rel="license"
+          href="https://example.com/tos"
+          title="Terms of service"></map-link>
+      </map-layer>
+    </gcds-ext-map>
+  </body>
+</html>

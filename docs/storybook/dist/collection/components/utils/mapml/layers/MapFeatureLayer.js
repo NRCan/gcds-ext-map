@@ -347,6 +347,7 @@ export var MapFeatureLayer = FeatureGroup.extend({
         .querySelector('iframe')
         .setAttribute('sandbox', 'allow-same-origin allow-forms');
       e.popup._content.querySelector('iframe').srcdoc =
+        Util.queryPopupIframeStyle(this.options.mapEl) +
         feature.querySelector('map-properties').innerHTML;
       // "zoom to here" link need to be re-set for every pagination
       this._map.fire('attachZoomLink', { i: e.i, currFeature: feature });

@@ -9,6 +9,7 @@ import { EventEmitter } from '../../stencil-public-runtime';
  * @slot skip-to-nav - Slot to add a hidden skip to content navigation at the top of the header.
  * @slot signature - Slot to replace Government of Canada signature.
  * @slot toggle - Slot to add a custom language toggle in the top-right of the header.
+ * @slot account - Slot to add a custom account link in the bottom-right of the header.
  */
 export declare class GcdsHeader {
     el: HTMLElement;
@@ -19,10 +20,6 @@ export declare class GcdsHeader {
      * GcdsLangToggle - The href attribute specifies the URL of the opposite language page
      */
     langHref: string;
-    /**
-     * GcdsSignature - The variant of the Government of Canada signature
-     */
-    signatureVariant: 'colour' | 'white';
     /**
      * GcdsSignature - GCDS signature links to Canada.ca
      */
@@ -59,5 +56,7 @@ export declare class GcdsHeader {
     private get hasSearch();
     private get hasBanner();
     private get hasBreadcrumb();
+    private get hasAccount();
+    private get hasThemeTopicMenu();
     render(): any;
 }

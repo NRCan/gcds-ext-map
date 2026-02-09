@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>gcds-map in shadow root test</title>
+    <title>gcds-ext-map in shadow root test</title>
     <meta charset="UTF-8">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
     <style>
       html {
         height: 100%
@@ -18,7 +18,7 @@
         padding: 0;
       }
       /* styles in here don't affect shadow dom contents */
-       gcds-map:defined { 
+       gcds-ext-map:defined { 
          /* Responsive map. */ 
           max-width: 100%;  
           
@@ -35,9 +35,9 @@
   <body>
     <host-element>
       <template shadowrootmode="open">
-        <gcds-map data-testid="viewer" style="height: 500px;width:500px;"  zoom="2" lat="63" lon="-87" controls projection="CBMTILE">
+        <gcds-ext-map data-testid="viewer" style="height: 500px;width:500px;"  zoom="2" lat="63" lon="-87" controls projection="CBMTILE">
           <map-layer data-testid="test-layer" label="Remote content" src="/test/data/tiles/cbmt/cbmt.mapml" checked></map-layer>
-        </gcds-map>
+        </gcds-ext-map>
       </template>
     </host-element>
   </body>

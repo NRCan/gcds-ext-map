@@ -73,7 +73,7 @@ export var createLayerControlHTML = async function () {
         elem,
         root;
       root =
-        mapEl.tagName === 'GCDS-MAP'
+        mapEl.tagName === 'GCDS-EXT-MAP'
           ? mapEl.shadowRoot
           : mapEl.querySelector('.mapml-web-map').shadowRoot;
       if (
@@ -141,14 +141,23 @@ export var createLayerControlHTML = async function () {
   };
   input.addEventListener('change', changeCheck.bind(this));
   if (this._layer._legendUrl) {
+    // `_legendUrl` is already scheme-allowlisted in
+    // MapLayer.parseLicenseAndLegend (via Util.sanitizeUrl) before
+    // being stored on the layer, so it is safe to assign directly
+    // to `.href` here. `rel="noopener noreferrer"` closes the
+    // reverse-tabnabbing and referrer-leak side channels for the
+    // author-supplied cross-origin destination.
     var legendLink = document.createElement('a');
     legendLink.text = ' ' + this._layer._title;
     legendLink.href = this._layer._legendUrl;
     legendLink.target = '_blank';
+    legendLink.rel = 'noopener noreferrer';
     legendLink.draggable = false;
     layerItemName.appendChild(legendLink);
   } else {
-    layerItemName.innerHTML = this._layer._title;
+    // textContent (not innerHTML) so that a malicious layer title
+    // cannot inject markup into the layer control.
+    layerItemName.textContent = this._layer._title;
   }
   layerItemName.id = 'mapml-layer-item-name-{' + stamp(layerItemName) + '}';
   opacityControlSummary.innerText = mapEl.locale.lcOpacity;
@@ -219,7 +228,7 @@ export var createLayerControlHTML = async function () {
         let x = moveEvent.clientX,
           y = moveEvent.clientY,
           root =
-            mapEl.tagName === 'GCDS-MAP'
+            mapEl.tagName === 'GCDS-EXT-MAP'
               ? mapEl.shadowRoot
               : mapEl.querySelector('.mapml-web-map').shadowRoot,
           elementAt = root.elementFromPoint(x, y),

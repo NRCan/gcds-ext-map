@@ -16,4 +16,3 @@ export class HeightInput {
         return this.layer._map.getSize().y;
     }
 }
-//# sourceMappingURL=heightInput.js.map

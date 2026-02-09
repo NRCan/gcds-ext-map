@@ -68,12 +68,11 @@ export class GcdsFooter {
         }
     }
     get renderSignature() {
-        const signVariant = this.wordmarkVariant ? this.wordmarkVariant : 'colour';
         if (this.el.querySelector('[slot="signature"]')) {
             return h("slot", { name: "wordmark" });
         }
         else {
-            return (h("div", { class: "sub__wordmark" }, h("gcds-signature", { type: "wordmark", variant: signVariant, lang: this.lang })));
+            return (h("div", { class: "sub__wordmark" }, h("gcds-signature", { type: "wordmark", lang: this.lang })));
         }
     }
     render() {
@@ -83,12 +82,12 @@ export class GcdsFooter {
         const siteNav = I18N[lang].site.menu;
         let contextualLinkCount = 0;
         let subLinkCount = 0;
-        return (h(Host, { key: 'b3085c45d846bacbff55a8eb9b1c00a89430886b', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: '606efe8477781956571e6f5f491a33a3a62f04b4', tag: "h2" }, I18N[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: 'f4dc0c8107d91eed92c48a29bea4d11cc27ca1aa', class: "gcds-footer__contextual" }, h("div", { key: '2be8f275989cfc74bf6b2df084ca4728672df764', class: "contextual__container" }, h("nav", { key: '0e95de45f38aa31290b69802459dd8b613bce6fe', "aria-labelledby": "contextual__heading" }, h("h3", { key: 'cfcf705300e7697459313ac429a1cfdc18dd3bd2', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: 'e40575b0fb05baf1755e4f6112aa653b971d05c5', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
+        return (h(Host, { key: 'f1b8da552d3024692e8a2a617e9009aa3757fa14', role: "contentinfo", "aria-label": "Footer" }, h("gcds-sr-only", { key: '29c26f6e7b8fd4004a7f0ff572e101b12518c5a1', tag: "h2" }, I18N[lang].about), contextualLinksObject && contextualHeading && (h("div", { key: '56310768170e0095b55dc958685f31612f97884b', class: "gcds-footer__contextual" }, h("div", { key: '6f969587463df4f2486492421a9f0a2d08dbdc08', class: "contextual__container" }, h("nav", { key: 'c2cddfebf418a7d14eb50e9bb854c80d12c58c28', "aria-labelledby": "contextual__heading" }, h("h3", { key: '96f67bd4be77214e4f3aa794e87d6c6c8589646f', id: "contextual__heading", class: "contextual__heading" }, contextualHeading), h("ul", { key: '9acda60496ee805776ed0f1ff375da195d3a2616', class: "contextual__list" }, Object.keys(contextualLinksObject).map(key => {
             if (contextualLinkCount < 3) {
                 contextualLinkCount++;
                 return (h("li", null, h("gcds-link", { size: "small", href: contextualLinksObject[key] }, key)));
             }
-        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: 'f22c6b3df1149c3c5f8be387f8e8f6409474703f', class: "gcds-footer__sub" }, h("div", { key: '81e35cd5397e1a9f0c373e14d1f16568c70eb690', class: "sub__container" }, h("nav", { key: 'ee7c37a240a121893142c51f887d49ad98add671', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: '75fef71daa19b43442a973ac70053a7ce90c7a6e', tag: "h3", id: "sub__heading" }, I18N[lang].site.heading), h("ul", { key: '4d3f7e2cb406dd420def9b0580892bb54d985269' }, subLinks
+        })))))), display === 'full' ? (h("div", { class: "gcds-footer__main" }, h("div", { class: "main__container" }, h("nav", { class: "main__govnav", "aria-labelledby": "govnav__heading" }, h("h3", { id: "govnav__heading" }, I18N[lang].gov.heading), h("ul", { class: "govnav__list" }, Object.keys(govNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: govNav[value].link }, govNav[value].text)))))), h("nav", { class: "main__themenav", "aria-labelledby": "themenav__heading" }, h("gcds-sr-only", { tag: "h4", id: "themenav__heading" }, I18N[lang].themes.heading), h("ul", { class: "themenav__list" }, Object.keys(themeNav).map(value => (h("li", null, h("gcds-link", { size: "small", href: themeNav[value].link }, themeNav[value].text))))))))) : null, h("div", { key: '79a17bdbee68f0285ff012bd7cdd20ca866e664b', class: "gcds-footer__sub" }, h("div", { key: 'aef50d91b3e5516a243d4c291495d8e5d7037796', class: "sub__container" }, h("nav", { key: 'dcf518e4d3c42fd079127d1f941104d56399499a', "aria-labelledby": "sub__heading" }, h("gcds-sr-only", { key: 'e7aaa4d7bd8b60ec410c844804062bfeb0a41225', tag: "h3", id: "sub__heading" }, I18N[lang].site.heading), h("ul", { key: '4131cef714c576d9386e9bcfc7f0c002179e3de1' }, subLinks
             ? Object.keys(subLinksObject).map(key => {
                 if (subLinkCount < 5) {
                     subLinkCount++;
@@ -115,7 +114,6 @@ export class GcdsFooter {
         return {
             "display": {
                 "type": "string",
-                "attribute": "display",
                 "mutable": true,
                 "complexType": {
                     "original": "'compact' | 'full'",
@@ -131,30 +129,11 @@ export class GcdsFooter {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "display",
                 "defaultValue": "'compact'"
-            },
-            "wordmarkVariant": {
-                "type": "string",
-                "attribute": "wordmark-variant",
-                "mutable": false,
-                "complexType": {
-                    "original": "'colour' | 'white'",
-                    "resolved": "\"colour\" | \"white\"",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "GcdsSignature - The variant of the Government of Canada wordmark"
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false
             },
             "contextualHeading": {
                 "type": "string",
-                "attribute": "contextual-heading",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -169,11 +148,11 @@ export class GcdsFooter {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "contextual-heading"
             },
             "contextualLinks": {
                 "type": "string",
-                "attribute": "contextual-links",
                 "mutable": true,
                 "complexType": {
                     "original": "string | object",
@@ -188,11 +167,11 @@ export class GcdsFooter {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "contextual-links"
             },
             "subLinks": {
                 "type": "string",
-                "attribute": "sub-links",
                 "mutable": true,
                 "complexType": {
                     "original": "string | object",
@@ -207,7 +186,8 @@ export class GcdsFooter {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "sub-links"
             }
         };
     }
@@ -275,4 +255,3 @@ export class GcdsFooter {
             }];
     }
 }
-//# sourceMappingURL=gcds-footer.js.map

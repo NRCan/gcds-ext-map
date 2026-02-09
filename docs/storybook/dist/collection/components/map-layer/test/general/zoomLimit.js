@@ -1,7 +1,7 @@
 import { test, expect, chromium } from '@playwright/test';
 
 exports.test = (path, zoomIn, zoomOut) => {
-  test.describe(`gcds-map Zoom Limit Tests for ${path.split('.')[0]}`, () => {
+  test.describe(`gcds-ext-map Zoom Limit Tests for ${path.split('.')[0]}`, () => {
     let page;
     let context;
     test.beforeAll(async () => {
@@ -12,7 +12,7 @@ exports.test = (path, zoomIn, zoomOut) => {
       await page.goto(path, { waitUntil: 'networkidle' });
       await page.waitForTimeout(1000);
       // removes the 2nd layer element in the 1st map
-      await page.$eval('xpath=/html/body/gcds-map', (controller) =>
+      await page.$eval('xpath=/html/body/gcds-ext-map', (controller) =>
         controller.removeChild(controller.children[1])
       );
     });
@@ -25,7 +25,7 @@ exports.test = (path, zoomIn, zoomOut) => {
       await page.waitForTimeout(500);
     });
 
-    test('Limit gcds-map zooming (zooming in)', async () => {
+    test('Limit gcds-ext-map zooming (zooming in)', async () => {
       for (let i = 0; i < zoomIn; i++) {
         await page.click('.leaflet-control-zoom-in');
         await page.waitForTimeout(500);
@@ -49,7 +49,7 @@ exports.test = (path, zoomIn, zoomOut) => {
       expect(zoomButton).not.toMatch('disabled');
     });
 
-    test('Limit gcds-map zooming (zooming out)', async () => {
+    test('Limit gcds-ext-map zooming (zooming out)', async () => {
       for (let i = 0; i < zoomOut + zoomIn - 2; i++) {
         await page.click('.leaflet-control-zoom-out');
         await page.waitForTimeout(500);

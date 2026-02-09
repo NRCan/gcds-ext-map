@@ -90,6 +90,3 @@ function calculatePosition(element) {
 }
 
 exports.calculatePosition = calculatePosition;
-//# sourceMappingURL=calculatePosition-CDcdNl7C.js.map
-
-//# sourceMappingURL=calculatePosition-CDcdNl7C.js.map

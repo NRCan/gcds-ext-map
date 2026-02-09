@@ -26,10 +26,6 @@ const GridGapArray = [
 export class GcdsGrid {
     constructor() {
         /**
-         * Defines if grid container is centered or not
-         */
-        this.centered = false;
-        /**
          * Defines element as grid or inline-grid container
          */
         this.display = 'grid';
@@ -94,7 +90,7 @@ export class GcdsGrid {
         this.validateGapDesktop(this.gapDesktop);
     }
     render() {
-        const { alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, centered, display, equalRowHeight, gap, gapTablet, gapDesktop, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
+        const { alignment, alignContent, alignItems, columns, columnsDesktop, columnsTablet, container, display, equalRowHeight, gap, gapTablet, gapDesktop, justifyContent, justifyItems, placeContent, placeItems, tag, } = this;
         const Tag = tag;
         const classNames = `
       gcds-grid
@@ -129,7 +125,7 @@ export class GcdsGrid {
             setGridProperty(gapDesktop, 'gap', '-desktop');
             return gridStyles;
         }
-        return (h(Host, null, container ? (h("gcds-container", { size: container, centered: centered }, h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))) : (h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))));
+        return (h(Host, null, container ? (h("gcds-container", { size: container, alignment: alignment }, h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))) : (h(Tag, { class: classNames, style: handleGridStyles() }, h("slot", null)))));
     }
     static get is() { return "gcds-grid"; }
     static get encapsulation() { return "shadow"; }
@@ -147,7 +143,6 @@ export class GcdsGrid {
         return {
             "columns": {
                 "type": "string",
-                "attribute": "columns",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -162,11 +157,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "columns"
             },
             "columnsTablet": {
                 "type": "string",
-                "attribute": "columns-tablet",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -181,11 +176,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "columns-tablet"
             },
             "columnsDesktop": {
                 "type": "string",
-                "attribute": "columns-desktop",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -200,11 +195,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "columns-desktop"
             },
             "container": {
                 "type": "string",
-                "attribute": "container",
                 "mutable": false,
                 "complexType": {
                     "original": "'full' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'",
@@ -219,31 +214,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
-            },
-            "centered": {
-                "type": "boolean",
-                "attribute": "centered",
-                "mutable": false,
-                "complexType": {
-                    "original": "boolean",
-                    "resolved": "boolean",
-                    "references": {}
-                },
-                "required": false,
-                "optional": true,
-                "docs": {
-                    "tags": [],
-                    "text": "Defines if grid container is centered or not"
-                },
-                "getter": false,
-                "setter": false,
                 "reflect": false,
-                "defaultValue": "false"
+                "attribute": "container"
             },
             "display": {
                 "type": "string",
-                "attribute": "display",
                 "mutable": false,
                 "complexType": {
                     "original": "'grid' | 'inline-grid'",
@@ -259,11 +234,11 @@ export class GcdsGrid {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "display",
                 "defaultValue": "'grid'"
             },
             "equalRowHeight": {
                 "type": "boolean",
-                "attribute": "equal-row-height",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -279,11 +254,11 @@ export class GcdsGrid {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "equal-row-height",
                 "defaultValue": "false"
             },
             "gap": {
                 "type": "string",
-                "attribute": "gap",
                 "mutable": true,
                 "complexType": {
                     "original": "GridGapValues",
@@ -305,11 +280,11 @@ export class GcdsGrid {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "gap",
                 "defaultValue": "'300'"
             },
             "gapTablet": {
                 "type": "string",
-                "attribute": "gap-tablet",
                 "mutable": true,
                 "complexType": {
                     "original": "GridGapValues",
@@ -330,11 +305,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "gap-tablet"
             },
             "gapDesktop": {
                 "type": "string",
-                "attribute": "gap-desktop",
                 "mutable": true,
                 "complexType": {
                     "original": "GridGapValues",
@@ -355,11 +330,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "gap-desktop"
             },
             "tag": {
                 "type": "string",
-                "attribute": "tag",
                 "mutable": true,
                 "complexType": {
                     "original": "| 'article'\n    | 'aside'\n    | 'div'\n    | 'dl'\n    | 'main'\n    | 'nav'\n    | 'ol'\n    | 'section'\n    | 'ul'",
@@ -375,11 +350,30 @@ export class GcdsGrid {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "tag",
                 "defaultValue": "'div'"
+            },
+            "alignment": {
+                "type": "string",
+                "mutable": false,
+                "complexType": {
+                    "original": "'start' | 'center' | 'end'",
+                    "resolved": "\"center\" | \"end\" | \"start\"",
+                    "references": {}
+                },
+                "required": false,
+                "optional": true,
+                "docs": {
+                    "tags": [],
+                    "text": "Defines the grid's alignment if the grid containers\nsize is smaller than the parent's size."
+                },
+                "getter": false,
+                "setter": false,
+                "reflect": false,
+                "attribute": "alignment"
             },
             "alignContent": {
                 "type": "string",
-                "attribute": "align-content",
                 "mutable": false,
                 "complexType": {
                     "original": "ContentValues",
@@ -400,11 +394,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "align-content"
             },
             "justifyContent": {
                 "type": "string",
-                "attribute": "justify-content",
                 "mutable": false,
                 "complexType": {
                     "original": "ContentValues",
@@ -425,11 +419,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "justify-content"
             },
             "placeContent": {
                 "type": "string",
-                "attribute": "place-content",
                 "mutable": false,
                 "complexType": {
                     "original": "ContentValues",
@@ -450,11 +444,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "place-content"
             },
             "alignItems": {
                 "type": "string",
-                "attribute": "align-items",
                 "mutable": false,
                 "complexType": {
                     "original": "'baseline' | 'center' | 'end' | 'start' | 'stretch'",
@@ -469,11 +463,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "align-items"
             },
             "justifyItems": {
                 "type": "string",
-                "attribute": "justify-items",
                 "mutable": false,
                 "complexType": {
                     "original": "'center' | 'end' | 'start' | 'stretch'",
@@ -488,11 +482,11 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "justify-items"
             },
             "placeItems": {
                 "type": "string",
-                "attribute": "place-items",
                 "mutable": false,
                 "complexType": {
                     "original": "'center' | 'end' | 'start' | 'stretch'",
@@ -507,7 +501,8 @@ export class GcdsGrid {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "place-items"
             }
         };
     }
@@ -528,4 +523,3 @@ export class GcdsGrid {
             }];
     }
 }
-//# sourceMappingURL=gcds-grid.js.map

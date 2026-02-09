@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indice d'accumulation — Légende</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --fg: #1a1a1a;
+      --bg: #ffffff;
+      --muted: #595959;
+      --border: #d1d5da;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fg: #f5f5f5;
+        --bg: #1a1a1a;
+        --muted: #b8b8b8;
+        --border: #3a3a3a;
+      }
+    }
+    html { font-size: 100%; }
+    body {
+      margin: 0;
+      padding: 1.5rem;
+      max-width: 42rem;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+      color: var(--fg);
+      background: var(--bg);
+    }
+    h1 { font-size: 1.5rem; margin-block-end: 0.25rem; }
+    h2 { font-size: 1.125rem; margin-block-start: 1.5rem; }
+    p { margin-block: 0.75rem; }
+    .ranges {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .ranges li {
+      padding: 0.5rem 0.75rem;
+      border-block-end: 1px solid var(--border);
+      font-variant-numeric: tabular-nums;
+    }
+    .ranges li:last-child { border-block-end: none; }
+    .symbol-image {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      padding: 0.25rem;
+      background: #ffffff; /* le PNG de légende a été conçu sur fond blanc */
+    }
+    .source {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    a:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Indice d'accumulation — légende</h1>
+
+    <p>
+      L'indice d'accumulation (IA) est une composante de la Méthode
+      canadienne de l'indice forêt-météo (IFM). Il est un indicateur de
+      la quantité totale de combustible disponible pour la combustion.
+      Des valeurs plus élevées indiquent des combustibles globalement
+      plus secs et une plus grande consommation de combustible pendant
+      un incendie. Une consommation plus importante lors d'un incendie
+      crée des intensités plus élevées et entraîne plus de difficultés
+      à le maîtriser.
+    </p>
+
+    <h2>Plages de valeurs</h2>
+    <p>
+      La légende classe les valeurs de l'IA en cinq plages, de la plus
+      faible (le moins de combustible sec disponible) à la plus élevée
+      (le plus sec, le plus de combustible disponible) :
+    </p>
+    <ol class="ranges" aria-label="Plages de valeurs de l'indice d'accumulation, de la plus faible à la plus élevée">
+      <li>0 à 20</li>
+      <li>21 à 40</li>
+      <li>41 à 60</li>
+      <li>61 à 90</li>
+      <li>91 ou plus</li>
+    </ol>
+
+    <h2>Référence symbolique</h2>
+    <p>
+      L'image ci-dessous est le graphique de légende original fourni par
+      le Système canadien d'information sur les feux de végétation
+      (SCIFV). Il présente la pastille de couleur utilisée sur la carte
+      pour chacune des cinq plages énumérées ci-dessus. L'information
+      qu'il transmet est entièrement décrite par la liste ci-dessus et
+      n'est fournie ici qu'à titre de référence visuelle.
+    </p>
+    <img
+      class="symbol-image"
+      src="https://cwfis.cfs.nrcan.gc.ca/geoserver/public/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=bui"
+      alt=""
+      role="presentation"
+      width="66"
+      height="112">
+
+    <h2>Source</h2>
+    <p class="source">
+      Source des données :
+      <a href="https://cwfis.cfs.nrcan.gc.ca/?lang=fr" rel="noopener">
+        Système canadien d'information sur les feux de végétation (SCIFV)
+      </a>,
+      Ressources naturelles Canada.
+    </p>
+  </main>
+</body>
+</html>

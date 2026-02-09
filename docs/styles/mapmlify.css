@@ -1,0 +1,470 @@
+/* MapMLify styles — scoped under .mapmlify-app to avoid GCDS conflicts */
+
+.mapmlify-app {
+  line-height: 1.6;
+  color: #333;
+}
+
+.mapmlify-app *,
+.mapmlify-app *::before,
+.mapmlify-app *::after {
+  box-sizing: border-box;
+}
+
+.mapmlify-app section {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mapmlify-app .input-section label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.mapmlify-app .input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.mapmlify-app .input-row gcds-input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.mapmlify-app .input-row gcds-button {
+  flex: 0 0 auto;
+  align-self: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .mapmlify-app .input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.mapmlify-app .input-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.mapmlify-app .service-info h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.mapmlify-app #service-details {
+  font-size: 0.95rem;
+}
+
+.mapmlify-app #service-details h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.mapmlify-app #service-details p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.mapmlify-app #service-details a {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.mapmlify-app .service-abstract summary {
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.mapmlify-app .service-abstract:not([open]) {
+  margin-bottom: 1rem;
+}
+
+.mapmlify-app .layers-list {
+  container-type: inline-size;
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/* Default: single-column (narrow) layout */
+.mapmlify-app .layer-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  background-color: #fafafa;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.mapmlify-app .layer-controls {
+  overflow: hidden;
+  order: 1;
+}
+
+.mapmlify-app .layer-viewer-container {
+  min-height: 300px;
+  overflow: hidden;
+  order: 3;
+}
+
+.mapmlify-app .layer-item > .source-code-display {
+  min-width: 0;
+  order: 2;
+}
+
+.mapmlify-app .layer-item > .layer-abstract {
+  min-width: 0;
+  order: 4;
+}
+
+.mapmlify-app .layer-item > .layer-options {
+  min-width: 0;
+  order: 5;
+}
+
+/* Wide: two-column layout when container has room for controls + viewer */
+@container (min-width: 650px) {
+  .mapmlify-app .layer-item {
+    grid-template-columns: 300px 1fr;
+  }
+
+  .mapmlify-app .layer-controls,
+  .mapmlify-app .layer-viewer-container {
+    order: unset;
+  }
+
+  .mapmlify-app .layer-item > .source-code-display,
+  .mapmlify-app .layer-item > .layer-abstract,
+  .mapmlify-app .layer-item > .layer-options {
+    grid-column: 1 / -1;
+    order: unset;
+  }
+}
+
+.mapmlify-app .layer-viewer-container gcds-ext-map {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.mapmlify-app .layer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mapmlify-app .layer-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.mapmlify-app .layer-header label {
+  cursor: pointer;
+  margin: 0;
+}
+
+.mapmlify-app .query-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.mapmlify-app .query-label {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #666;
+  cursor: pointer;
+}
+
+.mapmlify-app .bounds-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  justify-content: flex-start;
+}
+
+.mapmlify-app .bounds-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.mapmlify-app .bounds-label {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #666;
+  cursor: pointer;
+  margin: 0;
+}
+
+.mapmlify-app .query-format-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  justify-content: flex-start;
+}
+
+.mapmlify-app .query-format-selector label {
+  color: #666;
+  font-weight: normal;
+  margin: 0;
+}
+
+.mapmlify-app .query-format-selector .query-checkbox {
+  margin-left: 0;
+  margin-right: 0.25rem;
+}
+
+.mapmlify-app .style-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.mapmlify-app .style-selector label {
+  color: #666;
+  font-weight: normal;
+  margin: 0;
+}
+
+.mapmlify-app .style-select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  background-color: white;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mapmlify-app .style-select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.mapmlify-app .dimension-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.mapmlify-app .dimension-selector label {
+  color: #666;
+  font-weight: normal;
+  margin: 0;
+  min-width: 100px;
+}
+
+.mapmlify-app .dimension-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.mapmlify-app .dimension-select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  background-color: white;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mapmlify-app .dimension-select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.mapmlify-app .format-select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  background-color: white;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mapmlify-app .format-select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.mapmlify-app .projection-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.mapmlify-app .projection-selector label {
+  color: #666;
+  font-weight: normal;
+  margin: 0;
+}
+
+.mapmlify-app .projection-select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  background-color: white;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mapmlify-app .projection-select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.mapmlify-app .format-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.mapmlify-app .format-selector label {
+  color: #666;
+  font-weight: normal;
+  margin: 0;
+}
+
+.mapmlify-app .layer-name {
+  margin-bottom: 0.75rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.mapmlify-app .layer-name-label {
+  font-weight: 700;
+}
+
+.mapmlify-app .hidden {
+  display: none;
+}
+
+.mapmlify-app .map-section h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.mapmlify-app gcds-ext-map {
+  display: block;
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Source code controls */
+.mapmlify-app .code-showcase {
+  margin-top: 1.5rem;
+}
+
+.mapmlify-app .source-code-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.mapmlify-app .source-toggle-btn,
+.mapmlify-app .source-copy-btn {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.mapmlify-app .source-toggle-btn {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+}
+
+.mapmlify-app .source-toggle-btn:hover {
+  background-color: #d5dbdb;
+}
+
+.mapmlify-app .source-copy-btn {
+  background-color: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.mapmlify-app .source-copy-btn:hover {
+  background-color: #2980b9;
+}
+
+.mapmlify-app .source-code-display {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-top: 0.5rem;
+  padding: 1em;
+  border-radius: 0.3em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+.mapmlify-app .source-code-display code {
+  white-space: pre;
+  tab-size: 2;
+}

@@ -1,2 +1,0 @@
-import{r as t,a as e,h as s}from"./p-PZrWUcjo.js";const r=class{constructor(e){t(this,e)}get el(){return e(this)}cs;csChanged(t,e){}connectedCallback(){Object.defineProperty(this.el,"cs",{get:()=>this.el.getAttribute("cs"),set:t=>{if(["tcrs","tilematrix","pcrs","gcrs","map","tile"].includes(t)){this.cs=t}},configurable:true,enumerable:true})}render(){return s("slot",{key:"419b5956ada9cc1d59880ed9168b1d539301ff85"})}static get watchers(){return{cs:["csChanged"]}}};export{r as map_geometry};
-//# sourceMappingURL=p-273561d3.entry.js.map
