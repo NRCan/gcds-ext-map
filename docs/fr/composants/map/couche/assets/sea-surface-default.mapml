@@ -1,0 +1,32 @@
+<mapml- xmlns="http://www.w3.org/1999/xhtml">
+  <map-head>
+    <map-title>SPCP - Hauteur de la surface de la mer au-dessus du géoïde [m]</map-title>
+
+    <map-link rel="license"
+      href="https://csw.open.canada.ca/geonetwork/srv/csw?service=CSW&amp;version=2.0.2&amp;request=GetRecordById&amp;outputschema=csw:IsoRecord&amp;elementsetname=full&amp;id=36129cbc-3997-4b8e-a8bf-5fb44492134d"
+      title="Métadonnées TC211 pour SPCP - Hauteur de la surface de la mer au-dessus du géoïde [m]"></map-link>
+
+    <map-link rel="self style" title="SEA_SURFACE_HEIGHT-DEFAULT" href="./sea-surface-default.mapml"></map-link>
+    <map-link rel="style" title="SeaSfcHeight_Dis" href="./sea-surface-dis.mapml"></map-link>
+
+
+    <map-link rel="legend"
+      href="https://geo.weather.gc.ca/geomet?lang=fr&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=WCPS_1km_SeaSfcHeight&amp;format=image/png&amp;STYLE=SEA_SURFACE_HEIGHT-DEFAULT"
+      title="SEA_SURFACE_HEIGHT-DEFAULT" width="83" height="335"></map-link>
+
+  </map-head>
+  <map-body>
+      <map-extent units="CBMTILE" checked="" hidden="hidden">
+      <map-input name="xmin" type="location" position="top-left" axis="easting" units="pcrs"></map-input>
+      <map-input name="ymin" type="location" position="bottom-left" axis="northing" units="pcrs"></map-input>
+      <map-input name="xmax" type="location" position="bottom-right" axis="easting" units="pcrs"></map-input>
+      <map-input name="ymax" type="location" position="top-right" axis="northing" units="pcrs"></map-input>
+      <map-input name="w" type="width" min="1" max="10000"></map-input>
+      <map-input name="h" type="height" min="1" max="10000"></map-input>
+      <map-input name="i" type="location" axis="i" units="map"></map-input>
+      <map-input name="j" type="location" axis="j" units="map"></map-input>
+      <map-link rel="image"
+        tref="https://geo.weather.gc.ca/geomet/?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;LAYERS=WCPS_1km_SeaSfcHeight&amp;WIDTH={w}&amp;HEIGHT={h}&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=TRUE&amp;STYLES=SEA_SURFACE_HEIGHT-DEFAULT&amp;CRS=EPSG:3978&amp;BBOX={xmin},{ymin},{xmax},{ymax}"></map-link>
+    </map-extent>
+  </map-body>
+</mapml->

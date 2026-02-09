@@ -1,4 +1,4 @@
-import { l as leafletSrcExports, r as registerInstance, a as getElement, U as Util } from './index-PZrWUcjo.js';
+import { l as leafletSrcExports, r as registerInstance, g as getElement, U as Util } from './index-DmM-gJEh.js';
 import { r as renderStyles } from './renderStyles-EYVT9Efh.js';
 import { c as calculatePosition } from './calculatePosition-B4YLD_Og.js';
 
@@ -165,11 +165,17 @@ var createLayerControlExtentHTML = function () {
 
   let mapSelects = this.el.querySelectorAll('map-select');
   if (mapSelects.length) {
-    var frag = document.createDocumentFragment();
-    for (var i = 0; i < mapSelects.length; i++) {
-      frag.appendChild(mapSelects[i].selectdetails);
-    }
-    extentSettings.appendChild(frag);
+    // map-select Stencil components may not have initialized yet;
+    // wait for each to be ready before accessing selectdetails
+    Promise.all(
+      Array.from(mapSelects).map((s) => s.whenReady())
+    ).then(() => {
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < mapSelects.length; i++) {
+        frag.appendChild(mapSelects[i].selectdetails);
+      }
+      extentSettings.appendChild(frag);
+    });
   }
 
   let removeExtentButton = leafletSrcExports.DomUtil.create(
@@ -299,7 +305,7 @@ var createLayerControlExtentHTML = function () {
         let x = moveEvent.clientX,
           y = moveEvent.clientY,
           root =
-            mapEl.tagName === 'GCDS-MAP'
+            mapEl.tagName === 'GCDS-EXT-MAP'
               ? mapEl.shadowRoot
               : mapEl.querySelector('.mapml-web-map').shadowRoot,
           elementAt = root.elementFromPoint(x, y),
@@ -515,7 +521,7 @@ const GcdsMapExtent = class {
         });
     }
     getMapEl() {
-        return Util.getClosest(this.el, 'gcds-map');
+        return Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return Util.getClosest(this.el, 'map-layer,layer-');
@@ -647,21 +653,26 @@ const GcdsMapExtent = class {
         });
     }
     _runMutationObserver(elementsGroup) {
+        // A map placed in a container that is not yet laid out (e.g. a collapsed
+        // <details>, an inactive tab) may never become ready, causing whenReady()
+        // to time out and reject. Swallow those rejections so they don't surface
+        // as unhandled promise rejections that break host pages and tests.
+        const onNotReady = (error) => console.warn('map-extent: element not ready, skipping update: ' + error);
         const _addMetaElement = (_mapMeta) => {
             this.whenReady().then(() => {
                 this._calculateBounds();
                 this._validateDisabled();
-            });
+            }).catch(onNotReady);
         };
         const _addStylesheetLink = (mapLink) => {
             this.whenReady().then(() => {
                 this._extentLayer.renderStyles(mapLink);
-            });
+            }).catch(onNotReady);
         };
         const _addStyleElement = (mapStyle) => {
             this.whenReady().then(() => {
                 this._extentLayer.renderStyles(mapStyle);
-            });
+            }).catch(onNotReady);
         };
         for (let i = 0; i < elementsGroup.length; ++i) {
             let element = elementsGroup[i];
@@ -964,13 +975,22 @@ const GcdsMapExtent = class {
         return Promise.allSettled(linksReady);
     }
     static get watchers() { return {
-        "units": ["unitsChanged"],
-        "_label": ["labelChanged"],
-        "checked": ["checkedChanged"],
-        "_opacity": ["opacityChanged"],
-        "hidden": ["hiddenChanged"]
+        "units": [{
+                "unitsChanged": 0
+            }],
+        "_label": [{
+                "labelChanged": 0
+            }],
+        "checked": [{
+                "checkedChanged": 0
+            }],
+        "_opacity": [{
+                "opacityChanged": 0
+            }],
+        "hidden": [{
+                "hiddenChanged": 0
+            }]
     }; }
 };
 
 export { GcdsMapExtent as map_extent };
-//# sourceMappingURL=map-extent.entry.js.map

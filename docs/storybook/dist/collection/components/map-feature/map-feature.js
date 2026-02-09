@@ -115,7 +115,7 @@ export class MapFeature {
         return calculatePosition(this.el);
     }
     getMapEl() {
-        return Util.getClosest(this.el, 'gcds-map');
+        return Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return Util.getClosest(this.el, 'map-layer,layer-');
@@ -722,4 +722,3 @@ export class MapFeature {
             }];
     }
 }
-//# sourceMappingURL=map-feature.js.map

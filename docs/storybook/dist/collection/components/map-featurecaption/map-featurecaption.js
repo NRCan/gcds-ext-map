@@ -4,4 +4,3 @@ export class MapFeaturecaption {
     }
     static get is() { return "map-featurecaption"; }
 }
-//# sourceMappingURL=map-featurecaption.js.map

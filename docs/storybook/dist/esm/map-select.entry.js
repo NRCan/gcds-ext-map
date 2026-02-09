@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement } from './index-PZrWUcjo.js';
+import { r as registerInstance, g as getElement } from './index-DmM-gJEh.js';
 
 const MapSelect = class {
     constructor(hostRef) {
@@ -49,7 +49,9 @@ const MapSelect = class {
             for (let j = 0; j < optionAttrNames.length; j++) {
                 option.setAttribute(optionAttrNames[j], options[i].getAttribute(optionAttrNames[j]));
             }
-            option.innerHTML = options[i].innerHTML;
+            // textContent (not innerHTML) so that a malicious option body
+            // cannot inject markup into the layer control.
+            option.textContent = options[i].textContent;
             select.appendChild(option);
         }
         return select;
@@ -89,9 +91,10 @@ const MapSelect = class {
         return null;
     }
     static get watchers() { return {
-        "name": ["nameChanged"]
+        "name": [{
+                "nameChanged": 0
+            }]
     }; }
 };
 
 export { MapSelect as map_select };
-//# sourceMappingURL=map-select.entry.js.map

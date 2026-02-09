@@ -331,7 +331,7 @@ export class GcdsTopicMenu {
     }
     render() {
         const { home, lang } = this;
-        return (h(Host, { key: 'cab12f3f051aa002f093b6e8216d84b6b0bdd599' }, h("nav", { key: '666b10254a3db1a918e86652c2428443cf5e9331', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, h("gcds-sr-only", { key: 'b8a6240445b127329bfac3b89b1bfd100c795a5a', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), h("button", { key: 'bf6f56eef56613363bcb1de5c8bf6eeee552ad46', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (h(Fragment, null, I18N[lang].menuToggle, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), h("gcds-icon", { key: '004a3e997a9e7daed34ce5bc5679af166e8a1c14', name: "chevron-down", "margin-left": "100", size: "text-small" })), h("ul", { key: 'a2bfed1ba8771ff6631d4576a555b8385f698e06', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
+        return (h(Host, { key: '1936f54bc8f2ed6c9ec2e2def9f0f16321eded97' }, h("nav", { key: 'a48ef744a47b8369bac52206ebf45b6daf770319', class: "gcds-topic-menu", "aria-labelledby": "gcds-topic-menu__heading" }, h("gcds-sr-only", { key: '3f0efb671e1d51faf88b973f32b1a057c9d5bf66', id: "gcds-topic-menu__heading", tag: "h2" }, I18N[lang].menuLabelFull), h("button", { key: '709a8b58c6856780b6a51d5f0fb05e95e851de81', "aria-haspopup": "true", "aria-expanded": this.open.toString(), "aria-label": I18N[lang].buttonLabel, onClick: async () => await this.toggleNav(), ref: element => (this.menuButton = element), class: home && 'gcds-topic-menu--home' }, this.lang == 'en' ? (h(Fragment, null, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden), I18N[lang].menuToggle)) : (h(Fragment, null, I18N[lang].menuToggle, h("gcds-sr-only", { tag: "span" }, I18N[lang].menuLabelHidden))), h("gcds-icon", { key: '15d20053343aa55cb6559d37c6b5ffa5a45e06f6', name: "chevron-down", "margin-left": "100", size: "text-small" })), h("ul", { key: 'ae9ef701537dbb33065a579de9cc81c6015b5a18', role: "menu", "aria-orientation": "vertical", "data-top-menu": true, innerHTML: this.listItems, ref: element => (this.themeList = element) }))));
     }
     static get is() { return "gcds-topic-menu"; }
     static get encapsulation() { return "shadow"; }
@@ -349,7 +349,6 @@ export class GcdsTopicMenu {
         return {
             "home": {
                 "type": "boolean",
-                "attribute": "home",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -365,6 +364,7 @@ export class GcdsTopicMenu {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "home",
                 "defaultValue": "false"
             }
         };
@@ -489,4 +489,3 @@ export class GcdsTopicMenu {
             }];
     }
 }
-//# sourceMappingURL=gcds-topic-menu.js.map

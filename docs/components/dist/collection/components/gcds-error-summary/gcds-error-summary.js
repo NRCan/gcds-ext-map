@@ -125,9 +125,9 @@ export class GcdsErrorSummary {
     }
     render() {
         const { heading, errorQueue, lang, hasSubmitted, errorLinks } = this;
-        return (h(Host, { key: 'a42f126a2bbbe41621a5c56d04c87b31e87d0363' }, h("div", { key: 'eeee2e16453b3c7911042cabb079ab072d3bcd09', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
+        return (h(Host, { key: '8357850a4bbf857b53c87f57c99f19531a850c24' }, h("div", { key: '0ecb4bca42f58e44a44a20b949228d0c0298756f', role: "alert", tabindex: "-1", ref: element => (this.shadowElement = element), class: `gcds-error-summary ${(hasSubmitted || errorLinks) && Object.keys(errorQueue).length > 0
                 ? 'gcds-show'
-                : ''}` }, h("gcds-heading", { key: '5c0aa122bc9f7a1dc250d856734d99befb88502e', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { key: '2fd12eca1a9ffe4f11aedfdd3b93d3a0becf7420', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
+                : ''}` }, h("gcds-heading", { key: '796ceab1bc0936c5bb0bdbf36167c1e91304fdd3', tag: "h2", "margin-top": "0", "margin-bottom": "225" }, heading !== null && heading !== void 0 ? heading : i18n[lang].heading), h("ol", { key: 'c48b80ded47df7e1041a1b84d1152d3ae7c2bd70', class: "summary__errorlist" }, (hasSubmitted || errorLinks) &&
             Object.keys(errorQueue).length > 0 &&
             Object.keys(errorQueue).map(key => {
                 return (h("li", { class: "summary__listitem" }, h("gcds-link", { size: "regular", href: errorLinks ? key : '#', onClick: e => {
@@ -154,7 +154,6 @@ export class GcdsErrorSummary {
         return {
             "heading": {
                 "type": "string",
-                "attribute": "heading",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -169,11 +168,11 @@ export class GcdsErrorSummary {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "heading"
             },
             "listen": {
                 "type": "boolean",
-                "attribute": "listen",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -189,11 +188,11 @@ export class GcdsErrorSummary {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "listen",
                 "defaultValue": "true"
             },
             "errorLinks": {
                 "type": "string",
-                "attribute": "error-links",
                 "mutable": true,
                 "complexType": {
                     "original": "string | object",
@@ -208,7 +207,8 @@ export class GcdsErrorSummary {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "error-links"
             }
         };
     }
@@ -299,4 +299,3 @@ export class GcdsErrorSummary {
             }];
     }
 }
-//# sourceMappingURL=gcds-error-summary.js.map

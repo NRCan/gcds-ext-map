@@ -1,0 +1,1 @@
+import{r}from"./p-DmM-gJEh.js";const t=class{constructor(t){r(this,t)}render(){return null}};export{t as map_featurecaption}

@@ -55,6 +55,3 @@ function renderStyles(mapStyleOrLink) {
 }
 
 export { renderStyles as r };
-//# sourceMappingURL=renderStyles-EYVT9Efh.js.map
-
-//# sourceMappingURL=renderStyles-EYVT9Efh.js.map

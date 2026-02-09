@@ -55,4 +55,3 @@ export class MapGeometry {
             }];
     }
 }
-//# sourceMappingURL=map-geometry.js.map

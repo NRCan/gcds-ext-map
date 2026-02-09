@@ -1,0 +1,1 @@
+import{r as s,g as t}from"./p-DmM-gJEh.js";const a=class{constructor(t){s(this,t)}get el(){return t(this)}connectedCallback(){}disconnectedCallback(){}};export{a as map_span}

@@ -1,0 +1,19 @@
+<mapml- xmlns="http://www.w3.org/1999/xhtml">
+  <map-head>
+    <map-title>OpenStreetMap - thème sombre</map-title>
+    <map-link rel="stylesheet" type="application/pmtiles+stylesheet" href="../../../pmtiles/darkTheme.js"></map-link>
+    <map-link rel="license" title="OpenStreetMap © les contributeurs CC BY-SA 2.0" href="https://www.openstreetmap.org/copyright/fr"></map-link>
+    <map-link rel="self style" title="Thème sombre" href="dark.mapml"></map-link>
+    <map-link rel="style" title="Thème clair" href="light.mapml"></map-link>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=25"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=25"></map-link>
+  </map-head>
+  <map-body>
+    <map-extent units="OSMTILE" checked="" hidden="">
+      <map-input name="z" type="zoom" value="18" min="0" max="18"></map-input>
+      <map-input name="x" type="location" units="tilematrix" axis="column" min="0" max="262144"></map-input>
+      <map-input name="y" type="location" units="tilematrix" axis="row" min="0" max="262144"></map-input>
+      <map-link rel="tile" type="application/vnd.mapbox-vector-tile" tref="https://data.source.coop/protomaps/openstreetmap/tiles/v3.pmtiles"></map-link>
+    </map-extent>
+  </map-body>
+</mapml->

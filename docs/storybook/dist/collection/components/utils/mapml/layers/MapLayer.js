@@ -74,9 +74,11 @@ export var MapLayer = LayerGroup.extend({
     // can be used
     if (!this.titleIsReadOnly()) {
       this._title = newName;
+      // textContent (not innerHTML) so that a malicious layer title
+      // cannot inject markup into the layer control.
       this._layerEl._layerControlHTML.querySelector(
         '.mapml-layer-item-name'
-      ).innerHTML = newName;
+      ).textContent = newName;
     }
   },
   getName() {
@@ -295,26 +297,44 @@ export var MapLayer = LayerGroup.extend({
       }
     }
     function parseLicenseAndLegend() {
+      // Author-supplied values from a `<map-layer src>`-fetched
+      // MapML document are untrusted. Building the anchor with
+      // `document.createElement` + property setters (rather than
+      // string concatenation into HTML) ensures the `title`,
+      // `textContent` and `href` values are escaped by the DOM API
+      // before serialisation, and the scheme allowlist rejects
+      // `javascript:` / `data:` / etc. Leaflet's attribution control
+      // still consumes an HTML string, so we serialise the fully-
+      // formed element via `.outerHTML`.
       var licenseLink = mapml.querySelector('map-link[rel=license]'),
-        licenseTitle,
-        licenseUrl,
         attText;
       if (licenseLink) {
-        licenseTitle = licenseLink.getAttribute('title');
-        licenseUrl = licenseLink.getAttribute('href');
-        attText =
-          '<a href="' +
-          licenseUrl +
-          '" title="' +
-          licenseTitle +
-          '">' +
-          licenseTitle +
-          '</a>';
+        var licenseTitle = (licenseLink.getAttribute('title') || '').trim();
+        var licenseUrl = Util.sanitizeUrl(
+          licenseLink.getAttribute('href') || ''
+        );
+        var text = licenseTitle || licenseUrl;
+        if (licenseUrl) {
+          var a = document.createElement('a');
+          a.href = licenseUrl;
+          a.title = licenseTitle;
+          a.textContent = text;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          attText = a.outerHTML;
+        } else if (text) {
+          var span = document.createElement('span');
+          span.textContent = text;
+          attText = span.outerHTML;
+        }
       }
       setOptions(layer, { attribution: attText });
       var legendLink = mapml.querySelector('map-link[rel=legend]');
       if (legendLink) {
-        layer._legendUrl = legendLink.getAttribute('href');
+        var safeLegendUrl = Util.sanitizeUrl(
+          legendLink.getAttribute('href') || ''
+        );
+        if (safeLegendUrl) layer._legendUrl = safeLegendUrl;
       }
       if (layer._map) {
         // if the layer is checked in the layer control, force the addition

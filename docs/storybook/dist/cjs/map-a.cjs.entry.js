@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-KnvdY5iL.js');
 
 const MapA = class {
     constructor(hostRef) {
@@ -14,4 +14,3 @@ const MapA = class {
 };
 
 exports.map_a = MapA;
-//# sourceMappingURL=map-a.entry.cjs.js.map

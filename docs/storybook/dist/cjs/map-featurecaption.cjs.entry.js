@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-KnvdY5iL.js');
 
 const MapFeaturecaption = class {
     constructor(hostRef) {
@@ -12,4 +12,3 @@ const MapFeaturecaption = class {
 };
 
 exports.map_featurecaption = MapFeaturecaption;
-//# sourceMappingURL=map-featurecaption.entry.cjs.js.map

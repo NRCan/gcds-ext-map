@@ -24,4 +24,3 @@ export const closestElement = (selector, el) => {
     }
     return null;
 };
-//# sourceMappingURL=utils.js.map

@@ -25,7 +25,6 @@ export class GcdsHint {
         return {
             "hintId": {
                 "type": "string",
-                "attribute": "hint-id",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -40,10 +39,10 @@ export class GcdsHint {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "hint-id"
             }
         };
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-hint.js.map

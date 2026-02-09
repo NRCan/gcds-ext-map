@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-KnvdY5iL.js');
 
 const MapSelect = class {
     constructor(hostRef) {
@@ -51,7 +51,9 @@ const MapSelect = class {
             for (let j = 0; j < optionAttrNames.length; j++) {
                 option.setAttribute(optionAttrNames[j], options[i].getAttribute(optionAttrNames[j]));
             }
-            option.innerHTML = options[i].innerHTML;
+            // textContent (not innerHTML) so that a malicious option body
+            // cannot inject markup into the layer control.
+            option.textContent = options[i].textContent;
             select.appendChild(option);
         }
         return select;
@@ -91,9 +93,10 @@ const MapSelect = class {
         return null;
     }
     static get watchers() { return {
-        "name": ["nameChanged"]
+        "name": [{
+                "nameChanged": 0
+            }]
     }; }
 };
 
 exports.map_select = MapSelect;
-//# sourceMappingURL=map-select.entry.cjs.js.map

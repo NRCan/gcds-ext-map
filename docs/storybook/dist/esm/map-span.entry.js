@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement } from './index-PZrWUcjo.js';
+import { r as registerInstance, g as getElement } from './index-DmM-gJEh.js';
 
 const MapSpan = class {
     constructor(hostRef) {
@@ -10,4 +10,3 @@ const MapSpan = class {
 };
 
 export { MapSpan as map_span };
-//# sourceMappingURL=map-span.entry.js.map

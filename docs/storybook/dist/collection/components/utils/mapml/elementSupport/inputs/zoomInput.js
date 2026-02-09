@@ -28,4 +28,3 @@ export class ZoomInput {
         return this.layer._map.options.mapEl.zoom;
     }
 }
-//# sourceMappingURL=zoomInput.js.map

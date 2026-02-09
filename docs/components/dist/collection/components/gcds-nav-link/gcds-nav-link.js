@@ -63,7 +63,6 @@ export class GcdsNavLink {
         return {
             "href": {
                 "type": "string",
-                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -78,11 +77,11 @@ export class GcdsNavLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "href"
             },
             "current": {
                 "type": "boolean",
-                "attribute": "current",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -97,7 +96,8 @@ export class GcdsNavLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "current"
             }
         };
     }
@@ -178,4 +178,3 @@ export class GcdsNavLink {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-nav-link.js.map

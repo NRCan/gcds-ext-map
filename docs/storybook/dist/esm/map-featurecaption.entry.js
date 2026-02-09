@@ -1,4 +1,4 @@
-import { r as registerInstance } from './index-PZrWUcjo.js';
+import { r as registerInstance } from './index-DmM-gJEh.js';
 
 const MapFeaturecaption = class {
     constructor(hostRef) {
@@ -10,4 +10,3 @@ const MapFeaturecaption = class {
 };
 
 export { MapFeaturecaption as map_featurecaption };
-//# sourceMappingURL=map-featurecaption.entry.js.map
