@@ -269,6 +269,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
     interface GcdsMap {
         "_controlslist"?: string;
         /**
@@ -393,45 +395,127 @@ declare namespace LocalJSX {
         "src"?: string;
         "zoom"?: number;
     }
+
+    interface GcdsMapAttributes {
+        "lat": number;
+        "lon": number;
+        "zoom": number;
+        "projection": string;
+        "controls": boolean;
+        "static": boolean;
+        "_controlslist": string;
+        "locale": string;
+    }
+    interface MapAAttributes {
+        "href": string;
+        "target": string;
+        "type": string;
+        "inplace": boolean;
+    }
+    interface MapExtentAttributes {
+        "checked": boolean;
+        "_label": string;
+        "opacity": number;
+        "_opacity": number;
+        "hidden": boolean;
+        "units": string;
+        "disabled": boolean;
+    }
+    interface MapFeatureAttributes {
+        "zoom": number;
+        "min": number;
+        "max": number;
+    }
+    interface MapGeometryAttributes {
+        "cs": string;
+    }
+    interface MapInputAttributes {
+        "name": string;
+        "type": string;
+        "value": string;
+        "axis": string;
+        "units": string;
+        "position": string;
+        "rel": string;
+        "min": string;
+        "max": string;
+        "step": string;
+    }
+    interface MapLayerAttributes {
+        "src": string;
+        "checked": boolean;
+        "hidden": boolean;
+        "opacity": number;
+        "_opacity": number;
+        "media": string;
+    }
+    interface MapLinkAttributes {
+        "type": string;
+        "rel": string;
+        "href": string;
+        "hreflang": string;
+        "tref": string;
+        "media": string;
+        "tms": boolean;
+        "projection": string;
+        "disabled": boolean;
+    }
+    interface MapMetaAttributes {
+        "name": string;
+        "content": string;
+    }
+    interface MapSelectAttributes {
+        "name": string;
+    }
+    interface MapStyleAttributes {
+        "media": string;
+    }
+    interface MapTileAttributes {
+        "row": number;
+        "col": number;
+        "zoom": number;
+        "src": string;
+    }
+
     interface IntrinsicElements {
-        "gcds-map": GcdsMap;
-        "map-a": MapA;
+        "gcds-map": Omit<GcdsMap, keyof GcdsMapAttributes> & { [K in keyof GcdsMap & keyof GcdsMapAttributes]?: GcdsMap[K] } & { [K in keyof GcdsMap & keyof GcdsMapAttributes as `attr:${K}`]?: GcdsMapAttributes[K] } & { [K in keyof GcdsMap & keyof GcdsMapAttributes as `prop:${K}`]?: GcdsMap[K] };
+        "map-a": Omit<MapA, keyof MapAAttributes> & { [K in keyof MapA & keyof MapAAttributes]?: MapA[K] } & { [K in keyof MapA & keyof MapAAttributes as `attr:${K}`]?: MapAAttributes[K] } & { [K in keyof MapA & keyof MapAAttributes as `prop:${K}`]?: MapA[K] };
         "map-caption": MapCaption;
-        "map-extent": MapExtent;
-        "map-feature": MapFeature;
+        "map-extent": Omit<MapExtent, keyof MapExtentAttributes> & { [K in keyof MapExtent & keyof MapExtentAttributes]?: MapExtent[K] } & { [K in keyof MapExtent & keyof MapExtentAttributes as `attr:${K}`]?: MapExtentAttributes[K] } & { [K in keyof MapExtent & keyof MapExtentAttributes as `prop:${K}`]?: MapExtent[K] } & OneOf<"units", MapExtent["units"], MapExtentAttributes["units"]>;
+        "map-feature": Omit<MapFeature, keyof MapFeatureAttributes> & { [K in keyof MapFeature & keyof MapFeatureAttributes]?: MapFeature[K] } & { [K in keyof MapFeature & keyof MapFeatureAttributes as `attr:${K}`]?: MapFeatureAttributes[K] } & { [K in keyof MapFeature & keyof MapFeatureAttributes as `prop:${K}`]?: MapFeature[K] };
         "map-featurecaption": MapFeaturecaption;
-        "map-geometry": MapGeometry;
-        "map-input": MapInput;
-        "map-layer": MapLayer;
-        "map-link": MapLink;
-        "map-meta": MapMeta;
+        "map-geometry": Omit<MapGeometry, keyof MapGeometryAttributes> & { [K in keyof MapGeometry & keyof MapGeometryAttributes]?: MapGeometry[K] } & { [K in keyof MapGeometry & keyof MapGeometryAttributes as `attr:${K}`]?: MapGeometryAttributes[K] } & { [K in keyof MapGeometry & keyof MapGeometryAttributes as `prop:${K}`]?: MapGeometry[K] };
+        "map-input": Omit<MapInput, keyof MapInputAttributes> & { [K in keyof MapInput & keyof MapInputAttributes]?: MapInput[K] } & { [K in keyof MapInput & keyof MapInputAttributes as `attr:${K}`]?: MapInputAttributes[K] } & { [K in keyof MapInput & keyof MapInputAttributes as `prop:${K}`]?: MapInput[K] } & OneOf<"name", MapInput["name"], MapInputAttributes["name"]> & OneOf<"type", MapInput["type"], MapInputAttributes["type"]>;
+        "map-layer": Omit<MapLayer, keyof MapLayerAttributes> & { [K in keyof MapLayer & keyof MapLayerAttributes]?: MapLayer[K] } & { [K in keyof MapLayer & keyof MapLayerAttributes as `attr:${K}`]?: MapLayerAttributes[K] } & { [K in keyof MapLayer & keyof MapLayerAttributes as `prop:${K}`]?: MapLayer[K] };
+        "map-link": Omit<MapLink, keyof MapLinkAttributes> & { [K in keyof MapLink & keyof MapLinkAttributes]?: MapLink[K] } & { [K in keyof MapLink & keyof MapLinkAttributes as `attr:${K}`]?: MapLinkAttributes[K] } & { [K in keyof MapLink & keyof MapLinkAttributes as `prop:${K}`]?: MapLink[K] };
+        "map-meta": Omit<MapMeta, keyof MapMetaAttributes> & { [K in keyof MapMeta & keyof MapMetaAttributes]?: MapMeta[K] } & { [K in keyof MapMeta & keyof MapMetaAttributes as `attr:${K}`]?: MapMetaAttributes[K] } & { [K in keyof MapMeta & keyof MapMetaAttributes as `prop:${K}`]?: MapMeta[K] };
         "map-properties": MapProperties;
-        "map-select": MapSelect;
+        "map-select": Omit<MapSelect, keyof MapSelectAttributes> & { [K in keyof MapSelect & keyof MapSelectAttributes]?: MapSelect[K] } & { [K in keyof MapSelect & keyof MapSelectAttributes as `attr:${K}`]?: MapSelectAttributes[K] } & { [K in keyof MapSelect & keyof MapSelectAttributes as `prop:${K}`]?: MapSelect[K] };
         "map-span": MapSpan;
-        "map-style": MapStyle;
-        "map-tile": MapTile;
+        "map-style": Omit<MapStyle, keyof MapStyleAttributes> & { [K in keyof MapStyle & keyof MapStyleAttributes]?: MapStyle[K] } & { [K in keyof MapStyle & keyof MapStyleAttributes as `attr:${K}`]?: MapStyleAttributes[K] } & { [K in keyof MapStyle & keyof MapStyleAttributes as `prop:${K}`]?: MapStyle[K] };
+        "map-tile": Omit<MapTile, keyof MapTileAttributes> & { [K in keyof MapTile & keyof MapTileAttributes]?: MapTile[K] } & { [K in keyof MapTile & keyof MapTileAttributes as `attr:${K}`]?: MapTileAttributes[K] } & { [K in keyof MapTile & keyof MapTileAttributes as `prop:${K}`]?: MapTile[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "gcds-map": LocalJSX.GcdsMap & JSXBase.HTMLAttributes<HTMLGcdsMapElement>;
-            "map-a": LocalJSX.MapA & JSXBase.HTMLAttributes<HTMLMapAElement>;
-            "map-caption": LocalJSX.MapCaption & JSXBase.HTMLAttributes<HTMLMapCaptionElement>;
-            "map-extent": LocalJSX.MapExtent & JSXBase.HTMLAttributes<HTMLMapExtentElement>;
-            "map-feature": LocalJSX.MapFeature & JSXBase.HTMLAttributes<HTMLMapFeatureElement>;
-            "map-featurecaption": LocalJSX.MapFeaturecaption & JSXBase.HTMLAttributes<HTMLMapFeaturecaptionElement>;
-            "map-geometry": LocalJSX.MapGeometry & JSXBase.HTMLAttributes<HTMLMapGeometryElement>;
-            "map-input": LocalJSX.MapInput & JSXBase.HTMLAttributes<HTMLMapInputElement>;
-            "map-layer": LocalJSX.MapLayer & JSXBase.HTMLAttributes<HTMLMapLayerElement>;
-            "map-link": LocalJSX.MapLink & JSXBase.HTMLAttributes<HTMLMapLinkElement>;
-            "map-meta": LocalJSX.MapMeta & JSXBase.HTMLAttributes<HTMLMapMetaElement>;
-            "map-properties": LocalJSX.MapProperties & JSXBase.HTMLAttributes<HTMLMapPropertiesElement>;
-            "map-select": LocalJSX.MapSelect & JSXBase.HTMLAttributes<HTMLMapSelectElement>;
-            "map-span": LocalJSX.MapSpan & JSXBase.HTMLAttributes<HTMLMapSpanElement>;
-            "map-style": LocalJSX.MapStyle & JSXBase.HTMLAttributes<HTMLMapStyleElement>;
-            "map-tile": LocalJSX.MapTile & JSXBase.HTMLAttributes<HTMLMapTileElement>;
+            "gcds-map": LocalJSX.IntrinsicElements["gcds-map"] & JSXBase.HTMLAttributes<HTMLGcdsMapElement>;
+            "map-a": LocalJSX.IntrinsicElements["map-a"] & JSXBase.HTMLAttributes<HTMLMapAElement>;
+            "map-caption": LocalJSX.IntrinsicElements["map-caption"] & JSXBase.HTMLAttributes<HTMLMapCaptionElement>;
+            "map-extent": LocalJSX.IntrinsicElements["map-extent"] & JSXBase.HTMLAttributes<HTMLMapExtentElement>;
+            "map-feature": LocalJSX.IntrinsicElements["map-feature"] & JSXBase.HTMLAttributes<HTMLMapFeatureElement>;
+            "map-featurecaption": LocalJSX.IntrinsicElements["map-featurecaption"] & JSXBase.HTMLAttributes<HTMLMapFeaturecaptionElement>;
+            "map-geometry": LocalJSX.IntrinsicElements["map-geometry"] & JSXBase.HTMLAttributes<HTMLMapGeometryElement>;
+            "map-input": LocalJSX.IntrinsicElements["map-input"] & JSXBase.HTMLAttributes<HTMLMapInputElement>;
+            "map-layer": LocalJSX.IntrinsicElements["map-layer"] & JSXBase.HTMLAttributes<HTMLMapLayerElement>;
+            "map-link": LocalJSX.IntrinsicElements["map-link"] & JSXBase.HTMLAttributes<HTMLMapLinkElement>;
+            "map-meta": LocalJSX.IntrinsicElements["map-meta"] & JSXBase.HTMLAttributes<HTMLMapMetaElement>;
+            "map-properties": LocalJSX.IntrinsicElements["map-properties"] & JSXBase.HTMLAttributes<HTMLMapPropertiesElement>;
+            "map-select": LocalJSX.IntrinsicElements["map-select"] & JSXBase.HTMLAttributes<HTMLMapSelectElement>;
+            "map-span": LocalJSX.IntrinsicElements["map-span"] & JSXBase.HTMLAttributes<HTMLMapSpanElement>;
+            "map-style": LocalJSX.IntrinsicElements["map-style"] & JSXBase.HTMLAttributes<HTMLMapStyleElement>;
+            "map-tile": LocalJSX.IntrinsicElements["map-tile"] & JSXBase.HTMLAttributes<HTMLMapTileElement>;
         }
     }
 }

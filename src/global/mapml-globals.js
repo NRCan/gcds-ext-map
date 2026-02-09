@@ -8,7 +8,8 @@ import { Options } from '../components/utils/mapml/DefaultMapOptions.js';
 import '../components/utils/mapml/handlers/keyboard.js';
 import Proj from 'proj4leaflet/src/proj4leaflet.js';
 
-(function (window, document, undefined) {
+export default function() {
+  (function (window, document, undefined) {
   let M = {};
   window.M = M;
   M.mime = 'text/mapml';
@@ -912,3 +913,4 @@ import Proj from 'proj4leaflet/src/proj4leaflet.js';
     return t.projection;
   }
 })(window, document);
+}

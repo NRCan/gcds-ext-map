@@ -327,74 +327,87 @@ export class GcdsMap {
         ]
       );
 
-      var s = window.getComputedStyle(this.el),
-        wpx = s.width,
-        hpx = s.height,
-        w = this.el.hasAttribute('width')
-          ? this.el.getAttribute('width')
-          : parseInt(wpx.replace('px', '')),
-        h = this.el.hasAttribute('height')
-          ? this.el.getAttribute('height')
-          : parseInt(hpx.replace('px', ''));
-      this._changeWidth(w);
-      this._changeHeight(h);
+      // Defer map creation until element is laid out with valid dimensions
+      // WebKit can return percentage values from getComputedStyle before layout
+      const initMapWhenLayoutComplete = () => {
+        var s = window.getComputedStyle(this.el),
+          wpx = s.width,
+          hpx = s.height;
+        
+        // Wait until we have valid pixel dimensions
+        if (!wpx.endsWith('px') || !hpx.endsWith('px')) {
+          requestAnimationFrame(initMapWhenLayoutComplete);
+          return;
+        }
+        
+        var w = this.el.hasAttribute('width')
+            ? this.el.getAttribute('width')
+            : parseInt(wpx.replace('px', '')),
+          h = this.el.hasAttribute('height')
+            ? this.el.getAttribute('height')
+            : parseInt(hpx.replace('px', ''));
+        this._changeWidth(w);
+        this._changeHeight(h);
 
-      this._createMap();
+        this._createMap();
 
-      // Mark as initialized so watchers can now run
-      this._isInitialized = true;
-      
-      // Watch for attribute changes to width/height after initialization
-      // This handles setAttribute() calls which don't trigger custom property setters
-      const attributeObserver = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.type === 'attributes' && mutation.attributeName) {
-            const newValue = this.el.getAttribute(mutation.attributeName);
-            if (mutation.attributeName === 'width' && newValue) {
-              this._changeWidth(newValue);
-            } else if (mutation.attributeName === 'height' && newValue) {
-              this._changeHeight(newValue);
-            }
-          }
-        });
-      });
-      
-      attributeObserver.observe(this.el, {
-        attributes: true,
-        attributeFilter: ['width', 'height']
-      });
-      
-      // Store observer for cleanup
-      (this.el as any)._attributeObserver = attributeObserver;
-
-      // https://github.com/Maps4HTML/MapML.js/issues/274
-      this.el.setAttribute('role', 'application');
-      this._toggleStatic();
-
-      /*
-    1. only deletes aria-label when the last (only remaining) map caption is removed
-    2. only deletes aria-label if the aria-label was defined by the map caption element itself
-    */
-
-      let mapcaption = this.el.querySelector('map-caption');
-
-      if (mapcaption !== null) {
-        setTimeout(() => {
-          let ariaupdate = this.el.getAttribute('aria-label');
-
-          if (ariaupdate === mapcaption.innerHTML) {
-            this.mapCaptionObserver = new MutationObserver((_m) => {
-              let mapcaptionupdate = this.el.querySelector('map-caption');
-              if (mapcaptionupdate !== mapcaption) {
-                this.el.removeAttribute('aria-label');
+        // Mark as initialized so watchers can now run
+        this._isInitialized = true;
+        
+        // Watch for attribute changes to width/height after initialization
+        // This handles setAttribute() calls which don't trigger custom property setters
+        const attributeObserver = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName) {
+              const newValue = this.el.getAttribute(mutation.attributeName);
+              if (mutation.attributeName === 'width' && newValue) {
+                this._changeWidth(newValue);
+              } else if (mutation.attributeName === 'height' && newValue) {
+                this._changeHeight(newValue);
               }
-            });
-            this.mapCaptionObserver.observe(this.el, {
-              childList: true
-            });
-          }
-        }, 0);
-      }
+            }
+          });
+        });
+        
+        attributeObserver.observe(this.el, {
+          attributes: true,
+          attributeFilter: ['width', 'height']
+        });
+        
+        // Store observer for cleanup
+        (this.el as any)._attributeObserver = attributeObserver;
+
+        // https://github.com/Maps4HTML/MapML.js/issues/274
+        this.el.setAttribute('role', 'application');
+        this._toggleStatic();
+
+        /*
+      1. only deletes aria-label when the last (only remaining) map caption is removed
+      2. only deletes aria-label if the aria-label was defined by the map caption element itself
+      */
+
+        let mapcaption = this.el.querySelector('map-caption');
+
+        if (mapcaption !== null) {
+          setTimeout(() => {
+            let ariaupdate = this.el.getAttribute('aria-label');
+
+            if (ariaupdate === mapcaption.innerHTML) {
+              this.mapCaptionObserver = new MutationObserver((_m) => {
+                let mapcaptionupdate = this.el.querySelector('map-caption');
+                if (mapcaptionupdate !== mapcaption) {
+                  this.el.removeAttribute('aria-label');
+                }
+              });
+              this.mapCaptionObserver.observe(this.el, {
+                childList: true
+              });
+            }
+          }, 0);
+        }
+      };
+      
+      initMapWhenLayoutComplete();
     } catch (e) {
       console.log(e);
       throw new Error('Error: ' + e);
