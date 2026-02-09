@@ -6,7 +6,7 @@ export class MapCaption {
     el;
     observer;
     connectedCallback() {
-        if (this.el.parentElement.nodeName === 'GCDS-MAP') {
+        if (this.el.parentElement.nodeName === 'GCDS-EXT-MAP') {
             // Wait a tick for Stencil to finish rendering/hydrating the element's content
             setTimeout(() => {
                 // Only the first map-caption child should manage the aria-label
@@ -50,4 +50,3 @@ export class MapCaption {
     static get is() { return "map-caption"; }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=map-caption.js.map

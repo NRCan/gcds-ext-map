@@ -5,4 +5,3 @@ export class MapProperties {
     static get is() { return "map-properties"; }
     static get encapsulation() { return "shadow"; }
 }
-//# sourceMappingURL=map-properties.js.map

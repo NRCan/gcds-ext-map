@@ -22,7 +22,7 @@ export class MapInput {
     _layer;
     initialValue;
     getMapEl() {
-        return Util.getClosest(this.el, 'gcds-map');
+        return Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return Util.getClosest(this.el, 'map-layer,layer-');
@@ -39,7 +39,7 @@ export class MapInput {
             // }
             switch (this.type) {
                 case 'zoom':
-                    // this could be a bug, but it's the same bug as the mapml-source zoom input
+                    // this could be a bug, but it's the same bug as the MapML.js zoom input
                     this.initialValue = +this.el.getAttribute('value');
                     // Publish for MapML compatibility
                     this.el.initialValue = this.initialValue;
@@ -353,4 +353,3 @@ export class MapInput {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=map-input.js.map

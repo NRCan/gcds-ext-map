@@ -27,7 +27,7 @@ export class GcdsFieldset {
     render() {
         const { hint, inheritedAttributes, legend, legendSize } = this;
         const fieldsetAttrs = Object.assign({}, inheritedAttributes);
-        return (h(Host, { key: '3cd874d549d298eaab3347e3a804d3bec7d1e4a9' }, h("fieldset", Object.assign({ key: '431a72699d4e23445c4f7e8e52422351ceb16e9f', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: '9a24d81b5304693d0aa32b4895b2505c0fb28ff9', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (h("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, h("slot", { key: 'a820afec5165dd7175809e0c69269e99dfa85ec8' }))));
+        return (h(Host, { key: 'a9adbe5e6584cafdf5e5cc0702fc49b476f3d585' }, h("fieldset", Object.assign({ key: 'ff2446f9ee8b764e3f55a97a283ee25275a3963e', class: "gcds-fieldset" }, fieldsetAttrs, { "aria-labelledby": hint ? `fieldset-legend fieldset-hint` : `fieldset-legend`, tabindex: "-1", ref: element => (this.shadowElement = element) }), h("legend", { key: 'e6606a92fb27572d3fdaf056baf10a5353c985ef', id: "fieldset-legend", class: `size-${legendSize}` }, legend), hint ? (h("gcds-hint", { id: "fieldset-hint", "hint-id": "fieldset" }, hint)) : null, h("slot", { key: 'a02cd357d895eca26011029b93d17d78a82a94ba' }))));
     }
     static get is() { return "gcds-fieldset"; }
     static get encapsulation() { return "shadow"; }
@@ -46,7 +46,6 @@ export class GcdsFieldset {
         return {
             "hint": {
                 "type": "string",
-                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -61,11 +60,11 @@ export class GcdsFieldset {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "hint"
             },
             "legend": {
                 "type": "string",
-                "attribute": "legend",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -80,11 +79,11 @@ export class GcdsFieldset {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "legend"
             },
             "legendSize": {
                 "type": "string",
-                "attribute": "legend-size",
                 "mutable": true,
                 "complexType": {
                     "original": "'h2' | 'h3' | 'h4' | 'h5' | 'h6'",
@@ -99,7 +98,8 @@ export class GcdsFieldset {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "legend-size"
             }
         };
     }
@@ -116,4 +116,3 @@ export class GcdsFieldset {
             }];
     }
 }
-//# sourceMappingURL=gcds-fieldset.js.map

@@ -57,6 +57,3 @@ function renderStyles(mapStyleOrLink) {
 }
 
 exports.renderStyles = renderStyles;
-//# sourceMappingURL=renderStyles-yOMXvf12.js.map
-
-//# sourceMappingURL=renderStyles-yOMXvf12.js.map

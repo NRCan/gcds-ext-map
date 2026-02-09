@@ -1,7 +1,7 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
-var MapTileLayer = require('./MapTileLayer-3Sz42yQ4.js');
+var ContextMenu = require('./index-CW_WOSnc.js');
+var MapTileLayer = require('./MapTileLayer-D4vp8bR4.js');
 var calculatePosition = require('./calculatePosition-CDcdNl7C.js');
 
 const MapTile = class {
@@ -165,7 +165,7 @@ const MapTile = class {
         map.setView(center, ContextMenu.Util.getMaxZoom(bounds, map, minZoom, maxZoom), { animate: false });
     }
     getMapEl() {
-        return ContextMenu.Util.getClosest(this.el, 'gcds-map');
+        return ContextMenu.Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return ContextMenu.Util.getClosest(this.el, 'map-layer,layer-');
@@ -265,9 +265,10 @@ const MapTile = class {
         return null;
     }
     static get watchers() { return {
-        "src": ["srcChanged"]
+        "src": [{
+                "srcChanged": 0
+            }]
     }; }
 };
 
 exports.map_tile = MapTile;
-//# sourceMappingURL=map-tile.entry.cjs.js.map

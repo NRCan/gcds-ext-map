@@ -16,29 +16,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- GCDS CSS Shortcuts -->
-    <link rel="stylesheet" href="/gcds-map/gcds-css-shortcuts.min.css" />
+    <link rel="stylesheet" href="/gcds-ext-map/gcds-css-shortcuts.min.css" />
 
     <!-- Prism -->
-    <link rel="stylesheet" href="/gcds-map/styles/prism.css">
-    <script src="/gcds-map/scripts/prism.min.js"></script>
+    <link rel="stylesheet" href="/gcds-ext-map/styles/prism.css">
+    <script src="/gcds-ext-map/scripts/prism.min.js"></script>
 
-    <link rel="stylesheet" href="/gcds-map/styles/style.css">
-    <script src="/gcds-map/scripts/code-showcase.js"></script>
-    <script src="/gcds-map/scripts/code-copy.js"></script>
-    <script src="/gcds-map/scripts/component-preview.js"></script>
-    <script src="/gcds-map/scripts/general.js"></script>
-    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-map/favicon.ico">
+    <link rel="stylesheet" href="/gcds-ext-map/styles/style.css">
+    <script src="/gcds-ext-map/scripts/code-showcase.js"></script>
+    <script src="/gcds-ext-map/scripts/code-copy.js"></script>
+    <script src="/gcds-ext-map/scripts/component-preview.js"></script>
+    <script src="/gcds-ext-map/scripts/general.js"></script>
+    
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-ext-map/favicon.ico">
 
     <!-- GC Design System  Components-->
-    <link rel="stylesheet" href="/gcds-map/components/dist/gcds/gcds.css">
-    <script type="module" src="/gcds-map/components/dist/gcds/gcds.esm.js"></script>
+    <link rel="stylesheet" href="/gcds-ext-map/components/dist/gcds/gcds.css">
+    <script type="module" src="/gcds-ext-map/components/dist/gcds/gcds.esm.js"></script>
     
-    <script type="module" src="/gcds-map/components/gcds-map/dist/gcds-map/gcds-map.esm.js"></script>
+    <script type="module" src="/gcds-ext-map/components/gcds-ext-map/dist/gcds-ext-map/gcds-ext-map.esm.js"></script>
+    
+    
+    
+    <script src="/gcds-ext-map/scripts/geolocator-api-handler.js"></script>
     
 
     <!-- Pagefind -->
-    <script src="/gcds-map/pagefind/pagefind.js" type="module"></script>
-    <script src="/gcds-map/scripts/search.js" type="module"></script>
+    <script src="/gcds-ext-map/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-ext-map/scripts/search.js" type="module"></script>
   </head>
   <body>
     
@@ -1559,60 +1564,90 @@
     
       
       
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
 
         
 
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
       
     
       
@@ -1632,13 +1667,13 @@
 <gcds-header
   lang="fr"
   skip-to-href="#mc"
-  lang-href='/gcds-map/en/components/map/layer/code/'
+  lang-href='/gcds-ext-map/en/components/map/layer/code/'
 >
   
 
   <gcds-breadcrumbs lang="fr" slot="breadcrumb">
     
-      <gcds-breadcrumbs-item href=/gcds-map/fr>
+      <gcds-breadcrumbs-item href=/gcds-ext-map/fr>
         Système de design GC
       </gcds-breadcrumbs-item>
 
@@ -1647,7 +1682,7 @@
       
       
         
-          <gcds-breadcrumbs-item href=/gcds-map/fr/composants/composants-de-carte/>
+          <gcds-breadcrumbs-item href=/gcds-ext-map/fr/composants/composants-de-carte/>
             Composants de carte
           </gcds-breadcrumbs-item>
         
@@ -1656,14 +1691,13 @@
   </gcds-breadcrumbs>
 
   
-<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche" data-placeholder-long="Système de design GC" data-placeholder-short="SDGC">
 </gcds-search>
 
 
 </gcds-header>
-
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -1692,25 +1726,25 @@
 
 
 <gcds-side-nav label="Système de design GC" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75">
-  <gcds-nav-link href="/gcds-map/fr">Accueil</gcds-nav-link>
-  <gcds-nav-link href="/gcds-map/fr/demarrer" >Démarrer</gcds-nav-link>
+  <gcds-nav-link slot="home" href="/gcds-ext-map/fr">Système de design GC</gcds-nav-link>
+  <gcds-nav-link href="/gcds-ext-map/fr/demarrer" >Démarrer</gcds-nav-link>
 
   
-  
+
   <gcds-nav-group
     menu-label="Modèles de page"
     open-trigger="Modèles de page"
     
   >
     <gcds-nav-link
-      href="/gcds-map/fr/modeles-de-page"
+      href="/gcds-ext-map/fr/modeles-de-page"
       
     >
       Aperçu des modèles de page
     </gcds-nav-link>
   
   <gcds-nav-link
-    href="/gcds-map/fr/modeles-de-page/basic/"
+    href="/gcds-ext-map/fr/modeles-de-page/basic/"
     
   >
     Page de base
@@ -1718,21 +1752,21 @@
 </gcds-nav-group>
 
   
-  
+
   <gcds-nav-group
     menu-label="Composants"
     open-trigger="Composants"
     
   >
     <gcds-nav-link
-      href="/gcds-map/fr/composants"
+      href="/gcds-ext-map/fr/composants"
       
     >
       Aperçu des composants
     </gcds-nav-link>
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/avis/"
+    href="/gcds-ext-map/fr/composants/avis/"
     
   >
     Avis
@@ -1740,7 +1774,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/barre-de-navigation-laterale/"
+    href="/gcds-ext-map/fr/composants/barre-de-navigation-laterale/"
     
   >
     Barre de navigation latérale
@@ -1748,7 +1782,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/barre-de-navigation-superieure/"
+    href="/gcds-ext-map/fr/composants/barre-de-navigation-superieure/"
     
   >
     Barre de navigation supérieure
@@ -1756,7 +1790,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/bascule-de-langue/"
+    href="/gcds-ext-map/fr/composants/bascule-de-langue/"
     
   >
     Bascule de langue
@@ -1764,7 +1798,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/bouton/"
+    href="/gcds-ext-map/fr/composants/bouton/"
     
   >
     Bouton
@@ -1772,7 +1806,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/boutons-radio/"
+    href="/gcds-ext-map/fr/composants/boutons-radio/"
     
   >
     Boutons radio
@@ -1780,7 +1814,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/carte/"
+    href="/gcds-ext-map/fr/composants/carte/"
     
   >
     Carte
@@ -1788,7 +1822,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/cases-a-cocher/"
+    href="/gcds-ext-map/fr/composants/cases-a-cocher/"
     
   >
     Cases à cocher
@@ -1796,7 +1830,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/champ-de-date/"
+    href="/gcds-ext-map/fr/composants/champ-de-date/"
     
   >
     Champ de date
@@ -1804,7 +1838,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/champ-de-saisie/"
+    href="/gcds-ext-map/fr/composants/champ-de-saisie/"
     
   >
     Champ de saisie
@@ -1812,7 +1846,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/chemin-de-navigation/"
+    href="/gcds-ext-map/fr/composants/chemin-de-navigation/"
     
   >
     Chemin de navigation
@@ -1820,7 +1854,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/conteneur/"
+    href="/gcds-ext-map/fr/composants/conteneur/"
     
   >
     Conteneur
@@ -1828,7 +1862,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/date-de-modification/"
+    href="/gcds-ext-map/fr/composants/date-de-modification/"
     
   >
     Date de modification
@@ -1836,7 +1870,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/details/"
+    href="/gcds-ext-map/fr/composants/details/"
     
   >
     Détails
@@ -1844,7 +1878,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/en-tete/"
+    href="/gcds-ext-map/fr/composants/en-tete/"
     
   >
     En-tête
@@ -1852,7 +1886,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/grille/"
+    href="/gcds-ext-map/fr/composants/grille/"
     
   >
     Grille
@@ -1860,7 +1894,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/icone/"
+    href="/gcds-ext-map/fr/composants/icone/"
     
   >
     Icône
@@ -1868,7 +1902,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/indicateur-detape/"
+    href="/gcds-ext-map/fr/composants/indicateur-detape/"
     
   >
     Indicateur d&#39;étape
@@ -1876,7 +1910,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/jeu-de-champs/"
+    href="/gcds-ext-map/fr/composants/jeu-de-champs/"
     
   >
     Jeu de champs
@@ -1884,7 +1918,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/lien/"
+    href="/gcds-ext-map/fr/composants/lien/"
     
   >
     Lien
@@ -1892,7 +1926,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/masquage-accessible/"
+    href="/gcds-ext-map/fr/composants/masquage-accessible/"
     
   >
     Masquage accessible
@@ -1900,7 +1934,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/menu-thematique/"
+    href="/gcds-ext-map/fr/composants/menu-thematique/"
     
   >
     Menu thématique
@@ -1908,7 +1942,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/message-derreur/"
+    href="/gcds-ext-map/fr/composants/message-derreur/"
     
   >
     Message d&#39;erreur
@@ -1916,7 +1950,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/pagination/"
+    href="/gcds-ext-map/fr/composants/pagination/"
     
   >
     Pagination
@@ -1924,7 +1958,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/pied-de-page/"
+    href="/gcds-ext-map/fr/composants/pied-de-page/"
     
   >
     Pied de page
@@ -1932,7 +1966,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/recherche/"
+    href="/gcds-ext-map/fr/composants/recherche/"
     
   >
     Recherche
@@ -1940,7 +1974,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/resume-de-erreurs/"
+    href="/gcds-ext-map/fr/composants/resume-de-erreurs/"
     
   >
     Résumé des erreurs
@@ -1948,7 +1982,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/signature/"
+    href="/gcds-ext-map/fr/composants/signature/"
     
   >
     Signature
@@ -1956,7 +1990,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/selection/"
+    href="/gcds-ext-map/fr/composants/selection/"
     
   >
     Sélection
@@ -1964,7 +1998,15 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/texte/"
+    href="/gcds-ext-map/fr/composants/tableau/"
+    
+  >
+    Tableau
+  </gcds-nav-link>
+
+  
+  <gcds-nav-link
+    href="/gcds-ext-map/fr/composants/texte/"
     
   >
     Texte
@@ -1972,7 +2014,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/titre/"
+    href="/gcds-ext-map/fr/composants/titre/"
     
   >
     Titre
@@ -1980,7 +2022,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/televerseur-de-fichiers/"
+    href="/gcds-ext-map/fr/composants/televerseur-de-fichiers/"
     
   >
     Téléverseur de fichiers
@@ -1988,7 +2030,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/zone-de-texte/"
+    href="/gcds-ext-map/fr/composants/zone-de-texte/"
     
   >
     Zone de texte
@@ -2005,14 +2047,14 @@
   
   >
     <gcds-nav-link
-      href="/gcds-map/fr/composants/composants-de-carte"
+      href="/gcds-ext-map/fr/composants/composants-de-carte"
       
     >
       Aperçu des composants de carte
     </gcds-nav-link>
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/map/"
+    href="/gcds-ext-map/fr/composants/map/"
     
   >
     Carte
@@ -2020,7 +2062,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/map/couche/"
+    href="/gcds-ext-map/fr/composants/map/couche/"
     
   >
     Couche
@@ -2035,7 +2077,7 @@
     
   >
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css"
+      href="/gcds-ext-map/fr/raccourcis-css"
       
     >
       Aperçu des raccourcis CSS
@@ -2050,7 +2092,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/reinitialisation-des-styles/"
+      href="/gcds-ext-map/fr/raccourcis-css/reinitialisation-des-styles/"
       
     >
       Réinitialisation des styles
@@ -2071,7 +2113,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/mise-en-page-reactive/"
+      href="/gcds-ext-map/fr/raccourcis-css/mise-en-page-reactive/"
       
     >
       Mise en page réactive
@@ -2080,7 +2122,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/etat/"
+      href="/gcds-ext-map/fr/raccourcis-css/etat/"
       
     >
       État
@@ -2109,7 +2151,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/affichage/"
+      href="/gcds-ext-map/fr/raccourcis-css/affichage/"
       
     >
       Affichage
@@ -2118,7 +2160,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/dimensionnement-de-la-boite/"
+      href="/gcds-ext-map/fr/raccourcis-css/dimensionnement-de-la-boite/"
       
     >
       Dimensionnement de la boîte
@@ -2127,7 +2169,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/dimensionnement-du-conteneur/"
+      href="/gcds-ext-map/fr/raccourcis-css/dimensionnement-du-conteneur/"
       
     >
       Dimensionnement du conteneur
@@ -2136,7 +2178,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/debordement/"
+      href="/gcds-ext-map/fr/raccourcis-css/debordement/"
       
     >
       Débordement
@@ -2145,7 +2187,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/position/"
+      href="/gcds-ext-map/fr/raccourcis-css/position/"
       
     >
       Position
@@ -2154,7 +2196,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/visibilite/"
+      href="/gcds-ext-map/fr/raccourcis-css/visibilite/"
       
     >
       Visibilité
@@ -2201,7 +2243,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/alignement-de-texte/"
+      href="/gcds-ext-map/fr/raccourcis-css/alignement-de-texte/"
       
     >
       Alignement de texte
@@ -2210,7 +2252,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/couleur-de-lien/"
+      href="/gcds-ext-map/fr/raccourcis-css/couleur-de-lien/"
       
     >
       Couleur de lien
@@ -2219,7 +2261,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/couleur-de-texte/"
+      href="/gcds-ext-map/fr/raccourcis-css/couleur-de-texte/"
       
     >
       Couleur de texte
@@ -2228,7 +2270,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/debordement-de-texte/"
+      href="/gcds-ext-map/fr/raccourcis-css/debordement-de-texte/"
       
     >
       Débordement de texte
@@ -2237,7 +2279,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/decoration-de-texte-de-lien/"
+      href="/gcds-ext-map/fr/raccourcis-css/decoration-de-texte-de-lien/"
       
     >
       Décoration de texte de lien
@@ -2246,7 +2288,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/famille-de-police/"
+      href="/gcds-ext-map/fr/raccourcis-css/famille-de-police/"
       
     >
       Famille de police
@@ -2255,7 +2297,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/hauteur-de-ligne/"
+      href="/gcds-ext-map/fr/raccourcis-css/hauteur-de-ligne/"
       
     >
       Hauteur de ligne
@@ -2264,7 +2306,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/police/"
+      href="/gcds-ext-map/fr/raccourcis-css/police/"
       
     >
       Police
@@ -2273,7 +2315,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/saut-de-mot/"
+      href="/gcds-ext-map/fr/raccourcis-css/saut-de-mot/"
       
     >
       Saut de mot
@@ -2282,7 +2324,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/style-de-liste/"
+      href="/gcds-ext-map/fr/raccourcis-css/style-de-liste/"
       
     >
       Style de liste
@@ -2291,7 +2333,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/style-de-police/"
+      href="/gcds-ext-map/fr/raccourcis-css/style-de-police/"
       
     >
       Style de police
@@ -2300,7 +2342,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/taille-de-lien/"
+      href="/gcds-ext-map/fr/raccourcis-css/taille-de-lien/"
       
     >
       Taille de lien
@@ -2309,7 +2351,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/taille-de-police/"
+      href="/gcds-ext-map/fr/raccourcis-css/taille-de-police/"
       
     >
       Taille de police
@@ -2318,7 +2360,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/transformation-de-texte/"
+      href="/gcds-ext-map/fr/raccourcis-css/transformation-de-texte/"
       
     >
       Transformation de texte
@@ -2327,7 +2369,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/epaisseur-de-police/"
+      href="/gcds-ext-map/fr/raccourcis-css/epaisseur-de-police/"
       
     >
       Épaisseur de police
@@ -2348,7 +2390,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/marge/"
+      href="/gcds-ext-map/fr/raccourcis-css/marge/"
       
     >
       Marge
@@ -2357,7 +2399,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/marge-interieure/"
+      href="/gcds-ext-map/fr/raccourcis-css/marge-interieure/"
       
     >
       Marge intérieure
@@ -2410,7 +2452,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/agencement-de-contenu/"
+      href="/gcds-ext-map/fr/raccourcis-css/agencement-de-contenu/"
       
     >
       Agencement de contenu
@@ -2419,7 +2461,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/agencement-des-elements/"
+      href="/gcds-ext-map/fr/raccourcis-css/agencement-des-elements/"
       
     >
       Agencement des éléments
@@ -2428,7 +2470,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/agencement-individuel/"
+      href="/gcds-ext-map/fr/raccourcis-css/agencement-individuel/"
       
     >
       Agencement individuel
@@ -2437,7 +2479,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/alignement-de-contenu/"
+      href="/gcds-ext-map/fr/raccourcis-css/alignement-de-contenu/"
       
     >
       Alignement de contenu
@@ -2446,7 +2488,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/alignement-des-elements/"
+      href="/gcds-ext-map/fr/raccourcis-css/alignement-des-elements/"
       
     >
       Alignement des éléments
@@ -2455,7 +2497,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/alignement-individuel/"
+      href="/gcds-ext-map/fr/raccourcis-css/alignement-individuel/"
       
     >
       Alignement individuel
@@ -2464,7 +2506,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/colonnes-de-grille/"
+      href="/gcds-ext-map/fr/raccourcis-css/colonnes-de-grille/"
       
     >
       Colonnes de grille
@@ -2473,7 +2515,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/direction-de-lelement-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/direction-de-lelement-flexible/"
       
     >
       Direction de l’élément flexible
@@ -2482,7 +2524,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/degagement/"
+      href="/gcds-ext-map/fr/raccourcis-css/degagement/"
       
     >
       Dégagement
@@ -2491,7 +2533,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/habillage-de-lelement-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/habillage-de-lelement-flexible/"
       
     >
       Habillage de l’élément flexible
@@ -2500,7 +2542,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/justification-de-contenu/"
+      href="/gcds-ext-map/fr/raccourcis-css/justification-de-contenu/"
       
     >
       Justification de contenu
@@ -2509,7 +2551,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/justification-des-elements/"
+      href="/gcds-ext-map/fr/raccourcis-css/justification-des-elements/"
       
     >
       Justification des éléments
@@ -2518,7 +2560,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/justification-individuelle/"
+      href="/gcds-ext-map/fr/raccourcis-css/justification-individuelle/"
       
     >
       Justification individuelle
@@ -2527,7 +2569,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/lignes-de-grille/"
+      href="/gcds-ext-map/fr/raccourcis-css/lignes-de-grille/"
       
     >
       Lignes de grille
@@ -2536,7 +2578,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/ordre/"
+      href="/gcds-ext-map/fr/raccourcis-css/ordre/"
       
     >
       Ordre
@@ -2545,7 +2587,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/retrecissement-de-lelement-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/retrecissement-de-lelement-flexible/"
       
     >
       Rétrécissement de l’élément flexible
@@ -2554,7 +2596,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/elargissement-de-lelement-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/elargissement-de-lelement-flexible/"
       
     >
       Élargissement de l’élément flexible
@@ -2563,7 +2605,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/element-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/element-flexible/"
       
     >
       Élément flexible
@@ -2590,7 +2632,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/couleur-de-la-bordure/"
+      href="/gcds-ext-map/fr/raccourcis-css/couleur-de-la-bordure/"
       
     >
       Couleur de la bordure
@@ -2599,7 +2641,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/couleur-de-larriere-plan/"
+      href="/gcds-ext-map/fr/raccourcis-css/couleur-de-larriere-plan/"
       
     >
       Couleur de l’arrière-plan
@@ -2608,7 +2650,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/largeur-de-la-bordure/"
+      href="/gcds-ext-map/fr/raccourcis-css/largeur-de-la-bordure/"
       
     >
       Largeur de la bordure
@@ -2617,7 +2659,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/rayon-de-la-bordure/"
+      href="/gcds-ext-map/fr/raccourcis-css/rayon-de-la-bordure/"
       
     >
       Rayon de la bordure
@@ -2626,7 +2668,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/style-de-la-bordure/"
+      href="/gcds-ext-map/fr/raccourcis-css/style-de-la-bordure/"
       
     >
       Style de la bordure
@@ -2649,7 +2691,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/image/"
+      href="/gcds-ext-map/fr/raccourcis-css/image/"
       
     >
       Image
@@ -2658,7 +2700,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/noms-des-icones/"
+      href="/gcds-ext-map/fr/raccourcis-css/noms-des-icones/"
       
     >
       Noms des icônes
@@ -2667,7 +2709,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/taille-de-licone/"
+      href="/gcds-ext-map/fr/raccourcis-css/taille-de-licone/"
       
     >
       Taille de l&#39;icône
@@ -2690,7 +2732,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/curseur/"
+      href="/gcds-ext-map/fr/raccourcis-css/curseur/"
       
     >
       Curseur
@@ -2699,7 +2741,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/transition/"
+      href="/gcds-ext-map/fr/raccourcis-css/transition/"
       
     >
       Transition
@@ -2708,7 +2750,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/evenements-de-pointeur/"
+      href="/gcds-ext-map/fr/raccourcis-css/evenements-de-pointeur/"
       
     >
       Événements de pointeur
@@ -2725,11 +2767,11 @@
     open-trigger="Styles"
     
   >
-    <gcds-nav-link href="/gcds-map/fr/styles">Aperçu des styles</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/styles/unites-de-style" >Unités de style</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/styles/couleur" >Unités de style de couleur</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/styles/espacement" >Unités de style d&#39;espacement</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/styles/typographie" >Unités de style typographie</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles">Aperçu des styles</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles/unites-de-style" >Unités de style</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles/couleur" >Unités de style de couleur</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles/espacement" >Unités de style d’espacement</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles/typographie" >Unités de style typographie</gcds-nav-link>
   </gcds-nav-group>
 
   
@@ -2746,9 +2788,9 @@
     
   
   >
-    <gcds-nav-link href="/gcds-map/fr/contactez" >Contactez-nous</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/simpliquer" >Impliquez-vous</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/inscrivez-vous-a-une-demonstration" >Trouvez une démo</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/contactez" >Nous contacter</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/simpliquer" >S’impliquer</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/inscrivez-vous-a-une-demonstration" >Trouver une démo</gcds-nav-link>
   </gcds-nav-group>
 </gcds-side-nav>
         <main id="mc" class="general-layout" data-pagefind-body>
@@ -2756,7 +2798,7 @@
   
     <!-- NOTE: couche.json required to make the loadGcdsMap front matter variable accessible to the layout template.  -->
 <style>
-gcds-map {
+gcds-ext-map {
   width: 100%;
   height: 350px;
 }
@@ -2764,7 +2806,7 @@ gcds-map {
 <h1 id="couche-brmaplayer">Couche <br><code>&lt;map-layer&gt;</code></h1>
 <p><ul class="d-flex flex-wrap gap-300">
 <li class="github-link">
-<gcds-link external href="https://github.com/NRCan/gcds-map/tree/main/src/components/map-layer">GitHub</gcds-link>
+<gcds-link external href="https://github.com/NRCan/gcds-ext-map/tree/main/src/components/map-layer">GitHub</gcds-link>
 </li>
 <li class="figma-link">
 <gcds-link external href="https://www.figma.com/community/file/1369337721343886324">
@@ -2772,17 +2814,30 @@ Figma
 </gcds-link>
 </li>
 </ul></p>
-<p>Les données ou le contenu d'une carte Web sont organisés en couches et sont ajoutés au composant <code>&lt;gcds-map&gt;</code> sous forme d'un ou plusieurs éléments enfants <code>&lt;map-layer&gt;</code>. Chaque couche est rendue par-dessus la couche précédente. Souvent, une carte est composée d'une couche de « carte de base » et d'une ou plusieurs couches thématiques.</p>
+<p>Les données ou le contenu d'une carte Web sont organisés en couches et sont ajoutés au composant <code>&lt;gcds-ext-map&gt;</code> sous forme d'un ou plusieurs éléments enfants <code>&lt;map-layer&gt;</code>. Chaque couche est rendue par-dessus la couche précédente. Souvent, une carte est composée d'une couche de « carte de base » et d'une ou plusieurs couches thématiques.</p>
 <p><div class="my-600 b-sm b-default component-preview">
 <p class="container-full font-semibold px-225 py-150 bb-sm b-default bg-light">
 Aperçu du composant <code>&lt;map-layer&gt;</code>
 </p>
 <div class="px-225 py-300"></p>
-<gcds-map lat="62.1326" lon="-91.0" zoom="2" projection="CBMTILE" controls controlslist="geolocation">
-  <map-caption>Une carte qui démontre comment les couches sont utilisées par le composant gcds-map</map-caption>
-  <map-layer label="Test Layer"  src="/gcds-map/components/gcds-map/dist/gcds-map/assets/mapml/fr/cbmtile/cbmtsimple"  checked></map-layer>
-  <map-layer label="Test Layer"  src="/gcds-map/components/gcds-map/dist/gcds-map/assets/mapml/en/cbmtile/current_conditions"  checked></map-layer>
-</gcds-map>
+<gcds-ext-map lat="62.1326" lon="-91.0" zoom="2" projection="CBMTILE" controls controlslist="search geolocation">
+  <map-caption>Une carte qui démontre comment les couches sont utilisées par le composant gcds-ext-map</map-caption>
+  <map-layer checked>
+    <map-title>La carte de base du Canada - transport</map-title>
+    <map-link rel="license" href="https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada" title="Licence du gouvernement ouvert – Canada"></map-link>
+    <map-link rel="suggestions" tref="https://geolocator.api.geo.ca/?q={searchTerms}&lang=fr&keys=geonames"></map-link>
+    <map-link rel="search" tref="https://geolocator.api.geo.ca/?q={searchTerms}&lang=fr&keys=geonames"></map-link>
+    <map-extent units="CBMTILE" checked hidden>
+      <map-input name="z" type="zoom" value="22" min="0" max="22"></map-input>
+      <map-input name="txmin" type="location" units="tilematrix" position="top-left" axis="easting" min="-3262924.7" max="3823954.0"></map-input>
+      <map-input name="tymin" type="location" units="tilematrix" position="bottom-left" axis="northing" min="-1554977.6" max="4046262.8"></map-input>
+      <map-input name="txmax" type="location" units="tilematrix" position="top-right" axis="easting" min="-3262924.7" max="3823954.0"></map-input>
+      <map-input name="tymax" type="location" units="tilematrix" position="top-left" axis="northing" min="-1554977.6" max="4046262.8"></map-input>
+      <map-link rel="tile" tref="https://geogratis.gc.ca/cartes/CBCT?SERVICE=WMS&VERSION=1.1.1&SRS=EPSG:3978&LAYERS=CBCT&BBOX={txmin},{tymin},{txmax},{tymax}&REQUEST=GetMap&FORMAT=image/png&TRANSPARENT=TRUE&WIDTH=256&HEIGHT=256&STYLES=&m4h=t"></map-link>
+    </map-extent>
+  </map-layer>
+  <map-layer label="Test Layer"  src="/gcds-ext-map/components/gcds-ext-map/dist/gcds-ext-map/assets/mapml/en/cbmtile/current_conditions"  checked></map-layer>
+</gcds-ext-map>
 <p></div>
 </div></p>
 
@@ -2793,7 +2848,7 @@ Aperçu du composant <code>&lt;map-layer&gt;</code>
         
           
             <li class="tab">
-              <a href="/gcds-map/fr/composants/map/couche/" >
+              <a href="/gcds-ext-map/fr/composants/map/couche/" >
                 Cas d&#39;utilisation
               </a>
             </li>
@@ -2801,7 +2856,7 @@ Aperçu du composant <code>&lt;map-layer&gt;</code>
         
           
             <li class="tab">
-              <a href="/gcds-map/fr/composants/map/couche/design/" >
+              <a href="/gcds-ext-map/fr/composants/map/couche/design/" >
                 Design
               </a>
             </li>
@@ -2809,7 +2864,7 @@ Aperçu du composant <code>&lt;map-layer&gt;</code>
         
           
             <li class="tab">
-              <a href="/gcds-map/fr/composants/map/couche/code/" aria-current=page>
+              <a href="/gcds-ext-map/fr/composants/map/couche/code/" aria-current=page>
                 Code
               </a>
             </li>
@@ -2817,7 +2872,7 @@ Aperçu du composant <code>&lt;map-layer&gt;</code>
         
           
             <li class="tab">
-              <a href="/gcds-map/fr/composants/map/couche/donnees/" >
+              <a href="/gcds-ext-map/fr/composants/map/couche/donnees/" >
                 Données
               </a>
             </li>
@@ -2831,11 +2886,187 @@ Aperçu du composant <code>&lt;map-layer&gt;</code>
     </nav>
   
 
-  <h2 id="afficher-le-contenu-de-la-carte-en-couches">Afficher le contenu de la carte en couches</h2>
-<p>Utilisez le composant de couche pour afficher le contenu « Map Markup Language » « MapML ».</p>
-<p>Utilisez l'attribut <code>src</code> du composant pour créer un lien vers le contenu, ou créez du contenu MapML en ligne dans votre HTML, entre les balises de début <code>&lt;map-layer&gt;</code> et de fin <code>&lt;/map-layer&gt;</code>.</p>
-<p>Définissez les propriétés initiales de la couche à l'aide des attributs <code>checked</code>, <code>hidden</code>, <code>opacity</code> et <code>media</code>.</p>
-<h3 id="obtenez-votre-code">Obtenez votre code</h3>
+  <h2 id="sur-cette-page">Sur cette page</h2>
+<ul class="list-disc mb-300"><li><a href="#codage-et-accessibilite-pour-les-couches">Codage et accessibilité pour les couches</a></li>
+<li><a href="#exemples">Exemples</a><ul class="list-disc mb-300"><li><a href="#attribut-src-de-la-couche">Attribut <code>src</code> de la couche</a></li>
+<li><a href="#attribut-checked-de-la-couche-et-de-la-souscouche">Attribut <code>checked</code> de la couche et de la sous-couche</a></li>
+<li><a href="#attribut-hidden-de-la-couche-et-de-la-souscouche">Attribut <code>hidden</code> de la couche et de la sous-couche</a></li>
+<li><a href="#attribut-label-de-la-couche-et-de-la-souscouche">Attribut <code>label</code> de la couche et de la sous-couche</a><ul class="list-disc mb-300"><li><a href="#couche">Couche</a></li>
+<li><a href="#souscouche">Sous-couche</a></li>
+</ul>
+</li>
+<li><a href="#opacity-de-la-couche-et-de-la-souscouche"><code>opacity</code> de la couche et de la sous-couche</a></li>
+<li><a href="#requetes-media-de-la-couche">Requêtes <code>media</code> de la couche</a></li>
+</ul>
+</li>
+<li><a href="#generateur-de-code">Générateur de code</a></li>
+</ul>
+<h2 id="codage-et-accessibilite-pour-les-couches">Codage et accessibilité pour les couches</h2>
+<p>Utilisez le composant de couche pour afficher le contenu « Map Markup Language » (MapML).</p>
+<p>Utilisez l'attribut <code>src</code> du composant pour créer un lien vers un contenu distant, ou créez du contenu MapML intégré dans votre HTML, entre les balises de début <code>&lt;map-layer&gt;</code> et de fin <code>&lt;/map-layer&gt;</code>.</p>
+<p>Définissez les propriétés initiales de la couche à l'aide des attributs <code>src</code>, <code>checked</code>, <code>hidden</code>, <code>label</code>, <code>opacity</code> et <code>media</code>.</p>
+<h2 id="exemples">Exemples</h2>
+<h3 id="attribut-src-de-la-couche">Attribut <code>src</code> de la couche</h3>
+<p>L'attribut optionnel <code>src</code> peut être utilisé pour fournir l'URL d'un document MapML. Lorsque l'attribut <code>src</code>
+est fourni, nous appelons cette situation « <a href="../design/#contenu-distant">contenu distant</a> ». Un document MapML
+distant est encodé en XHTML et analysé avec l'analyseur XML intégré du navigateur. Si aucun attribut <code>src</code>
+n'est fourni, le contenu peut être fourni entre les balises de début et de fin <code>&lt;map-layer&gt;...&lt;/map-layer&gt;</code>.
+C'est ce qu'on appelle le « <a href="../design/#contenu-integre">contenu intégré</a> ». Le contenu cartographique est
+constitué soit de tuiles, soit d'entités, soit d'une combinaison de tuiles et d'entités. Les tuiles, les
+entités ou une combinaison des deux peuvent être chargées dans la carte via un élément de modèle enveloppant
+appelé <code>&lt;map-extent&gt;</code>. Lorsqu'un modèle de contenu est utilisé, il est traité comme une
+« <a href="../design/#couches-et-souscouches">sous-couche</a> » aux fins de son exposition à l'utilisateur dans <a href="../design/#anatomy">le
+contrôle de couche</a>. Le contenu est rendu sur la carte dans l'ordre du document. Autrement dit, le contenu
+situé au bas du document est rendu par-dessus le contenu apparaissant plus tôt dans le document. Cela importe
+particulièrement lorsque de tels contenus se chevauchent spatialement, car le contenu ultérieur peut masquer
+le contenu précédent, par ex. les tuiles peuvent recouvrir les entités, et vice versa. En général, le contenu
+cartographique qui se chevauche devrait être organisé en couches distinctes, offrant à l'utilisateur les
+moyens de l'activer ou de le désactiver, de modifier l'ordre, de changer l'opacité ou de le supprimer
+entièrement.</p>
+<h3 id="attribut-checked-de-la-couche-et-de-la-souscouche">Attribut <code>checked</code> de la couche et de la sous-couche</h3>
+<p>L'attribut <code>checked</code> et sa propriété correspondante permettent aux scripts d'activer ou de désactiver le
+contenu sans le retirer du DOM. <code>checked</code> reflète l'état de la case à cocher du contrôle utilisateur.
+Lorsqu'il est modifié par l'utilisateur, la couche émet l'événement <code>map-change</code>.</p>
+<h3 id="attribut-hidden-de-la-couche-et-de-la-souscouche">Attribut <code>hidden</code> de la couche et de la sous-couche</h3>
+<p>Utilisez l'attribut <code>hidden</code> pour garder une couche ou une sous-couche visible sur la carte mais masquée du
+contrôle de couche. Ceci est utile pour les couches de base qui doivent toujours être affichées. C'est
+souvent une bonne idée d'ajouter <code>hidden</code> aux sous-couches des couches ayant un contenu simple, afin de
+simplifier l'interface utilisateur de la carte — chaque petit détail compte.</p>
+<p>Si <em>toutes</em> les couches d'une carte sont <code>hidden</code>, le contrôle de couche lui-même est masqué. Voyez par
+vous-même en retirant la superposition de la carte ci-dessous.</p>
+<gcds-ext-map lat="53.087426" lon="-91.27533" zoom="4" projection="OSMTILE" controls style="height: 400px;">
+  <map-layer checked hidden src="/gcds-ext-map/components/gcds-ext-map/dist/gcds-ext-map/assets/mapml/fr/osmtile/cbmt"></map-layer>
+  <map-layer label="Conditions actuelles" checked>
+    <map-extent units="OSMTILE" checked hidden>
+      <map-input name="z" type="zoom" min="0" max="18" ></map-input>
+      <map-input name="xmin" type="location" rel="map" position="top-left" axis="easting"
+          units="pcrs" min="-1.8443827380300004E7" max="-2287187.2902772236" ></map-input>
+      <map-input name="ymin" type="location" rel="map" position="bottom-left" axis="northing"
+          units="pcrs" min="4547345.566611593" max="1.6344676582521891E7" ></map-input>
+      <map-input name="xmax" type="location" rel="map" position="top-right" axis="easting"
+          units="pcrs" min="-1.8443827380300004E7" max="-2287187.2902772236" ></map-input>
+      <map-input name="ymax" type="location" rel="map" position="top-left" axis="northing"
+          units="pcrs" min="4547345.566611593" max="1.6344676582521891E7" ></map-input>
+      <map-input name="w" type="width" min="1" max="4079" ></map-input>
+      <map-input name="h" type="height" min="1" max="4079" ></map-input>
+      <map-link rel="image" tref="https://geo.weather.gc.ca/geomet?request=GetMap&crs=EPSG:3857&service=WMS&bbox={xmin},{ymin},{xmax},{ymax}&layers=CURRENT_CONDITIONS&format=image/png&width={w}&styles=default&language=fr&version=1.3.0&transparent=true&height={h}"></map-link>
+    </map-extent>
+  </map-layer>
+</gcds-ext-map>
+
+<div style="position: relative" id="code-container-101" >
+  <pre class="language-html"><code id="code-101" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-ext-map</span> <span class="token attr-name">lat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>53.087426<span class="token punctuation">"</span></span> <span class="token attr-name">lon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-91.27533<span class="token punctuation">"</span></span> <span class="token attr-name">zoom</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4<span class="token punctuation">"</span></span> <span class="token attr-name">projection</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>OSMTILE<span class="token punctuation">"</span></span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-layer</span> <span class="token attr-name">checked</span> <span class="token attr-name">hidden</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>couche_de_base.mapml<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-layer</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-layer</span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Conditions actuelles<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-extent</span> <span class="token attr-name">units</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>OSMTILE<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span> <span class="token attr-name">hidden</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>z<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zoom<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>18<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-input</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xmin<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>location<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>top-left<span class="token punctuation">"</span></span> <span class="token attr-name">axis</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>easting<span class="token punctuation">"</span></span>
+          <span class="token attr-name">units</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pcrs<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-1.8443827380300004E7<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-2287187.2902772236<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-input</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ymin<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>location<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bottom-left<span class="token punctuation">"</span></span> <span class="token attr-name">axis</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>northing<span class="token punctuation">"</span></span>
+          <span class="token attr-name">units</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pcrs<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4547345.566611593<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1.6344676582521891E7<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-input</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xmax<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>location<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>top-right<span class="token punctuation">"</span></span> <span class="token attr-name">axis</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>easting<span class="token punctuation">"</span></span>
+          <span class="token attr-name">units</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pcrs<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-1.8443827380300004E7<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-2287187.2902772236<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-input</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ymax<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>location<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">position</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>top-left<span class="token punctuation">"</span></span> <span class="token attr-name">axis</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>northing<span class="token punctuation">"</span></span>
+          <span class="token attr-name">units</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>pcrs<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4547345.566611593<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1.6344676582521891E7<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-input</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4079<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-input</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>height<span class="token punctuation">"</span></span> <span class="token attr-name">min</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4079<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-input</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>image<span class="token punctuation">"</span></span> <span class="token attr-name">tref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://geo.weather.gc.ca/geomet?request=GetMap&amp;crs=EPSG:3857&amp;service=WMS&amp;bbox={xmin},{ymin},{xmax},{ymax}&amp;layers=CURRENT_CONDITIONS&amp;format=image/png&amp;width={w}&amp;styles=default&amp;language=fr&amp;version=1.3.0&amp;transparent=true&amp;height={h}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-link</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-extent</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-layer</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-ext-map</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-101"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+<h3 id="attribut-label-de-la-couche-et-de-la-souscouche">Attribut <code>label</code> de la couche et de la sous-couche</h3>
+<p>L'attribut <code>label</code> fournit un nom accessible pour une couche ou une sous-couche dans le contrôle de couche. Si
+un élément <code>&lt;map-title&gt;</code> est présent en tant que descendant de <code>&lt;map-layer&gt;</code> (pour les couches uniquement), sa
+valeur textuelle a priorité sur l'attribut <code>&lt;map-layer label=&quot;&quot;&gt;</code>. Si aucun des deux n'est fourni, le contrôle
+de couche se rabat sur un nom par défaut générique (« Couche » ou « Sous-couche »), ce qui n'est pas utile aux
+utilisateurs — donnez donc toujours un nom significatif à votre contenu via <code>&lt;map-title&gt;</code> ou <code>label</code>.</p>
+<h4 id="couche">Couche</h4>
+<p>Pour une couche, le nom affiché dans le contrôle de couche est choisi dans cet ordre :</p>
+<ol class="list-decimal mb-300"><li>Le contenu textuel d'un élément enfant <code>&lt;map-title&gt;</code>, s'il est présent.</li>
+<li>La valeur de l'attribut <code>&lt;map-layer label=&quot;...&quot;&gt;</code>, s'il est présent.</li>
+<li>Le nom par défaut « Couche ».</li>
+</ol>
+<p>Comme un élément <code>&lt;map-title&gt;</code> dans du contenu distant est rédigé aux côtés des données de la couche, il est
+généralement la source faisant autorité pour le nom de la couche. L'attribut <code>label</code> est un repli utile
+lorsque vous ne contrôlez pas le contenu distant, ou lors de la rédaction de contenu intégré et que vous
+préférez garder le nom dans le HTML de la page hôte.</p>
+<h4 id="souscouche">Sous-couche</h4>
+<p>Les sous-couches suivent les mêmes règles de priorité que les couches : un <code>&lt;map-title&gt;</code> à l'intérieur du
+<code>&lt;map-extent&gt;</code> a priorité sur l'attribut <code>&lt;map-extent label=&quot;...&quot;&gt;</code>, qui a lui-même priorité sur le nom par
+défaut « Sous-couche ».</p>
+<p>Cependant, si une sous-couche n'est pas significativement distincte de sa couche parente, par exemple,
+lorsqu'une couche contient un seul <code>&lt;map-extent&gt;</code> qui fournit tout son contenu, il est souvent préférable
+d'appliquer l'attribut <code>hidden</code> au <code>&lt;map-extent&gt;</code> plutôt que de lui donner un <code>label</code>. Cela garde la
+sous-couche hors du contrôle de couche et simplifie l'expérience utilisateur. Réservez les libellés aux
+sous-couches que les utilisateurs ont réellement besoin d'activer, de réordonner, ou dont ils doivent ajuster
+les paramètres indépendamment de leur couche parente.</p>
+<h3 id="opacity-de-la-couche-et-de-la-souscouche"><code>opacity</code> de la couche et de la sous-couche</h3>
+<p>L'attribut <code>opacity</code> (0–1, incréments de 0,1) contrôle la transparence de la couche et de la sous-couche,
+qui sont cumulatives. Les utilisateurs peuvent également ajuster l'opacité via le curseur du contrôle de
+couche. En général, laissez l'opacité des couches à la discrétion de l'utilisateur.</p>
+<gcds-ext-map lat="53.087426" lon="-91.27533" zoom="4" projection="OSMTILE" controls style="height: 400px;">
+  <map-layer opacity="0.5" checked src="/gcds-ext-map/components/gcds-ext-map/dist/gcds-ext-map/assets/mapml/fr/osmtile/cbmt"></map-layer>
+</gcds-ext-map>
+
+<div style="position: relative" id="code-container-150" >
+  <pre class="language-html"><code id="code-150" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-ext-map</span> <span class="token attr-name">lat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>53.087426<span class="token punctuation">"</span></span> <span class="token attr-name">lon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-91.27533<span class="token punctuation">"</span></span> <span class="token attr-name">zoom</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4<span class="token punctuation">"</span></span> <span class="token attr-name">projection</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>OSMTILE<span class="token punctuation">"</span></span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-layer</span> <span class="token attr-name">opacity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.5<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>couche.mapml<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-layer</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-ext-map</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-150"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+<h3 id="requetes-media-de-la-couche">Requêtes <code>media</code> de la couche</h3>
+<p>L'attribut <code>media</code> accepte une
+<a href="https://maps4html.org/web-map-doc/fr/docs/api/mapml-viewer-api/#fonctionnalit%C3%A9s-de-requ%C3%AAte-m%C3%A9dia-prises-en-charge-pour-la-carte">requête média de carte</a>.
+Lorsqu'il est spécifié, la couche est active uniquement lorsque la requête correspond à l'état actuel de la
+carte (par ex. le zoom de la carte correspond à une plage spécifiée), et désactivée autrement. Essayez de
+zoomer au-delà du niveau de zoom 6 pour voir la couche superposée (et le contrôle de couche lui-même)
+disparaître.</p>
+<div style="position: relative;">
+  <gcds-ext-map id="zoom-demo-map" lat="53.087426" lon="-91.27533" zoom="4" projection="OSMTILE" controls style="height: 400px;">
+    <map-layer checked hidden src="/gcds-ext-map/components/gcds-ext-map/dist/gcds-ext-map/assets/mapml/fr/osmtile/cbmt"></map-layer>
+    <map-layer checked media="(0 <= map-zoom <= 6)" src="/gcds-ext-map/components/gcds-ext-map/dist/gcds-ext-map/assets/mapml/fr/osmtile/current_conditions"></map-layer>
+  </gcds-ext-map>
+  <gcds-text id="zoom-demo-text" character-limit="false" margin-bottom="0" style="position: absolute; top: 8px; left: 50%; transform: translateX(-50%); z-index: 1000; background: rgba(255, 255, 255, 0.85); padding: 0.25rem 0.5rem; border-radius: 4px; color: #000; pointer-events: none;">Zoom = 4</gcds-text>
+</div>
+<script>
+  (function () {
+    var map = document.getElementById('zoom-demo-map');
+    var text = document.getElementById('zoom-demo-text');
+    if (!map || !text) return;
+    var update = function () {
+      text.textContent = 'Zoom = ' + map.zoom;
+    };
+    map.addEventListener('zoomend', update);
+    map.addEventListener('map-moveend', update);
+  })();
+</script>
+
+<div style="position: relative" id="code-container-158" >
+  <pre class="language-html"><code id="code-158" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>gcds-ext-map</span> <span class="token attr-name">lat</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>53.087426<span class="token punctuation">"</span></span> <span class="token attr-name">lon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>-91.27533<span class="token punctuation">"</span></span> <span class="token attr-name">zoom</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>4<span class="token punctuation">"</span></span> <span class="token attr-name">projection</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>OSMTILE<span class="token punctuation">"</span></span> <span class="token attr-name">controls</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-layer</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>couche_de_base.mapml<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span> <span class="token attr-name">hidden</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-layer</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>map-layer</span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(0 &lt;= map-zoom &lt;= 6)<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>superposition.mapml<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>map-layer</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>gcds-ext-map</span><span class="token punctuation">></span></span></code></pre>
+
+  <button class="code-copy "
+    data-clipboard-target="#code-158"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
+  </button>
+</div>
+<h2 id="generateur-de-code">Générateur de code</h2>
+<h3 id="generateur-de-code">Générateur de code</h3>
 <p>Générez une version du composant dont vous avez besoin en sélectionnant les propriétés de code correspondantes ou explorez les possibilités en choisissant différentes valeurs de code.</p>
 <ol class="list-decimal mb-300"><li>
 <p>Choisissez des valeurs de code pour obtenir l'élément que vous voulez.</p>
@@ -2848,15 +3079,222 @@ Aperçu du composant <code>&lt;map-layer&gt;</code>
 </li>
 </ol>
 <p><strong>Remarque</strong> : Conformément à la pratique courante, le générateur de code utilise l'anglais pour tous les éléments de code.</p>
+<!-- height="100" est un espace réservé ; le partial storybook-resize redimensionne cet iframe automatiquement -->
 <iframe
-  title="Aperçu des propriétés et événements de map-layer."
-  src="https://nrcan.github.io/gcds-map/storybook/iframe.html?id=components-map--events-properties&viewMode=docs&demo=true&singleStory=true&lang=en"
-  width="1200"
-  height="2075"
-  style="display: block; margin: 0 auto;"
+  title="Générateur de code map-layer avec propriétés et événements."
+  src="https://nrcan.github.io/gcds-ext-map/storybook/iframe.html?id=components-layer--events-properties&viewMode=docs&demo=true&singleStory=true&lang=fr"
+  width="100%"
+  height="100"
+  style="display: block; border: 0;"
+  scrolling="no"
   frameBorder="0"
-  allow="clipboard-write"
-></iframe>
+  allow="clipboard-write; fullscreen"
+  allowfullscreen></iframe>
+<script>
+  // ── Iframe auto-resize ──
+  // Storybook iframes use height="100" as a placeholder. The embedded Storybook
+  // page (via preview-head.html) posts 'storybook-resize' messages reporting its
+  // actual document height. This listener receives those messages and resizes the
+  // matching iframe to fit the content without scrollbars.
+  window.addEventListener('message', (ev) => {
+    if (ev.data && ev.data.type === 'storybook-resize' && ev.data.src) {
+      const reportedId = new URL(ev.data.src).searchParams.get('id');
+      document.querySelectorAll('iframe').forEach((iframe) => {
+        try {
+          const iframeId = new URL(iframe.src).searchParams.get('id');
+          if (reportedId && reportedId === iframeId) {
+            iframe.style.height = ev.data.height + 'px';
+          }
+        } catch(e) {}
+      });
+    }
+  });
+</script>
+<script>
+  // ── Live code showcase: serialize actual gcds-ext-map DOM into code blocks ──
+  // For each <gcds-ext-map> followed by a code block, this script replaces the static
+  // example markup with a live serialization of the map's DOM. The code block
+  // updates whenever the user pans or zooms.
+  (function() {
+    var INDENT = '  ';
+    // Attributes added by Stencil runtime that should be stripped
+    var STRIP_ATTRS = ['s-id', 'c-id', 'class', 'role'];
+    // Elements injected by Stencil runtime
+    var STRIP_TAGS = ['STYLE'];
+
+    function shouldSkip(node) {
+      if (node.nodeType === Node.ELEMENT_NODE && STRIP_TAGS.indexOf(node.tagName) >= 0) return true;
+      // Skip comment nodes
+      if (node.nodeType === Node.COMMENT_NODE) return true;
+      return false;
+    }
+
+    function prettyPrint(node, depth) {
+      depth = depth || 0;
+      var pad = '';
+      for (var i = 0; i < depth; i++) pad += INDENT;
+
+      if (node.nodeType === Node.TEXT_NODE) {
+        var text = node.textContent.trim();
+        return text ? pad + text + '\n' : '';
+      }
+      if (node.nodeType !== Node.ELEMENT_NODE) return '';
+      if (shouldSkip(node)) return '';
+
+      var tag = node.tagName.toLowerCase();
+      var attrs = '';
+      for (var a = 0; a < node.attributes.length; a++) {
+        var attr = node.attributes[a];
+        if (STRIP_ATTRS.indexOf(attr.name) >= 0) continue;
+        // Skip the page-specific inline style on gcds-ext-map
+        if (tag === 'gcds-ext-map' && attr.name === 'style') continue;
+        if (attr.value === '') {
+          attrs += ' ' + attr.name;
+        } else {
+          attrs += ' ' + attr.name + '="' + attr.value + '"';
+        }
+      }
+
+      // Collect non-empty children
+      var childOutput = '';
+      for (var c = 0; c < node.childNodes.length; c++) {
+        childOutput += prettyPrint(node.childNodes[c], depth + 1);
+      }
+
+      if (!childOutput) return pad + '<' + tag + attrs + '></' + tag + '>\n';
+
+      // Single-line text content
+      if (node.childNodes.length === 1 && node.firstChild.nodeType === Node.TEXT_NODE) {
+        var t = node.firstChild.textContent.trim();
+        if (t) return pad + '<' + tag + attrs + '>' + t + '</' + tag + '>\n';
+      }
+
+      return pad + '<' + tag + attrs + '>\n' + childOutput + pad + '</' + tag + '>\n';
+    }
+
+    function serializeMap(mapEl) {
+      // Clone into a new document to avoid touching the live DOM
+      var html = mapEl.outerHTML;
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var clone = doc.body.firstElementChild;
+      // Sync live view state
+      clone.setAttribute('lat', mapEl.getAttribute('lat'));
+      clone.setAttribute('lon', mapEl.getAttribute('lon'));
+      clone.setAttribute('zoom', mapEl.getAttribute('zoom'));
+      return prettyPrint(clone).replace(/\n$/, '');
+    }
+
+    function findCodeContainer(mapEl) {
+      // If the map is wrapped in an overlay container (e.g. position:relative div
+      // hosting an overlay <gcds-button>), step out of the wrapper to look for the
+      // sibling code block.
+      var startNode = mapEl;
+      var parent = mapEl.parentElement;
+      if (
+        parent &&
+        parent.tagName === 'DIV' &&
+        parent !== document.body &&
+        !parent.querySelector('pre')
+      ) {
+        startNode = parent;
+      }
+      var next = startNode.nextElementSibling;
+      if (!next) return null;
+      // The clipboard plugin wraps <pre> in <div style="position: relative">
+      if (next.tagName === 'DIV' && next.querySelector('pre')) {
+        return { wrapper: next, code: next.querySelector('code'), preceding: startNode };
+      }
+      if (next.tagName === 'PRE') {
+        return { wrapper: next, code: next.querySelector('code'), preceding: startNode };
+      }
+      return null;
+    }
+
+    function updateCode(mapEl, codeEl) {
+      var text = serializeMap(mapEl);
+      codeEl.textContent = text;
+      if (typeof Prism !== 'undefined') Prism.highlightElement(codeEl);
+    }
+
+    customElements.whenDefined('gcds-ext-map').then(function() {
+      document.querySelectorAll('gcds-ext-map').forEach(function(mapEl) {
+        var target = findCodeContainer(mapEl);
+        if (!target) return;
+
+        // Style for flush appearance
+        mapEl.classList.add('map-preview');
+        target.wrapper.classList.add('map-preview-code');
+        // If the map sits inside an overlay wrapper, mark it so CSS can remove the gap.
+        if (target.preceding !== mapEl) {
+          target.preceding.classList.add('map-preview-wrapper');
+        }
+
+        // Opt-out: examples that build the map at runtime (e.g. by injecting a
+        // large generated <map-layer>) can keep the flush styling but suppress
+        // the live serializer by adding data-static-code on <gcds-ext-map>.
+        if (mapEl.hasAttribute('data-static-code')) return;
+
+        // Initial serialize: replace static example code with live DOM
+        updateCode(mapEl, target.code);
+
+        // Update code on map move
+        mapEl.addEventListener('map-moveend', function() {
+          updateCode(mapEl, target.code);
+        });
+
+        // Update code on attribute changes (e.g., projection toggled by overlay buttons)
+        var attrObserver = new MutationObserver(function() {
+          updateCode(mapEl, target.code);
+        });
+        attrObserver.observe(mapEl, { attributes: true });
+      });
+    });
+  })();
+</script>
+<style>
+  /* Flush map + code block: no gap, shared border */
+  gcds-ext-map[style] + div[id^="code-container"] {
+    margin-top: 0 !important;
+  }
+  gcds-ext-map[style] + div[id^="code-container"] > pre {
+    margin: 0 !important;
+  }
+  gcds-ext-map.map-preview {
+    display: block;
+    margin-bottom: 0 !important;
+    border: var(--gcds-border-width-md) solid currentColor;
+    border-bottom: none;
+    border-radius: var(--gcds-border-radius-md) var(--gcds-border-radius-md) 0 0;
+    overflow: hidden;
+  }
+  /* When the map is wrapped in an overlay container, the wrapper takes over the
+     flush-with-code styling and the inner gcds-ext-map drops its own border. */
+  .map-preview-wrapper {
+    margin-bottom: 0 !important;
+    border: var(--gcds-border-width-md) solid currentColor;
+    border-bottom: none;
+    border-radius: var(--gcds-border-radius-md) var(--gcds-border-radius-md) 0 0;
+    overflow: hidden;
+  }
+  .map-preview-wrapper > gcds-ext-map.map-preview {
+    border: none;
+    border-radius: 0;
+  }
+  .map-preview-wrapper + div[id^="code-container"],
+  .map-preview-wrapper + pre {
+    margin-top: 0 !important;
+  }
+  .map-preview-code {
+    margin-top: 0 !important;
+    border: var(--gcds-border-width-md) solid currentColor;
+    border-top: none;
+    border-radius: 0 0 var(--gcds-border-radius-md) var(--gcds-border-radius-md) !important;
+  }
+  .map-preview-code pre {
+    margin: 0 !important;
+    border-radius: 0 0 var(--gcds-border-radius-md) var(--gcds-border-radius-md) !important;
+  }
+</style>
 
 
   <section data-pagefind-ignore class="my-600 bt-sm b-dark ">
@@ -2880,7 +3318,7 @@ Aperçu du composant <code>&lt;map-layer&gt;</code>
   <gcds-button
     type="link"
     button-role="secondary"
-    href="https://github.com/nrcan/gcds-map/issues"
+    href="https://github.com/nrcan/gcds-ext-map/issues"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -2891,7 +3329,7 @@ Aperçu du composant <code>&lt;map-layer&gt;</code>
 
 
           <gcds-date-modified class="mb-300">
-            2026-02-05
+            2026-07-10
           </gcds-date-modified>
         </main>
       </gcds-grid>
@@ -2901,7 +3339,7 @@ Aperçu du composant <code>&lt;map-layer&gt;</code>
   lang="fr"
   contextual-heading="Système de design GC"
   contextual-links='{ "À propos": "/fr/a-propos", "Déclaration d&#39;accessibilité": "/fr/accessibilite/", "Accord sur les niveaux de service": "/fr/entente-sur-les-niveaux-de-service/" }'
-  sub-links='{ "Médias sociaux": "https://www.canada.ca/fr/sociaux.html", "Applications mobiles": "https://www.canada.ca/fr/mobile.html", "À propos de Canada.ca": "https://www.canada.ca/fr/gouvernement/a-propos-canada-ca.html", "Conditions d&#39;utilisation": "/gcds-map/fr/conditions-dutilisation", "Confidentialité": "/gcds-map/fr/avis-de-confidentialite/" }'
+  sub-links='{ "Médias sociaux": "https://www.canada.ca/fr/sociaux.html", "Applications mobiles": "https://www.canada.ca/fr/mobile.html", "À propos de Canada.ca": "https://www.canada.ca/fr/gouvernement/a-propos-canada-ca.html", "Conditions d&#39;utilisation": "/gcds-ext-map/fr/conditions-dutilisation", "Confidentialité": "/gcds-ext-map/fr/avis-de-confidentialite/" }'
 ></gcds-footer>
 
     </div>

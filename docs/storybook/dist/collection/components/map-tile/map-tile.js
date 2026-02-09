@@ -159,7 +159,7 @@ export class MapTile {
         map.setView(center, Util.getMaxZoom(bounds, map, minZoom, maxZoom), { animate: false });
     }
     getMapEl() {
-        return Util.getClosest(this.el, 'gcds-map');
+        return Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return Util.getClosest(this.el, 'map-layer,layer-');
@@ -368,4 +368,3 @@ export class MapTile {
             }];
     }
 }
-//# sourceMappingURL=map-tile.js.map

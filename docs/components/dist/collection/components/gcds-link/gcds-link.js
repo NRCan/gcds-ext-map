@@ -15,7 +15,7 @@ export class GcdsLink {
         /**
          * Sets the main style of the link.
          */
-        this.variant = 'default';
+        this.linkRole = 'default';
         /**
          * Set the link size
          */
@@ -37,10 +37,10 @@ export class GcdsLink {
          */
         this.inheritedAttributes = {};
     }
-    validateVariant(newValue) {
+    validateLinkRole(newValue) {
         const values = ['default', 'light'];
         if (!values.includes(newValue)) {
-            this.variant = 'default';
+            this.linkRole = 'default';
         }
     }
     validateSize(newValue) {
@@ -68,7 +68,7 @@ export class GcdsLink {
     }
     componentWillLoad() {
         // Validate attributes and set defaults
-        this.validateVariant(this.variant);
+        this.validateLinkRole(this.linkRole);
         this.validateSize(this.size);
         this.validateDisplay(this.display);
         this.inheritedAttributes = inheritAttributes(this.el, this.shadowElement, [
@@ -78,8 +78,29 @@ export class GcdsLink {
         this.lang = assignLanguage(this.el);
         this.updateLang();
     }
+    /**
+     * Returns the correct icon for the link, if applicable.
+     * If none of these conditions match, no icon is rendered.
+     */
+    getIcon() {
+        const { href, target, external, download, lang } = this;
+        const isExternal = target === '_blank' || external;
+        if (isExternal) {
+            return h("gcds-icon", { name: "external", label: i18n[lang].external });
+        }
+        if (download !== undefined) {
+            return h("gcds-icon", { name: "download", label: i18n[lang].download });
+        }
+        if (href === null || href === void 0 ? void 0 : href.toLowerCase().startsWith('mailto:')) {
+            return h("gcds-icon", { name: "email", label: i18n[lang].email });
+        }
+        if (href === null || href === void 0 ? void 0 : href.toLowerCase().startsWith('tel:')) {
+            return h("gcds-icon", { name: "phone", label: i18n[lang].phone });
+        }
+        return null;
+    }
     render() {
-        const { size, lang, display, href, rel, target, external, download, type, inheritedAttributes, variant, } = this;
+        const { size, display, href, rel, target, external, download, type, inheritedAttributes, linkRole, } = this;
         const attrs = {
             href,
             rel,
@@ -88,8 +109,7 @@ export class GcdsLink {
             type,
         };
         const isExternal = target === '_blank' || external;
-        return (h(Host, { key: '8cd9092b220f6cea2f5311e3053e0fbed489b40e' }, h("a", Object.assign({ key: '112763038c0564dd208a1172c28c26026c27b511', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${variant != 'default' ? `variant-${variant}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: '749225ef8d310a8499061c7b8e6831ea3d68cad0' }), target === '_blank' || external ? (h("gcds-icon", { name: "external", label: i18n[lang].external, "margin-left": "75" })) : download !== undefined ? (h("gcds-icon", { name: "download", label: i18n[lang].download, "margin-left": "75" })) : href && href.toLowerCase().startsWith('mailto:') ? (h("gcds-icon", { name: "email", label: i18n[lang].email, "margin-left": "75" })) : (href &&
-            href.toLowerCase().startsWith('tel:') && (h("gcds-icon", { name: "phone", label: i18n[lang].phone, "margin-left": "75" }))))));
+        return (h(Host, { key: 'be11bc7a4e4c284633054cdc9a2374af97b0ac27' }, h("a", Object.assign({ key: '5a12d4e848d792c42b4805bb83b81387ccbc699e', tabIndex: 0 }, attrs, { class: `gcds-link link--${size} ${display != 'inline' ? `d-${display}` : ''} ${linkRole != 'default' ? `role-${linkRole}` : ''}`, ref: element => (this.shadowElement = element), target: isExternal ? '_blank' : target, rel: isExternal ? 'noopener noreferrer' : rel }, inheritedAttributes, { part: "link", onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => emitEvent(e, this.gcdsClick, href) }), h("slot", { key: '7058ae9242230b4f77542a3453d2a273e6bdfd18' }), this.getIcon() && (h("span", { key: '2c14791e6082d0ff8d3308c7922f6f0902da055d', class: "text-icon-group" }, "\u00A0", this.getIcon())))));
     }
     static get is() { return "gcds-link"; }
     static get encapsulation() { return "shadow"; }
@@ -105,9 +125,8 @@ export class GcdsLink {
     }
     static get properties() {
         return {
-            "variant": {
+            "linkRole": {
                 "type": "string",
-                "attribute": "variant",
                 "mutable": true,
                 "complexType": {
                     "original": "'default' | 'light'",
@@ -123,11 +142,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "link-role",
                 "defaultValue": "'default'"
             },
             "size": {
                 "type": "string",
-                "attribute": "size",
                 "mutable": true,
                 "complexType": {
                     "original": "'regular' | 'small' | 'inherit'",
@@ -143,11 +162,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "size",
                 "defaultValue": "'inherit'"
             },
             "display": {
                 "type": "string",
-                "attribute": "display",
                 "mutable": true,
                 "complexType": {
                     "original": "'block' | 'inline'",
@@ -163,11 +182,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "display",
                 "defaultValue": "'inline'"
             },
             "href": {
                 "type": "string",
-                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -182,11 +201,11 @@ export class GcdsLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "href"
             },
             "rel": {
                 "type": "string",
-                "attribute": "rel",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -201,11 +220,11 @@ export class GcdsLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "rel"
             },
             "target": {
                 "type": "string",
-                "attribute": "target",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -221,11 +240,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "target",
                 "defaultValue": "'_self'"
             },
             "external": {
                 "type": "boolean",
-                "attribute": "external",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -241,11 +260,11 @@ export class GcdsLink {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "external",
                 "defaultValue": "false"
             },
             "download": {
                 "type": "string",
-                "attribute": "download",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -260,11 +279,11 @@ export class GcdsLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "download"
             },
             "type": {
                 "type": "string",
-                "attribute": "type",
                 "mutable": false,
                 "complexType": {
                     "original": "string | undefined",
@@ -279,7 +298,8 @@ export class GcdsLink {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "type"
             }
         };
     }
@@ -340,8 +360,8 @@ export class GcdsLink {
     static get elementRef() { return "el"; }
     static get watchers() {
         return [{
-                "propName": "variant",
-                "methodName": "validateVariant"
+                "propName": "linkRole",
+                "methodName": "validateLinkRole"
             }, {
                 "propName": "size",
                 "methodName": "validateSize"
@@ -351,4 +371,3 @@ export class GcdsLink {
             }];
     }
 }
-//# sourceMappingURL=gcds-link.js.map

@@ -190,7 +190,10 @@ export class GcdsSelect {
         const validity = this.shadowElement.validity;
         let validationMessage = null;
         if (validity === null || validity === void 0 ? void 0 : validity.valueMissing) {
-            validationMessage = this.lang === 'en' ? 'Choose an option to continue.' : 'Choisissez une option pour continuer.';
+            validationMessage =
+                this.lang === 'en'
+                    ? 'Choose an option to continue.'
+                    : 'Choisissez une option pour continuer.';
         }
         this.internals.setValidity(validity, validationMessage, this.shadowElement);
         // Set select title when HTML error occruring
@@ -208,8 +211,6 @@ export class GcdsSelect {
         };
         const observer = new MutationObserver(() => {
             this.options = Array.from(this.el.children);
-            // Reset value to null to prevent unwanted selection
-            this.value = null;
         });
         observer.observe(this.el, config);
     }
@@ -281,7 +282,7 @@ export class GcdsSelect {
                 ? `${attrsSelect['aria-describedby']}`
                 : ''}`;
         }
-        return (h(Host, { key: '896b50853f39ed4da9bfcaa2f9d7e90ff837c8d6' }, h("div", { key: 'b908f1cc32d6731196e9e2681ddad1956783f593', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}` }, h("gcds-label", Object.assign({ key: '52627d1f6c3e0e33f17f504aa57d9804a23abca1' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: 'f996305b187039b81b40e491e104bd4a4e4c57ed' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
+        return (h(Host, { key: '96d13736e97c6cd165def86e834e8e913da7883d' }, h("div", { key: 'c226ed1c624942877cdcfbd088e86fdb46cd4fe6', class: `gcds-select-wrapper ${disabled ? 'gcds-disabled' : ''} ${hasError ? 'gcds-error' : ''}`, part: "wrapper" }, h("gcds-label", Object.assign({ key: 'a07f3de00c68794b0196e6ad8042612d200e5f76' }, attrsLabel, { "hide-label": hideLabel, "label-for": selectId, lang: lang })), hint ? h("gcds-hint", { "hint-id": selectId }, hint) : null, errorMessage ? (h("gcds-error-message", { messageId: selectId }, errorMessage)) : null, h("select", Object.assign({ key: '3a99f318ad798ec20a73af2bf3fd1dbf52f311b5' }, attrsSelect, { id: selectId, onBlur: () => this.onBlur(), onFocus: () => this.gcdsFocus.emit(), onInput: e => this.handleInput(e, this.gcdsInput), onChange: e => this.handleInput(e, this.gcdsChange), "aria-invalid": inheritedAttributes['aria-invalid'] === 'true'
                 ? inheritedAttributes['aria-invalid']
                 : errorMessage
                     ? 'true'
@@ -321,7 +322,6 @@ export class GcdsSelect {
         return {
             "selectId": {
                 "type": "string",
-                "attribute": "select-id",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -336,11 +336,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "select-id"
             },
             "label": {
                 "type": "string",
-                "attribute": "label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -355,11 +355,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "label"
             },
             "hideLabel": {
                 "type": "boolean",
-                "attribute": "hide-label",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -375,11 +375,11 @@ export class GcdsSelect {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "hide-label",
                 "defaultValue": "false"
             },
             "name": {
                 "type": "string",
-                "attribute": "name",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -394,11 +394,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "name"
             },
             "required": {
                 "type": "boolean",
-                "attribute": "required",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -414,11 +414,11 @@ export class GcdsSelect {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "required",
                 "defaultValue": "false"
             },
             "disabled": {
                 "type": "boolean",
-                "attribute": "disabled",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -434,11 +434,11 @@ export class GcdsSelect {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "disabled",
                 "defaultValue": "false"
             },
             "defaultValue": {
                 "type": "string",
-                "attribute": "default-value",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -453,11 +453,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "default-value"
             },
             "autofocus": {
                 "type": "boolean",
-                "attribute": "autofocus",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -472,11 +472,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "autofocus"
             },
             "form": {
                 "type": "string",
-                "attribute": "form",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -491,11 +491,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "form"
             },
             "autocomplete": {
                 "type": "string",
-                "attribute": "autocomplete",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -510,11 +510,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "autocomplete"
             },
             "value": {
                 "type": "string",
-                "attribute": "value",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -529,11 +529,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": false
+                "reflect": false,
+                "attribute": "value"
             },
             "errorMessage": {
                 "type": "string",
-                "attribute": "error-message",
                 "mutable": true,
                 "complexType": {
                     "original": "string",
@@ -548,11 +548,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "error-message"
             },
             "hint": {
                 "type": "string",
-                "attribute": "hint",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -567,11 +567,11 @@ export class GcdsSelect {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "hint"
             },
             "validity": {
                 "type": "unknown",
-                "attribute": "validity",
                 "mutable": false,
                 "complexType": {
                     "original": "ValidityState",
@@ -594,7 +594,6 @@ export class GcdsSelect {
             },
             "validator": {
                 "type": "unknown",
-                "attribute": "validator",
                 "mutable": true,
                 "complexType": {
                     "original": "Array<\n    string | ValidatorEntry | Validator<string>\n  >",
@@ -607,12 +606,14 @@ export class GcdsSelect {
                         "ValidatorEntry": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::ValidatorEntry"
+                            "id": "src/validators/index.ts::ValidatorEntry",
+                            "referenceLocation": "ValidatorEntry"
                         },
                         "Validator": {
                             "location": "import",
                             "path": "../../validators",
-                            "id": "src/validators/index.ts::Validator"
+                            "id": "src/validators/index.ts::Validator",
+                            "referenceLocation": "Validator"
                         }
                     }
                 },
@@ -627,7 +628,6 @@ export class GcdsSelect {
             },
             "validateOn": {
                 "type": "string",
-                "attribute": "validate-on",
                 "mutable": true,
                 "complexType": {
                     "original": "'blur' | 'submit' | 'other'",
@@ -643,6 +643,7 @@ export class GcdsSelect {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "validate-on",
                 "defaultValue": "'blur'"
             }
         };
@@ -843,4 +844,3 @@ export class GcdsSelect {
     }
     static get attachInternalsMemberName() { return "internals"; }
 }
-//# sourceMappingURL=gcds-select.js.map

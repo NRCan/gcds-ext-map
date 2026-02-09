@@ -143,4 +143,3 @@ export class MapSelect {
             }];
     }
 }
-//# sourceMappingURL=map-select.js.map

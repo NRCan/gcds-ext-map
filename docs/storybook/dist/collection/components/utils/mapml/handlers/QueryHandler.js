@@ -9,6 +9,39 @@ import {
 import { MapFeatureLayer } from '../layers/MapFeatureLayer.js';
 import { featureRenderer } from '../features/featureRenderer.js';
 
+// Determine if a GeoJSON object has projected (non-CRS:84) coordinates.
+// Returns true if a "crs" member is present and non-null, or if coordinate
+// values exceed CRS:84 bounds (lon [-180,180], lat [-90,90]), indicating
+// meter-based projected units (e.g. from WMS GetFeatureInfo responses).
+function _hasProjectedCoordinates(json) {
+  if (json.crs != null) return true;
+  let c = _firstCoordinate(json);
+  return c !== null && (Math.abs(c[0]) > 180 || Math.abs(c[1]) > 90);
+}
+
+// Extract the first [x, y] coordinate pair from a GeoJSON object,
+// drilling into FeatureCollection → Feature → Geometry → coordinates.
+function _firstCoordinate(json) {
+  if (!json) return null;
+  let type = json.type && json.type.toUpperCase();
+  if (type === 'FEATURECOLLECTION') {
+    if (json.features && json.features.length > 0)
+      return _firstCoordinate(json.features[0]);
+  } else if (type === 'FEATURE') {
+    return _firstCoordinate(json.geometry);
+  } else if (json.coordinates) {
+    // Unwrap nested arrays until we reach a [number, number] pair
+    let coords = json.coordinates;
+    while (Array.isArray(coords) && Array.isArray(coords[0])) {
+      coords = coords[0];
+    }
+    if (coords.length >= 2 && typeof coords[0] === 'number') return coords;
+  } else if (type === 'GEOMETRYCOLLECTION' && json.geometries) {
+    if (json.geometries.length > 0) return _firstCoordinate(json.geometries[0]);
+  }
+  return null;
+}
+
 export var QueryHandler = Handler.extend({
   addHooks: function () {
     // get a reference to the actual <map> element, so we can
@@ -149,6 +182,82 @@ export var QueryHandler = Handler.extend({
             );
             if (queryMetas.length)
               features.forEach((f) => (f.meta = queryMetas));
+          } else if (
+            response.contenttype.startsWith('application/json') ||
+            response.contenttype.startsWith('application/geo+json') ||
+            response.contenttype.startsWith('application/geojson')
+          ) {
+            try {
+              let json = JSON.parse(response.text);
+              // Replace null geometries with a point at the click location
+              // so geojson2mapml can process the features without error
+              let clickPoint = {
+                type: 'Point',
+                coordinates: [e.latlng.lng, e.latlng.lat]
+              };
+              if (json.type === 'FeatureCollection' && json.features) {
+                for (let f of json.features) {
+                  if (f.geometry === null || f.geometry === undefined) {
+                    f.geometry = clickPoint;
+                  }
+                }
+              } else if (json.type === 'Feature') {
+                if (json.geometry === null || json.geometry === undefined) {
+                  json.geometry = clickPoint;
+                }
+              }
+              let mapmlLayer = M.geojson2mapml(json, {
+                projection: layer.options.projection
+              });
+              // if crs member is present and non-null, or coordinate
+              // values exceed CRS:84 range, the response coordinates
+              // are in the layer's projected CRS, not CRS:84
+              if (_hasProjectedCoordinates(json)) {
+                let csMeta = mapmlLayer.querySelector('map-meta[name=cs]');
+                if (csMeta) csMeta.setAttribute('content', 'pcrs');
+              }
+              features = Array.prototype.slice.call(
+                mapmlLayer.querySelectorAll('map-feature')
+              );
+              queryMetas = Array.prototype.slice.call(
+                mapmlLayer.querySelectorAll(
+                  'map-meta[name=cs], map-meta[name=zoom], map-meta[name=projection]'
+                )
+              );
+              let geometrylessFeatures = features.filter(
+                (f) => !f.querySelector('map-geometry')
+              );
+              if (geometrylessFeatures.length) {
+                let g = parser.parseFromString(geom, 'text/html');
+                for (let f of geometrylessFeatures) {
+                  f.appendChild(
+                    g.querySelector('map-geometry').cloneNode(true)
+                  );
+                }
+              }
+              if (queryMetas.length)
+                features.forEach((f) => (f.meta = queryMetas));
+            } catch (err) {
+              // not valid GeoJSON, fall through to HTML rendering
+              let html = parser.parseFromString(response.text, 'text/html');
+              let featureDoc = parser.parseFromString(
+                '<map-feature><map-properties>' +
+                  '</map-properties>' +
+                  geom +
+                  '</map-feature>',
+                'text/html'
+              );
+              if (html.body) {
+                featureDoc
+                  .querySelector('map-properties')
+                  .appendChild(html.querySelector('html'));
+              } else {
+                featureDoc
+                  .querySelector('map-properties')
+                  .append(response.text);
+              }
+              features.push(featureDoc.querySelector('map-feature'));
+            }
           } else {
             try {
               let featureDocument = parser.parseFromString(

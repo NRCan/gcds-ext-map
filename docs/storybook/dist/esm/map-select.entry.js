@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement } from './index-PZrWUcjo.js';
+import { r as registerInstance, g as getElement } from './index-BUsJ7i5g.js';
 
 const MapSelect = class {
     constructor(hostRef) {
@@ -89,9 +89,10 @@ const MapSelect = class {
         return null;
     }
     static get watchers() { return {
-        "name": ["nameChanged"]
+        "name": [{
+                "nameChanged": 0
+            }]
     }; }
 };
 
 export { MapSelect as map_select };
-//# sourceMappingURL=map-select.entry.js.map

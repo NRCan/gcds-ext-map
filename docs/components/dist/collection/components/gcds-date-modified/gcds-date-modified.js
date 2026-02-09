@@ -58,7 +58,7 @@ export class GcdsDateModified {
     }
     render() {
         const { lang, type } = this;
-        return (h(Host, { key: 'cda63407c2b6dc57f860d505f61a9f78c15c96b3' }, this.validateRequiredProps() && (h("dl", { key: '3324ca2c0c64c5f89c4a398344f3892fb1637073', class: "gcds-date-modified" }, h("dt", { key: '46bb18c35af4cfccd2e8cc71943fb3bee51de503' }, h("gcds-text", { key: 'd9b12fc046a396ba12817b210eb100980c59d720', display: "inline", "margin-bottom": "0" }, type === 'version' ? i18n[lang].version : i18n[lang].date)), h("dd", { key: 'cc81cb879d8fc1a06832aa6f80d29c179892afc7' }, h("gcds-text", { key: 'cebba414553c7357b8bf9033d4d84e2a2ec03521', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
+        return (h(Host, { key: '1c0180127dc767b6325799407aee9610452ba009' }, this.validateRequiredProps() && (h("dl", { key: 'd4814585e3662edd273b2b5ba51f4afca50c2f9d', class: "gcds-date-modified" }, h("dt", { key: 'c0f27815209a9a37e5a8d16bde2ccd0dc6beea2d' }, h("gcds-text", { key: '1295064a3da09ce540b1236eac44aad5dc0dec27', display: "inline", "margin-bottom": "0" }, type === 'version' ? i18n[lang].version : i18n[lang].date)), h("dd", { key: '84ab0a6e2f87a96a7159bfc63670ce6f60fc9c53' }, h("gcds-text", { key: '28857771b0c12e53e246e7d8c04f473667d1e99a', display: "inline", "margin-bottom": "0" }, type === 'version' ? (h("slot", null)) : (h("time", null, h("slot", null)))))))));
     }
     static get is() { return "gcds-date-modified"; }
     static get encapsulation() { return "shadow"; }
@@ -76,7 +76,6 @@ export class GcdsDateModified {
         return {
             "type": {
                 "type": "string",
-                "attribute": "type",
                 "mutable": true,
                 "complexType": {
                     "original": "'date' | 'version'",
@@ -92,6 +91,7 @@ export class GcdsDateModified {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "type",
                 "defaultValue": "'date'"
             }
         };
@@ -104,4 +104,3 @@ export class GcdsDateModified {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-date-modified.js.map

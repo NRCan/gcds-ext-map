@@ -16,4 +16,3 @@ export class WidthInput {
         return this.layer._map.getSize().x;
     }
 }
-//# sourceMappingURL=widthInput.js.map

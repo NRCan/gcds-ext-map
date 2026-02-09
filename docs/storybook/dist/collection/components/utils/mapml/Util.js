@@ -429,13 +429,13 @@ export const Util = {
       if (!link.inPlace && zoomTo) updateMapZoomTo(zoomTo);
       
       // Wait for projection change to complete before calling layer.zoomTo()
-      // This ensures zoom constraints are set properly in projectionChanged (gcds-map.tsx)
+      // This ensures zoom constraints are set properly in projectionChanged (gcds-ext-map.tsx)
       // NOTE: We cannot determine in advance whether projection will change because:
       // 1. Would need to fetch/parse the MapML document first
       // 2. Would need to check if result leaves single layer (triggers projection change)
       // 3. This adds complexity and delays that offset the timeout benefit
       // So we always wait with 5000ms fallback. Tests must account for this delay.
-      // See: gcds-map.tsx projectionChanged() and test files for related code.
+      // See: gcds-ext-map.tsx projectionChanged() and test files for related code.
       const projectionChangePromise = new Promise(resolve => {
         const timeout = setTimeout(resolve, 5000); // Fallback if no projection change
         map.options.mapEl.addEventListener('map-projectionchange', () => {
@@ -1479,18 +1479,28 @@ export const Util = {
         json.features[num].geometry.geometries = [];
 
         let geoms = geom.children;
+        // Collect geometry elements from within map-a/map-span wrappers
+        // without using cloneNode (Stencil components don't clone properly)
+        const collectGeometries = (parent) => {
+          Array.from(parent.children).forEach((child) => {
+            let cn = child.nodeName.toUpperCase();
+            if (cn === 'MAP-SPAN' || cn === 'MAP-A') {
+              collectGeometries(child);
+            } else {
+              let geojson = Util._geometry2geojson(
+                child,
+                source,
+                dest,
+                options.transform
+              );
+              json.features[num].geometry.geometries.push(geojson);
+            }
+          });
+        };
         Array.from(geoms).forEach((g) => {
-          // omit all map-span, map-a that may be present in geometry-collection
           let n = g.nodeName.toUpperCase();
           if (n === 'MAP-SPAN' || n === 'MAP-A') {
-            g = g.cloneNode(true);
-            [...g.querySelectorAll('map-a, map-span')].forEach((e) =>
-              e.replaceWith(...e.children)
-            );
-            Array.from(g.children).forEach((i) => {
-              i = Util._geometry2geojson(i, source, dest, options.transform);
-              json.features[num].geometry.geometries.push(i);
-            });
+            collectGeometries(g);
           } else {
             g = Util._geometry2geojson(g, source, dest, options.transform);
             json.features[num].geometry.geometries.push(g);

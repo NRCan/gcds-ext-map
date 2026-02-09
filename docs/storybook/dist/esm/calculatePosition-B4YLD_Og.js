@@ -88,6 +88,3 @@ function calculatePosition(element) {
 }
 
 export { calculatePosition as c };
-//# sourceMappingURL=calculatePosition-B4YLD_Og.js.map
-
-//# sourceMappingURL=calculatePosition-B4YLD_Og.js.map

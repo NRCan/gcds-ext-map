@@ -1,4 +1,4 @@
-import { U as Util, l as leafletSrcExports, r as registerInstance, a as getElement } from './index-PZrWUcjo.js';
+import { U as Util, l as leafletSrcExports, r as registerInstance, g as getElement } from './index-BUsJ7i5g.js';
 
 class ZoomInput {
     name;
@@ -232,7 +232,7 @@ const MapInput = class {
     _layer;
     initialValue;
     getMapEl() {
-        return Util.getClosest(this.el, 'gcds-map');
+        return Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return Util.getClosest(this.el, 'map-layer,layer-');
@@ -249,7 +249,7 @@ const MapInput = class {
             // }
             switch (this.type) {
                 case 'zoom':
-                    // this could be a bug, but it's the same bug as the mapml-source zoom input
+                    // this could be a bug, but it's the same bug as the MapML.js zoom input
                     this.initialValue = +this.el.getAttribute('value');
                     // Publish for MapML compatibility
                     this.el.initialValue = this.initialValue;
@@ -344,4 +344,3 @@ const MapInput = class {
 };
 
 export { MapInput as map_input };
-//# sourceMappingURL=map-input.entry.js.map

@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement, U as Util, M as MapFeatureLayer, f as featureRenderer, l as leafletSrcExports, p as proj4 } from './index-PZrWUcjo.js';
+import { r as registerInstance, g as getElement, U as Util, M as MapFeatureLayer, f as featureRenderer, l as leafletSrcExports, p as proj4 } from './index-BUsJ7i5g.js';
 import { c as calculatePosition } from './calculatePosition-B4YLD_Og.js';
 
 const MapFeature = class {
@@ -115,7 +115,7 @@ const MapFeature = class {
         return calculatePosition(this.el);
     }
     getMapEl() {
-        return Util.getClosest(this.el, 'gcds-map');
+        return Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return Util.getClosest(this.el, 'map-layer,layer-');
@@ -619,11 +619,16 @@ const MapFeature = class {
         return null;
     }
     static get watchers() { return {
-        "zoom": ["zoomChanged"],
-        "min": ["minChanged"],
-        "max": ["maxChanged"]
+        "zoom": [{
+                "zoomChanged": 0
+            }],
+        "min": [{
+                "minChanged": 0
+            }],
+        "max": [{
+                "maxChanged": 0
+            }]
     }; }
 };
 
 export { MapFeature as map_feature };
-//# sourceMappingURL=map-feature.entry.js.map

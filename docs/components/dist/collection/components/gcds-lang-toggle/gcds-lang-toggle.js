@@ -23,7 +23,7 @@ export class GcdsLangToggle {
     }
     render() {
         const { lang, href } = this;
-        return (h(Host, { key: 'abb80842d149c0505fdfaeb1bea1d693f8ab7acd' }, h("div", { key: '544f51158c13552ca6d918a976851ae114d8b15b', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: 'ad847ef3d7b32528ac5a02d86907e7646a6133b6', id: "lang-toggle__heading", tag: "h2" }, i18n[lang].heading), h("gcds-link", { key: '7ed33cd0eee4468e60294eb449627a546128f9b8', size: "regular", href: href, lang: i18n[lang].abbreviation }, h("span", { key: 'd1586f4d7c5b2b0b16f5e123e0dbc1715e9a7616' }, i18n[lang].language), h("abbr", { key: '38bfded01448eeccd475feca0275d34cbb8745b3', title: i18n[lang].language }, i18n[lang].abbreviation)))));
+        return (h(Host, { key: 'f12de208eb52786450f1c4212e0b1d6716f75405' }, h("div", { key: '6c35c46a64ea431c30feb804c5c9b5022e181cd3', class: "gcds-lang-toggle" }, h("gcds-sr-only", { key: '0cbdffb1ae027b07fbf9f3a6af803af2a0f79f58', id: "lang-toggle__heading", tag: "h2" }, i18n[lang].heading), h("gcds-link", { key: 'fce48c5a07de4d05c78ac121feb93f86c18343f8', size: "regular", href: href, lang: i18n[lang].abbreviation }, h("span", { key: '4f7fe6e4596793f459dd834695b91948aa155839' }, i18n[lang].language), h("abbr", { key: '0c37e52fc3e196cf2d2666654044fc381e3c8cc6', title: i18n[lang].language }, i18n[lang].abbreviation)))));
     }
     static get is() { return "gcds-lang-toggle"; }
     static get encapsulation() { return "shadow"; }
@@ -41,7 +41,6 @@ export class GcdsLangToggle {
         return {
             "href": {
                 "type": "string",
-                "attribute": "href",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -56,7 +55,8 @@ export class GcdsLangToggle {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "href"
             }
         };
     }
@@ -115,4 +115,3 @@ export class GcdsLangToggle {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=gcds-lang-toggle.js.map

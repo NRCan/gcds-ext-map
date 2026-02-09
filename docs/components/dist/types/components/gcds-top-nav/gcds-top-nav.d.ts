@@ -1,6 +1,7 @@
 /**
  * A top navigation is a horizontal list of page links.
  *
+ * @slot home - Slot for the home link or site title.
  * @slot default - Slot for the navigation groups and navigation links.
  */
 export declare class GcdsTopNav {
@@ -13,7 +14,7 @@ export declare class GcdsTopNav {
     /**
      * Nav alignment
      */
-    alignment: 'left' | 'center' | 'right';
+    alignment: 'start' | 'end';
     /**
      * Sticky navigation flag
      */

@@ -1,5 +1,5 @@
-import { r as registerInstance, a as getElement, U as Util } from './index-PZrWUcjo.js';
-import { m as mapTileLayer } from './MapTileLayer-dNMHgVBV.js';
+import { r as registerInstance, g as getElement, U as Util } from './index-BUsJ7i5g.js';
+import { m as mapTileLayer } from './MapTileLayer-DvC_iOIS.js';
 import { c as calculatePosition } from './calculatePosition-B4YLD_Og.js';
 
 const MapTile = class {
@@ -163,7 +163,7 @@ const MapTile = class {
         map.setView(center, Util.getMaxZoom(bounds, map, minZoom, maxZoom), { animate: false });
     }
     getMapEl() {
-        return Util.getClosest(this.el, 'gcds-map');
+        return Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return Util.getClosest(this.el, 'map-layer,layer-');
@@ -263,9 +263,10 @@ const MapTile = class {
         return null;
     }
     static get watchers() { return {
-        "src": ["srcChanged"]
+        "src": [{
+                "srcChanged": 0
+            }]
     }; }
 };
 
 export { MapTile as map_tile };
-//# sourceMappingURL=map-tile.entry.js.map

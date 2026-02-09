@@ -1,4 +1,4 @@
-import { l as leafletSrcExports, r as registerInstance, a as getElement, U as Util } from './index-PZrWUcjo.js';
+import { l as leafletSrcExports, r as registerInstance, g as getElement, U as Util } from './index-BUsJ7i5g.js';
 import { r as renderStyles } from './renderStyles-EYVT9Efh.js';
 import { c as calculatePosition } from './calculatePosition-B4YLD_Og.js';
 
@@ -165,11 +165,17 @@ var createLayerControlExtentHTML = function () {
 
   let mapSelects = this.el.querySelectorAll('map-select');
   if (mapSelects.length) {
-    var frag = document.createDocumentFragment();
-    for (var i = 0; i < mapSelects.length; i++) {
-      frag.appendChild(mapSelects[i].selectdetails);
-    }
-    extentSettings.appendChild(frag);
+    // map-select Stencil components may not have initialized yet;
+    // wait for each to be ready before accessing selectdetails
+    Promise.all(
+      Array.from(mapSelects).map((s) => s.whenReady())
+    ).then(() => {
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < mapSelects.length; i++) {
+        frag.appendChild(mapSelects[i].selectdetails);
+      }
+      extentSettings.appendChild(frag);
+    });
   }
 
   let removeExtentButton = leafletSrcExports.DomUtil.create(
@@ -299,7 +305,7 @@ var createLayerControlExtentHTML = function () {
         let x = moveEvent.clientX,
           y = moveEvent.clientY,
           root =
-            mapEl.tagName === 'GCDS-MAP'
+            mapEl.tagName === 'GCDS-EXT-MAP'
               ? mapEl.shadowRoot
               : mapEl.querySelector('.mapml-web-map').shadowRoot,
           elementAt = root.elementFromPoint(x, y),
@@ -515,7 +521,7 @@ const GcdsMapExtent = class {
         });
     }
     getMapEl() {
-        return Util.getClosest(this.el, 'gcds-map');
+        return Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return Util.getClosest(this.el, 'map-layer,layer-');
@@ -964,13 +970,22 @@ const GcdsMapExtent = class {
         return Promise.allSettled(linksReady);
     }
     static get watchers() { return {
-        "units": ["unitsChanged"],
-        "_label": ["labelChanged"],
-        "checked": ["checkedChanged"],
-        "_opacity": ["opacityChanged"],
-        "hidden": ["hiddenChanged"]
+        "units": [{
+                "unitsChanged": 0
+            }],
+        "_label": [{
+                "labelChanged": 0
+            }],
+        "checked": [{
+                "checkedChanged": 0
+            }],
+        "_opacity": [{
+                "opacityChanged": 0
+            }],
+        "hidden": [{
+                "hiddenChanged": 0
+            }]
     }; }
 };
 
 export { GcdsMapExtent as map_extent };
-//# sourceMappingURL=map-extent.entry.js.map

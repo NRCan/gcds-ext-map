@@ -73,7 +73,7 @@ export var createLayerControlHTML = async function () {
         elem,
         root;
       root =
-        mapEl.tagName === 'GCDS-MAP'
+        mapEl.tagName === 'GCDS-EXT-MAP'
           ? mapEl.shadowRoot
           : mapEl.querySelector('.mapml-web-map').shadowRoot;
       if (
@@ -219,7 +219,7 @@ export var createLayerControlHTML = async function () {
         let x = moveEvent.clientX,
           y = moveEvent.clientY,
           root =
-            mapEl.tagName === 'GCDS-MAP'
+            mapEl.tagName === 'GCDS-EXT-MAP'
               ? mapEl.shadowRoot
               : mapEl.querySelector('.mapml-web-map').shadowRoot,
           elementAt = root.elementFromPoint(x, y),

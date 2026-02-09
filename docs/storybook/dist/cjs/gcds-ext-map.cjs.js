@@ -1,0 +1,47 @@
+'use strict';
+
+var ContextMenu = require('./index-CW_WOSnc.js');
+var appGlobals = require('./app-globals-DY--Q2Nl.js');
+require('./locale-_4nEyxeO.js');
+
+var _documentCurrentScript = typeof document !== 'undefined' ? document.currentScript : null;
+/*
+ Stencil Client Patch Browser v4.43.5 | MIT Licensed | https://stenciljs.com
+ */
+
+var patchBrowser = () => {
+  {
+    patchCloneNodeFix(ContextMenu.H.prototype);
+  }
+  const importMeta = (typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('gcds-ext-map.cjs.js', document.baseURI).href));
+  const opts = {};
+  if (importMeta !== "") {
+    opts.resourcesUrl = new URL(".", importMeta).href;
+  }
+  return ContextMenu.promiseResolve(opts);
+};
+var patchCloneNodeFix = (HTMLElementPrototype) => {
+  const nativeCloneNodeFn = HTMLElementPrototype.cloneNode;
+  HTMLElementPrototype.cloneNode = function(deep) {
+    if (this.nodeName === "TEMPLATE") {
+      return nativeCloneNodeFn.call(this, deep);
+    }
+    const clonedNode = nativeCloneNodeFn.call(this, false);
+    const srcChildNodes = this.childNodes;
+    if (deep) {
+      for (let i = 0; i < srcChildNodes.length; i++) {
+        if (srcChildNodes[i].nodeType !== 2) {
+          clonedNode.appendChild(srcChildNodes[i].cloneNode(true));
+        }
+      }
+    }
+    return clonedNode;
+  };
+};
+
+patchBrowser().then(async (options) => {
+  await appGlobals.globalScripts();
+  return ContextMenu.bootstrapLazy([["gcds-ext-map_2.cjs",[[513,"gcds-ext-map",{"lat":[1026],"lon":[1026],"zoom":[1026],"projection":[1025],"controls":[516],"static":[516],"_controlslist":[513,"controlslist"],"locale":[1032],"whenProjectionDefined":[64],"whenReady":[64],"whenLayersReady":[64]},null,{"controls":[{"controlsChanged":0}],"_controlslist":[{"controlsListChanged":0}],"projection":[{"projectionChanged":0}],"static":[{"staticChanged":0}]}],[513,"map-layer",{"src":[1537],"checked":[1540],"hidden":[1540],"opacity":[1026],"_opacity":[1026],"media":[1537],"whenReady":[64],"whenElemsReady":[64]},null,{"src":[{"srcChanged":0}],"checked":[{"checkedChanged":0}],"_opacity":[{"opacityChanged":0}],"media":[{"mediaChanged":0}],"hidden":[{"hiddenChanged":0}]}]]],["map-a.cjs",[[512,"map-a",{"href":[513],"target":[513],"type":[513],"inplace":[516]}]]],["map-caption.cjs",[[0,"map-caption"]]],["map-extent.cjs",[[513,"map-extent",{"checked":[1540],"_label":[1025],"opacity":[1026],"_opacity":[1026],"hidden":[1540],"units":[513],"disabled":[1540],"whenReady":[64],"whenLinksReady":[64]},null,{"units":[{"unitsChanged":0}],"_label":[{"labelChanged":0}],"checked":[{"checkedChanged":0}],"_opacity":[{"opacityChanged":0}],"hidden":[{"hiddenChanged":0}]}]]],["map-feature.cjs",[[513,"map-feature",{"zoom":[1026],"min":[1538],"max":[1538],"whenReady":[64]},null,{"zoom":[{"zoomChanged":0}],"min":[{"minChanged":0}],"max":[{"maxChanged":0}]}]]],["map-featurecaption.cjs",[[0,"map-featurecaption"]]],["map-geometry.cjs",[[772,"map-geometry",{"cs":[1537]},null,{"cs":[{"csChanged":0}]}]]],["map-input.cjs",[[512,"map-input",{"name":[513],"type":[513],"value":[1537],"axis":[513],"units":[513],"position":[513],"rel":[513],"min":[513],"max":[513],"step":[513],"whenReady":[64]}]]],["map-link.cjs",[[513,"map-link",{"type":[513],"rel":[513],"href":[513],"hreflang":[513],"tref":[513],"media":[513],"tms":[516],"projection":[513],"disabled":[1540],"whenReady":[64]},null,{"type":[{"typeChanged":0}],"rel":[{"relChanged":0}],"href":[{"hrefChanged":0}],"hreflang":[{"hreflangChanged":0}],"tref":[{"trefChanged":0}],"media":[{"mediaChanged":0}],"tms":[{"tmsChanged":0}],"projection":[{"projectionChanged":0}],"disabled":[{"disabledChanged":0}]}]]],["map-meta.cjs",[[512,"map-meta",{"name":[513],"content":[513]},null,{"name":[{"nameChanged":0}],"content":[{"contentChanged":0}]}]]],["map-properties.cjs",[[1,"map-properties"]]],["map-select.cjs",[[512,"map-select",{"name":[513],"whenReady":[64]},null,{"name":[{"nameChanged":0}]}]]],["map-span.cjs",[[0,"map-span"]]],["map-style.cjs",[[512,"map-style",{"media":[513]},null,{"media":[{"mediaChanged":0}]}]]],["map-tile.cjs",[[512,"map-tile",{"row":[514],"col":[514],"zoom":[514],"src":[513],"zoomTo":[64]},null,{"src":[{"srcChanged":0}]}]]]], options);
+});
+
+exports.setNonce = ContextMenu.setNonce;

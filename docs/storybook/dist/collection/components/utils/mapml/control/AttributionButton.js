@@ -29,7 +29,7 @@ export var AttributionButton = Control.Attribution.extend({
     };
     let locale = this._getLocale();
     dialog.innerHTML =
-      `<b>${locale.kbdShortcuts} </b><button aria-label="Close" onclick='this.parentElement.close()'>X</button>` +
+      `<b>${locale.kbdShortcuts} </b><button aria-label="Close" onclick='this.parentElement.close()'><span class="gcds-icon-close" aria-hidden="true"></span></button>` +
       `<ul><b>${locale.kbdMovement}</b><li><kbd>&#8593</kbd> ${locale.kbdPanUp}</li><li><kbd>&#8595</kbd> ${locale.kbdPanDown}</li><li><kbd>&#8592</kbd> ${locale.kbdPanLeft}</li><li><kbd>&#8594</kbd> ${locale.kbdPanRight}</li><li><kbd>+</kbd> ${locale.btnZoomIn}</li><li><kbd>-</kbd> ${locale.btnZoomOut}</li><li><kbd>shift</kbd> + <kbd>&#8592/&#8593/&#8594/&#8595</kbd> 3x ${locale.kbdPanIncrement}</li><li><kbd>ctrl</kbd> + <kbd>&#8592/&#8593/&#8594/&#8595</kbd> 0.2x ${locale.kbdPanIncrement}</li><li><kbd>shift</kbd> + <kbd>+/-</kbd> ${locale.kbdZoom}</li></ul>` +
       `<ul><b>${locale.kbdFeature}</b><li><kbd>&#8592/&#8593</kbd> ${locale.kbdPrevFeature}</li><li><kbd>&#8594/&#8595</kbd> ${locale.kbdNextFeature}</li></ul>`;
     map._container.appendChild(dialog);
@@ -82,10 +82,20 @@ Map.addInitHook(function () {
 });
 
 export var attributionButton = function (opts) {
-  // Inline the icon as data URL to avoid asset path resolution issues
-  const w3icon = 'data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABMLAAATCwAAAAAAAAAAAAD///8A////AP///wD///8A6/X+N/3+/zL///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A+fz/APn8/wD7/f8A5vP9EZDI+JPL5vyA////B////wD///8A////AP///wD///8A////AP///wD///8A////ADif8wA4n/MAO6DzACSW8msAdO7/MZzz8////yD///8L////Dv///wD///8A////AP///wD///8A////AP///wAOi/EADovxAA6L8QAUjvE3HZDx1Vqw9bF7vvelX7L2wsPg+zbAvPIg9PT9QP///wD///8A////Bv///wD///8A8/n+APP5/gDz+f4A4PD9B2y49p1AoPPXDojw9bjf/EjN3PkAIBvTSDs52PTY1/dwj43pfnp45cHy8fxH////ANvu/QDc7v0A4PD9BFmv9aMAfO//AHnu/5LL+Zb///8A////AKek7T4AAMr/SUXb4gcCzv4AAMj/paPtkf///wBOrf8AT67/AC+c/A1EpPRaJJbySQB97+vA4ft/////AO3s+xgzMdfSAADL/zs32OxNSdzeJyXUv9PT9iz///8A7tuqAO7cqwDi4tAi8fr/AJrQ/QAZjvVCmtD6VtLO9Sg7ONnRAADL/wQAzv8AAMz/V1Te3e7t/Br///8A////ANu9agDSrUQAzJwclfrw14P//vA74eroPsHU9hiBduc6MS7XWyci1UIhHdQ+AADLoC0p1vn///8k////AP///wD///8A////AM+oOozBjwr/xpYb++GvRNil59E+wPjnY/nv/wC6tvIAl5LrAIF26QBhXeFy/Pz+EP///wD///8A7uC6L+DGf5jfxXy9yZ0k5r+JAP/537Vbb+DQDg3Bmuue69e4///+Q////yC3+d9z3vnxN////wD///8A////AMKQBIe8hgD/yJsd+NOvSbfOpTL4////IoThzwAAv5baAL2T/yjKqPopyaftP9Cxx/T9+hT37uMA2reLAPLm1gLDkQccwI0AZty+bE/ew3YZwY0IuPjnx23L9fI1B8Ga+QK/l/8oyqjXRNCz0uf59UH///8A5s6yAKROAADfwZsBw5IIAMGOAADjy4oA4smGAMaGAAalrVQjGcyxeAjBmbQ1za2NQdCyxiHFofR63snM////Ff///wDAhD0A27mQAMOSCADBjgAA4smGAOHIhADKhwAAjqhNAAfIqQAZxqMAEMSeAAC/l70AvZL2UNS4pf///wn///8A5MqqANy7kwDDkggAwY4AAOLJhgDhyIQAyYcAAJGpTwALyasAGcajAAfCmwACwZllAL6WoHzeyk7///8B////AOjStwDdvJUA8/8AAOH/AADgfwAA4BsAAOCBAADBgQAAwQEAANgDAADAAwAAwPMAAAAHAAACBgAAAA4AAP';
+  // Inline the Canada flag icon as data URL to avoid asset path resolution issues
+  const flagIcon = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDE1NS4zOCA3NS4wMSI+PHBhdGggZD0iTTAsMCAzNi44NCwwIDM2Ljg0LDc1LjAxIDAsNzUuMDF6IE0xMTguNTQsMCAxNTUuMzgsMCAxNTUuMzgsNzUuMDEgMTE4LjU0LDc1LjAxeiBNNzIuNTgsMTUuNjEsNzcuODQsNC45bDUuMjIsMTAuMzJjLjY1LDEuMDksMS4xOCwxLDIuMjIuNDhsNC40OS0yLjIyTDg2Ljg1LDI3Ljg5Yy0uNjEsMi44MywxLDMuNjYsMi43NSwxLjc0TDk2LDIyLjc5bDEuNywzLjg3Yy41NywxLjE3LDEuNDMsMSwyLjU3Ljc5bDYuNjEtMS4zOS0yLjIyLDguMzUsMCwuMThjLS4yNiwxLjA5LS43OCwyLC40NCwyLjUzbDIuMzUsMS4xN0w5My43Nyw0OS44MmMtMS4zOSwxLjQzLS45MSwxLjg3LS4zOSwzLjQ4bDEuMjYsMy44Ny0xMi43MS0yLjNjLTEuNTctLjM5LTIuNjYtLjM5LTIuNy44N2wuNTIsMTQuNThINzUuOTNsLjUyLTE0LjU0YzAtMS40My0xLjA5LTEuMzktMy42Ni0uODZMNjEsNTcuMThsMS41Mi0zLjg3Yy41Mi0xLjQ4LjY2LTIuNDgtLjUyLTMuNDhMNDguMTEsMzguNDZsMi41Ny0xLjU3Yy43NC0uNTcuNzgtMS4xNy4zOS0yLjQ0TDQ4LjQ2LDI2bDYuNywxLjQzYzEuODcuNDQsMi4zOSwwLDIuODctMWwxLjg3LTMuODNMNjYuNTIsMzBjMS4xNywxLjM5LDIuODMuNDgsMi4zMS0xLjUyTDY1LjY1LDEyLjg2bDQuOTIsMi44M2MuNzguNDgsMS42MS42MSwyLjA5LS4zIiBmaWxsPSIjRUIyRDM3Ii8+PC9zdmc+';
+  const isFr = opts.mapEl && opts.mapEl.closest && opts.mapEl.closest(':lang(fr)') === opts.mapEl;
+  const gcdsHref = isFr
+    ? 'https://nrcan.github.io/gcds-ext-map/fr/composants/composants-de-carte/'
+    : 'https://nrcan.github.io/gcds-ext-map/en/components/map-components/';
+  const gcdsLabel = isFr
+    ? 'Système de design GC - Cartes'
+    : 'GC Design System - Maps';
+  const gcdsAlt = isFr
+    ? 'Système de design du gouvernement du Canada - Cartes'
+    : 'Government of Canada Design System - Maps';
   const options = Object.assign(opts, {
-    prefix: `<img src="${w3icon}" style="position: relative; top: 5px" alt="W3C Community and Business Groups logo"> <a href="https://www.w3.org/community/maps4html/">Maps for HTML Community Group</a> | <img src="data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTIiIGhlaWdodD0iOCI+PHBhdGggZmlsbD0iIzRDN0JFMSIgZD0iTTAgMGgxMnY0SDB6Ii8+PHBhdGggZmlsbD0iI0ZGRDUwMCIgZD0iTTAgNGgxMnYzSDB6Ii8+PHBhdGggZmlsbD0iI0UwQkMwMCIgZD0iTTAgN2gxMnYxSDB6Ii8+PC9zdmc+" style="padding-right: 0.3em;" alt="Slava Ukraini"> <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> `
+    prefix: `<img src="${flagIcon}" style="position: relative; top: 2px" alt="${gcdsAlt}"> <a href="${gcdsHref}">${gcdsLabel}</a> `
   });
   return new AttributionButton(options);
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-CW_WOSnc.js');
 
 const MapStyle = class {
     constructor(hostRef) {
@@ -19,7 +19,7 @@ const MapStyle = class {
         }
     }
     getMapEl() {
-        return window.M?.Util?.getClosest?.(this.el, 'gcds-map') || this.el.closest('gcds-map');
+        return window.M?.Util?.getClosest?.(this.el, 'gcds-ext-map') || this.el.closest('gcds-ext-map');
     }
     _connect() {
         this.styleElement = document.createElement('style');
@@ -118,9 +118,10 @@ const MapStyle = class {
         this._disconnect();
     }
     static get watchers() { return {
-        "media": ["mediaChanged"]
+        "media": [{
+                "mediaChanged": 0
+            }]
     }; }
 };
 
 exports.map_style = MapStyle;
-//# sourceMappingURL=map-style.entry.cjs.js.map

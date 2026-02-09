@@ -1,0 +1,21 @@
+<mapml- xmlns="http://www.w3.org/1999/xhtml">
+  <map-head>
+    <map-title>Canada Base Map - Transportation (CBMT)</map-title>
+    <map-meta http-equiv="Content-Type" content="application/xml;charset=UTF-8"></map-meta>
+    <map-meta charset="utf-8"></map-meta>
+    <map-link rel="license" href="https://open.canada.ca/en/open-government-licence-canada" title="Open Government Licence - Canada"></map-link>
+
+    <map-link rel="alternate" projection="CBMTILE" href="../cbmtile/cbmt.mapml"></map-link>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=25"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=25"></map-link>
+  </map-head>
+  <map-body>
+    <map-extent checked="" units="OSMTILE" hidden="">
+      <map-input name="z" type="zoom" min="0" max="15" value="15"></map-input>
+      <map-input name="y" type="location" units="tilematrix" axis="row"></map-input>
+      <map-input name="x" type="location" units="tilematrix" axis="column"></map-input>
+      <map-link rel="tile" tref="https://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_CBCT_GEOM_3857/MapServer/tile/{z}/{y}/{x}?m4h=t"></map-link>
+      <map-link rel="tile" tref="https://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_TXT_3857/MapServer/tile/{z}/{y}/{x}?m4h=t"></map-link>
+    </map-extent>
+  </map-body>
+</mapml->

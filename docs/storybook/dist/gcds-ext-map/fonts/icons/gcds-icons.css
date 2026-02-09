@@ -1,0 +1,110 @@
+/*
+  Replace <path-to-file> with the correct path to
+  the gcds-icon font files in your project
+*/
+@font-face {
+  font-family: "gcds-icons";
+  src: url("<path-to-file>/gcds-icons.eot");
+  src:
+    url("<path-to-file>/gcds-icons.eot#iefix") format("embedded-opentype"),
+    url("<path-to-file>/gcds-icons.ttf") format("truetype"),
+    url("<path-to-file>/gcds-icons.woff") format("woff"),
+    url("<path-to-file>/gcds-icons.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="gcds-icon-"],
+[class*=" gcds-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "gcds-icons" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gcds-icon-arrow-down:before {
+  content: "\f013";
+}
+
+.gcds-icon-arrow-up:before {
+  content: "\f011";
+}
+
+.gcds-icon-arrow-up-down:before {
+  content: "\f012";
+}
+
+.gcds-icon-checkmark-circle:before {
+  content: "\f021";
+}
+
+.gcds-icon-chevron-down:before {
+  content: "\f020";
+}
+
+.gcds-icon-chevron-left:before {
+  content: "\f01f";
+}
+
+.gcds-icon-chevron-right:before {
+  content: "\f01e";
+}
+
+.gcds-icon-chevron-up:before {
+  content: "\f01d";
+}
+
+.gcds-icon-close:before {
+  content: "\f01c";
+}
+
+.gcds-icon-download:before {
+  content: "\f01b";
+}
+
+.gcds-icon-email:before {
+  content: "\f01a";
+}
+
+.gcds-icon-exclamation-circle:before {
+  content: "\f019";
+}
+
+.gcds-icon-external:before {
+  content: "\f018";
+}
+
+.gcds-icon-filter:before {
+  content: "\f005";
+}
+
+.gcds-icon-info-circle:before {
+  content: "\f017";
+}
+
+.gcds-icon-phone:before {
+  content: "\f016";
+}
+
+.gcds-icon-search:before {
+  content: "\f002";
+}
+
+.gcds-icon-sort:before {
+  content: "\f003";
+}
+
+.gcds-icon-tune:before {
+  content: "\f000";
+}
+
+.gcds-icon-warning-triangle:before {
+  content: "\f014";
+}

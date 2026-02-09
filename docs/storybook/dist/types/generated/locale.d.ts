@@ -22,6 +22,10 @@ export declare const locale: {
     lcOpacity: string;
     btnZoomIn: string;
     btnZoomOut: string;
+    btnSearch: string;
+    btnSearchClose: string;
+    searchPlaceholder: string;
+    searchResultWithNoName: string;
     btnAttribution: string;
     btnFullScreen: string;
     btnExitFullScreen: string;
@@ -91,6 +95,10 @@ export declare const localeFr: {
     lcOpacity: string;
     btnZoomIn: string;
     btnZoomOut: string;
+    btnSearch: string;
+    btnSearchClose: string;
+    searchPlaceholder: string;
+    searchResultWithNoName: string;
     btnAttribution: string;
     btnFullScreen: string;
     btnExitFullScreen: string;

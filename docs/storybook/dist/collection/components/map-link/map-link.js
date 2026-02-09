@@ -96,7 +96,7 @@ export class MapLink {
             : null;
     }
     getMapEl() {
-        return Util.getClosest(this.el, 'gcds-map');
+        return Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return Util.getClosest(this.el, 'map-layer,layer-');
@@ -168,6 +168,10 @@ export class MapLink {
                 this._createAlternateLink();
                 break;
             case 'license':
+                break;
+            case 'search':
+            case 'suggestions':
+                // no-op: discoverable via DOM query from SearchButton
                 break;
         }
         await this._registerMediaQuery(this.media);
@@ -873,6 +877,8 @@ export class MapLink {
                 case 'zoomout':
                 case 'legend':
                 case 'license':
+                case 'search':
+                case 'suggestions':
                     resolve();
                     return;
                 default:
@@ -1141,4 +1147,3 @@ export class MapLink {
             }];
     }
 }
-//# sourceMappingURL=map-link.js.map

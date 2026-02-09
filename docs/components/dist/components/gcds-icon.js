@@ -1,2 +1,1 @@
-import{G as o,d as s}from"./p-CwNv12Ch.js";const t=o;const p=s;export{t as GcdsIcon,p as defineCustomElement};
-//# sourceMappingURL=gcds-icon.js.map
+import{G as o,d as s}from"./p-BBUI_tU-.js";const t=o,p=s;export{t as GcdsIcon,p as defineCustomElement}

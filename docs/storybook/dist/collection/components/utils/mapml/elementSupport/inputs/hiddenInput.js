@@ -17,4 +17,3 @@ export class HiddenInput {
         return this.value;
     }
 }
-//# sourceMappingURL=hiddenInput.js.map

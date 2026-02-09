@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-CW_WOSnc.js');
 
 const MapMeta = class {
     constructor(hostRef) {
@@ -28,10 +28,13 @@ const MapMeta = class {
         return null;
     }
     static get watchers() { return {
-        "name": ["nameChanged"],
-        "content": ["contentChanged"]
+        "name": [{
+                "nameChanged": 0
+            }],
+        "content": [{
+                "contentChanged": 0
+            }]
     }; }
 };
 
 exports.map_meta = MapMeta;
-//# sourceMappingURL=map-meta.entry.cjs.js.map

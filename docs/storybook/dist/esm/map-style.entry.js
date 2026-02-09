@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement } from './index-PZrWUcjo.js';
+import { r as registerInstance, g as getElement } from './index-BUsJ7i5g.js';
 
 const MapStyle = class {
     constructor(hostRef) {
@@ -17,7 +17,7 @@ const MapStyle = class {
         }
     }
     getMapEl() {
-        return window.M?.Util?.getClosest?.(this.el, 'gcds-map') || this.el.closest('gcds-map');
+        return window.M?.Util?.getClosest?.(this.el, 'gcds-ext-map') || this.el.closest('gcds-ext-map');
     }
     _connect() {
         this.styleElement = document.createElement('style');
@@ -116,9 +116,10 @@ const MapStyle = class {
         this._disconnect();
     }
     static get watchers() { return {
-        "media": ["mediaChanged"]
+        "media": [{
+                "mediaChanged": 0
+            }]
     }; }
 };
 
 export { MapStyle as map_style };
-//# sourceMappingURL=map-style.entry.js.map

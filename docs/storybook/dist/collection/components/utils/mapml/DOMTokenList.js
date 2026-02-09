@@ -121,4 +121,3 @@ export class CustomDOMTokenList {
 // Export for easier import
 export { CustomDOMTokenList as DOMTokenList };
 export default CustomDOMTokenList;
-//# sourceMappingURL=DOMTokenList.js.map

@@ -27,14 +27,14 @@ exports.test = (path, expectedPCRS, expectedGCRS) => {
       // Wait for the layer to be ready and have its extent initialized
       await page.waitForFunction(
         () => {
-          const layer = document.querySelector('body > gcds-map > map-layer:nth-child(1)');
+          const layer = document.querySelector('body > gcds-ext-map > map-layer:nth-child(1)');
           return layer && layer.extent !== undefined;
         },
         { timeout: 5000 }
       );
       
       const extent = await page.$eval(
-        'body > gcds-map > map-layer:nth-child(1)',
+        'body > gcds-ext-map > map-layer:nth-child(1)',
         (layer) => layer.extent
       );
       expect(extent.hasOwnProperty('zoom')).toBeTruthy();
@@ -50,14 +50,14 @@ exports.test = (path, expectedPCRS, expectedGCRS) => {
       // Wait for the second layer to be ready
       await page.waitForFunction(
         () => {
-          const layer = document.querySelector('body > gcds-map > map-layer:nth-child(2)');
+          const layer = document.querySelector('body > gcds-ext-map > map-layer:nth-child(2)');
           return layer && layer.extent !== undefined;
         },
         { timeout: 5000 }
       );
       
       const extent = await page.$eval(
-        'body > gcds-map > map-layer:nth-child(2)',
+        'body > gcds-ext-map > map-layer:nth-child(2)',
         (layer) => layer.extent
       );
       expect(extent.hasOwnProperty('zoom')).toBeTruthy();

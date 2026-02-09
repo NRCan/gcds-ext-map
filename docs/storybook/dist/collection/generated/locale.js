@@ -24,6 +24,10 @@ export const locale = {
     "lcOpacity": "Opacity",
     "btnZoomIn": "Zoom in",
     "btnZoomOut": "Zoom out",
+    "btnSearch": "Search",
+    "btnSearchClose": "Close search",
+    "searchPlaceholder": "Search…",
+    "searchResultWithNoName": "Unnamed",
     "btnAttribution": "Map data attribution",
     "btnFullScreen": "View fullscreen",
     "btnExitFullScreen": "Exit fullscreen",
@@ -93,6 +97,10 @@ export const localeFr = {
     "lcOpacity": "Opacité",
     "btnZoomIn": "Zoomer",
     "btnZoomOut": "Dézoomer",
+    "btnSearch": "Rechercher",
+    "btnSearchClose": "Fermer la recherche",
+    "searchPlaceholder": "Rechercher…",
+    "searchResultWithNoName": "Sans nom",
     "btnAttribution": "Attribution des données cartographiques",
     "btnFullScreen": "Affichage plein écran",
     "btnExitFullScreen": "Quitter le plein écran",
@@ -138,4 +146,3 @@ export const localeFr = {
     "popupPropValue": "Valeur de la propriété",
     "fIndexNoFeatures": "Aucun élément géographique trouvé"
 };
-//# sourceMappingURL=locale.js.map

@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement } from './index-PZrWUcjo.js';
+import { r as registerInstance, g as getElement } from './index-BUsJ7i5g.js';
 
 const MapMeta = class {
     constructor(hostRef) {
@@ -26,10 +26,13 @@ const MapMeta = class {
         return null;
     }
     static get watchers() { return {
-        "name": ["nameChanged"],
-        "content": ["contentChanged"]
+        "name": [{
+                "nameChanged": 0
+            }],
+        "content": [{
+                "contentChanged": 0
+            }]
     }; }
 };
 
 export { MapMeta as map_meta };
-//# sourceMappingURL=map-meta.entry.js.map

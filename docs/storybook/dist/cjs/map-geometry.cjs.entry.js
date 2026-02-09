@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-CW_WOSnc.js');
 
 const MapGeometry = class {
     constructor(hostRef) {
@@ -27,9 +27,10 @@ const MapGeometry = class {
         return ContextMenu.h("slot", { key: '419b5956ada9cc1d59880ed9168b1d539301ff85' });
     }
     static get watchers() { return {
-        "cs": ["csChanged"]
+        "cs": [{
+                "csChanged": 0
+            }]
     }; }
 };
 
 exports.map_geometry = MapGeometry;
-//# sourceMappingURL=map-geometry.entry.cjs.js.map

@@ -51,11 +51,17 @@ export var createLayerControlExtentHTML = function () {
 
   let mapSelects = this.el.querySelectorAll('map-select');
   if (mapSelects.length) {
-    var frag = document.createDocumentFragment();
-    for (var i = 0; i < mapSelects.length; i++) {
-      frag.appendChild(mapSelects[i].selectdetails);
-    }
-    extentSettings.appendChild(frag);
+    // map-select Stencil components may not have initialized yet;
+    // wait for each to be ready before accessing selectdetails
+    Promise.all(
+      Array.from(mapSelects).map((s) => s.whenReady())
+    ).then(() => {
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < mapSelects.length; i++) {
+        frag.appendChild(mapSelects[i].selectdetails);
+      }
+      extentSettings.appendChild(frag);
+    });
   }
 
   let removeExtentButton = DomUtil.create(
@@ -185,7 +191,7 @@ export var createLayerControlExtentHTML = function () {
         let x = moveEvent.clientX,
           y = moveEvent.clientY,
           root =
-            mapEl.tagName === 'GCDS-MAP'
+            mapEl.tagName === 'GCDS-EXT-MAP'
               ? mapEl.shadowRoot
               : mapEl.querySelector('.mapml-web-map').shadowRoot,
           elementAt = root.elementFromPoint(x, y),

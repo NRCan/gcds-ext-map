@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-CW_WOSnc.js');
 var calculatePosition = require('./calculatePosition-CDcdNl7C.js');
 
 const MapFeature = class {
@@ -117,7 +117,7 @@ const MapFeature = class {
         return calculatePosition.calculatePosition(this.el);
     }
     getMapEl() {
-        return ContextMenu.Util.getClosest(this.el, 'gcds-map');
+        return ContextMenu.Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return ContextMenu.Util.getClosest(this.el, 'map-layer,layer-');
@@ -621,11 +621,16 @@ const MapFeature = class {
         return null;
     }
     static get watchers() { return {
-        "zoom": ["zoomChanged"],
-        "min": ["minChanged"],
-        "max": ["maxChanged"]
+        "zoom": [{
+                "zoomChanged": 0
+            }],
+        "min": [{
+                "minChanged": 0
+            }],
+        "max": [{
+                "maxChanged": 0
+            }]
     }; }
 };
 
 exports.map_feature = MapFeature;
-//# sourceMappingURL=map-feature.entry.cjs.js.map

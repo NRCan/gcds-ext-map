@@ -1,0 +1,1 @@
+import{r as t,g as s}from"./p-BUsJ7i5g.js";const r=class{constructor(s){t(this,s)}get el(){return s(this)}href;target;type;inplace};export{r as map_a}

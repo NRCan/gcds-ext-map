@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement, h } from './index-PZrWUcjo.js';
+import { r as registerInstance, g as getElement, h } from './index-BUsJ7i5g.js';
 
 const MapGeometry = class {
     constructor(hostRef) {
@@ -25,9 +25,10 @@ const MapGeometry = class {
         return h("slot", { key: '419b5956ada9cc1d59880ed9168b1d539301ff85' });
     }
     static get watchers() { return {
-        "cs": ["csChanged"]
+        "cs": [{
+                "csChanged": 0
+            }]
     }; }
 };
 
 export { MapGeometry as map_geometry };
-//# sourceMappingURL=map-geometry.entry.js.map

@@ -57,8 +57,6 @@ export { GcdsNotice as GcdsNotice } from '../types/components/gcds-notice/gcds-n
 export { defineCustomElement as defineCustomElementGcdsNotice } from './gcds-notice';
 export { GcdsPagination as GcdsPagination } from '../types/components/gcds-pagination/gcds-pagination';
 export { defineCustomElement as defineCustomElementGcdsPagination } from './gcds-pagination';
-export { GcdsPhaseBanner as GcdsPhaseBanner } from '../types/components/gcds-phase-banner/gcds-phase-banner';
-export { defineCustomElement as defineCustomElementGcdsPhaseBanner } from './gcds-phase-banner';
 export { GcdsRadios as GcdsRadios } from '../types/components/gcds-radios/gcds-radios';
 export { defineCustomElement as defineCustomElementGcdsRadios } from './gcds-radios';
 export { GcdsSearch as GcdsSearch } from '../types/components/gcds-search/gcds-search';
@@ -73,6 +71,8 @@ export { GcdsSrOnly as GcdsSrOnly } from '../types/components/gcds-sr-only/gcds-
 export { defineCustomElement as defineCustomElementGcdsSrOnly } from './gcds-sr-only';
 export { GcdsStepper as GcdsStepper } from '../types/components/gcds-stepper/gcds-stepper';
 export { defineCustomElement as defineCustomElementGcdsStepper } from './gcds-stepper';
+export { GcdsTable as GcdsTable } from '../types/components/gcds-table/gcds-table';
+export { defineCustomElement as defineCustomElementGcdsTable } from './gcds-table';
 export { GcdsText as GcdsText } from '../types/components/gcds-text/gcds-text';
 export { defineCustomElement as defineCustomElementGcdsText } from './gcds-text';
 export { GcdsTextarea as GcdsTextarea } from '../types/components/gcds-textarea/gcds-textarea';
@@ -81,8 +81,6 @@ export { GcdsTopNav as GcdsTopNav } from '../types/components/gcds-top-nav/gcds-
 export { defineCustomElement as defineCustomElementGcdsTopNav } from './gcds-top-nav';
 export { GcdsTopicMenu as GcdsTopicMenu } from '../types/components/gcds-topic-menu/gcds-topic-menu';
 export { defineCustomElement as defineCustomElementGcdsTopicMenu } from './gcds-topic-menu';
-export { GcdsVerifyBanner as GcdsVerifyBanner } from '../types/components/gcds-verify-banner/gcds-verify-banner';
-export { defineCustomElement as defineCustomElementGcdsVerifyBanner } from './gcds-verify-banner';
 
 /**
  * Get the base path to where the assets can be found. Use "setAssetPath(path)"
@@ -117,4 +115,5 @@ export interface SetPlatformOptions {
   rel?: (el: EventTarget, eventName: string, listener: EventListenerOrEventListenerObject, options: boolean | AddEventListenerOptions) => void;
 }
 export declare const setPlatformOptions: (opts: SetPlatformOptions) => void;
+
 export * from '../types';

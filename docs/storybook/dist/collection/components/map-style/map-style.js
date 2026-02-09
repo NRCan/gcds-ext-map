@@ -12,7 +12,7 @@ export class MapStyle {
         }
     }
     getMapEl() {
-        return window.M?.Util?.getClosest?.(this.el, 'gcds-map') || this.el.closest('gcds-map');
+        return window.M?.Util?.getClosest?.(this.el, 'gcds-ext-map') || this.el.closest('gcds-ext-map');
     }
     _connect() {
         this.styleElement = document.createElement('style');
@@ -142,4 +142,3 @@ export class MapStyle {
             }];
     }
 }
-//# sourceMappingURL=map-style.js.map

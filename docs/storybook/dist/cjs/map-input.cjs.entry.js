@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-CW_WOSnc.js');
 
 class ZoomInput {
     name;
@@ -234,7 +234,7 @@ const MapInput = class {
     _layer;
     initialValue;
     getMapEl() {
-        return ContextMenu.Util.getClosest(this.el, 'gcds-map');
+        return ContextMenu.Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return ContextMenu.Util.getClosest(this.el, 'map-layer,layer-');
@@ -251,7 +251,7 @@ const MapInput = class {
             // }
             switch (this.type) {
                 case 'zoom':
-                    // this could be a bug, but it's the same bug as the mapml-source zoom input
+                    // this could be a bug, but it's the same bug as the MapML.js zoom input
                     this.initialValue = +this.el.getAttribute('value');
                     // Publish for MapML compatibility
                     this.el.initialValue = this.initialValue;
@@ -346,4 +346,3 @@ const MapInput = class {
 };
 
 exports.map_input = MapInput;
-//# sourceMappingURL=map-input.entry.cjs.js.map

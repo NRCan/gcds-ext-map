@@ -227,7 +227,7 @@ export var TemplatedFeaturesOrTilesLayer = LayerGroup.extend({
     const map = this._map;
     getMapML(this._url)
       .then(() => {
-        // ATTENTION: different approach needed wrt mapml-source due to stencil
+        // ATTENTION: different approach needed wrt MapML.js due to stencil
         // slowness - templated features are not found by the FeatureIndexOverlay 
         // unless you wait for them to be ready before firing templatedfeatureslayeradd event
         // Wait for all map-feature elements to complete their async setup

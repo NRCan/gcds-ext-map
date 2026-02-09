@@ -55,9 +55,11 @@ export class GcdsNavGroup {
             if (this.open) {
                 this.navPosiiton = window.scrollY;
                 document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
             }
             else {
                 document.body.style.removeProperty('position');
+                document.body.style.removeProperty('width');
                 window.scrollTo(0, this.navPosiiton);
             }
         }
@@ -82,7 +84,7 @@ export class GcdsNavGroup {
             this.navStyle = 'dropdown';
             // Get the alignment value from the parent + append the corresponding class
             const alignment = this.el.parentNode.getAttribute('alignment');
-            if (alignment === 'right') {
+            if (alignment === 'end') {
                 this.navStyle += ' dropdown-right';
             }
             if (this.open) {
@@ -100,18 +102,18 @@ export class GcdsNavGroup {
     }
     render() {
         const { closeTrigger, menuLabel, open, openTrigger } = this;
-        return (h(Host, { key: 'e83cd752015541c3d3c66df11acea95bb47d328f', role: "listitem", open: open }, h("button", { key: 'c454fdad83340bfda53c6be88fad4d04832b616d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
+        return (h(Host, { key: '35428e90e183130456e1c7f80231621e82b04690', role: "listitem", open: open }, h("div", { key: 'cee8d305928e4a3a15359e628f4123d5a106a3dd', class: "gcds-nav-group__container" }, h("button", { key: 'e2498be00124fcc55a05d5f8bd5b84e62d819f4d', "aria-haspopup": "true", tabIndex: 0, "aria-expanded": open.toString(), ref: element => (this.triggerElement = element), class: `gcds-nav-group__trigger gcds-trigger--${this.navStyle}`, onBlur: () => this.gcdsBlur.emit(), onFocus: () => this.gcdsFocus.emit(), onClick: e => {
                 const event = emitEvent(e, this.gcdsClick);
                 if (event) {
                     this.toggleNav();
                 }
-            } }, h("gcds-icon", { key: '6a2a04d5728d1b23860522b3419c054621abae4f', name: this.navStyle === 'expandable'
+            } }, h("gcds-icon", { key: 'b0f8639723d0719737c91a746dfc29ccef9d9ddf', name: (this.navStyle === 'expandable'
                 ? open
                     ? 'chevron-down'
                     : 'chevron-right'
                 : open
                     ? 'chevron-up'
-                    : 'chevron-down' }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: 'be77203e415fe750b349dec603812cd8a8cb5bab', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '0e98b6827f549b1ff852d15dbbe7e4f8a0546c24' }))));
+                    : 'chevron-down') }), closeTrigger && open ? closeTrigger : openTrigger), h("ul", { key: 'c1f4082ff6112488786ace93d9316ee6e6befb50', "aria-label": menuLabel, class: `gcds-nav-group__list gcds-nav--${this.navStyle}` }, h("slot", { key: '46e0d5e8bb9cee9bbef1fbd4b826e55f20c89137' })))));
     }
     static get is() { return "gcds-nav-group"; }
     static get encapsulation() { return "shadow"; }
@@ -129,7 +131,6 @@ export class GcdsNavGroup {
         return {
             "closeTrigger": {
                 "type": "string",
-                "attribute": "close-trigger",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -144,11 +145,11 @@ export class GcdsNavGroup {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "close-trigger"
             },
             "menuLabel": {
                 "type": "string",
-                "attribute": "menu-label",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -163,11 +164,11 @@ export class GcdsNavGroup {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "menu-label"
             },
             "openTrigger": {
                 "type": "string",
-                "attribute": "open-trigger",
                 "mutable": false,
                 "complexType": {
                     "original": "string",
@@ -182,11 +183,11 @@ export class GcdsNavGroup {
                 },
                 "getter": false,
                 "setter": false,
-                "reflect": true
+                "reflect": true,
+                "attribute": "open-trigger"
             },
             "open": {
                 "type": "boolean",
-                "attribute": "open",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -202,6 +203,7 @@ export class GcdsNavGroup {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "open",
                 "defaultValue": "false"
             }
         };
@@ -314,4 +316,3 @@ export class GcdsNavGroup {
             }];
     }
 }
-//# sourceMappingURL=gcds-nav-group.js.map

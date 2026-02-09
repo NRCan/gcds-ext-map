@@ -82,7 +82,9 @@ export class GcdsSignature {
         if (Tag === 'a') {
             sigAttrs['href'] = i18n[lang].link;
         }
-        return (h(Host, { key: '9371550c9068d0041b6c661746206cd0f9eab90b' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }))) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
+        return (h(Host, { key: 'eec74b983904b1498601a6c1d12ac5aaf6821208' }, type === 'signature' ? (h(Tag, Object.assign({}, sigAttrs), h("div", { innerHTML: selectSVG }), h("gcds-sr-only", { tag: "span", lang: lang === 'en' ? 'fr' : 'en' }, lang === 'en'
+            ? `/ ${i18n.fr.gc}`
+            : `/ ${i18n.en.gc}`))) : (h("div", { class: "gcds-signature", innerHTML: selectSVG }))));
     }
     static get is() { return "gcds-signature"; }
     static get encapsulation() { return "shadow"; }
@@ -100,7 +102,6 @@ export class GcdsSignature {
         return {
             "type": {
                 "type": "string",
-                "attribute": "type",
                 "mutable": true,
                 "complexType": {
                     "original": "'signature' | 'wordmark'",
@@ -116,11 +117,11 @@ export class GcdsSignature {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "type",
                 "defaultValue": "'signature'"
             },
             "variant": {
                 "type": "string",
-                "attribute": "variant",
                 "mutable": true,
                 "complexType": {
                     "original": "'colour' | 'white'",
@@ -136,11 +137,11 @@ export class GcdsSignature {
                 "getter": false,
                 "setter": false,
                 "reflect": true,
+                "attribute": "variant",
                 "defaultValue": "'colour'"
             },
             "hasLink": {
                 "type": "boolean",
-                "attribute": "has-link",
                 "mutable": true,
                 "complexType": {
                     "original": "boolean",
@@ -156,6 +157,7 @@ export class GcdsSignature {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "has-link",
                 "defaultValue": "false"
             }
         };
@@ -176,4 +178,3 @@ export class GcdsSignature {
             }];
     }
 }
-//# sourceMappingURL=gcds-signature.js.map

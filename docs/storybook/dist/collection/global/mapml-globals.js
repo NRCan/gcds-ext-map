@@ -8,7 +8,8 @@ import { Options } from '../components/utils/mapml/DefaultMapOptions.js';
 import '../components/utils/mapml/handlers/keyboard.js';
 import Proj from 'proj4leaflet/src/proj4leaflet.js';
 
-(function (window, document, undefined) {
+export default function() {
+  (function (window, document, undefined) {
   let M = {};
   window.M = M;
   M.mime = 'text/mapml';
@@ -17,7 +18,7 @@ import Proj from 'proj4leaflet/src/proj4leaflet.js';
   // key fact is that M.options now refers to the Options object, it's not copied
   M.options = Options;
   // make a DEEP copy of the default locale strings under a new name localeEn
-  // to support gcds-map
+  // to support gcds-ext-map
   M.options.localeEn = JSON.parse(JSON.stringify(Options.locale));
   // if there's a locale field in mapOptions.innerHTML, it will overwrite the
   //field of the same name in M.options
@@ -912,3 +913,4 @@ import Proj from 'proj4leaflet/src/proj4leaflet.js';
     return t.projection;
   }
 })(window, document);
+}

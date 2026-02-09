@@ -1,4 +1,4 @@
-import { r as registerInstance } from './index-PZrWUcjo.js';
+import { r as registerInstance } from './index-BUsJ7i5g.js';
 
 const MapProperties = class {
     constructor(hostRef) {
@@ -10,4 +10,3 @@ const MapProperties = class {
 };
 
 export { MapProperties as map_properties };
-//# sourceMappingURL=map-properties.entry.js.map

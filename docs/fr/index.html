@@ -16,27 +16,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- GCDS CSS Shortcuts -->
-    <link rel="stylesheet" href="/gcds-map/gcds-css-shortcuts.min.css" />
+    <link rel="stylesheet" href="/gcds-ext-map/gcds-css-shortcuts.min.css" />
 
     <!-- Prism -->
-    <link rel="stylesheet" href="/gcds-map/styles/prism.css">
-    <script src="/gcds-map/scripts/prism.min.js"></script>
+    <link rel="stylesheet" href="/gcds-ext-map/styles/prism.css">
+    <script src="/gcds-ext-map/scripts/prism.min.js"></script>
 
-    <link rel="stylesheet" href="/gcds-map/styles/style.css">
-    <script src="/gcds-map/scripts/code-showcase.js"></script>
-    <script src="/gcds-map/scripts/code-copy.js"></script>
-    <script src="/gcds-map/scripts/component-preview.js"></script>
-    <script src="/gcds-map/scripts/general.js"></script>
-    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-map/favicon.ico">
+    <link rel="stylesheet" href="/gcds-ext-map/styles/style.css">
+    <script src="/gcds-ext-map/scripts/code-showcase.js"></script>
+    <script src="/gcds-ext-map/scripts/code-copy.js"></script>
+    <script src="/gcds-ext-map/scripts/component-preview.js"></script>
+    <script src="/gcds-ext-map/scripts/general.js"></script>
+    
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/gcds-ext-map/favicon.ico">
 
     <!-- GC Design System  Components-->
-    <link rel="stylesheet" href="/gcds-map/components/dist/gcds/gcds.css">
-    <script type="module" src="/gcds-map/components/dist/gcds/gcds.esm.js"></script>
+    <link rel="stylesheet" href="/gcds-ext-map/components/dist/gcds/gcds.css">
+    <script type="module" src="/gcds-ext-map/components/dist/gcds/gcds.esm.js"></script>
+    
+    
     
 
     <!-- Pagefind -->
-    <script src="/gcds-map/pagefind/pagefind.js" type="module"></script>
-    <script src="/gcds-map/scripts/search.js" type="module"></script>
+    <script src="/gcds-ext-map/pagefind/pagefind.js" type="module"></script>
+    <script src="/gcds-ext-map/scripts/search.js" type="module"></script>
   </head>
   <body>
     
@@ -882,159 +885,189 @@
     
       
       
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
 
         
 
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
       
     
       
@@ -1630,7 +1663,7 @@
 <gcds-header
   lang="fr"
   skip-to-href="#mc"
-  lang-href='/gcds-map/en/'
+  lang-href='/gcds-ext-map/en/'
 >
   
 
@@ -1639,14 +1672,13 @@
   </gcds-breadcrumbs>
 
   
-<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche">
+<gcds-search search-id="search" slot="search" placeholder="Système de design GC" action="/fr/recherche" data-placeholder-long="Système de design GC" data-placeholder-short="SDGC">
 </gcds-search>
 
 
 </gcds-header>
-
     <div class="content-wrapper">
-      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" centered class="xl:px-0 sm:px-600 px-225 general-layout">
+      <gcds-grid columns="minmax(0, 1fr)" columns-desktop="320px minmax(0, 1fr)" tag="div" container="xl" alignment="center" class="xl:px-0 sm:px-600 px-225 general-layout">
         
 
 
@@ -1675,25 +1707,25 @@
 
 
 <gcds-side-nav label="Système de design GC" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75">
-  <gcds-nav-link href="/gcds-map/fr">Accueil</gcds-nav-link>
-  <gcds-nav-link href="/gcds-map/fr/demarrer" >Démarrer</gcds-nav-link>
+  <gcds-nav-link slot="home" href="/gcds-ext-map/fr">Système de design GC</gcds-nav-link>
+  <gcds-nav-link href="/gcds-ext-map/fr/demarrer" >Démarrer</gcds-nav-link>
 
   
-  
+
   <gcds-nav-group
     menu-label="Modèles de page"
     open-trigger="Modèles de page"
     
   >
     <gcds-nav-link
-      href="/gcds-map/fr/modeles-de-page"
+      href="/gcds-ext-map/fr/modeles-de-page"
       
     >
       Aperçu des modèles de page
     </gcds-nav-link>
   
   <gcds-nav-link
-    href="/gcds-map/fr/modeles-de-page/basic/"
+    href="/gcds-ext-map/fr/modeles-de-page/basic/"
     
   >
     Page de base
@@ -1701,21 +1733,21 @@
 </gcds-nav-group>
 
   
-  
+
   <gcds-nav-group
     menu-label="Composants"
     open-trigger="Composants"
     
   >
     <gcds-nav-link
-      href="/gcds-map/fr/composants"
+      href="/gcds-ext-map/fr/composants"
       
     >
       Aperçu des composants
     </gcds-nav-link>
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/avis/"
+    href="/gcds-ext-map/fr/composants/avis/"
     
   >
     Avis
@@ -1723,7 +1755,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/barre-de-navigation-laterale/"
+    href="/gcds-ext-map/fr/composants/barre-de-navigation-laterale/"
     
   >
     Barre de navigation latérale
@@ -1731,7 +1763,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/barre-de-navigation-superieure/"
+    href="/gcds-ext-map/fr/composants/barre-de-navigation-superieure/"
     
   >
     Barre de navigation supérieure
@@ -1739,7 +1771,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/bascule-de-langue/"
+    href="/gcds-ext-map/fr/composants/bascule-de-langue/"
     
   >
     Bascule de langue
@@ -1747,7 +1779,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/bouton/"
+    href="/gcds-ext-map/fr/composants/bouton/"
     
   >
     Bouton
@@ -1755,7 +1787,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/boutons-radio/"
+    href="/gcds-ext-map/fr/composants/boutons-radio/"
     
   >
     Boutons radio
@@ -1763,7 +1795,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/carte/"
+    href="/gcds-ext-map/fr/composants/carte/"
     
   >
     Carte
@@ -1771,7 +1803,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/cases-a-cocher/"
+    href="/gcds-ext-map/fr/composants/cases-a-cocher/"
     
   >
     Cases à cocher
@@ -1779,7 +1811,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/champ-de-date/"
+    href="/gcds-ext-map/fr/composants/champ-de-date/"
     
   >
     Champ de date
@@ -1787,7 +1819,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/champ-de-saisie/"
+    href="/gcds-ext-map/fr/composants/champ-de-saisie/"
     
   >
     Champ de saisie
@@ -1795,7 +1827,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/chemin-de-navigation/"
+    href="/gcds-ext-map/fr/composants/chemin-de-navigation/"
     
   >
     Chemin de navigation
@@ -1803,7 +1835,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/conteneur/"
+    href="/gcds-ext-map/fr/composants/conteneur/"
     
   >
     Conteneur
@@ -1811,7 +1843,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/date-de-modification/"
+    href="/gcds-ext-map/fr/composants/date-de-modification/"
     
   >
     Date de modification
@@ -1819,7 +1851,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/details/"
+    href="/gcds-ext-map/fr/composants/details/"
     
   >
     Détails
@@ -1827,7 +1859,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/en-tete/"
+    href="/gcds-ext-map/fr/composants/en-tete/"
     
   >
     En-tête
@@ -1835,7 +1867,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/grille/"
+    href="/gcds-ext-map/fr/composants/grille/"
     
   >
     Grille
@@ -1843,7 +1875,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/icone/"
+    href="/gcds-ext-map/fr/composants/icone/"
     
   >
     Icône
@@ -1851,7 +1883,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/indicateur-detape/"
+    href="/gcds-ext-map/fr/composants/indicateur-detape/"
     
   >
     Indicateur d&#39;étape
@@ -1859,7 +1891,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/jeu-de-champs/"
+    href="/gcds-ext-map/fr/composants/jeu-de-champs/"
     
   >
     Jeu de champs
@@ -1867,7 +1899,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/lien/"
+    href="/gcds-ext-map/fr/composants/lien/"
     
   >
     Lien
@@ -1875,7 +1907,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/masquage-accessible/"
+    href="/gcds-ext-map/fr/composants/masquage-accessible/"
     
   >
     Masquage accessible
@@ -1883,7 +1915,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/menu-thematique/"
+    href="/gcds-ext-map/fr/composants/menu-thematique/"
     
   >
     Menu thématique
@@ -1891,7 +1923,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/message-derreur/"
+    href="/gcds-ext-map/fr/composants/message-derreur/"
     
   >
     Message d&#39;erreur
@@ -1899,7 +1931,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/pagination/"
+    href="/gcds-ext-map/fr/composants/pagination/"
     
   >
     Pagination
@@ -1907,7 +1939,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/pied-de-page/"
+    href="/gcds-ext-map/fr/composants/pied-de-page/"
     
   >
     Pied de page
@@ -1915,7 +1947,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/recherche/"
+    href="/gcds-ext-map/fr/composants/recherche/"
     
   >
     Recherche
@@ -1923,7 +1955,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/resume-de-erreurs/"
+    href="/gcds-ext-map/fr/composants/resume-de-erreurs/"
     
   >
     Résumé des erreurs
@@ -1931,7 +1963,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/signature/"
+    href="/gcds-ext-map/fr/composants/signature/"
     
   >
     Signature
@@ -1939,7 +1971,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/selection/"
+    href="/gcds-ext-map/fr/composants/selection/"
     
   >
     Sélection
@@ -1947,7 +1979,15 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/texte/"
+    href="/gcds-ext-map/fr/composants/tableau/"
+    
+  >
+    Tableau
+  </gcds-nav-link>
+
+  
+  <gcds-nav-link
+    href="/gcds-ext-map/fr/composants/texte/"
     
   >
     Texte
@@ -1955,7 +1995,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/titre/"
+    href="/gcds-ext-map/fr/composants/titre/"
     
   >
     Titre
@@ -1963,7 +2003,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/televerseur-de-fichiers/"
+    href="/gcds-ext-map/fr/composants/televerseur-de-fichiers/"
     
   >
     Téléverseur de fichiers
@@ -1971,7 +2011,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/zone-de-texte/"
+    href="/gcds-ext-map/fr/composants/zone-de-texte/"
     
   >
     Zone de texte
@@ -1986,14 +2026,14 @@
     
   >
     <gcds-nav-link
-      href="/gcds-map/fr/composants/composants-de-carte"
+      href="/gcds-ext-map/fr/composants/composants-de-carte"
       
     >
       Aperçu des composants de carte
     </gcds-nav-link>
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/map/"
+    href="/gcds-ext-map/fr/composants/map/"
     
   >
     Carte
@@ -2001,7 +2041,7 @@
 
   
   <gcds-nav-link
-    href="/gcds-map/fr/composants/map/couche/"
+    href="/gcds-ext-map/fr/composants/map/couche/"
     
   >
     Couche
@@ -2016,7 +2056,7 @@
     
   >
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css"
+      href="/gcds-ext-map/fr/raccourcis-css"
       
     >
       Aperçu des raccourcis CSS
@@ -2031,7 +2071,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/reinitialisation-des-styles/"
+      href="/gcds-ext-map/fr/raccourcis-css/reinitialisation-des-styles/"
       
     >
       Réinitialisation des styles
@@ -2052,7 +2092,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/mise-en-page-reactive/"
+      href="/gcds-ext-map/fr/raccourcis-css/mise-en-page-reactive/"
       
     >
       Mise en page réactive
@@ -2061,7 +2101,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/etat/"
+      href="/gcds-ext-map/fr/raccourcis-css/etat/"
       
     >
       État
@@ -2090,7 +2130,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/affichage/"
+      href="/gcds-ext-map/fr/raccourcis-css/affichage/"
       
     >
       Affichage
@@ -2099,7 +2139,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/dimensionnement-de-la-boite/"
+      href="/gcds-ext-map/fr/raccourcis-css/dimensionnement-de-la-boite/"
       
     >
       Dimensionnement de la boîte
@@ -2108,7 +2148,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/dimensionnement-du-conteneur/"
+      href="/gcds-ext-map/fr/raccourcis-css/dimensionnement-du-conteneur/"
       
     >
       Dimensionnement du conteneur
@@ -2117,7 +2157,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/debordement/"
+      href="/gcds-ext-map/fr/raccourcis-css/debordement/"
       
     >
       Débordement
@@ -2126,7 +2166,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/position/"
+      href="/gcds-ext-map/fr/raccourcis-css/position/"
       
     >
       Position
@@ -2135,7 +2175,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/visibilite/"
+      href="/gcds-ext-map/fr/raccourcis-css/visibilite/"
       
     >
       Visibilité
@@ -2182,7 +2222,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/alignement-de-texte/"
+      href="/gcds-ext-map/fr/raccourcis-css/alignement-de-texte/"
       
     >
       Alignement de texte
@@ -2191,7 +2231,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/couleur-de-lien/"
+      href="/gcds-ext-map/fr/raccourcis-css/couleur-de-lien/"
       
     >
       Couleur de lien
@@ -2200,7 +2240,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/couleur-de-texte/"
+      href="/gcds-ext-map/fr/raccourcis-css/couleur-de-texte/"
       
     >
       Couleur de texte
@@ -2209,7 +2249,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/debordement-de-texte/"
+      href="/gcds-ext-map/fr/raccourcis-css/debordement-de-texte/"
       
     >
       Débordement de texte
@@ -2218,7 +2258,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/decoration-de-texte-de-lien/"
+      href="/gcds-ext-map/fr/raccourcis-css/decoration-de-texte-de-lien/"
       
     >
       Décoration de texte de lien
@@ -2227,7 +2267,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/famille-de-police/"
+      href="/gcds-ext-map/fr/raccourcis-css/famille-de-police/"
       
     >
       Famille de police
@@ -2236,7 +2276,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/hauteur-de-ligne/"
+      href="/gcds-ext-map/fr/raccourcis-css/hauteur-de-ligne/"
       
     >
       Hauteur de ligne
@@ -2245,7 +2285,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/police/"
+      href="/gcds-ext-map/fr/raccourcis-css/police/"
       
     >
       Police
@@ -2254,7 +2294,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/saut-de-mot/"
+      href="/gcds-ext-map/fr/raccourcis-css/saut-de-mot/"
       
     >
       Saut de mot
@@ -2263,7 +2303,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/style-de-liste/"
+      href="/gcds-ext-map/fr/raccourcis-css/style-de-liste/"
       
     >
       Style de liste
@@ -2272,7 +2312,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/style-de-police/"
+      href="/gcds-ext-map/fr/raccourcis-css/style-de-police/"
       
     >
       Style de police
@@ -2281,7 +2321,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/taille-de-lien/"
+      href="/gcds-ext-map/fr/raccourcis-css/taille-de-lien/"
       
     >
       Taille de lien
@@ -2290,7 +2330,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/taille-de-police/"
+      href="/gcds-ext-map/fr/raccourcis-css/taille-de-police/"
       
     >
       Taille de police
@@ -2299,7 +2339,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/transformation-de-texte/"
+      href="/gcds-ext-map/fr/raccourcis-css/transformation-de-texte/"
       
     >
       Transformation de texte
@@ -2308,7 +2348,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/epaisseur-de-police/"
+      href="/gcds-ext-map/fr/raccourcis-css/epaisseur-de-police/"
       
     >
       Épaisseur de police
@@ -2329,7 +2369,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/marge/"
+      href="/gcds-ext-map/fr/raccourcis-css/marge/"
       
     >
       Marge
@@ -2338,7 +2378,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/marge-interieure/"
+      href="/gcds-ext-map/fr/raccourcis-css/marge-interieure/"
       
     >
       Marge intérieure
@@ -2391,7 +2431,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/agencement-de-contenu/"
+      href="/gcds-ext-map/fr/raccourcis-css/agencement-de-contenu/"
       
     >
       Agencement de contenu
@@ -2400,7 +2440,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/agencement-des-elements/"
+      href="/gcds-ext-map/fr/raccourcis-css/agencement-des-elements/"
       
     >
       Agencement des éléments
@@ -2409,7 +2449,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/agencement-individuel/"
+      href="/gcds-ext-map/fr/raccourcis-css/agencement-individuel/"
       
     >
       Agencement individuel
@@ -2418,7 +2458,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/alignement-de-contenu/"
+      href="/gcds-ext-map/fr/raccourcis-css/alignement-de-contenu/"
       
     >
       Alignement de contenu
@@ -2427,7 +2467,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/alignement-des-elements/"
+      href="/gcds-ext-map/fr/raccourcis-css/alignement-des-elements/"
       
     >
       Alignement des éléments
@@ -2436,7 +2476,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/alignement-individuel/"
+      href="/gcds-ext-map/fr/raccourcis-css/alignement-individuel/"
       
     >
       Alignement individuel
@@ -2445,7 +2485,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/colonnes-de-grille/"
+      href="/gcds-ext-map/fr/raccourcis-css/colonnes-de-grille/"
       
     >
       Colonnes de grille
@@ -2454,7 +2494,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/direction-de-lelement-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/direction-de-lelement-flexible/"
       
     >
       Direction de l’élément flexible
@@ -2463,7 +2503,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/degagement/"
+      href="/gcds-ext-map/fr/raccourcis-css/degagement/"
       
     >
       Dégagement
@@ -2472,7 +2512,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/habillage-de-lelement-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/habillage-de-lelement-flexible/"
       
     >
       Habillage de l’élément flexible
@@ -2481,7 +2521,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/justification-de-contenu/"
+      href="/gcds-ext-map/fr/raccourcis-css/justification-de-contenu/"
       
     >
       Justification de contenu
@@ -2490,7 +2530,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/justification-des-elements/"
+      href="/gcds-ext-map/fr/raccourcis-css/justification-des-elements/"
       
     >
       Justification des éléments
@@ -2499,7 +2539,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/justification-individuelle/"
+      href="/gcds-ext-map/fr/raccourcis-css/justification-individuelle/"
       
     >
       Justification individuelle
@@ -2508,7 +2548,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/lignes-de-grille/"
+      href="/gcds-ext-map/fr/raccourcis-css/lignes-de-grille/"
       
     >
       Lignes de grille
@@ -2517,7 +2557,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/ordre/"
+      href="/gcds-ext-map/fr/raccourcis-css/ordre/"
       
     >
       Ordre
@@ -2526,7 +2566,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/retrecissement-de-lelement-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/retrecissement-de-lelement-flexible/"
       
     >
       Rétrécissement de l’élément flexible
@@ -2535,7 +2575,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/elargissement-de-lelement-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/elargissement-de-lelement-flexible/"
       
     >
       Élargissement de l’élément flexible
@@ -2544,7 +2584,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/element-flexible/"
+      href="/gcds-ext-map/fr/raccourcis-css/element-flexible/"
       
     >
       Élément flexible
@@ -2571,7 +2611,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/couleur-de-la-bordure/"
+      href="/gcds-ext-map/fr/raccourcis-css/couleur-de-la-bordure/"
       
     >
       Couleur de la bordure
@@ -2580,7 +2620,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/couleur-de-larriere-plan/"
+      href="/gcds-ext-map/fr/raccourcis-css/couleur-de-larriere-plan/"
       
     >
       Couleur de l’arrière-plan
@@ -2589,7 +2629,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/largeur-de-la-bordure/"
+      href="/gcds-ext-map/fr/raccourcis-css/largeur-de-la-bordure/"
       
     >
       Largeur de la bordure
@@ -2598,7 +2638,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/rayon-de-la-bordure/"
+      href="/gcds-ext-map/fr/raccourcis-css/rayon-de-la-bordure/"
       
     >
       Rayon de la bordure
@@ -2607,7 +2647,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/style-de-la-bordure/"
+      href="/gcds-ext-map/fr/raccourcis-css/style-de-la-bordure/"
       
     >
       Style de la bordure
@@ -2630,7 +2670,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/image/"
+      href="/gcds-ext-map/fr/raccourcis-css/image/"
       
     >
       Image
@@ -2639,7 +2679,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/noms-des-icones/"
+      href="/gcds-ext-map/fr/raccourcis-css/noms-des-icones/"
       
     >
       Noms des icônes
@@ -2648,7 +2688,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/taille-de-licone/"
+      href="/gcds-ext-map/fr/raccourcis-css/taille-de-licone/"
       
     >
       Taille de l&#39;icône
@@ -2671,7 +2711,7 @@
      >
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/curseur/"
+      href="/gcds-ext-map/fr/raccourcis-css/curseur/"
       
     >
       Curseur
@@ -2680,7 +2720,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/transition/"
+      href="/gcds-ext-map/fr/raccourcis-css/transition/"
       
     >
       Transition
@@ -2689,7 +2729,7 @@
 
   
     <gcds-nav-link
-      href="/gcds-map/fr/raccourcis-css/evenements-de-pointeur/"
+      href="/gcds-ext-map/fr/raccourcis-css/evenements-de-pointeur/"
       
     >
       Événements de pointeur
@@ -2706,11 +2746,11 @@
     open-trigger="Styles"
     
   >
-    <gcds-nav-link href="/gcds-map/fr/styles">Aperçu des styles</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/styles/unites-de-style" >Unités de style</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/styles/couleur" >Unités de style de couleur</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/styles/espacement" >Unités de style d&#39;espacement</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/styles/typographie" >Unités de style typographie</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles">Aperçu des styles</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles/unites-de-style" >Unités de style</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles/couleur" >Unités de style de couleur</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles/espacement" >Unités de style d’espacement</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/styles/typographie" >Unités de style typographie</gcds-nav-link>
   </gcds-nav-group>
 
   
@@ -2727,60 +2767,60 @@
     
   
   >
-    <gcds-nav-link href="/gcds-map/fr/contactez" >Contactez-nous</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/simpliquer" >Impliquez-vous</gcds-nav-link>
-    <gcds-nav-link href="/gcds-map/fr/inscrivez-vous-a-une-demonstration" >Trouvez une démo</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/contactez" >Nous contacter</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/simpliquer" >S’impliquer</gcds-nav-link>
+    <gcds-nav-link href="/gcds-ext-map/fr/inscrivez-vous-a-une-demonstration" >Trouver une démo</gcds-nav-link>
   </gcds-nav-group>
 </gcds-side-nav>
         <main id="mc" class="general-layout" data-pagefind-body>
           <h1 id="systeme-de-design-gc">Système de design GC</h1>
-<p>Créez des services gouvernementaux modernes, accessibles et humains.</p>
-<gcds-button type="link" href="/gcds-map/fr/demarrer">
+<p>Un système de design officiel et prêt pour la production destiné au gouvernement du Canada. Créez des services gouvernementaux modernes, accessibles et humains.</p>
+<gcds-button type="link" href="/gcds-ext-map/fr/demarrer">
   Démarrer
 </gcds-button>
-<gcds-button type="link" href="/gcds-map/fr/inscrivez-vous-a-une-demonstration" button-role="secondary">
-  Participez à une démo
+<gcds-button type="link" href="/gcds-ext-map/fr/inscrivez-vous-a-une-demonstration" button-role="secondary">
+  Participer à une démo
 </gcds-button>
 <section class="bt-sm mt-500">
 <h2 id="choisissez-systeme-de-design-gc">Choisissez Système de design GC</h2>
-<p>Système de design GC est la source pour les fonctionnaires qui assurent la prestation des sites Web et produits du gouvernement du Canada. Construisez plus rapidement, sans compromettre l’identité de marque, l’accessibilité, ni le bilinguisme.</p>
+<p>Système de design GC aide les fonctionnaires à concevoir des sites Web et des produits du gouvernement du Canada. Créez plus rapidement, sans compromettre ni l’identité de marque, ni l’accessibilité, ni le bilinguisme. Trouvez du code prêt pour la production, des ressources de design et de la documentation en un seul et même endroit.</p>
 <h3 id="pour-en-savoir-plus">Pour en savoir plus</h3>
-<p>Renseignez-vous <gcds-link href="/gcds-map/fr/a-propos">sur le SNC</gcds-link>, nos <gcds-link href="/gcds-map/fr/accessibilite/">tests réguliers en matière d’accessibilité</gcds-link> et sur les manières dont vous pouvez améliorer l’accessibilité de vos produits et sites Web.</p>
+<p>Renseignez-vous <gcds-link href="/gcds-ext-map/fr/a-propos">à propos de Système de design GC</gcds-link>, <gcds-link href="/gcds-ext-map/fr/sdgc-en-usage">des équipes qui l’utilisent</gcds-link>, de nos <gcds-link href="/gcds-ext-map/fr/accessibilite/">tests réguliers en matière d’accessibilité</gcds-link> et des façons d’améliorer l’accessibilité de vos produits et sites Web.</p>
 <h3 id="simpliquer">S’impliquer</h3>
 <p>Nous adaptons continuellement notre produit pour mieux répondre à vos besoins et vous offrir plus d’options.</p>
-<gcds-button type="link" href="/gcds-map/fr/simpliquer" button-role="secondary">
-  S’impliquer 
+<gcds-button type="link" href="/gcds-ext-map/fr/simpliquer" button-role="secondary">
+  S’impliquer
 </gcds-button>
 </section>
 <section class="bt-sm mt-500">
 <h2 id="des-outils-pour-les-problemes-courants">Des outils pour les problèmes courants</h2>
 <p>Appliquez ou combinez ces outils pour aborder les scénarios de services communs. Créez et construisez rapidement des expériences fiables et unifiées.</p>
 <gcds-grid columns="1fr" columns-tablet="1.5fr 2.5fr" columns-desktop="1fr 3fr" gap="150" gap-tablet="300">
-<img class="align-self-center d-none md:d-block" src="/gcds-map/images/common/home/components.jpg" alt="Trois formes distinctes, un rectangle rose à côté d'un carré vert et d'un carré jaune, forment le contour d'un plus grand carré." />
+<img class="align-self-center d-none md:d-block" src="/gcds-ext-map/images/common/home/components.jpg" alt="Trois formes distinctes, un rectangle rose à côté d'un carré vert et d'un carré jaune, forment le contour d'un plus grand carré." />
 <div>
   <gcds-heading tag="h3">
-    <gcds-link href="/gcds-map/fr/composants">Composants</gcds-link>
+    <gcds-link href="/gcds-ext-map/fr/composants">Composants</gcds-link>
   </gcds-heading>
 <p>Répondez aux besoins communs en matière d’interaction des services à l’aide du code, de la conception et des conseils pour la mise en œuvre de composants d’interface utilisateur.</p>
 </div>
-<img class="align-self-center d-none md:d-block" src="/gcds-map/images/common/home/templates.jpg" alt="Un rectangle vertical rempli d'un dégradé du rose au bleu." />
+<img class="align-self-center d-none md:d-block" src="/gcds-ext-map/images/common/home/templates.jpg" alt="Un rectangle vertical rempli d'un dégradé du rose au bleu." />
 <div>
   <gcds-heading tag="h3">
-    <gcds-link href="/gcds-map/fr/modeles-de-page">Modèles de page</gcds-link>
+    <gcds-link href="/gcds-ext-map/fr/modeles-de-page">Modèles de page</gcds-link>
   </gcds-heading>
 <p>Commencez votre projet à l’aide de pages préconstruites offrant une expérience uniforme et reconnaissable pour Canada.ca.</p>
 </div>
-<img class="align-self-center d-none md:d-block" src="/gcds-map/images/fr/accueil/shortcuts.jpg" alt="Un badge en haut à gauche avec le mot nouveau. Trois points horizontaux légèrement superposés dans des tons de bleu successivement foncés." />
+<img class="align-self-center d-none md:d-block" src="/gcds-ext-map/images/fr/accueil/shortcuts.jpg" alt="Un badge en haut à gauche avec le mot nouveau. Trois points horizontaux légèrement superposés dans des tons de bleu successivement foncés." />
 <div>
   <gcds-heading tag="h3">
-    <gcds-link href="/gcds-map/fr/raccourcis-css">Raccourcis CSS <gcds-sr-only>(Nouveau)</gcds-sr-only></gcds-link>
+    <gcds-link href="/gcds-ext-map/fr/raccourcis-css">Raccourcis CSS <gcds-sr-only>(Nouveau)</gcds-sr-only></gcds-link>
   </gcds-heading>
 <p>Appliquez des styles et des mises en page prédéfinis en ajoutant nos classes utilitaires CSS personnalisées à votre code HTML.</p>
 </div>
-<img class="align-self-center d-none md:d-block" src="/gcds-map/images/common/home/styles.jpg" alt="Un groupe de quatre points violets, bleus, verts et jaunes." />
+<img class="align-self-center d-none md:d-block" src="/gcds-ext-map/images/common/home/styles.jpg" alt="Un groupe de quatre points violets, bleus, verts et jaunes." />
 <div>
   <gcds-heading tag="h3">
-    <gcds-link href="/gcds-map/fr/styles">Styles</gcds-link>
+    <gcds-link href="/gcds-ext-map/fr/styles">Styles</gcds-link>
   </gcds-heading>
 <p>Explorez les décisions de marque et de design codées qui façonnent une expérience visuelle cohérente.</p>
 </div>
@@ -2790,25 +2830,26 @@
 <h2 id="nouveautes">Nouveautés</h2>
 <p>Parcourez les dernières fonctionnalités et les derniers ajouts au code dans le <gcds-link href="https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md#journal-des-modifications" external>journal des modifications dans GitHub</gcds-link>.</p>
 <p><strong>Dernières versions</strong> :</p>
-<ul class="list-disc mb-300"><li>Nouvelle fonctionnalité :  <gcds-link href="/gcds-map/fr/raccourcis-css">Raccourcis CSS</gcds-link></li>
-<li>Mises à jour : Style et conseils d’utilisation pour le composant <gcds-link href="/gcds-map/fr/composants/barre-de-navigation-laterale">navigation latérale</gcds-link></li>
+<ul class="list-disc mb-300"><li>Nouveau : Paquets stables v1.0.0 pour les <gcds-link href="https://github.com/cds-snc/gcds-components" external>composants</gcds-link> et les <gcds-link href="https://github.com/cds-snc/gcds-tokens" external>unités de style</gcds-link></li>
+<li>Mise à jour : Échelle de couleurs élargie avec de nouvelles <gcds-link href="/gcds-ext-map/fr/styles/couleur">unités de style de base</gcds-link></li>
+<li>Nouveau : <gcds-link href="https://www.figma.com/community/file/1602785216717583156/gcds-token-library" external>Bibliothèque Figma</gcds-link> distincte pour les unités de style</li>
 </ul>
 </section>
 <section class="bt-sm mt-500">
 <h2 id="a-venir">À venir</h2>
-<p>Explorez notre <gcds-link href="/gcds-map/fr/feuille-de-route">feuille de route</gcds-link> pour suivre nos progrès et voir sur quoi nous travaillerons prochainement.</p>
+<p>Explorez notre <gcds-link href="/gcds-ext-map/fr/feuille-de-route">feuille de route</gcds-link> pour suivre nos progrès et voir sur quoi nous travaillerons prochainement.</p>
 </section>
 <section class="bt-sm mt-500">
 <h2 id="contacteznous">Contactez-nous</h2>
-<p>Si vous avez des questions, si vous voulez vous impliquer ou si <gcds-link href="/gcds-map/fr/simpliquer">vous voulez</gcds-link> vous inscrire à notre liste de diffusion, n’hésitez pas à communiquer avec nous.</p>
-<gcds-button type="link" href="/gcds-map/fr/contactez" button-role="secondary">
-  Contactez-nous
+<p>Si vous avez des questions, si vous voulez <gcds-link href="/gcds-ext-map/fr/simpliquer">vous impliquer</gcds-link> ou si vous voulez vous inscrire à notre liste de diffusion, n’hésitez pas à communiquer avec nous.</p>
+<gcds-button type="link" href="/gcds-ext-map/fr/contactez" button-role="secondary">
+  Nous contacter
 </gcds-button>
 </section>
 
 
           <gcds-date-modified class="mb-300">
-            2025-10-09
+            2026-04-17
           </gcds-date-modified>
         </main>
       </gcds-grid>
@@ -2818,7 +2859,7 @@
   lang="fr"
   contextual-heading="Système de design GC"
   contextual-links='{ "À propos": "/fr/a-propos", "Déclaration d&#39;accessibilité": "/fr/accessibilite/", "Accord sur les niveaux de service": "/fr/entente-sur-les-niveaux-de-service/" }'
-  sub-links='{ "Médias sociaux": "https://www.canada.ca/fr/sociaux.html", "Applications mobiles": "https://www.canada.ca/fr/mobile.html", "À propos de Canada.ca": "https://www.canada.ca/fr/gouvernement/a-propos-canada-ca.html", "Conditions d&#39;utilisation": "/gcds-map/fr/conditions-dutilisation", "Confidentialité": "/gcds-map/fr/avis-de-confidentialite/" }'
+  sub-links='{ "Médias sociaux": "https://www.canada.ca/fr/sociaux.html", "Applications mobiles": "https://www.canada.ca/fr/mobile.html", "À propos de Canada.ca": "https://www.canada.ca/fr/gouvernement/a-propos-canada-ca.html", "Conditions d&#39;utilisation": "/gcds-ext-map/fr/conditions-dutilisation", "Confidentialité": "/gcds-ext-map/fr/avis-de-confidentialite/" }'
 ></gcds-footer>
 
     </div>

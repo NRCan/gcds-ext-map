@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-CW_WOSnc.js');
 
 const MapSelect = class {
     constructor(hostRef) {
@@ -91,9 +91,10 @@ const MapSelect = class {
         return null;
     }
     static get watchers() { return {
-        "name": ["nameChanged"]
+        "name": [{
+                "nameChanged": 0
+            }]
     }; }
 };
 
 exports.map_select = MapSelect;
-//# sourceMappingURL=map-select.entry.cjs.js.map

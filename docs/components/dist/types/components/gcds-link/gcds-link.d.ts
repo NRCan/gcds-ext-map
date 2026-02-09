@@ -13,8 +13,8 @@ export declare class GcdsLink {
     /**
      * Sets the main style of the link.
      */
-    variant?: 'default' | 'light';
-    validateVariant(newValue: string): void;
+    linkRole?: 'default' | 'light';
+    validateLinkRole(newValue: string): void;
     /**
      * Set the link size
      */
@@ -74,5 +74,10 @@ export declare class GcdsLink {
     gcdsClick: EventEmitter<string>;
     updateLang(): void;
     componentWillLoad(): void;
+    /**
+     * Returns the correct icon for the link, if applicable.
+     * If none of these conditions match, no icon is rendered.
+     */
+    private getIcon;
     render(): any;
 }

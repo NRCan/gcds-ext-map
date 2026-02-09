@@ -87,4 +87,3 @@ export class MapA {
     }
     static get elementRef() { return "el"; }
 }
-//# sourceMappingURL=map-a.js.map

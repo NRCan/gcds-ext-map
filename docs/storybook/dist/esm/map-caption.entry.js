@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement } from './index-PZrWUcjo.js';
+import { r as registerInstance, g as getElement } from './index-BUsJ7i5g.js';
 
 const MapCaption = class {
     constructor(hostRef) {
@@ -7,7 +7,7 @@ const MapCaption = class {
     get el() { return getElement(this); }
     observer;
     connectedCallback() {
-        if (this.el.parentElement.nodeName === 'GCDS-MAP') {
+        if (this.el.parentElement.nodeName === 'GCDS-EXT-MAP') {
             // Wait a tick for Stencil to finish rendering/hydrating the element's content
             setTimeout(() => {
                 // Only the first map-caption child should manage the aria-label
@@ -51,4 +51,3 @@ const MapCaption = class {
 };
 
 export { MapCaption as map_caption };
-//# sourceMappingURL=map-caption.entry.js.map

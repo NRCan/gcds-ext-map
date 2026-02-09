@@ -1,6 +1,6 @@
 {
   "entries": [
-    "components/gcds-map/gcds-map.js",
+    "components/gcds-ext-map/gcds-ext-map.js",
     "components/map-a/map-a.js",
     "components/map-caption/map-caption.js",
     "components/map-extent/map-extent.js",
@@ -17,10 +17,11 @@
     "components/map-style/map-style.js",
     "components/map-tile/map-tile.js"
   ],
+  "mixins": [],
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.38.2",
-    "typescriptVersion": "5.9.3"
+    "version": "4.43.5",
+    "typescriptVersion": "5.8.3"
   },
   "collections": [],
   "bundles": []

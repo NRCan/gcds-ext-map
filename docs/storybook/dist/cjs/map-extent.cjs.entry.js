@@ -1,6 +1,6 @@
 'use strict';
 
-var ContextMenu = require('./index-CvEoZNXZ.js');
+var ContextMenu = require('./index-CW_WOSnc.js');
 var renderStyles = require('./renderStyles-yOMXvf12.js');
 var calculatePosition = require('./calculatePosition-CDcdNl7C.js');
 
@@ -167,11 +167,17 @@ var createLayerControlExtentHTML = function () {
 
   let mapSelects = this.el.querySelectorAll('map-select');
   if (mapSelects.length) {
-    var frag = document.createDocumentFragment();
-    for (var i = 0; i < mapSelects.length; i++) {
-      frag.appendChild(mapSelects[i].selectdetails);
-    }
-    extentSettings.appendChild(frag);
+    // map-select Stencil components may not have initialized yet;
+    // wait for each to be ready before accessing selectdetails
+    Promise.all(
+      Array.from(mapSelects).map((s) => s.whenReady())
+    ).then(() => {
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < mapSelects.length; i++) {
+        frag.appendChild(mapSelects[i].selectdetails);
+      }
+      extentSettings.appendChild(frag);
+    });
   }
 
   let removeExtentButton = ContextMenu.leafletSrcExports.DomUtil.create(
@@ -301,7 +307,7 @@ var createLayerControlExtentHTML = function () {
         let x = moveEvent.clientX,
           y = moveEvent.clientY,
           root =
-            mapEl.tagName === 'GCDS-MAP'
+            mapEl.tagName === 'GCDS-EXT-MAP'
               ? mapEl.shadowRoot
               : mapEl.querySelector('.mapml-web-map').shadowRoot,
           elementAt = root.elementFromPoint(x, y),
@@ -517,7 +523,7 @@ const GcdsMapExtent = class {
         });
     }
     getMapEl() {
-        return ContextMenu.Util.getClosest(this.el, 'gcds-map');
+        return ContextMenu.Util.getClosest(this.el, 'gcds-ext-map');
     }
     getLayerEl() {
         return ContextMenu.Util.getClosest(this.el, 'map-layer,layer-');
@@ -966,13 +972,22 @@ const GcdsMapExtent = class {
         return Promise.allSettled(linksReady);
     }
     static get watchers() { return {
-        "units": ["unitsChanged"],
-        "_label": ["labelChanged"],
-        "checked": ["checkedChanged"],
-        "_opacity": ["opacityChanged"],
-        "hidden": ["hiddenChanged"]
+        "units": [{
+                "unitsChanged": 0
+            }],
+        "_label": [{
+                "labelChanged": 0
+            }],
+        "checked": [{
+                "checkedChanged": 0
+            }],
+        "_opacity": [{
+                "opacityChanged": 0
+            }],
+        "hidden": [{
+                "hiddenChanged": 0
+            }]
     }; }
 };
 
 exports.map_extent = GcdsMapExtent;
-//# sourceMappingURL=map-extent.entry.cjs.js.map

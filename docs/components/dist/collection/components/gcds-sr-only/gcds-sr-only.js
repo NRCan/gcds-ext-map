@@ -23,7 +23,7 @@ export class GcdsSrOnly {
     }
     render() {
         const Tag = this.tag;
-        return (h(Host, { key: 'c3d546661babf7e4c34bbf46600431ea761b2624' }, h(Tag, { key: '32bd3afe9621aa3bcd787bdb95d64ecb18819e0e' }, h("slot", { key: 'd2c250f425e5e988995957b984f7c05e3413651c' }))));
+        return (h(Host, { key: 'f2e667f21a09928c5b940cd4cc2c830ceed9f5d6' }, h(Tag, { key: 'ace85b55311b598b9b1449f32dd03c7cffd7d6a0' }, h("slot", { key: '3a05da8f35b06eaec871d03827532e8121c7b298' }))));
     }
     static get is() { return "gcds-sr-only"; }
     static get encapsulation() { return "shadow"; }
@@ -41,7 +41,6 @@ export class GcdsSrOnly {
         return {
             "tag": {
                 "type": "string",
-                "attribute": "tag",
                 "mutable": true,
                 "complexType": {
                     "original": "| 'h1'\n    | 'h2'\n    | 'h3'\n    | 'h4'\n    | 'h5'\n    | 'h6'\n    | 'p'\n    | 'span'",
@@ -57,6 +56,7 @@ export class GcdsSrOnly {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "tag",
                 "defaultValue": "'p'"
             }
         };
@@ -68,4 +68,3 @@ export class GcdsSrOnly {
             }];
     }
 }
-//# sourceMappingURL=gcds-sr-only.js.map

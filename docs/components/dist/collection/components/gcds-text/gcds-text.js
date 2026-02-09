@@ -80,7 +80,7 @@ export class GcdsText {
     }
     render() {
         const { characterLimit, display, marginTop, marginBottom, size, textRole } = this;
-        return (h(Host, { key: '60d33fada39b1dd1af0af482be9d9d3d158d248b', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: '5c890123f5244dd5a67f01819bbd309d67f2458a', class: `
+        return (h(Host, { key: '8219a6791a91322d1ce17a98f133303745d805a9', class: `${display != 'block' ? `d-${display}` : ''}` }, h("p", { key: 'ddea4733adb26b3d854466f07cddc3c384ad448d', class: `
             gcds-text
             ${textRole ? `role-${textRole}` : ''}
             ${characterLimit ? 'limit' : ''}
@@ -105,7 +105,6 @@ export class GcdsText {
         return {
             "textRole": {
                 "type": "string",
-                "attribute": "text-role",
                 "mutable": true,
                 "complexType": {
                     "original": "'light' | 'primary' | 'secondary'",
@@ -121,11 +120,11 @@ export class GcdsText {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "text-role",
                 "defaultValue": "'primary'"
             },
             "characterLimit": {
                 "type": "boolean",
-                "attribute": "character-limit",
                 "mutable": false,
                 "complexType": {
                     "original": "boolean",
@@ -141,11 +140,11 @@ export class GcdsText {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "character-limit",
                 "defaultValue": "true"
             },
             "display": {
                 "type": "string",
-                "attribute": "display",
                 "mutable": true,
                 "complexType": {
                     "original": "| 'block'\n    | 'flex'\n    | 'inline'\n    | 'inline-block'\n    | 'inline-flex'\n    | 'none'",
@@ -161,20 +160,21 @@ export class GcdsText {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "display",
                 "defaultValue": "'block'"
             },
             "marginTop": {
                 "type": "string",
-                "attribute": "margin-top",
                 "mutable": true,
                 "complexType": {
                     "original": "SpacingValues",
-                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "resolved": "\"0\" | \"100\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"125\" | \"1250\" | \"150\" | \"175\" | \"200\" | \"225\" | \"25\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"75\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\"",
                     "references": {
                         "SpacingValues": {
                             "location": "import",
                             "path": "../../utils/types/spacing",
-                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                            "id": "src/utils/types/spacing.tsx::SpacingValues",
+                            "referenceLocation": "SpacingValues"
                         }
                     }
                 },
@@ -187,20 +187,21 @@ export class GcdsText {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "margin-top",
                 "defaultValue": "'0'"
             },
             "marginBottom": {
                 "type": "string",
-                "attribute": "margin-bottom",
                 "mutable": true,
                 "complexType": {
                     "original": "SpacingValues",
-                    "resolved": "\"0\" | \"25\" | \"50\" | \"75\" | \"100\" | \"125\" | \"150\" | \"175\" | \"200\" | \"225\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"1250\"",
+                    "resolved": "\"0\" | \"100\" | \"1000\" | \"1050\" | \"1100\" | \"1150\" | \"1200\" | \"125\" | \"1250\" | \"150\" | \"175\" | \"200\" | \"225\" | \"25\" | \"250\" | \"300\" | \"350\" | \"400\" | \"450\" | \"50\" | \"500\" | \"550\" | \"600\" | \"650\" | \"700\" | \"75\" | \"750\" | \"800\" | \"850\" | \"900\" | \"950\"",
                     "references": {
                         "SpacingValues": {
                             "location": "import",
                             "path": "../../utils/types/spacing",
-                            "id": "src/utils/types/spacing.tsx::SpacingValues"
+                            "id": "src/utils/types/spacing.tsx::SpacingValues",
+                            "referenceLocation": "SpacingValues"
                         }
                     }
                 },
@@ -213,11 +214,11 @@ export class GcdsText {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "margin-bottom",
                 "defaultValue": "'300'"
             },
             "size": {
                 "type": "string",
-                "attribute": "size",
                 "mutable": true,
                 "complexType": {
                     "original": "'body' | 'small'",
@@ -233,6 +234,7 @@ export class GcdsText {
                 "getter": false,
                 "setter": false,
                 "reflect": false,
+                "attribute": "size",
                 "defaultValue": "'body'"
             }
         };
@@ -257,4 +259,3 @@ export class GcdsText {
             }];
     }
 }
-//# sourceMappingURL=gcds-text.js.map

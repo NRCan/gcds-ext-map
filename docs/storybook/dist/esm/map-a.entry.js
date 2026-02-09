@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement } from './index-PZrWUcjo.js';
+import { r as registerInstance, g as getElement } from './index-BUsJ7i5g.js';
 
 const MapA = class {
     constructor(hostRef) {
@@ -12,4 +12,3 @@ const MapA = class {
 };
 
 export { MapA as map_a };
-//# sourceMappingURL=map-a.entry.js.map
