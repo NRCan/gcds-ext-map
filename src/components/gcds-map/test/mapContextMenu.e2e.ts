@@ -788,6 +788,8 @@ test.describe('Playwright Map Context Menu Tests', () => {
   });
 
   test('Layer Context menu, Pressing enter on contextmenu focuses on checkbox element', async () => {
+    await page.reload({ waitUntil: 'networkidle' });
+    await page.waitForTimeout(500);
     const map = await page.getByTestId('firstmap');
     await map.click();
     for (let i = 0; i < 5; i++) {
