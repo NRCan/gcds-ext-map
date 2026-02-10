@@ -62,12 +62,13 @@ test.describe('Adding Static Attribute to gcds-map', () => {
   test('Removing Static Attribute', async ({ page }) => {
     // First enable static mode
     await page.$eval('body > gcds-map', (viewer: any) => (viewer.static = true));
-    
+    await page.waitForTimeout(100);
     // Then remove it
     await page.$eval(
       'body > gcds-map',
       (viewer: any) => (viewer.static = false)
     );
+    await page.waitForTimeout(100);
     let attribute = await page.$eval('body > gcds-map', (viewer) =>
       viewer.hasAttribute('static')
     );
