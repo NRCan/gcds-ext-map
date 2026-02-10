@@ -139,7 +139,7 @@ test.describe('Layer Context Menu Tests', () => {
   });
 
   test('Copy layer with relative src attribute', async () => {
-    await page.reload();
+    await page.reload({waitFor: 'networkidle'});
     await page.waitForTimeout(1000);
     const layerControl = page.locator('.leaflet-control-layers');
     await layerControl.hover({force: true});
