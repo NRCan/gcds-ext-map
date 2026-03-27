@@ -1,5 +1,5 @@
 dist/
-!docs/dist/
+docs/
 www/
 loader/
 src/generated/

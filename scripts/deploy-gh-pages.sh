@@ -104,7 +104,16 @@ cp -a "$REPO_ROOT/docs" "$STORYBOOK_TMP"
 if [ "$SKIP_BUILD" = false ]; then
   info "Building gcds-docs (PATH_PREFIX=/gcds-map)..."
   cd "$GCDS_DOCS_DIR"
+
+  # Force gcds-docs to use the just-built gcds-map dist from the local repo,
+  # not a stale cached version from GitHub. Remove old copy and reinstall.
+  info "Updating gcds-map in gcds-docs to match local build..."
+  rm -rf node_modules/gcds-map
   npm install
+  # Overwrite the npm-installed gcds-map dist with our local build
+  rm -rf node_modules/gcds-map/dist
+  cp -a "$REPO_ROOT/dist" node_modules/gcds-map/dist
+
   PATH_PREFIX=/gcds-map npm run build
 fi
 
