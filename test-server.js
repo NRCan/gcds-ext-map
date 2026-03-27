@@ -30,6 +30,53 @@ app.use('/test/data', serveStatic(path.join(__dirname, 'www/test/data')));
 // Serve other test directories (without byte range requirement)
 app.use('/test', express.static(path.join(__dirname, 'www/test')));
 
+// GeoJSON query response routes - serve JSON files with explicit Content-Type
+// headers needed for QueryHandler content-type based response handling
+app.get('/data/query/geojsonFeature', (req, res, next) => {
+  res.sendFile(
+    path.join(__dirname, 'www/test/data/geojson/geojsonFeature.geojson'),
+    { headers: { 'Content-Type': 'application/geo+json' } },
+    (err) => {
+      if (err) {
+        res.status(403).send('Error.');
+      }
+    }
+  );
+});
+app.get('/data/query/geojsonProjectedWithCrs', (req, res, next) => {
+  res.sendFile(
+    path.join(__dirname, 'www/test/data/geojson/geojsonProjectedWithCrs.json'),
+    { headers: { 'Content-Type': 'application/json' } },
+    (err) => {
+      if (err) {
+        res.status(403).send('Error.');
+      }
+    }
+  );
+});
+app.get('/data/query/geojsonProjectedNoCrs', (req, res, next) => {
+  res.sendFile(
+    path.join(__dirname, 'www/test/data/geojson/geojsonProjectedNoCrs.json'),
+    { headers: { 'Content-Type': 'application/json' } },
+    (err) => {
+      if (err) {
+        res.status(403).send('Error.');
+      }
+    }
+  );
+});
+app.get('/data/query/geojsonNullGeometry', (req, res, next) => {
+  res.sendFile(
+    path.join(__dirname, 'www/test/data/geojson/geojsonNullGeometry.json'),
+    { headers: { 'Content-Type': 'application/geo+json' } },
+    (err) => {
+      if (err) {
+        res.status(403).send('Error.');
+      }
+    }
+  );
+});
+
 app.listen(PORT, () => {
   console.log(`PMTiles test server running on http://localhost:${PORT}`);
   console.log(`Byte range requests enabled for PMTiles files`);
