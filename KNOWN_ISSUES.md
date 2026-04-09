@@ -2,7 +2,7 @@
 
 ## Next Feature Button Race Condition
 
-**Status**: Bug exists in both gcds-map and mapml-source  
+**Status**: Bug exists in both gcds-map and MapML.js  
 **Discovered**: December 5, 2025 during test migration  
 **Test**: `multipleQueryExtents.e2e.ts` - Tests with rapid "Next feature" button clicks
 
@@ -37,13 +37,13 @@ await page.getByTitle('Next feature').click();
 - Manual slow clicking doesn't reproduce the issue
 - The race condition suggests missing state synchronization in pagination logic
 - Should investigate adding debouncing or disabling the button during pagination transitions
-- This is not a regression - mapml-source has the same behavior
+- This is not a regression - MapML.js has the same behavior
 
 ---
 
 ## Layer Control - Extent Disappears After DOM Reordering
 
-**Status**: Bug exists in both gcds-map and mapml-source  
+**Status**: Bug exists in both gcds-map and MapML.js  
 **Discovered**: December 5, 2025 during test migration  
 **Test**: `mixedLayer-zindex-rendering.e2e.ts` - Test #4 "DOM order change affects z-index rendering"
 
@@ -74,10 +74,10 @@ firstFeature.parentNode.insertBefore(firstExtent, firstFeature.nextSibling);
 The test `mixedLayer-zindex-rendering.e2e.ts` verifies rendering (screenshot) not layer control state, so the test passes. The bug was noticed during investigation when timeout needed adjustment for proper rendering update.
 
 ### Notes
-- This is not a regression - mapml-source has the same behavior
+- This is not a regression - MapML.js has the same behavior
 - The `data-moving` attribute (used during layer control drag operations) properly prevents this issue during drag
 - A fix would need to add insertion logic to `connectedCallback()` similar to the hidden attribute handler (lines 105-140 in map-extent.tsx)
-- Investigate whether this is intended behavior or should be fixed in mapml-source upstream
+- Investigate whether this is intended behavior or should be fixed in MapML.js upstream
 
 ---
 
@@ -187,7 +187,7 @@ User can now tab to features
 
 ### Current Implementation
 - **gcds-map.tsx line 610**: `this._crosshair = crosshair().addTo(this._map);`
-- Matches mapml-source implementation exactly
+- Matches MapML.js implementation exactly
 - Added to map after controls, before event setup
 - Auto-cleaned up when map is deleted
 
@@ -218,7 +218,7 @@ Create accessibility test suite for keyboard navigation features including cross
 
 ## customTCRS Test Needs Rewrite
 
-**Status**: Confusing test exists in both gcds-map and mapml-source  
+**Status**: Confusing test exists in both gcds-map and MapML.js  
 **Discovered**: December 24, 2025 during test refactoring  
 **Test**: `customTCRS.e2e.ts` - Test #3 "Complex Custom TCRS, static features loaded, templated features loaded"
 

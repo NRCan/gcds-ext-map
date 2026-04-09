@@ -1,6 +1,6 @@
 # map-layer Component
 
-Refactored from `mapml-source/src/map-layer.js` and `layer.js`.
+Refactored from MapML.js `src/map-layer.js` and `layer.js`.
 
 ## Overview
 

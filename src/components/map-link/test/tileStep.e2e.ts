@@ -70,7 +70,7 @@ test.describe('Templated tile layer with step', () => {
       await zoomIn(page, 0, urlBase, '');
     });
 
-    // removed mapml-source test as it seemed dependent on browser 
+    // removed MapML.js test as it seemed dependent on browser 
     // cache behavior and not reliably testing the step functionality
     test('At zoom level 2, zooming in to 3', async () => {
       // At zoom 3, new tiles should be requested (step boundary)

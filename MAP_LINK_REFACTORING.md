@@ -184,7 +184,7 @@ for (const link of links) {
 
 1. **Test with map-extent** - Verify `_handleChange()` properly adds/removes templated layers
 2. **Test all link types** - Verify tile, image, features, query, and pmtiles links work correctly
-3. **Migrate tests** - Port relevant tests from `mapml-source/test/`
+3. **Migrate tests** - Port relevant tests from MapML.js `test/`
 4. **Add to stencil.config.ts** - Ensure test files are copied to www/test/
 5. **Integration testing** - Test complete workflow with gcds-map, map-layer, map-extent, map-link, map-input
 
@@ -256,5 +256,5 @@ All key properties and methods published on `this.el`:
 ✅ **Template variable system**: Complete  
 ✅ **Query variable setup**: Complete  
 ✅ **Build**: Successful with no errors  
-📝 **Tests**: Need to be migrated from mapml-source  
+📝 **Tests**: Need to be migrated from MapML.js  
 🧪 **Integration testing**: Ready to begin

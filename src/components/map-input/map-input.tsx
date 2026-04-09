@@ -52,7 +52,7 @@ export class MapInput {
 
       switch (this.type) {
         case 'zoom':
-          // this could be a bug, but it's the same bug as the mapml-source zoom input
+          // this could be a bug, but it's the same bug as the MapML.js zoom input
           this.initialValue = +this.el.getAttribute('value');
           // Publish for MapML compatibility
           (this.el as any).initialValue = this.initialValue;

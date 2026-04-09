@@ -4,6 +4,8 @@ A Government of Canada Design System (GCDS) plugin component that provides an ac
 
 ## Installation
 
+TBD: 
+
 ```bash
 npm install @cdssnc/gcds-map
 ```
@@ -24,6 +26,7 @@ This component requires the following peer dependencies:
 
 ```html
 <gcds-map projection="OSMTILE" lat="45.4215" lon="-75.6972" zoom="10">
+  <!-- this won't display anything because geogratis is out of date... -->
   <map-layer checked src="https://geogratis.gc.ca/mapml/en/osmtile/osm/"></map-layer>
 </gcds-map>
 ```
@@ -32,6 +35,7 @@ This component requires the following peer dependencies:
 
 ```html
 <gcds-map projection="CBMTILE" lat="60.0" lon="-95.0" zoom="3" controls="true">
+  <!-- this won't display anything because geogratis is out of date... -->
   <map-layer checked src="https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/"></map-layer>
   <map-layer src="https://example.com/overlay.mapml" opacity="0.7"></map-layer>
 </gcds-map>
