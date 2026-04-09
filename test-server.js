@@ -76,6 +76,17 @@ app.get('/data/query/geojsonNullGeometry', (req, res, next) => {
     }
   );
 });
+app.get('/data/query/geojsonErroneousMediaType', (req, res, next) => {
+  res.sendFile(
+    path.join(__dirname, 'www/test/data/geojson/geojsonPoint.json'),
+    { headers: { 'Content-Type': 'application/geojson' } },
+    (err) => {
+      if (err) {
+        res.status(403).send('Error.');
+      }
+    }
+  );
+});
 
 app.listen(PORT, () => {
   console.log(`PMTiles test server running on http://localhost:${PORT}`);
