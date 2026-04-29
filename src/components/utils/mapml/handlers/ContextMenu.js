@@ -516,6 +516,11 @@ export var ContextMenu = Handler.extend({
   },
 
   _copyData: function (data) {
+    // Remove Stencil/runtime artifacts from HTML
+    data = data
+    .replace(/\s*class="[^"]*hydrated[^"]*"/gi, '') // Remove class with "hydrated"
+    .replace(/\s*class=""/g, ' ')                    // Remove empty class attributes
+
     const el = document.createElement('textarea');
     el.value = data;
     document.body.appendChild(el);
