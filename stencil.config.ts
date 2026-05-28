@@ -181,6 +181,11 @@ export const config: Config = {
         {
           src: '../node_modules/@gcds-core/fonts/fonts',
           dest: 'fonts'
+        },
+        // empty.html used by tests that need page.setContent() with server origin
+        {
+          src: 'empty.html',
+          dest: 'empty.html'
         }
       ],
     },

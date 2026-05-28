@@ -8,7 +8,7 @@
   </map-head>
   <map-body>
     <map-extent units="OSMTILE" checked="checked" hidden="hidden">
-      <map-link rel="tile" type="application/pmtiles" tref="http://localhost:30333/test/map-layer/spearfish.pmtiles?theme=light"></map-link>
+      <map-link rel="tile" type="application/pmtiles" tref="http://localhost:3333/test/map-layer/spearfish.pmtiles?theme=light"></map-link>
     </map-extent>
   </map-body>
 </mapml->

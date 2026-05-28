@@ -4,6 +4,10 @@
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
     "lib": [
       "dom",
       "es2022"

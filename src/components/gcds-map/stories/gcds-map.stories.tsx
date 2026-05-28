@@ -86,7 +86,7 @@ export default {
     controlslist: {
       name: 'controlslist',
       control: 'multi-select',
-      options: ['geolocation', 'nofullscreen', 'nozoom', 'nolayer', 'noreload', 'noscale'],
+      options: ['geolocation', 'search', 'nofullscreen', 'nozoom', 'nolayer', 'noreload', 'noscale'],
       table: {
         type: { summary: 'Space-separated list of case-insensitive string tokens of control name or "no"+control name' },
         defaultValue: { summary: 'Empty string, equivalent to absent controlslist attribute.' },
@@ -117,7 +117,7 @@ const TemplateBasic = (args) => {
 <!-- React code -->`;
 };
 
-export const Default = TemplateBasic.bind({});
+export const Default: any = TemplateBasic.bind({});
 Default.args = {
   lat: 48.474287,
   lon: -123.390541,
@@ -126,7 +126,7 @@ Default.args = {
   controls: true,
   static: false,
   lang: 'en',
-  controlslist: ['geolocation'],
+  controlslist: ['geolocation', 'search'],
   layer: './dist/gcds-map/assets/mapml/en/osmtile/cbmt',
   caption: 'A map of Victoria, Canada'
 };
@@ -168,7 +168,7 @@ Playground.args = {
   controls: true,
   static: false,
   lang: 'en',
-  controlslist: ['geolocation'],
+  controlslist: ['geolocation', 'search'],
   layer: './dist/gcds-map/assets/mapml/en/osmtile/cbmt',
   caption: "Canada's current weather conditions"
 };
@@ -265,7 +265,7 @@ export const GeoJSON2MapMLExample = {
   controls: true,
   static: false,
   lang: 'en',
-  controlslist: ['geolocation'],
+  controlslist: ['geolocation', 'search'],
   layer: './dist/gcds-map/assets/mapml/en/osmtile/cbmt',
   caption: "Canada's Provinces and Territories in styled GeoJSON"
   },
@@ -346,7 +346,7 @@ export const DarkMode = {
   controls: true,
   static: false,
   lang: 'en',
-  controlslist: ['geolocation'],
+  controlslist: ['geolocation', 'search'],
   caption: "OpenStreetMap in pmtiles archive format, demonstrating light and dark mode maps"
   }
 };

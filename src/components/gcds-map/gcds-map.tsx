@@ -2,6 +2,7 @@ import { Component, Prop, Element, Watch, Method } from '@stencil/core';
 import {
   map,
   LatLng,
+  latLngBounds,
   control
 } from 'leaflet';
 import { Util } from '../utils/mapml/Util.js';
@@ -33,6 +34,7 @@ import { scaleBar } from '../utils/mapml/control/ScaleBar.js';
 
 import { geolocationButton } from '../utils/mapml/control/GeolocationButton.js';
 import { fullscreenButton } from '../utils/mapml/control/FullscreenButton.js';
+import { searchButton } from '../utils/mapml/control/SearchButton.js';
 import { debugOverlay } from '../utils/mapml/layers/DebugOverlay.js';
 import { crosshair } from '../utils/mapml/layers/Crosshair.js';
 import { featureIndexOverlay } from '../utils/mapml/layers/FeatureIndexOverlay.js';
@@ -78,6 +80,7 @@ export class GcdsMap {
   private _fullScreenControl: any;
   private _geolocationButton: any;
   private _scaleBar: any;
+  private _searchButton: any;
   private _isInitialized: boolean = false;
   private _debug: any;
   // @ts-ignore 
@@ -323,7 +326,8 @@ export class GcdsMap {
           'nozoom',
           'nolayer',
           'noscale',
-          'geolocation'
+          'geolocation',
+          'search'
         ]
       );
 
@@ -595,6 +599,12 @@ export class GcdsMap {
         configurable: true
       });
 
+      Object.defineProperty(this.el, 'zoomToExtent', {
+        value: (west: number, south: number, east: number, north: number) => this.zoomToExtent(west, south, east, north),
+        writable: true,
+        configurable: true
+      });
+
       Object.defineProperty(this.el, 'back', {
         value: () => this.back(),
         writable: true,
@@ -733,6 +743,17 @@ export class GcdsMap {
       // Expose on element for MapML compatibility
       (this.el as any)._zoomControl = this._zoomControl;
     }
+    if (
+      !this._searchButton &&
+      this._controlsList &&
+      this._controlsList.contains('search') &&
+      totalSize + 49 <= mapSize
+    ) {
+      totalSize += 49;
+      this._searchButton = searchButton({ mapEl: this.el }).addTo(this._map);
+      // Expose on element for MapML compatibility
+      (this.el as any)._searchButton = this._searchButton;
+    }
     if (!this._reloadButton && totalSize + 49 <= mapSize) {
       totalSize += 49;
       this._reloadButton = reloadButton().addTo(this._map);
@@ -767,6 +788,7 @@ export class GcdsMap {
   }
 
   _hideControls() {
+    this._setControlsVisibility('search', true);
     this._setControlsVisibility('fullscreen', true);
     this._setControlsVisibility('layercontrol', true);
     this._setControlsVisibility('reload', true);
@@ -775,6 +797,7 @@ export class GcdsMap {
     this._setControlsVisibility('scale', true);
   }
   _showControls() {
+    this._setControlsVisibility('search', true);
     this._setControlsVisibility('fullscreen', false);
     this._setControlsVisibility('layercontrol', false);
     this._setControlsVisibility('reload', false);
@@ -804,6 +827,15 @@ export class GcdsMap {
           case 'geolocation':
             this._setControlsVisibility('geolocation', false);
             break;
+          case 'search':
+            if (!this._searchButton) {
+              this._searchButton = searchButton({ mapEl: this.el }).addTo(
+                this._map
+              );
+              (this.el as any)._searchButton = this._searchButton;
+            }
+            this._setControlsVisibility('search', false);
+            break;
           case 'noscale':
             this._setControlsVisibility('scale', true);
             break;
@@ -817,6 +849,7 @@ export class GcdsMap {
   }
   // delete the map controls that are private properties of this custom element
   _deleteControls() {
+    delete this._searchButton;
     delete this._layerControl;
     delete this._zoomControl;
     delete this._reloadButton;
@@ -829,6 +862,11 @@ export class GcdsMap {
   _setControlsVisibility(control, hide) {
     let container;
     switch (control) {
+      case 'search':
+        if (this._searchButton) {
+          container = this._searchButton._container;
+        }
+        break;
       case 'zoom':
         if (this._zoomControl) {
           container = this._zoomControl._container;
@@ -1279,6 +1317,14 @@ export class GcdsMap {
    * @param lon - Longitude coordinate 
    * @param zoom - Zoom level (optional, defaults to current zoom)
    */
+  zoomToExtent(west: number, south: number, east: number, north: number): void {
+    if (!this._map) {
+      console.warn('Map is not initialized. Cannot zoom to extent.');
+      return;
+    }
+    this._map.fitBounds(latLngBounds([+south, +west], [+north, +east]));
+    this._updateMapCenter();
+  }
   zoomTo(lat: number, lon: number, zoom?: number): void {
     // Ensure map is initialized before attempting to zoom
     if (!this._map) {

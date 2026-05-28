@@ -4,6 +4,8 @@
     <map-meta http-equiv="Content-Type" content="application/xml;charset=UTF-8"></map-meta>
     <map-meta charset="utf-8"></map-meta>
     <map-link rel="license" href="https://www.esri.com/legal/software-license" title="Sources: Esri, GEBCO, NOAA, National Geographic, DeLorme, HERE, Geonames.org, and other contributors"></map-link>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
   </map-head>
   <map-body>
     <map-extent units="APSTILE" checked="checked" hidden="hidden">

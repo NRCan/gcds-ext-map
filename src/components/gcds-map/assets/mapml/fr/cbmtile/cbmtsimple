@@ -6,6 +6,8 @@
 
     <map-link rel="license" href="https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada" title="Licence du gouvernement ouvert - Canada"></map-link>
     <map-link rel="legend" href="https://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/Simple/MapServer/legend"></map-link>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
   </map-head>
   <map-body>
     <map-extent units="CBMTILE" checked="checked" hidden="hidden">

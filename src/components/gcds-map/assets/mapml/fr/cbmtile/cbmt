@@ -5,6 +5,8 @@
     <map-meta charset="utf-8"></map-meta>
 
     <map-link rel="license" href="https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada" title="Licence du gouvernement ouvert – Canada"></map-link>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
     <map-link rel="alternate" projection="OSMTILE" href="../osmtile/cbmt"></map-link>
   </map-head>
   <map-body>

@@ -5,6 +5,8 @@
     <map-meta charset="utf-8"></map-meta>
 
     <map-link rel="license" href="https://www.openstreetmap.org/copyright" title="&#xa9; OpenStreetMap contributors CC BY-SA"></map-link>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
   </map-head>
   <map-body>
     <map-extent units="OSMTILE" checked="checked" >

@@ -5,18 +5,17 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
   let context;
 
   test.beforeAll(async function () {
-    context = await chromium.launchPersistentContext('', { slowMo: 500 });
-    page =
-      context.pages().find((page) => page.url() === 'about:blank') ||
-      (await context.newPage());
+    context = await chromium.launchPersistentContext('');
+    page = await context.newPage();
+  });
+  test.beforeEach(async () => {
     await page.goto('/test/map-tile/map-tile-test.html', { waitUntil: 'networkidle' });
+    await page.waitForTimeout(1500);
   });
   test.afterAll(async () => {
     await context.close();
   });
   test('removing map-tile from DOM removes it from map rendering', async () => {
-    // Wait for initial rendering
-    await page.waitForTimeout(1000);
 
     // Debug: Check initial state
     const debugInfo = await page.evaluate(() => {
@@ -55,7 +54,8 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
     expect(debugInfo.totalTiles).toBeGreaterThan(0);
 
     // Take screenshot before removal
-    const beforeScreenshot = await page.screenshot({ fullPage: false });
+    const viewer = page.getByTestId('viewer');
+    const beforeScreenshot = await viewer.screenshot();
     expect(beforeScreenshot).toMatchSnapshot('before-tile-removal.png');
 
     // Remove specific tiles that are currently at the map zoom level
@@ -105,7 +105,7 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
     });
 
     // Take screenshot after removal to show visual difference
-    const afterScreenshot = await page.screenshot({ fullPage: false });
+    const afterScreenshot = await viewer.screenshot();
     expect(afterScreenshot).toMatchSnapshot('after-tile-removal.png');
 
     // The test should pass if we removed tiles successfully
@@ -113,9 +113,6 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
   });
 
   test('removing the last map-tile in a sequence removes MapTileLayer container', async () => {
-    // Reset by reloading the page
-    await page.reload({ waitUntil: 'networkidle' });
-
     const viewer = page.getByTestId('viewer');
     let nTiles = await viewer.evaluate(
       (v) => v.querySelectorAll('map-tile').length
@@ -138,11 +135,9 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
   });
 
   test('adding map-tile to DOM renders it on map', async () => {
-    // Reset by reloading the page
-    await page.reload({ waitUntil: 'networkidle' });
-
     // Take baseline screenshot
-    const baselineScreenshot = await page.screenshot({ fullPage: false });
+    const viewer = page.getByTestId('viewer');
+    const baselineScreenshot = await viewer.screenshot();
     expect(baselineScreenshot).toMatchSnapshot('baseline-before-adding.png');
 
     // Add a new map-tile element to DOM at a visible location
@@ -152,12 +147,12 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
       newTile.setAttribute('zoom', '2');
       newTile.setAttribute('row', '13');
       newTile.setAttribute('col', '12');
-      newTile.setAttribute('src', 'tiles/green-tile.png');
+      newTile.setAttribute('src', '/test/data/tiles/green-tile.png');
       layer.appendChild(newTile);
     });
 
     // Wait for the tile to be processed and rendered
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Verify the new tile exists in DOM
     const newTileExists = await page.evaluate(() => {
@@ -176,14 +171,13 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
     expect(newTileInLayer).toBe(true);
 
     // Take screenshot after adding to show the tile was rendered
-    const afterAddingScreenshot = await page.screenshot({ fullPage: false });
+    const afterAddingScreenshot = await viewer.screenshot();
     expect(afterAddingScreenshot).toMatchSnapshot('after-adding-tile.png');
   });
 
   test('bidirectional links are properly cleaned up on removal', async () => {
-    // Reload to start fresh
-    await page.reload({ waitUntil: 'networkidle' });
 
+    await page.waitForTimeout(1500);
     // Get reference to a tile and its rendered div before removal
     const tileInfo = await page.evaluate(() => {
       const tile: any = document.querySelector('map-tile[zoom="2"]');
@@ -226,9 +220,8 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
   });
 
   test('changing src attribute updates tile image', async () => {
-    // Reset by reloading the page
-    await page.reload({ waitUntil: 'networkidle' });
 
+    await page.waitForTimeout(1500);
     // Find a tile and get initial src
     const initialState = await page.evaluate(() => {
       const mapZoom = (document.querySelector('gcds-map') as any)._map.getZoom();
@@ -249,7 +242,8 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
     expect(initialState.hasDiv).toBe(true);
 
     // Take screenshot before src change
-    const beforeScreenshot = await page.screenshot({ fullPage: false });
+    const viewer = page.getByTestId('viewer');
+    const beforeScreenshot = await viewer.screenshot();
     expect(beforeScreenshot).toMatchSnapshot('before-src-change.png');
 
     // Change the src attribute to a different color tile
@@ -288,14 +282,11 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
     expect(finalState.src).toBe(newSrc);
 
     // Take screenshot after src change
-    const afterScreenshot = await page.screenshot({ fullPage: false });
+    const afterScreenshot = await viewer.screenshot();
     expect(afterScreenshot).toMatchSnapshot('after-src-change.png');
   });
 
   test('coordinate collision - last tile wins', async () => {
-    // Reset by reloading the page
-    await page.reload({ waitUntil: 'networkidle' });
-
     // Create a new tile at a visible position first
     await page.evaluate(() => {
       const layer = document.querySelector('map-layer');
@@ -303,12 +294,12 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
       newTile.setAttribute('zoom', '2');
       newTile.setAttribute('row', '10');
       newTile.setAttribute('col', '11');
-      newTile.setAttribute('src', 'tiles/red-tile.png');
+      newTile.setAttribute('src', '/test/data/tiles/red-tile.png');
       newTile.id = 'test-tile-1';
       layer.appendChild(newTile);
     });
 
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
 
     // Verify first tile is rendered
     const firstTileState = await page.evaluate(() => {
@@ -328,12 +319,12 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
       newTile.setAttribute('zoom', '2');
       newTile.setAttribute('row', '10');
       newTile.setAttribute('col', '11');
-      newTile.setAttribute('src', 'tiles/green-tile.png');
+      newTile.setAttribute('src', '/test/data/tiles/green-tile.png');
       newTile.id = 'test-tile-2';
       layer.appendChild(newTile);
     });
 
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(1500);
 
     // Check final state - second tile should win, first should lose _tileDiv
     const finalState = await page.evaluate(() => {
@@ -351,8 +342,8 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
     // Last tile wins - tile2 should be rendered, tile1 should not
     expect(finalState.tile2DivIsConnected).toBe(true);
     expect(finalState.tile1DivIsConnected).toBe(false);
-    expect(finalState.tile1Src).toBe('tiles/red-tile.png');
-    expect(finalState.tile2Src).toBe('tiles/green-tile.png');
+    expect(finalState.tile1Src).toBe('/test/data/tiles/red-tile.png');
+    expect(finalState.tile2Src).toBe('/test/data/tiles/green-tile.png');
   });
 
 });

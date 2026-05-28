@@ -5,6 +5,8 @@
     <map-link rel="license" title="© OpenStreetMap contributors CC BY-SA" href="https://www.openstreetmap.org/copyright"></map-link>
     <map-link rel="self style" title="Dark theme" href="dark.mapml"></map-link>
     <map-link rel="style" title="Light theme" href="light.mapml"></map-link>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
   </map-head>
   <map-body>
     <map-extent units="OSMTILE" checked="" hidden="">

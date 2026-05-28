@@ -6,7 +6,9 @@
 
     <map-link rel="license" href="https://open.canada.ca/en/open-government-licence-canada" title="Open Government Licence - Canada"></map-link>
     <map-link rel="legend" href="https://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/Simple/MapServer/legend"></map-link>
-  </map-head>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
+    </map-head>
   <map-body>
     <map-extent units="CBMTILE" checked="checked" hidden="hidden">
       <map-input name="z" type="zoom" value="18" min="0" max="18"></map-input>

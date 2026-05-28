@@ -7,6 +7,8 @@
     <map-link rel="license" href="https://open.canada.ca/en/open-government-licence-canada" title="Open Government Licence - Canada"></map-link>
     <map-link rel="legend" href="https://maps.geogratis.gc.ca/wms/toporama_en?SERVICE=WMS&amp;REQUEST=GetLegendGraphic&amp;LAYER=WMS-Toporama&amp;VERSION=1.1&amp;FORMAT=image/png"></map-link>
     <map-link rel="alternate" projection="CBMTILE" href="../cbmtile/toporama"></map-link>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
   </map-head>
   <map-body>
     <map-extent units="OSMTILE" checked="checked" hidden="hidden">

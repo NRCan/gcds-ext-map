@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Custom Handler Tests</title>
+    <script type="module" src="/build/gcds-map.esm.js"></script>
+  </head>
+  <body>
+    <gcds-map
+      data-testid="viewer"
+      projection="CBMTILE"
+      zoom="5"
+      lat="45.4"
+      lon="-75.7"
+      style="width: 600px; height: 400px;"
+      controls
+      controlslist="search"
+    >
+      <map-layer
+        data-testid="search-layer"
+        label="Geonames Layer"
+        src="/test/data/search-geonames.mapml"
+        checked
+      ></map-layer>
+    </gcds-map>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const viewer = document.querySelector('[data-testid=viewer]');
+
+        // Custom suggestions handler — parse geonames items array
+        viewer.addEventListener('mapsuggestions', (e) => {
+          e.preventDefault();
+          const items = [];
+          for (const { data } of e.detail.responses) {
+            if (!data || !data.items) continue;
+            for (const item of data.items) {
+              items.push({
+                text: item.name,
+                value: item.name,
+                lat: item.latitude,
+                lng: item.longitude,
+                bbox: item.bbox || undefined
+              });
+            }
+          }
+          e.detail.setResults(items);
+        });
+
+        // Custom search handler — parse geonames items array
+        viewer.addEventListener('mapsearch', (e) => {
+          e.preventDefault();
+          const items = [];
+          for (const { data } of e.detail.responses) {
+            if (!data || !data.items) continue;
+            for (const item of data.items) {
+              items.push({
+                text: item.name,
+                lat: item.latitude,
+                lng: item.longitude,
+                bbox: item.bbox || undefined
+              });
+            }
+          }
+          e.detail.setResults(items);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -224,6 +224,10 @@ export class MapLink {
         break;
       case 'license':
         break;
+      case 'search':
+      case 'suggestions':
+        // no-op: discoverable via DOM query from SearchButton
+        break;
     }
 
     await this._registerMediaQuery(this.media);
@@ -1005,6 +1009,8 @@ export class MapLink {
         case 'zoomout':
         case 'legend':
         case 'license':
+        case 'search':
+        case 'suggestions':
           resolve();
           return;
         default:

@@ -11,9 +11,9 @@ export default defineConfig({
     baseURL: 'http://localhost:3333/',
   },
   webServer: {
-    command: 'npx stencil build --dev --watch --serve --port 3333',
+    command: 'node test-server.js',
     port: 3333,
-    timeout: 120000,
+    timeout: 10000,
     reuseExistingServer: !process.env.CI,
   },
 });
