@@ -1479,18 +1479,28 @@ export const Util = {
         json.features[num].geometry.geometries = [];
 
         let geoms = geom.children;
+        // Collect geometry elements from within map-a/map-span wrappers
+        // without using cloneNode (Stencil components don't clone properly)
+        const collectGeometries = (parent) => {
+          Array.from(parent.children).forEach((child) => {
+            let cn = child.nodeName.toUpperCase();
+            if (cn === 'MAP-SPAN' || cn === 'MAP-A') {
+              collectGeometries(child);
+            } else {
+              let geojson = Util._geometry2geojson(
+                child,
+                source,
+                dest,
+                options.transform
+              );
+              json.features[num].geometry.geometries.push(geojson);
+            }
+          });
+        };
         Array.from(geoms).forEach((g) => {
-          // omit all map-span, map-a that may be present in geometry-collection
           let n = g.nodeName.toUpperCase();
           if (n === 'MAP-SPAN' || n === 'MAP-A') {
-            g = g.cloneNode(true);
-            [...g.querySelectorAll('map-a, map-span')].forEach((e) =>
-              e.replaceWith(...e.children)
-            );
-            Array.from(g.children).forEach((i) => {
-              i = Util._geometry2geojson(i, source, dest, options.transform);
-              json.features[num].geometry.geometries.push(i);
-            });
+            collectGeometries(g);
           } else {
             g = Util._geometry2geojson(g, source, dest, options.transform);
             json.features[num].geometry.geometries.push(g);
