@@ -2,20 +2,23 @@
   <map-head>
     <map-title>La carte de base du Canada - transport</map-title>
     <map-meta http-equiv="Content-Type" content="application/xml;charset=UTF-8"></map-meta>
-    <map-meta charset="utf-8"></map-meta>
+    <map-meta charset="utf-8"></map-meta><!-- test -->
 
     <map-link rel="license" href="https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada" title="Licence du gouvernement ouvert – Canada"></map-link>
     <map-link rel="alternate" projection="CBMTILE" href="../cbmtile/cbmt"></map-link>
-    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
-    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=5"></map-link>
+    <map-link rel="suggestions" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=25"></map-link>
+    <map-link rel="search" tref="https://photon.komoot.io/api/?q={searchTerms}&amp;limit=25"></map-link>
   </map-head>
   <map-body>
     <map-extent units="OSMTILE" checked="checked" hidden="hidden">
-      <map-input name="z" type="zoom" value="15" min="0" max="15"></map-input>
-      <map-input name="y" type="location" units="tilematrix" axis="row" min="-336" max="14176"></map-input>
-      <map-input name="x" type="location" units="tilematrix" axis="column" min="943" max="14815"></map-input>
-      <map-link rel="tile" tref="https://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_CBCT_GEOM_3857/MapServer/tile/{z}/{y}/{x}?m4h=t"></map-link>
-      <map-link rel="tile" tref="https://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBCT_TXT_3857/MapServer/tile/{z}/{y}/{x}?m4h=t"></map-link>
+      <map-input name="z" type="zoom" min="0" max="19"></map-input>
+      <map-input name="xmin" type="location" units="pcrs" position="top-left" axis="easting"></map-input>
+      <map-input name="ymin" type="location" units="pcrs" position="bottom-left" axis="northing"></map-input>
+      <map-input name="xmax" type="location" units="pcrs" position="top-right" axis="easting"></map-input>
+      <map-input name="ymax" type="location" units="pcrs" position="top-left" axis="northing"></map-input>
+      <map-input name="w" type="width"></map-input>
+      <map-input name="h" type="height"></map-input>
+      <map-link rel="image" tref="https://geogratis.gc.ca/cartes/CBCT?SERVICE=WMS&amp;VERSION=1.1.1&amp;SRS=EPSG:3857&amp;LAYERS=CBCT&amp;BBOX={xmin},{ymin},{xmax},{ymax}&amp;REQUEST=GetMap&amp;FORMAT=image/png&amp;TRANSPARENT=TRUE&amp;WIDTH={w}&amp;HEIGHT={h}&amp;STYLES="></map-link>
     </map-extent>
   </map-body>
 </mapml->
