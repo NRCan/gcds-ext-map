@@ -634,10 +634,13 @@
               .setAttribute('aria-labelledby', propertyId);
 
             if (lang === 'fr') {
-              const firstSelectOption =
-                tr.children[x].querySelector('select').children[0];
-              firstSelectOption.setAttribute('lang', 'fr');
-              firstSelectOption.innerText = 'Choisir une option';
+              const selectEl = tr.children[x].querySelector('select');
+              const firstSelectOption = selectEl.children[0];
+              // Only translate placeholder options, not actual values (e.g. multi-select)
+              if (!selectEl.multiple && firstSelectOption.innerText === 'Choose option...') {
+                firstSelectOption.setAttribute('lang', 'fr');
+                firstSelectOption.innerText = 'Choisir une option';
+              }
             }
           }
 
