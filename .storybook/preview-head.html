@@ -507,18 +507,18 @@
 
   function formatFrenchButtons(button) {
     setTimeout(() => {
-      button.innerText = 'Masquer le code';
+      button.innerText = 'Voir le code';
     }, 10);
     button.addEventListener('click', () => {
       if (!button.classList.contains('docblock-code-toggle--expanded')) {
         setTimeout(() => {
+          button.innerText = 'Voir le code';
+        }, 10);
+      } else {
+        setTimeout(() => {
           button.innerText = 'Masquer le code';
         }, 10);
         copyButtonTimer();
-      } else {
-        setTimeout(() => {
-          button.innerText = 'Voir le code';
-        }, 10);
       }
     });
   }

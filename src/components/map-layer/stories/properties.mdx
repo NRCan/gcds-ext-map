@@ -3,10 +3,7 @@ import * as Layer from './map-layer.stories.tsx';
 
 <Meta of={Layer} name="Events & properties" />
 
-# Layer<br/>`<map-layer>`
-
-The `<map-layer>` element adds a layer to a `<gcds-map>`. Content can be loaded
-remotely via `src` or provided inline as child elements.
+# `<map-layer>`
 
 <Canvas of={Layer.RemoteLayer} story={{ inline: true }} />
 <Controls of={Layer.RemoteLayer} sort="alpha" />
