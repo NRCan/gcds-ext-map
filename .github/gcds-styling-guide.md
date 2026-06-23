@@ -9,21 +9,36 @@ rationale; this file is the checklist.
 
 ## TL;DR
 
+`gcds-map.css` is a composite stylesheet that fork-bundles:
+
+1. `~leaflet/dist/leaflet.css` (via `@import`, third-party, untouched)
+2. `~leaflet.locatecontrol/dist/L.Control.Locate.css` (via `@import`,
+   third-party, untouched)
+3. Forked-and-inlined content from upstream MapML.js `mapml.css`
+4. GCDS-specific overrides and project-owned additions
+
 When you add CSS for a newly-ported control to
 [`src/components/gcds-map/gcds-map.css`](../src/components/gcds-map/gcds-map.css):
 
 1. Wrap every hard-coded color, spacing, border-width, and border-radius
    in a GCDS token with the original value as the fallback.
 2. Use CSS logical properties (`inset-*`, `border-block-*`,
-   `padding-inline`, `text-align: start`, ...) for selectors you own.
-3. Do **not** convert selectors that directly override Leaflet styles —
-   keep those physical to avoid specificity-equal mismatches.
-4. Do **not** add `@font-face` or `@import` of `tokens.css` inside the
+   `padding-inline`, `text-align: start`, ...) for selectors **you own**
+   (i.e. `.mapml-*` and project-specific classes).
+3. Do **not** convert `.leaflet-*` override selectors — keep those
+   physical to avoid specificity-equal mismatches with Leaflet's base
+   CSS. Token-wrap their colors/spacing only where it doesn't change
+   resolved values.
+4. Do **not** modify the imported third-party CSS in any way — it's
+   vendored as-is.
+5. Do **not** add `@font-face` or `@import` of `tokens.css` inside the
    stylesheet — shadow DOM swallows both. Tokens reach us via `:root`
    inheritance from the host page; fonts are the host page's job.
-5. Keep box-shadows as raw `rgba()` values (no GCDS shadow tokens exist).
-6. Preserve source order / line correspondence with upstream MapML.js
-   `mapml.css` to keep diff-and-patch workflow viable.
+6. Keep generic box-shadows as raw `rgba()` values — GCDS box-shadow
+   tokens are component-scoped only (focus rings, cards, nav menus), no
+   generic elevation token.
+7. Preserve source order / line correspondence with upstream MapML.js
+   `mapml.css` to keep diff-and-patch workflow viable for sections (3).
 
 ## Token Mapping Reference
 
@@ -74,6 +89,24 @@ Use `--gcds-spacing-*` tokens. The token name is roughly `8 × (value /
 | `1px` border-width | `--gcds-border-width-sm` |
 | `4px` border-radius | `--gcds-border-radius-md` (shifts to ~6px — flagged) |
 
+### Typography (weights & families)
+
+Font **family** is set on `.leaflet-container` to
+`var(--gcds-font-families-body, 'Noto Sans', sans-serif)` and inherits.
+Form controls need `font-family: inherit;` (see the section below).
+
+Font **weights** should use tokens:
+
+| Hard-coded | GCDS token |
+|---|---|
+| `font-weight: 300` | `--gcds-font-weights-light` |
+| `font-weight: normal` / `400` | `--gcds-font-weights-regular` |
+| `font-weight: 500` | `--gcds-font-weights-medium` |
+| `font-weight: 600` | `--gcds-font-weights-semibold` |
+| `font-weight: bold` / `700` / `900` | `--gcds-font-weights-bold` |
+
+GCDS does not ship a `900` weight token; collapse to `bold` (`700`).
+
 ### Shadows
 
 GCDS provides `box-shadow` tokens, but they are all **component-scoped**
@@ -99,6 +132,12 @@ Guidance:
 
 Generally **not** tokenized in this file. Leave existing upstream values
 as-is unless they clearly map to a GCDS typography token.
+
+Note that GCDS's smallest body token (`--gcds-font-sizes-text-small`)
+resolves to `1.125rem` (18px), which is larger than typical in-map UI
+chrome (12–14px). For most map controls, raw px values are the
+pragmatic choice. Use the GCDS heading / body tokens only if the
+content is genuinely heading- or body-level (e.g. a dialog with prose).
 
 **For new font-size values you introduce**, prefer accessible minimums:
 
@@ -197,7 +236,8 @@ everything else on the map looks correct.
 - [ ] Every new color value uses `var(--gcds-..., <original>)`.
 - [ ] Every new spacing, border-width, border-radius uses a GCDS token
       with the original value as fallback (or is justifiably left raw
-      e.g. shadow rgba, font-size).
+      e.g. shadow rgba, in-map font-size).
+- [ ] Every new `font-weight` uses a `--gcds-font-weights-*` token.
 - [ ] Any new `font-size` I introduce for interactive text is **≥ 14px**
       (≥ 1rem for primary body content). Legacy upstream `12px` / `13px`
       values may stay; do not add new ones.
@@ -218,3 +258,38 @@ everything else on the map looks correct.
 See [gcds-integration-feedback.md](./gcds-integration-feedback.md). The
 mappings above reflect our current best guesses. If those answers
 change, update this guide.
+
+## Audit Status of the Existing CSS
+
+`.mapml-*` selectors have had a tokenization / logical-property pass:
+font-weights are tokenized (`bold` / `900` → `--gcds-font-weights-bold`)
+and straightforward physical positions on project-owned controls have
+been converted to logical (`.mapml-control-scale`, `.mapml-crosshair`
+block-axis, `.mapml-feature-index` block-axis).
+
+Known remaining items, intentional or deferred:
+
+- A few `.mapml-*` selectors keep physical `left: 50%` paired with
+  `transform: translateX(-50%)` or negative margins (`.mapml-crosshair`,
+  `.mapml-feature-index`). Both the original and a mechanical
+  `inset-inline-start: 50%` conversion are RTL-incorrect for different
+  reasons; left as-is until an RTL-safe centering refactor is in scope.
+- Raw `font-size` values inside `.mapml-*` controls (`12px`, `16px`,
+  `20px`, `34px`, `large`, `1.125rem`) are intentionally not tokenized:
+  GCDS's smallest body font token is `1.125rem` (18px), too large for
+  in-map UI chrome. Don't introduce *new* font sizes below 14px for
+  interactive text; leave the upstream values alone.
+- `.leaflet-*` override selectors keep physical properties on purpose
+  (Leaflet specificity-equal rule). Tokenizing their colors is fine
+  where the resolved value matches.
+- Imported `leaflet.css` and `L.Control.Locate.css` are third-party and
+  must not be modified.
+
+Policy going forward:
+
+- **Do not** introduce new code that violates the TL;DR. Apply the full
+  guide to anything you author.
+- **Opportunistic retrofit:** when you touch a legacy section for any
+  other reason, bring it up to the guide at the same time. Avoid huge
+  sweep PRs that touch unrelated areas and break the upstream-diff
+  workflow.
