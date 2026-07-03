@@ -1,13 +1,23 @@
-const LAYER_OPTIONS = [
-  ['./dist/gcds-map/assets/mapml/en/cbmtile/toporama', 'Toporama'],
-  ['./dist/gcds-map/assets/mapml/en/cbmtile/cbmt', 'Canada Base Map - Transportation'],
-  ['./dist/gcds-map/assets/mapml/en/osmtile/osm', 'OpenStreetMap'],
-  ['./dist/gcds-map/assets/mapml/en/apstile/arctic', 'Arctic Ocean Basemap MapML Service']
+// Detect the locale from the iframe URL's ?lang= query param so that story
+// assets (and the code shown in "Show Code") match the surrounding page's
+// language. Defaults to 'en' when the param is absent or unrecognized.
+const lang =
+  new URLSearchParams(
+    typeof window !== 'undefined' ? window.location.search : '',
+  ).get('lang') === 'fr'
+    ? 'fr'
+    : 'en';
+
+const LAYER_OPTIONS: [string, string, string][] = [
+  [`./dist/gcds-map/assets/mapml/${lang}/cbmtile/toporama`, 'Toporama', 'Toporama'],
+  [`./dist/gcds-map/assets/mapml/${lang}/cbmtile/cbmt`, 'Canada Base Map - Transportation', 'Carte de base du Canada - Transport'],
+  [`./dist/gcds-map/assets/mapml/${lang}/osmtile/osm`, 'OpenStreetMap', 'OpenStreetMap'],
+  [`./dist/gcds-map/assets/mapml/${lang}/apstile/arctic`, 'Arctic Ocean Basemap MapML Service', "Service MapML de la carte de base de l'océan Arctique"]
 ];
 
 // Build a mapping object so we can show titles in the dropdown but store the URL as the actual value
-const layerMap = LAYER_OPTIONS.reduce((obj, [url, title]) => {
-  obj[title] = url;
+const layerMap = LAYER_OPTIONS.reduce((obj, [url, titleEn, titleFr]) => {
+  obj[lang === 'fr' ? titleFr : titleEn] = url;
   return obj;
 }, {});
 
@@ -116,15 +126,13 @@ export default {
 // spacing and indentation is visually significant in the template (it's visible in the
 // "Show Code" disclosure widget; don't change it without testing the result...)
 const TemplateBasic = (args) => {
-  return `<!-- Web component code (HTML, Angular, Vue) -->
-<gcds-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" lang="${args.lang}" projection="${args.projection}"${args.controls ? ' controls' : ''}${args.static ? ' static' : ''}${args.controlslist.length > 0  ? ` controlslist="${args.controlslist.join(' ')}"` : ''}>
+  return `<gcds-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" lang="${args.lang}" projection="${args.projection}"${args.controls ? ' controls' : ''}${args.static ? ' static' : ''}${args.controlslist.length > 0  ? ` controlslist="${args.controlslist.join(' ')}"` : ''}>
 
   <map-caption>${args.caption}</map-caption>
 
   <map-layer src="${args.layer}" ${`checked`}></map-layer>
 
-</gcds-map>
-<!-- React code -->`;
+</gcds-map>`;
 };
 
 export const Default: any = TemplateBasic.bind({});
@@ -135,22 +143,20 @@ Default.args = {
   projection: 'OSMTILE',
   controls: true,
   static: false,
-  lang: 'en',
+  lang: lang,
   controlslist: ['geolocation', 'search'],
-  layer: './dist/gcds-map/assets/mapml/en/osmtile/cbmt',
-  caption: 'A map of Victoria, Canada'
+  layer: `./dist/gcds-map/assets/mapml/${lang}/osmtile/cbmt`,
+  caption: lang === 'fr' ? 'Une carte de Victoria, Canada' : 'A map of Victoria, Canada'
 };
 
 export const HiddenBasemap = (args) => {
-  return `<!-- Web component code (HTML, Angular, Vue) -->
-<gcds-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" projection="${args.projection}"${args.controls ? ' controls' : ''}>
+  return `<gcds-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" projection="${args.projection}"${args.controls ? ' controls' : ''}>
 
   <map-layer src="${args.layer}" checked hidden></map-layer>
 
-  <map-layer src="./dist/gcds-map/assets/mapml/en/osmtile/current_conditions" checked></map-layer>
+  <map-layer src="./dist/gcds-map/assets/mapml/${lang}/osmtile/current_conditions" checked></map-layer>
 
-</gcds-map>
-<!-- React code -->`;
+</gcds-map>`;
 };
 HiddenBasemap.args = {
   lat: 53.087426, 
@@ -158,15 +164,15 @@ HiddenBasemap.args = {
   zoom: 4,
   projection: 'OSMTILE',
   controls: true,
-  layer: './dist/gcds-map/assets/mapml/en/osmtile/cbmt',
-  caption: "Canada's current weather conditions"
+  layer: `./dist/gcds-map/assets/mapml/${lang}/osmtile/cbmt`,
+  caption: lang === 'fr' ? 'Conditions météorologiques actuelles au Canada' : "Canada's current weather conditions"
 };
 
 export const Playground = args => `<gcds-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" lang="${args.lang}" projection="${args.projection}"${args.controls ? ' controls' : ''}${args.static ? ' static' : ''}${args.controlslist.length > 0  ? ` controlslist="${args.controlslist.join(' ')}"` : ''}>
 
   <map-layer src="${args.layer}" checked hidden></map-layer>
 
-  <map-layer src="./dist/gcds-map/assets/mapml/en/osmtile/current_conditions" checked></map-layer>
+  <map-layer src="./dist/gcds-map/assets/mapml/${lang}/osmtile/current_conditions" checked></map-layer>
 
 </gcds-map>`;
 
@@ -177,10 +183,10 @@ Playground.args = {
   projection: 'OSMTILE',
   controls: true,
   static: false,
-  lang: 'en',
+  lang: lang,
   controlslist: ['geolocation', 'search'],
-  layer: './dist/gcds-map/assets/mapml/en/osmtile/cbmt',
-  caption: "Canada's current weather conditions"
+  layer: `./dist/gcds-map/assets/mapml/${lang}/osmtile/cbmt`,
+  caption: lang === 'fr' ? 'Conditions météorologiques actuelles au Canada' : "Canada's current weather conditions"
 };
 
 export const GeoJSON2MapMLExample = {
@@ -209,8 +215,8 @@ export const GeoJSON2MapMLExample = {
       // Configure MapML options for the geojson2mapml api
       let provOptions = { 
         projection: "OSMTILE",
-        label: "Provinces and Territories of Canada", 
-        caption: "PRENAME",
+        label: lang === 'fr' ? 'Provinces et territoires du Canada' : 'Provinces and Territories of Canada', 
+        caption: lang === 'fr' ? 'PRFNAME' : 'PRENAME',
         geometryFunction: function (g, f) {
           if (g.nodeName === "MAP-MULTIPOLYGON") {
             let polys = g.querySelectorAll("map-polygon");
@@ -274,10 +280,10 @@ export const GeoJSON2MapMLExample = {
   projection: 'OSMTILE',
   controls: true,
   static: false,
-  lang: 'en',
+  lang: lang,
   controlslist: ['geolocation', 'search'],
-  layer: './dist/gcds-map/assets/mapml/en/osmtile/cbmt',
-  caption: "Canada's Provinces and Territories in styled GeoJSON"
+  layer: `./dist/gcds-map/assets/mapml/${lang}/osmtile/cbmt`,
+  caption: lang === 'fr' ? 'Provinces et territoires du Canada en GeoJSON stylisé' : "Canada's Provinces and Territories in styled GeoJSON"
   },
   loaders: [
   async () => {
@@ -301,15 +307,14 @@ export const GeoJSON2MapMLExample = {
       source: {
         type: 'code',
         language: 'html',
-        code: `<!-- Web component code (HTML, Angular, Vue) -->
-<gcds-map id="np" lat="53.087426" lon="-91.275330" zoom="4" lang="en" projection="OSMTILE" controls controlslist="geolocation">
+        code: `<gcds-map id="np" lat="53.087426" lon="-91.275330" zoom="4" lang="${lang}" projection="OSMTILE" controls controlslist="geolocation">
 
-  <map-caption>Canada's Provinces and Territories in styled GeoJSON</map-caption>
+  <map-caption>${lang === 'fr' ? 'Provinces et territoires du Canada en GeoJSON stylisé' : "Canada's Provinces and Territories in styled GeoJSON"}</map-caption>
 
-  <map-layer src="./dist/gcds-map/assets/mapml/en/osmtile/cbmt" checked hidden></map-layer>
+  <map-layer src="./dist/gcds-map/assets/mapml/${lang}/osmtile/cbmt" checked hidden></map-layer>
 
-  <!-- this layer created via javascript, using M.geojson2mapml API functions -->
-  <map-layer label="Provinces and territories of Canada" checked media="(0 < map-zoom < 7)" opacity="0.65">
+  <!-- ${lang === 'fr' ? 'cette couche est créée via javascript, en utilisant les fonctions de l’API M.geojson2mapml' : 'this layer created via javascript, using M.geojson2mapml API functions'} -->
+  <map-layer label="${lang === 'fr' ? 'Provinces et territoires du Canada' : 'Provinces and territories of Canada'}" checked media="(0 < map-zoom < 7)" opacity="0.65">
     <map-style>
      .canada { fill-opacity: 0.7; stroke-width: 1; stroke: white; stroke-opacity: 1; stroke-dasharray: 3; } 
      .bc { fill: #ffdeb2; stroke: #e6c8a1; } .ab { fill: #facad6; stroke: #e8708e; } 
@@ -324,30 +329,27 @@ export const GeoJSON2MapMLExample = {
     <map-meta name="projection" content="OSMTILE"></map-meta>
     <map-meta name="cs" content="gcrs"></map-meta>
     <map-feature class="canada nl">
-      <map-featurecaption>Newfoundland and Labrador</map-featurecaption>
+      <map-featurecaption>${lang === 'fr' ? 'Terre-Neuve-et-Labrador' : 'Newfoundland and Labrador'}</map-featurecaption>
       <map-geometry>...</map-geometry>
       <map-properties>...</map-properties>
     </map-feature>
     ... etc ...
   </map-layer>
 
-</gcds-map>
-<!-- React code -->`
+</gcds-map>`
       }
     }
   }
 };
 
 export const DarkMode = {
-  render: (args) => `<!-- Web component code (HTML, Angular, Vue) -->
-<gcds-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" lang="${args.lang}" projection="${args.projection}"${args.controls ? ' controls' : ''}${args.static ? ' static' : ''}${args.controlslist.length > 0  ? ` controlslist="${args.controlslist.join(' ')}"` : ''}>
+  render: (args) => `<gcds-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" lang="${args.lang}" projection="${args.projection}"${args.controls ? ' controls' : ''}${args.static ? ' static' : ''}${args.controlslist.length > 0  ? ` controlslist="${args.controlslist.join(' ')}"` : ''}>
 
-  <map-layer media="(prefers-color-scheme: dark)" src="./dist/gcds-map/assets/mapml/en/osmtile/dark.mapml" checked></map-layer>
+  <map-layer media="(prefers-color-scheme: dark)" src="./dist/gcds-map/assets/mapml/${lang}/osmtile/dark.mapml" checked></map-layer>
 
-  <map-layer media="(prefers-color-scheme: light)" src="./dist/gcds-map/assets/mapml/en/osmtile/light.mapml" checked></map-layer>
+  <map-layer media="(prefers-color-scheme: light)" src="./dist/gcds-map/assets/mapml/${lang}/osmtile/light.mapml" checked></map-layer>
 
-</gcds-map>
-<!-- React code -->`,
+</gcds-map>`,
   args: {
   lat: 53.087426, 
   lon: -91.275330,
@@ -355,9 +357,9 @@ export const DarkMode = {
   projection: 'OSMTILE',
   controls: true,
   static: false,
-  lang: 'en',
+  lang: lang,
   controlslist: ['geolocation', 'search'],
-  caption: "OpenStreetMap in pmtiles archive format, demonstrating light and dark mode maps"
+  caption: lang === 'fr' ? "OpenStreetMap au format d'archive pmtiles, démontrant les cartes en mode clair et sombre" : "OpenStreetMap in pmtiles archive format, demonstrating light and dark mode maps"
   }
 };
 

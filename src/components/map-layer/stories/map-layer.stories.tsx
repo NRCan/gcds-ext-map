@@ -1,12 +1,22 @@
-const LAYER_OPTIONS = [
-  ['./dist/gcds-map/assets/mapml/en/cbmtile/toporama', 'Toporama'],
-  ['./dist/gcds-map/assets/mapml/en/cbmtile/cbmt', 'Canada Base Map - Transportation'],
-  ['./dist/gcds-map/assets/mapml/en/osmtile/osm', 'OpenStreetMap'],
-  ['./dist/gcds-map/assets/mapml/en/osmtile/current_conditions', 'Current Weather Conditions'],
+// Detect the locale from the iframe URL's ?lang= query param so that story
+// assets (and the code shown in "Show Code") match the surrounding page's
+// language. Defaults to 'en' when the param is absent or unrecognized.
+const lang =
+  new URLSearchParams(
+    typeof window !== 'undefined' ? window.location.search : '',
+  ).get('lang') === 'fr'
+    ? 'fr'
+    : 'en';
+
+const LAYER_OPTIONS: [string, string, string][] = [
+  [`./dist/gcds-map/assets/mapml/${lang}/cbmtile/toporama`, 'Toporama', 'Toporama'],
+  [`./dist/gcds-map/assets/mapml/${lang}/cbmtile/cbmt`, 'Canada Base Map - Transportation', 'Carte de base du Canada - Transport'],
+  [`./dist/gcds-map/assets/mapml/${lang}/osmtile/osm`, 'OpenStreetMap', 'OpenStreetMap'],
+  [`./dist/gcds-map/assets/mapml/${lang}/osmtile/current_conditions`, 'Current Weather Conditions', 'Conditions météorologiques actuelles'],
 ];
 
-const layerMap = LAYER_OPTIONS.reduce((obj, [url, title]) => {
-  obj[title] = url;
+const layerMap = LAYER_OPTIONS.reduce((obj, [url, titleEn, titleFr]) => {
+  obj[lang === 'fr' ? titleFr : titleEn] = url;
   return obj;
 }, {});
 
@@ -81,41 +91,23 @@ export default {
         type: { summary: 'string' },
         defaultValue: { summary: '-' },
       },
-    },
-    projection: {
-      name: 'projection (map)',
-      control: { type: 'select' },
-      options: ['OSMTILE', 'CBMTILE', 'APSTILE', 'WGS84'],
-      description:
-        'The projection of the parent gcds-map. Layers must match the map projection or provide an alternate link. | ' +
-        'La projection du gcds-map parent. Les couches doivent correspondre à la projection de la carte ou fournir un lien alternatif.',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'OSMTILE' },
-      },
-    },
+    }
   },
 };
 
 // spacing and indentation is visually significant in the template (it's visible in the
 // "Show Code" disclosure widget; don't change it without testing the result...)
 const TemplateRemote = (args) => {
-  return `<!-- Web component code (HTML, Angular, Vue) -->
-<gcds-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" projection="${args.projection}" controls>
+  return `<gcds-map lang="${lang}" lat="53.087426" lon="-91.27533" zoom="4" projection="OSMTILE" controls controlslist="search geolocation">
 
   <map-layer src="${args.src}"${args.label ? ` label="${args.label}"` : ''}${args.checked ? ' checked' : ''}${args.hidden ? ' hidden' : ''}${args.opacity < 1 ? ` opacity="${args.opacity}"` : ''}${args.media ? ` media="${args.media}"` : ''}></map-layer>
 
-</gcds-map>
-<!-- React code -->`;
+</gcds-map>`;
 };
 
 export const RemoteLayer: any = TemplateRemote.bind({});
 RemoteLayer.args = {
-  lat: 53.087426,
-  lon: -91.27533,
-  zoom: 4,
-  projection: 'OSMTILE',
-  src: './dist/gcds-map/assets/mapml/en/osmtile/cbmt',
+  src: `./dist/gcds-map/assets/mapml/${lang}/osmtile/cbmt`,
   label: '',
   checked: true,
   hidden: false,

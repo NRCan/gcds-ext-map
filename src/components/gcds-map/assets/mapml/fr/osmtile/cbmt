@@ -1,6 +1,6 @@
 <mapml- xmlns="http://www.w3.org/1999/xhtml">
   <map-head>
-    <map-title>La carte de base du Canada - transport</map-title>
+    <map-title>La carte de base du Canada - transport (CBCT)</map-title>
     <map-meta http-equiv="Content-Type" content="application/xml;charset=UTF-8"></map-meta>
     <map-meta charset="utf-8"></map-meta><!-- test -->
 

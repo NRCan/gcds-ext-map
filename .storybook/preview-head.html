@@ -510,16 +510,19 @@
       button.innerText = 'Voir le code';
     }, 10);
     button.addEventListener('click', () => {
-      if (!button.classList.contains('docblock-code-toggle--expanded')) {
-        setTimeout(() => {
-          button.innerText = 'Voir le code';
-        }, 10);
-      } else {
-        setTimeout(() => {
+      // The class check must happen AFTER Storybook's own click handler
+      // toggles the `docblock-code-toggle--expanded` class; running it
+      // synchronously here would read the pre-click state and produce
+      // inverted labels. Defer the check inside the setTimeout so we
+      // observe the post-toggle state.
+      setTimeout(() => {
+        if (button.classList.contains('docblock-code-toggle--expanded')) {
           button.innerText = 'Masquer le code';
-        }, 10);
-        copyButtonTimer();
-      }
+          copyButtonTimer();
+        } else {
+          button.innerText = 'Voir le code';
+        }
+      }, 10);
     });
   }
 
@@ -682,11 +685,11 @@
   function createCopyBtn(toggleCode, startString, endString, textEn, textFr) {
     const toggleCodeBtnParent = toggleCode.closest('.css-25bv1u');
 
-    if (toggleCodeBtnParent && toggleCodeBtnParent.querySelectorAll('.copy-code-btn').length < 2) {
+    if (toggleCodeBtnParent && toggleCodeBtnParent.querySelectorAll('.copy-code-btn').length < 1) {
       const copyBtn = document.createElement('button');
       const langFr = url.get('lang') && url.get('lang') === 'fr';
       const defaultBtnContent = langFr ? `Copier ${textFr}` : `Copy ${textEn}`;
-      const copiedBtnContent = langFr ? `${textFr} copiés` : `${textEn} copied`;
+      const copiedBtnContent = langFr ? `${textFr} copié` : `${textEn} copied`;
 
       copyBtn.textContent = defaultBtnContent;
       copyBtn.classList.add('copy-code-btn');
@@ -743,23 +746,13 @@
     }
   }
 
-  // Display copy buttons based on toggle button state
+  // Display copy button based on toggle button state
   function toggleCopyBtnsDisplay(toggleCode) {
-    // Define strings representing code blocks for web components and React
-    const stringWeb = '<!-- Web component code (HTML, Angular, Vue) -->';
-    const stringReact = '<!-- React code -->';
-
     // Check if toggle button is in expanded state
     if (toggleCode.classList.contains('docblock-code-toggle--expanded')) {
-      // If expanded, create copy buttons for web component and React code
-      createCopyBtn(
-        toggleCode,
-        stringWeb,
-        stringReact,
-        'web component',
-        'composants web',
-      );
-      createCopyBtn(toggleCode, stringReact, '', 'React', 'React');
+      // If expanded, create a single copy button for the code block.
+      // Empty startString/endString means: copy the entire visible code.
+      createCopyBtn(toggleCode, '', '', 'code', 'code');
     } else {
       // If not expanded, remove existing copy buttons
       const copyBtns = toggleCode.closest('.css-25bv1u').querySelectorAll('.copy-code-btn');
