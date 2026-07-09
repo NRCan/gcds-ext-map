@@ -2,12 +2,17 @@
   "name": "gcds-map",
   "version": "1.0.0-rc",
   "description": "Government of Canada Design System map component suite",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/NRCan/gcds-map.git"
   },
   "files": [
-    "dist/gcds-map/"
+    "dist/"
   ],
   "scripts": {
     "prebuild": "node scripts/generate-locale.js",
