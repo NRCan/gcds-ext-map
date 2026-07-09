@@ -133,7 +133,7 @@
     url('fonts/icons/gcds-icons.svg') format('svg');
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 [class^='gcds-icon-'],
@@ -149,20 +149,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.gcds-icon-checkmark-circle:before { content: '\e908'; }
-.gcds-icon-chevron-down:before { content: '\e900'; }
-.gcds-icon-chevron-left:before { content: '\e901'; }
-.gcds-icon-chevron-right:before { content: '\e902'; }
-.gcds-icon-chevron-up:before { content: '\e903'; }
-.gcds-icon-close:before { content: '\e90b'; }
-.gcds-icon-download:before { content: '\e906'; }
-.gcds-icon-email:before { content: '\e905'; }
-.gcds-icon-exclamation-circle:before { content: '\e909'; }
-.gcds-icon-external:before { content: '\e904'; }
-.gcds-icon-info-circle:before { content: '\e90a'; }
-.gcds-icon-phone:before { content: '\e90c'; }
-.gcds-icon-search:before { content: '\e907'; }
-.gcds-icon-warning-triangle:before { content: '\e90d'; }
+.gcds-icon-arrow-down:before { content: '\f013'; }
+.gcds-icon-arrow-up:before { content: '\f011'; }
+.gcds-icon-arrow-up-down:before { content: '\f012'; }
+.gcds-icon-checkmark-circle:before { content: '\f021'; }
+.gcds-icon-chevron-down:before { content: '\f020'; }
+.gcds-icon-chevron-left:before { content: '\f01f'; }
+.gcds-icon-chevron-right:before { content: '\f01e'; }
+.gcds-icon-chevron-up:before { content: '\f01d'; }
+.gcds-icon-close:before { content: '\f01c'; }
+.gcds-icon-download:before { content: '\f01b'; }
+.gcds-icon-email:before { content: '\f01a'; }
+.gcds-icon-exclamation-circle:before { content: '\f019'; }
+.gcds-icon-external:before { content: '\f018'; }
+.gcds-icon-filter:before { content: '\f005'; }
+.gcds-icon-info-circle:before { content: '\f017'; }
+.gcds-icon-phone:before { content: '\f016'; }
+.gcds-icon-search:before { content: '\f002'; }
+.gcds-icon-sort:before { content: '\f003'; }
+.gcds-icon-tune:before { content: '\f000'; }
+.gcds-icon-warning-triangle:before { content: '\f014'; }
 
 /* copy of original mapml.css from MapML.js submodule */
 

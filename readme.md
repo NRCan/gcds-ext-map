@@ -1,158 +1,63 @@
 # `<gcds-map>`
 
-A Government of Canada Design System (GCDS) plugin component that provides an accessible, standards-based web map viewer using [MapML](https://maps4html.org/web-map-doc/).  The main (only?) difference between this component and that documentation is the name of the root map viewer element: `<gcds-map>`
+A Government of Canada Design System (GCDS) plugin component that provides an accessible, standards-based web map viewer using [MapML](https://maps4html.org/web-map-doc/). The main  difference between this component and that documentation is the name of the root map viewer element: `<gcds-map>`
 
 ## Installation
 
-TBD: 
+Install and use locally:
 
 ```bash
-npm install @cdssnc/gcds-map
+npm install @gcds-extensions/gcds-map
 ```
-
-### Peer Dependencies
-
-This component requires the following peer dependencies:
-
-```json
-{
-  "@gcds-core/components": "^1.1.0",
-}
-```
-
-### GCDS Styles and Fonts
-
-The `<gcds-map>` component integrates with the GC Design System in two ways:
-
-1. **Fonts** (`@gcds-core/fonts`) — bundled directly into the component at build time. Font files (Noto Sans, Lato, Noto Sans Mono, gcds-icons) are copied into the build output and declared via `@font-face` rules inside the component's shadow DOM CSS. The consuming app does **not** need to load these separately.
-
-2. **Design tokens** (`@gcds-core/tokens`) — referenced at build time for token documentation/values. At runtime, the component's CSS uses `var(--gcds-*, fallback)` for colors, spacing, border-radius, and font-family. When the host page loads `@gcds-core/components` CSS (the peer dependency), the tokens resolve to GCDS values that inherit into the shadow DOM. Without it, the component falls back to its default MapML appearance.
-
-To get the full GCDS look, include the peer dependency in your host page:
-
-```html
-<!-- GCDS component styles (provides design tokens on :root) -->
-<link rel="stylesheet" href="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.css" />
-
-<!-- GCDS custom elements (optional, only if using gcds-button, gcds-header, etc. alongside the map) -->
-<script type="module" src="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.esm.js"></script>
-```
-
-Or if installing locally:
-
-```bash
-npm install @gcds-core/components
-```
-
-Then link to `node_modules/@gcds-core/components/dist/gcds/gcds.css` from your HTML.
 
 ## Usage
 
 ### Basic Example
 
 ```html
+
+<!-- If installed locally, per above, use node_modules folder: -->
+      <script type="module" src="/node_modules/@gcds-extensions/gcds-map/dist/gcds-map.esm.js"></script>
+      <!-- Optionally, to use the full GCDS component system, also include: -->
+      <script type="module" src="/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"></script>
+      <link rel="stylesheet" href="/node_modules/@gcds-core/components/dist/gcds/gcds.css">
 <!--
-  If installed locally (npm install gcds-map @gcds-core/components):
-    <script type="module" src="./node_modules/gcds-map/dist/gcds-map/gcds-map.esm.js"></script>
-    <link rel="stylesheet" href="./node_modules/@gcds-core/components/dist/gcds/gcds.css" />
-    <script type="module" src="./node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"></script>
-  If using a CDN, use the tags below:
+    Else If using a CDN, use the tags below:
+      <script type="module" src="https://cdn.design-system.canada.ca/@gcds-extensions/gcds-map@latest/dist/gcds-map.esm.js"></script>
+      <link rel="stylesheet" href="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.css">
+      <script type="module" src="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.esm.js"></script>
 -->
-<script type="module" src="https://cdn.design-system.canada.ca/gcds-map@latest/dist/gcds-map/gcds-map.esm.js"></script>
-<link rel="stylesheet" href="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.css" />
-<script type="module" src="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.esm.js"></script>
 
-<gcds-map projection="OSMTILE" lat="45.4215" lon="-75.6972" zoom="10">
-  <!-- this won't display anything because geogratis is out of date... -->
-  <map-layer checked src="https://geogratis.gc.ca/mapml/en/osmtile/osm/"></map-layer>
+<!-- important: use CSS to define the width and height of the map (default size is quite small!) -->
+<gcds-map projection="CBMTILE" lat="45.4215" lon="-75.6972" zoom="10" style="width: 60%&height: 400px">
+  <map-layer checked>
+    <map-title>Canada Base Map - Transportation (CBMT)</map-title>
+    <map-link rel="license" href="https://open.canada.ca/en/open-government-licence-canada" title="Open Government Licence - Canada"></map-link>
+    <map-link rel="suggestions" tref="https://geolocator.api.geo.ca/?q={searchTerms}&lang=en&keys=geonames"></map-link>
+    <map-link rel="search" tref="https://geolocator.api.geo.ca/?q={searchTerms}&lang=en&keys=geonames"></map-link>
+    <map-extent units="CBMTILE" checked hidden>
+      <map-input name="z" type="zoom" value="22" min="0" max="22"></map-input>
+      <map-input name="xmin" type="location" units="pcrs" position="top-left" axis="easting" min="-3262924.7" max="3823954.0"></map-input>
+      <map-input name="ymin" type="location" units="pcrs" position="bottom-left" axis="northing" min="-1554977.6" max="4046262.8"></map-input>
+      <map-input name="xmax" type="location" units="pcrs" position="top-right" axis="easting" min="-3262924.7" max="3823954.0"></map-input>
+      <map-input name="ymax" type="location" units="pcrs" position="top-left" axis="northing" min="-1554977.6" max="4046262.8"></map-input>
+      <map-input name="w" type="width"></map-input>
+      <map-input name="h" type="height"></map-input>
+      <map-link rel="image" tref="https://geogratis.gc.ca/maps/CBMT?SERVICE=WMS&VERSION=1.1.1&SRS=EPSG:3978&LAYERS=CBMT&BBOX={xmin},{ymin},{xmax},{ymax}&REQUEST=GetMap&FORMAT=image/png&TRANSPARENT=TRUE&WIDTH={w}&HEIGHT={h}&STYLES="></map-link>
+    </map-extent>
+  </map-layer>
 </gcds-map>
 ```
 
-### With Multiple Layers
-
-```html
-<gcds-map projection="CBMTILE" lat="60.0" lon="-95.0" zoom="3" controls="true">
-  <!-- this won't display anything because geogratis is out of date... -->
-  <map-layer checked src="https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/"></map-layer>
-  <map-layer src="https://example.com/overlay.mapml" opacity="0.7"></map-layer>
-</gcds-map>
-```
-
-## Components
-
-### gcds-map
-
-The <gcds-map> component replaces the [MapML viewer](https://maps4html.org/web-map-doc/) for use in the GC Design System.
-
-#### Attributes
-
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `projection` | `string` | `'OSMTILE'` | The coordinate reference system for the map (OSMTILE, CBMTILE, WGS84, APSTILE) |
-| `lat` | `number` | - | Initial latitude center of the map |
-| `lon` | `number` | - | Initial longitude center of the map |
-| `zoom` | `number` | - | Initial zoom level |
-| `controls` | `boolean` | `true` | Show/hide map controls |
-| `controlslist` | `string` | - | Space-separated list of controls to show/hide |
-| `width` | `string` | `'300px'` | Width of the map |
-| `height` | `string` | `'150px'` | Height of the map |
-| `static` | `boolean` | `false` | If `true` disables keyboard and pointer interaction with the map | 
-
-### map-layer
-
-Represents a map layer to be displayed on the map.  See [detailed documentation](https://maps4html.org/web-map-doc/docs/elements/layer/) for information about how to use this and other MapML elements.
-
-#### Attributes
-
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `checked` | `boolean` | `false` | Whether the layer is visible |
-| `src` | `string` | - | URL to the MapML document |
-| `label` | `string` | - | Label for the layer in the layer control, if not specified by a remote MapML document |
-| `hidden` | `string` | `false` | Whether the layer is included in the layer control |
-| `media` | `string` | - | A map media query that controls [the presence](https://maps4html.org/web-map-doc/docs/elements/layer/#media) of the layer on the map |
-| `opacity` | `string` | - | Opacity of the layer (0-1 in .1 increments) |
+See [the map components documentation](https://nrcan.github.io/gcds-map/en/components/map-components/) for further usage examples.
 
 ## Architecture
 
-The `<gcds-map>` component replaces the usage of the `<mapml-viewer>` element. See the [documentation](https://maps4html.org/web-map-doc/) for how to use the `<mapml-viewer>`; in GCDS, you can **only** use `<gcds-map>` in its place. Light DOM `<map-layer>` children may create their own shadow roots with remote content, if the layer has a `src` attribute. Otherwise, light DOM MapML (custom element) children of `<map-layer>` are rendered according to the documentation.
+The `<gcds-map>` component replaces the usage of the `<mapml-viewer>` element. See the [MapML documentation](https://maps4html.org/web-map-doc/) for how to use MapML. When using GCDS, you must use `<gcds-map>` in place of `<mapml-viewer>` (it supports all the same attributes). All other MapML elements work as described.
 
-## Development
-
-### Building
-
-```bash
-npm install
-npm run build && npm run start
-```
-
-### Testing
-
-```bash
-npm test
-```
-
-### Storybook
-
-```bash
-npm run build && npm run build-storybook && npm run storybook
-```
-
-## Deploying to GitHub Pages
-
-The documentation site is deployed to the `gh-pages` branch. Run the deploy script from the **`main` branch**:
-
-```bash
-npm run deploy                    # full build + assemble + push
-npm run deploy -- --skip-build    # assemble only (reuse existing build artifacts)
-```
-
-**Prerequisites:**
-- You must be on the `main` branch with a clean working tree
-- The sibling repo `../gcds-docs` must exist locally
-- npm dependencies installed in both repos
-
-The script builds gcds-map (Stencil + Storybook) and gcds-docs (Eleventy with `PATH_PREFIX=/gcds-map`), then assembles the results into `gh-pages:docs/`. It amends the previous gh-pages commit and prompts you to force-push to `upstream`.
+`<gcds-map>` and associated MapML children are implemented as Stencil components, like other GCDS components.  `<gcds-map>` is
+a self-contained component that renders map content in a shadow root, and does not expose slots for including content besides 
+what is rendered on the map.
 
 ## Accessibility
 
@@ -162,14 +67,7 @@ The `<gcds-map>` component includes several accessibility features:
 - ARIA labels and descriptions
 - Focus management
 
-If you notice things that could be improved, please [open an issue](./issues/new).
-
-## Browser Support
-
-This component supports all browsers that support:
-- Custom Elements v1
-- Shadow DOM v1
-- ES2017
+If you notice things that could be improved, please [open an issue](https://github.com/gcds-extensions/gcds-map/issues/new).
 
 ## License
 

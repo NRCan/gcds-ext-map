@@ -1,30 +1,13 @@
 {
   "name": "gcds-map",
-  "version": "0.1.0",
-  "description": "Stencil Component Starter",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "exports": {
-    ".": {
-      "import": "./dist/gcds-map/gcds-map.esm.js",
-      "require": "./dist/gcds-map/gcds-map.cjs.js"
-    },
-    "./loader": {
-      "types": "./loader/index.d.ts",
-      "import": "./loader/index.js",
-      "require": "./loader/index.cjs"
-    }
-  },
+  "version": "1.0.0-rc",
+  "description": "Government of Canada Design System map component suite",
   "repository": {
     "type": "git",
     "url": "https://github.com/NRCan/gcds-map.git"
   },
   "files": [
-    "dist/",
-    "loader/"
+    "dist/gcds-map/"
   ],
   "scripts": {
     "prebuild": "node scripts/generate-locale.js",
@@ -37,9 +20,6 @@
     "storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006",
     "build-storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build -o ./docs",
     "test:e2e": "playwright test",
-    "test:spec": "stencil test --spec",
-    "test.watch": "stencil test --spec --watchAll",
-    "generate": "stencil generate",
     "deploy": "bash scripts/deploy-gh-pages.sh"
   },
   "devDependencies": {
@@ -47,8 +27,8 @@
     "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
-    "@gcds-core/fonts": "^1.0.0",
-    "@gcds-core/tokens": "^1.2.0",
+    "@gcds-core/fonts": "^1.1.0",
+    "@gcds-core/tokens": "^1.5.0",
     "@playwright/test": "^1.54.0",
     "@stencil/core": "^4.43.4",
     "@stencil/playwright": "^0.2.1",
@@ -61,13 +41,10 @@
     "@storybook/blocks": "^8.0.9",
     "@storybook/html": "^8.0.9",
     "@storybook/html-webpack5": "^8.0.9",
-    "@types/jest": "^29.5.14",
     "@types/node": "^22.16.2",
     "babel-plugin-transform-import-meta": "^2.3.3",
     "concurrently": "^9.2.1",
     "express": "^5.2.1",
-    "jest": "^29.7.0",
-    "jest-cli": "^29.7.0",
     "leaflet": "^1.9.4",
     "leaflet.locatecontrol": "^0.90.0",
     "mapml-extension": "git+https://github.com/Maps4HTML/mapml-extension",
@@ -77,7 +54,6 @@
     "proj4": "^2.6.2",
     "proj4leaflet": "git+https://github.com/Maps4HTML/proj4leaflet.git#es-module",
     "protomaps-leaflet": "^4.0.1",
-    "puppeteer": "^24.3.0",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "serve": "^14.2.4",
     "serve-static": "^2.2.0",
