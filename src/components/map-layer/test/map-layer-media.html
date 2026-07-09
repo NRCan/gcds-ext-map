@@ -3,7 +3,7 @@
   <head>
     <title>&lt;map-layer&gt; media attribute test</title>
     <meta charset="UTF-8">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
     <style>
       html {
         height: 100%
@@ -20,7 +20,7 @@
     </style>
   </head>
   <body>
-    <gcds-map data-testid="viewer" style="height: 500px;width:500px;" controls zoom="2" lat="68" lon="-87" controls projection="CBMTILE">
+    <gcds-ext-map data-testid="viewer" style="height: 500px;width:500px;" controls zoom="2" lat="68" lon="-87" controls projection="CBMTILE">
       <!-- map loads at z=2, so both layers should be enabled -->
       <map-layer data-testid="initial-mq" media="(0 <= map-zoom <=3)" checked>
         <map-title>media query: (0 <= map-zoom <=3)</map-title>
@@ -39,6 +39,6 @@
       <!-- removing the media attribute while the above layer is disabled due to
       the media query mismatch should result in the layer being re-enanbled and the
       disable attribute cleared -->
-    </gcds-map>
+    </gcds-ext-map>
   </body>
 </html>

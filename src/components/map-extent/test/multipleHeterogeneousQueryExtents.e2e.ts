@@ -16,7 +16,7 @@ test.describe('Multiple Extent Queries with heterogeneous response content types
     await context.close();
   });
   test('Query multiple overlapping extents which return heterogeneous document types (text/mapml, text/html)', async () => {
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
     const popupContainer = page.locator('.mapml-popup-content > iframe');
     const popupFeatureCount = page.locator('.mapml-feature-count');
     await expect(popupFeatureCount).toHaveText('1/7', { useInnerText: true });
@@ -87,7 +87,7 @@ test.describe('Multiple Extent Queries with heterogeneous response content types
     );
     expect(thirdExtentInLayerControl).toEqual('html query response');
 
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
     const popupContainer = page.locator('.mapml-popup-content > iframe');
     const popupFeatureCount = page.locator('.mapml-feature-count');
     await expect(popupFeatureCount).toHaveText('1/7', { useInnerText: true });
@@ -136,7 +136,7 @@ test.describe('Multiple Extent Queries with heterogeneous response content types
     expect(layersCount).toEqual(0);
 
     // query the page, nothing should happen
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
     let popupContent = await page.$eval(
       '.leaflet-popup-pane',
       (pane) => pane.childElementCount
@@ -154,7 +154,7 @@ test.describe('Multiple Extent Queries with heterogeneous response content types
     expect(layersCount).toEqual(1);
 
     // query the page, should display popup, create popup content
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
     popupContent = await page.$eval(
       'div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-popup-pane',
       (pane) => pane.childElementCount
@@ -171,7 +171,7 @@ test.describe('Multiple Extent Queries with heterogeneous response content types
     await page.click("text='HTML query response'");
 
     // query the page, should create popup content
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
     popupFeatureCount = page.locator('.mapml-feature-count');
     await expect(popupFeatureCount).toHaveText('1/6', { useInnerText: true });
 
@@ -186,7 +186,7 @@ test.describe('Multiple Extent Queries with heterogeneous response content types
     );
 
     // query the page, should create popup content
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
     popupFeatureCount = page.locator('.mapml-feature-count');
     // the mapml response has 6 features, the html response is tallied as 1 feature
     await expect(popupFeatureCount).toHaveText('1/6', { useInnerText: true });

@@ -429,13 +429,13 @@ export const Util = {
       if (!link.inPlace && zoomTo) updateMapZoomTo(zoomTo);
       
       // Wait for projection change to complete before calling layer.zoomTo()
-      // This ensures zoom constraints are set properly in projectionChanged (gcds-map.tsx)
+      // This ensures zoom constraints are set properly in projectionChanged (gcds-ext-map.tsx)
       // NOTE: We cannot determine in advance whether projection will change because:
       // 1. Would need to fetch/parse the MapML document first
       // 2. Would need to check if result leaves single layer (triggers projection change)
       // 3. This adds complexity and delays that offset the timeout benefit
       // So we always wait with 5000ms fallback. Tests must account for this delay.
-      // See: gcds-map.tsx projectionChanged() and test files for related code.
+      // See: gcds-ext-map.tsx projectionChanged() and test files for related code.
       const projectionChangePromise = new Promise(resolve => {
         const timeout = setTimeout(resolve, 5000); // Fallback if no projection change
         map.options.mapEl.addEventListener('map-projectionchange', () => {

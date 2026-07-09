@@ -33,7 +33,7 @@ test.describe('Query Popup Tests', () => {
 
   test('Query link closes previous popup when new query made within bounds', async () => {
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(9, -27, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(9, -27, 0)
     );
     await page.waitForTimeout(1000);
     await page.getByLabel('Interactive map').click();
@@ -46,7 +46,7 @@ test.describe('Query Popup Tests', () => {
 
   test('Query link does not show when out of bounds', async () => {
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(-37.07821, -9.010487, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(-37.07821, -9.010487, 0)
     );
     await page.waitForTimeout(1000);
     await page.getByLabel('Interactive map').click();
@@ -56,7 +56,7 @@ test.describe('Query Popup Tests', () => {
       .evaluate((popup) => popup.childElementCount);
 
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(-45.679787, -93.041053, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(-45.679787, -93.041053, 0)
     );
     await page.waitForTimeout(1000);
     await page.getByLabel('Interactive map').click();
@@ -65,7 +65,7 @@ test.describe('Query Popup Tests', () => {
       .locator('.leaflet-popup-pane')
       .evaluate((popup) => popup.childElementCount);
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(-37.399782, 177.15222, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(-37.399782, 177.15222, 0)
     );
     await page.waitForTimeout(1000);
     await page.getByLabel('Interactive map').click();
@@ -75,7 +75,7 @@ test.describe('Query Popup Tests', () => {
       .evaluate((popup) => popup.childElementCount);
 
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(-32.240953, 94.969783, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(-32.240953, 94.969783, 0)
     );
     await page.waitForTimeout(1000);
     await page.getByLabel('Interactive map').click();

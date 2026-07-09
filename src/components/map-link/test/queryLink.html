@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Query Link Extent Test</title>
-  <script type="module" src="/build/gcds-map.esm.js"></script>
-  <script nomodule src="/build/gcds-map.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
+  <script nomodule src="/build/gcds-ext-map.js"></script>
 </head>
 
 <body>
-  <gcds-map style="width: 500px;height: 500px;" projection="CBMTILE" zoom="0" lat="45" lon="-90" controls>
+  <gcds-ext-map style="width: 500px;height: 500px;" projection="CBMTILE" zoom="0" lat="45" lon="-90" controls>
     <map-layer label="Inline Templated Tile" checked>
       <map-meta name="zoom" content="min=0,max=6"></map-meta>
       <map-extent units="CBMTILE" checked hidden>
@@ -29,7 +29,7 @@
         <map-link rel="query" tref="/test/data/tiles/cbmt/us_map_query.mapml?{i}{j}{xmin}{ymin}{xmax}{ymax}{w}{h}"" ></map-link>
       </map-extent>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
 </body>
 
 </html>

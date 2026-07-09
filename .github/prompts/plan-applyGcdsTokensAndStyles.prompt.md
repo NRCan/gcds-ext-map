@@ -1,6 +1,6 @@
-## Plan: Apply GCDS Tokens, Fonts & Logical Properties to gcds-map
+## Plan: Apply GCDS Tokens, Fonts & Logical Properties to gcds-ext-map
 
-The GCDS team's request targets `@maps4html/mapml` and `mapml.css`, but the actual work applies to the gcds-map Stencil project and its [gcds-map.css](gcds-map/src/components/gcds-map/gcds-map.css). The core task: install `@gcds-core/tokens`, replace ~15 hard-coded color values with `var(--gcds-*)` token references, convert remaining directional CSS to logical properties, and handle fonts. The main pitfall is **Shadow DOM**.
+The GCDS team's request targets `@maps4html/mapml` and `mapml.css`, but the actual work applies to the gcds-ext-map Stencil project and its [gcds-ext-map.css](gcds-ext-map/src/components/gcds-ext-map/gcds-ext-map.css). The core task: install `@gcds-core/tokens`, replace ~15 hard-coded color values with `var(--gcds-*)` token references, convert remaining directional CSS to logical properties, and handle fonts. The main pitfall is **Shadow DOM**.
 
 ---
 
@@ -9,7 +9,7 @@ The GCDS team's request targets `@maps4html/mapml` and `mapml.css`, but the actu
 2. Verify available token names against the hard-coded values in the CSS
 3. **Do NOT install fonts as a package** — see Pitfall P2 below
 
-### Phase 2: Token Replacement in gcds-map.css
+### Phase 2: Token Replacement in gcds-ext-map.css
 Replace hard-coded values with `var(--gcds-*, <fallback>)` — always including the current value as fallback so the component works standalone:
 
 | Hard-coded | Verified GCDS token | Fallback | Usage |
@@ -31,7 +31,7 @@ Replace hard-coded values with `var(--gcds-*, <fallback>)` — always including 
 
 Typography: `font-size: 12px` and `44px` WCAG target sizes stay as-is (no matching tokens).
 
-**Only file modified:** [gcds-map.css](gcds-map/src/components/gcds-map/gcds-map.css)
+**Only file modified:** [gcds-ext-map.css](gcds-ext-map/src/components/gcds-ext-map/gcds-ext-map.css)
 
 ### Phase 3: Logical Properties Conversion
 ~28 directional CSS properties need assessment. Many already use logical properties. Convert the rest where appropriate:
@@ -61,7 +61,7 @@ Fonts cannot be loaded inside shadow DOM. Document that host pages must load GCD
 | **P3** | MEDIUM | **MapML.js diff divergence** — Adding `var()` wrappers will make future diffing against mapml.css harder. | Keep same source order, document the mapping. |
 | **P4** | MEDIUM | **Visual regression** — GCDS tokens may not exactly match current hard-coded values. | Use current values as fallbacks in `var()`, so appearance is identical without GCDS loaded. |
 | **P5** | LOW | **Package naming** — Request uses deprecated `@cdssnc/gcds-tokens`. The project already uses `@gcds-core/components`. | Use `@gcds-core/tokens` consistently. |
-| **P6** | LOW | **Leaflet CSS conflicts** — Leaflet uses physical directional properties. Converting gcds-map overrides to logical properties could create specificity mismatches. | Test each conversion; some Leaflet overrides must stay physical. |
+| **P6** | LOW | **Leaflet CSS conflicts** — Leaflet uses physical directional properties. Converting gcds-ext-map overrides to logical properties could create specificity mismatches. | Test each conversion; some Leaflet overrides must stay physical. |
 
 ### Decisions
 - Use `@gcds-core/tokens` (not deprecated `@cdssnc/gcds-tokens`)
@@ -71,5 +71,5 @@ Fonts cannot be loaded inside shadow DOM. Document that host pages must load GCD
 - 44px WCAG touch target sizes remain as explicit values
 
 ### Scope
-**Included:** Token replacement in gcds-map.css, logical property conversion, package install, docs update
+**Included:** Token replacement in gcds-ext-map.css, logical property conversion, package install, docs update
 **Excluded:** Font loading inside shadow DOM, other component CSS (they have none), changes to MapML.js

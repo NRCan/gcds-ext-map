@@ -4,7 +4,7 @@
 <head>
   <title>Layer Contextmenu Keyboard Test</title>
   <meta charset="UTF-8">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   <style>
     html {
       height: 100%
@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  <gcds-map style="width: 1000px;height: 500px;" projection="CBMTILE" zoom="0" lat="47" lon="-92" controls>
+  <gcds-ext-map style="width: 1000px;height: 500px;" projection="CBMTILE" zoom="0" lat="47" lon="-92" controls>
     <map-layer label="CBMT - INLINE" checked>
       <map-link rel="license" title="Testing Inc."></map-link>
       <map-extent units="CBMTILE" checked>
@@ -58,7 +58,7 @@
     </map-layer>
     <map-layer src="/test/data/tiles/cbmt/DouglasFir.mapml"
       label="Natural Resources Canada - Douglas Fir (Genus Pseudotsuga) 250m resolution"></map-layer>
-  </gcds-map>
+  </gcds-ext-map>
   <textarea name="messageExtent"></textarea>
 </body>
 

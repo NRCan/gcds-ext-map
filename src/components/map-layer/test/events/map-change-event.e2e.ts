@@ -56,7 +56,7 @@ test.describe('Map-change event are only fired when layers/extents are checked o
 
     // using keyboard to check and uncheck layers in the layer menu should
     // call map-change
-    await page.locator('gcds-map').click();
+    await page.locator('gcds-ext-map').click();
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
@@ -112,7 +112,7 @@ test.describe('Map-change event are only fired when layers/extents are checked o
 
     // using keyboard to check and uncheck extents in the layer menu should
     // call map-change
-    await page.locator('gcds-map').click();
+    await page.locator('gcds-ext-map').click();
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');

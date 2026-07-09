@@ -18,13 +18,13 @@ test.describe('Layer Context Menu Keyboard Tests', () => {
 
   test('Enter activates layer context menu item', async () => {
     let lat = await page.evaluate(
-      () => +(document.querySelector('gcds-map') as any).lat
+      () => +(document.querySelector('gcds-ext-map') as any).lat
     );
     let lon = await page.evaluate(
-      () => +(document.querySelector('gcds-map') as any).lon
+      () => +(document.querySelector('gcds-ext-map') as any).lon
     );
     let zoom = await page.evaluate(
-      () => +(document.querySelector('gcds-map') as any).zoom
+      () => +(document.querySelector('gcds-ext-map') as any).zoom
     );
 
     // expect something to do with center and zoom level of map
@@ -32,7 +32,7 @@ test.describe('Layer Context Menu Keyboard Tests', () => {
     await expect(lon).toBe(-92);
     await expect(zoom).toBe(0);
 
-    await page.locator('gcds-map').press('Tab');
+    await page.locator('gcds-ext-map').press('Tab');
     await page.getByLabel('Zoom in').press('Tab');
     await page.getByLabel('Zoom out').press('Tab');
     await page.getByLabel('Reload').press('Tab');
@@ -50,13 +50,13 @@ test.describe('Layer Context Menu Keyboard Tests', () => {
     await page.waitForTimeout(2000);
 
     lat = await page.evaluate(
-      () => +(document.querySelector('gcds-map') as any).lat
+      () => +(document.querySelector('gcds-ext-map') as any).lat
     );
     lon = await page.evaluate(
-      () => +(document.querySelector('gcds-map') as any).lon
+      () => +(document.querySelector('gcds-ext-map') as any).lon
     );
     zoom = await page.evaluate(
-      () => +(document.querySelector('gcds-map') as any).zoom
+      () => +(document.querySelector('gcds-ext-map') as any).zoom
     );
 
     // expect something to do with center and zoom level of map
@@ -65,7 +65,7 @@ test.describe('Layer Context Menu Keyboard Tests', () => {
     await expect(zoom).toBe(0);
   });
   test('Space bar activates layer context menu item', async () => {
-    await page.locator('gcds-map').press('Tab');
+    await page.locator('gcds-ext-map').press('Tab');
 
     await page.locator('[aria-label="Zoom in"]').press('Tab');
 
@@ -101,7 +101,7 @@ test.describe('Layer Context Menu Keyboard Tests', () => {
     expect(result).toBe('CBMT - INLINE');
   });
   test('Tab can be used to move between layer context menu items', async () => {
-    await page.locator('gcds-map').press('Tab');
+    await page.locator('gcds-ext-map').press('Tab');
     await page.locator('[aria-label="Zoom in"]').press('Tab');
     await page.locator('[aria-label="Zoom out"]').press('Tab');
     await page.locator('[aria-label="Reload"]').press('Tab');
@@ -140,7 +140,7 @@ test.describe('Layer Context Menu Keyboard Tests', () => {
   });
 
   test('Shift+Tab can be used to move between layer context menu items', async () => {
-    await page.locator('gcds-map').press('Tab');
+    await page.locator('gcds-ext-map').press('Tab');
     await page.locator('[aria-label="Zoom in"]').press('Tab');
     await page.locator('[aria-label="Zoom out"]').press('Tab');
     await page.locator('[aria-label="Reload"]').press('Tab');

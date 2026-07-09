@@ -21,7 +21,7 @@ test.describe('Playwright Remote MapML with <map-extent> Tests', () => {
     page.on('pageerror', (err) => {
       errorLogs.push(err.message);
     });
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
 
     await page.waitForTimeout(2000);
     const popups = await page

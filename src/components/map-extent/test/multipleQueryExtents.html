@@ -4,7 +4,7 @@
 <head>
   <title>Multiple Query Extents Test</title>
   <meta charset="UTF-8">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   <style>
     html {
       height: 100%
@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  <gcds-map style="width: 500px;height: 500px;" projection="CBMTILE" zoom="0" lat="47" lon="-92" controls>
+  <gcds-ext-map style="width: 500px;height: 500px;" projection="CBMTILE" zoom="0" lat="47" lon="-92" controls>
 <map-layer label="Multiple Query Extents" checked>
       <!-- the non-query extent (in this case a TemplatedTileLayer) is necessary 
            to have the layer not disabled in the layer control -->
@@ -67,7 +67,7 @@
         <map-link rel="query" tref="/test/data/tiles/cbmt/us_map_query.mapml?{i}{j}{xmin}{ymin}{xmax}{ymax}{w}{h}" ></map-link>
       </map-extent>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
   <textarea name="message" rows="10" cols="100"></textarea>
 </body>
 

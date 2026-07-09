@@ -3,10 +3,10 @@
   <head>
     <title>templatedFeaturesOrTiles.html</title>
     <meta charset="UTF-8">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   </head>
   <body>
-    <gcds-map data-testid="map" style="width: 500px;height: 500px;" projection="CBMTILE" zoom="0" lat="45.5052040" lon="-75.2202344" controls>
+    <gcds-ext-map data-testid="map" style="width: 500px;height: 500px;" projection="CBMTILE" zoom="0" lat="45.5052040" lon="-75.2202344" controls>
       <!-- This layer "includes itself" (via a map-extent/map-link rel=features)
            While the shadow root of the map-layer should contain the map-extent,
            tests should confirm that the <map-link rel=features> shadow root does not
@@ -14,6 +14,6 @@
            the layer to itself to recursively load (some of) the same content, but
            that shouldn't be a "show stopper" / blow the stack / recurse forever). -->
       <map-layer data-testid="test-layer" checked src="/test/data/tiles/cbmt/features-tiles-extents.mapml"></map-layer>
-    </gcds-map>
+    </gcds-ext-map>
   </body>
 </html>

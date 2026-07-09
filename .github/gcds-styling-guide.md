@@ -1,6 +1,6 @@
-# GCDS Styling Guide for gcds-map Ports
+# GCDS Styling Guide for gcds-ext-map Ports
 
-Short guidance for porting MapML.js controls / components into `gcds-map`
+Short guidance for porting MapML.js controls / components into `gcds-ext-map`
 so the result is consistent with the GC Design System (GCDS). This is a
 distillation of [gcds-request.md](../gcds-request.md) (the original GCDS
 team request) and [gcds-integration-feedback.md](./gcds-integration-feedback.md)
@@ -9,7 +9,7 @@ rationale; this file is the checklist.
 
 ## TL;DR
 
-`gcds-map.css` is a composite stylesheet that fork-bundles:
+`gcds-ext-map.css` is a composite stylesheet that fork-bundles:
 
 1. `~leaflet/dist/leaflet.css` (via `@import`, third-party, untouched)
 2. `~leaflet.locatecontrol/dist/L.Control.Locate.css` (via `@import`,
@@ -18,7 +18,7 @@ rationale; this file is the checklist.
 4. GCDS-specific overrides and project-owned additions
 
 When you add CSS for a newly-ported control to
-[`src/components/gcds-map/gcds-map.css`](../src/components/gcds-map/gcds-map.css):
+[`src/components/gcds-ext-map/gcds-ext-map.css`](../src/components/gcds-ext-map/gcds-ext-map.css):
 
 1. Wrap every hard-coded color, spacing, border-width, and border-radius
    in a GCDS token with the original value as the fallback.
@@ -45,7 +45,7 @@ When you add CSS for a newly-ported control to
 Use these mappings. The fallback is **always the original hard-coded
 value**, not the resolved token value — this preserves appearance when
 GCDS isn't loaded and matches the pattern already in
-[`gcds-map.css`](../src/components/gcds-map/gcds-map.css).
+[`gcds-ext-map.css`](../src/components/gcds-ext-map/gcds-ext-map.css).
 
 ### Colors
 
@@ -203,14 +203,14 @@ border-radius: var(--gcds-border-radius-md, 6px);
 
 ## Don'ts (Shadow DOM gotchas)
 
-- **Do not** add `@font-face` rules to `gcds-map.css`. They are silently
+- **Do not** add `@font-face` rules to `gcds-ext-map.css`. They are silently
   ignored inside shadow DOM. Host pages load GCDS fonts.
 - **Do not** `@import '@gcds-core/tokens/.../tokens.css'`. The `:root`
   selector in that file targets `<html>`, but the rules are inert when
   loaded from inside a shadow root. Tokens reach us via inheritance
   when the host page loads `@gcds-core/components`.
 - **Do not** add inline `style="..."` in the control's JS. All styling
-  belongs in `gcds-map.css` so tokens can override.
+  belongs in `gcds-ext-map.css` so tokens can override.
 
 ## Form Controls and Font Inheritance
 

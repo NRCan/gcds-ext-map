@@ -50,7 +50,7 @@ test.describe('Playwright Missing Min Max Attribute, Meta Default Tests', () => 
   test('Fetched layer extent test', async ({ page }) => {
     await page.waitForTimeout(500);
     const extent = await page.$eval(
-      'body > gcds-map > map-layer:nth-of-type(1)',
+      'body > gcds-ext-map > map-layer:nth-of-type(1)',
       (layer: any) => layer.extent
     );
     expect(extent.hasOwnProperty('zoom')).toBeTruthy();
@@ -66,7 +66,7 @@ test.describe('Playwright Missing Min Max Attribute, Meta Default Tests', () => 
   test('Inline layer extent test', async ({ page }) => {
     await page.waitForTimeout(500);
     const extent = await page.$eval(
-      'body > gcds-map > map-layer:nth-of-type(2)',
+      'body > gcds-ext-map > map-layer:nth-of-type(2)',
       (layer: any) => layer.extent
     );
 

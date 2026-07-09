@@ -3,7 +3,7 @@
   <head>
     <title>map-link-stylesheet-disabled.html</title>
     <meta charset="UTF-8">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
     <style>
       html {
         height: 100%
@@ -20,7 +20,7 @@
     </style>
   </head>
   <body>
-    <gcds-map data-testid="viewer" style="height: 500px;width:500px;" zoom="14" lat="45.41" lon="-75.7"  projection="OSMTILE">
+    <gcds-ext-map data-testid="viewer" style="height: 500px;width:500px;" zoom="14" lat="45.41" lon="-75.7"  projection="OSMTILE">
       <map-layer data-testid="inline_tiles" checked>
         <map-title>OpenStreetMap image tiles</map-title>
         <map-link rel="license" href="https://www.openstreetmap.org/copyright" title="© OpenStreetMap contributors CC BY-SA"></map-link>  
@@ -72,6 +72,6 @@
         
       </map-layer>
       <map-layer data-testid="remote-queryable" label="remote queryable layer" src="/test/map-link/map-link-disabled.mapml" checked></map-layer>
-    </gcds-map>
+    </gcds-ext-map>
   </body>
 </html>

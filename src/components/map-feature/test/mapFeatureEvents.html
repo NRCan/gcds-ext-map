@@ -4,11 +4,11 @@
 <head>
   <title>map-feature Event tests</title>
   <meta charset="UTF-8">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
 </head>
 
 <body>
-	<gcds-map width="500" height="500" projection="OSMTILE" zoom="10" lon="-75.7" lat="45.4" controls>
+	<gcds-ext-map width="500" height="500" projection="OSMTILE" zoom="10" lon="-75.7" lat="45.4" controls>
 		<map-layer label="Features" checked>
 			<map-meta name="projection" content="OSMTILE"></map-meta>
             <map-feature>
@@ -51,7 +51,7 @@
 				</map-properties>
 			</map-feature>
 		</map-layer>
-	</gcds-map>
+	</gcds-ext-map>
 	
 	<div id="property"></div>
 	

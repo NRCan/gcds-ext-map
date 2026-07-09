@@ -19,7 +19,7 @@ test.describe('Focus stays on checkboxes when using keyboard navigation', () => 
   });
 
   test('Focus stays on checkbox after checking and unchecking layers in the layer menu', async () => {
-    const map = await page.locator('body > gcds-map');
+    const map = await page.locator('body > gcds-ext-map');
     await map.evaluate((map) =>
       map.querySelector('map-layer').removeAttribute('hidden')
     );
@@ -28,7 +28,7 @@ test.describe('Focus stays on checkboxes when using keyboard navigation', () => 
     expect(layerChecked).not.toBeNull();
 
     // use keyboard to uncheck layer
-    await page.locator('gcds-map').click();
+    await page.locator('gcds-ext-map').click();
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
@@ -53,7 +53,7 @@ test.describe('Focus stays on checkboxes when using keyboard navigation', () => 
     expect(extentChecked).not.toBeNull();
 
     // use keyboard to uncheck map-extent
-    await page.locator('gcds-map').click();
+    await page.locator('gcds-ext-map').click();
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');

@@ -150,7 +150,7 @@ test.describe('Templated image layer with step', () => {
         unscaleOnShiftPan = await page.waitForFunction(
           () =>
             (document
-              .querySelector('body > gcds-map')
+              .querySelector('body > gcds-ext-map')
               .shadowRoot.querySelector(
                 '.leaflet-layer.mapml-extentlayer-container > div > img'
               ) as HTMLElement).style.transform === 'translate3d(0px, 0px, 0px)',

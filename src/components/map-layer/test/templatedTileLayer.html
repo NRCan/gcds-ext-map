@@ -4,14 +4,14 @@
 <head>
   <title>Templated Tile Test</title>
   <meta charset="UTF-8">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   <style>
     html {
       height: 100%
     }
 
     body,
-    gcds-map:defined {
+    gcds-ext-map:defined {
       max-width: 100%;
       height: inherit;
       width: 100%
@@ -25,7 +25,7 @@
 </head>
 
 <body>
-  <gcds-map projection="WGS84" zoom="1" lat="59.87304909" lon="-53.22587225" width="900" height="400" controls>
+  <gcds-ext-map projection="WGS84" zoom="1" lat="59.87304909" lon="-53.22587225" width="900" height="400" controls>
 
     <map-layer label="Inline Templated Tile" checked>
       <map-meta name="zoom" content="min=1,max=2"></map-meta>
@@ -60,7 +60,7 @@
         <map-link rel="tile" tref="https://datacube.services.geo.ca/ows/msi?SERVICE=WMS&REQUEST=GetMap&FORMAT=image/png&TRANSPARENT=TRUE&STYLES=msi-color&VERSION=1.3.0&LAYERS=msi&WIDTH=256&HEIGHT=256&CRS=EPSG:3978&BBOX={txmin},{tymin},{txmax},{tymax}" ></map-link>
       </map-extent>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
 </body>
 
 </html>

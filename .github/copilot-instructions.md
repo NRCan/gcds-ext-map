@@ -5,13 +5,13 @@
 This is a **Stencil-based fork** of MapML viewer technology that creates GCDS-compliant web map components. 
 
 ### Key Components
-- **`gcds-map`**: Main Stencil component that is a stencil refactoring of `mapml-viewer` from MapML.js
+- **`gcds-ext-map`**: Main Stencil component that is a stencil refactoring of `mapml-viewer` from MapML.js
   - wraps a Leaflet map instance in its shadow DOM
   - manages map properties (lat, lon, zoom, etc.) some of which are set once at initialization by the user and then updated by the component as the view changes
   - the map-layer src attribute is not a "set once" attribute or property - it can be changed to load a different layer, or removed to change to local content
   - dynamically loads MapML controls to ensure proper Leaflet init hooks
  many other stencil components will be added via refactoring of the corresponding map-* components in MapML.js
-- each map-* component in MapML.js will have a corresponding map-* stencil component here, of the same name except for the gcds-map component which will replace mapml-viewer.
+- each map-* component in MapML.js will have a corresponding map-* stencil component here, of the same name except for the gcds-ext-map component which will replace mapml-viewer.
 
 ## Essential Development Patterns
 
@@ -36,13 +36,13 @@ In custom elements, attributes can be set before `connectedCallback()` fires. If
 
 ### Refactoring Guidelines
 - migrating and refactoring from MapML.js source files to src/components/**/*.tsx files
-- the MapML.js source is available in the workspace as a sibling project for reference while refactoring. The maintenance of the gcds-map and other stencil map-* components will be done by using graphical diff / apply changes if and where possible. Consequently, source order and correspondence of files and file names will be important while refactoring.
+- the MapML.js source is available in the workspace as a sibling project for reference while refactoring. The maintenance of the gcds-ext-map and other stencil map-* components will be done by using graphical diff / apply changes if and where possible. Consequently, source order and correspondence of files and file names will be important while refactoring.
 - when refactoring a test from MapML.js test/ to src/components/gcds-*/test/, you have to potentially modify the stencil.config.ts copy task to include the new test files, so that they are copied to the www/test/ folder during build for e2e testing.
-- when refactoring test files, you need to replace mapml-viewer with gcds-map in the test html files, and potentially modify any test code that references mapml-viewer to reference gcds-map instead.
-- the <script src="mapml.js"> tag in the test html files should also be updated to load the gcds-map component instead of mapml-viewer.
+- when refactoring test files, you need to replace mapml-viewer with gcds-ext-map in the test html files, and potentially modify any test code that references mapml-viewer to reference gcds-ext-map instead.
+- the <script src="mapml.js"> tag in the test html files should also be updated to load the gcds-ext-map component instead of mapml-viewer.
 
 ### "Set Once" Property Design
-**CRITICAL**: Some map properties ( lat, lon, zoom) are passed to `gcds-map` during initial construction but **never allowed to be updated afterward** (they are written to as the map changes view, though). This design:
+**CRITICAL**: Some map properties ( lat, lon, zoom) are passed to `gcds-ext-map` during initial construction but **never allowed to be updated afterward** (they are written to as the map changes view, though). This design:
 - Respects `mapml-viewer`'s internal state management and Leaflet integration
 
 ### MapML Integration Points
@@ -69,16 +69,16 @@ npm run storybook     # Component development
 ```
 
 ### E2E Testing Pattern
-Tests use custom HTML pages in `src/components/gcds-map/test/`. Key insight from `readme.txt`:
+Tests use custom HTML pages in `src/components/gcds-ext-map/test/`. Key insight from `readme.txt`:
 ```bash
 # Run specific test only (avoids Jest's max-workers conflict)
-npx stencil test --e2e --no-build src/components/gcds-map/test/gcds-map.e2e.ts --silent --max-workers=8
+npx stencil test --e2e --no-build src/components/gcds-ext-map/test/gcds-ext-map.e2e.ts --silent --max-workers=8
 ```
 
 ## Key Files & Patterns
 
 ### Component Structure
-- `src/components/gcds-map/gcds-map.tsx` - Main map wrapper
+- `src/components/gcds-ext-map/gcds-ext-map.tsx` - Main map wrapper
 - `src/utils/mapml/` - MapML utilities (controls, handlers, etc.)
 
 ### Critical Methods

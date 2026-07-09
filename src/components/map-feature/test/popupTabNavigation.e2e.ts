@@ -25,7 +25,7 @@ test.describe('Playwright Keyboard Navigation + Query Layer Tests', () => {
       await queryLayer.evaluate((l) => {
         l.removeAttribute('checked');
       });
-      const viewer = page.locator('gcds-map');
+      const viewer = page.locator('gcds-ext-map');
       await viewer.focus();
       await page.keyboard.press('Tab'); // focus map
 
@@ -232,7 +232,7 @@ test.describe('Playwright Keyboard Navigation + Query Layer Tests', () => {
 
     test('Focus Controls focuses the first <button> child in control div', async () => {
       await page.waitForTimeout(1000);
-      const viewer = page.locator('gcds-map');
+      const viewer = page.locator('gcds-ext-map');
       await viewer.click();
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
@@ -243,7 +243,7 @@ test.describe('Playwright Keyboard Navigation + Query Layer Tests', () => {
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
       await page.keyboard.press('Enter');
-      await page.click('body > gcds-map');
+      await page.click('body > gcds-ext-map');
       await page.keyboard.press('Shift+F10');
       await page.keyboard.press('t');
       await page.click('body');

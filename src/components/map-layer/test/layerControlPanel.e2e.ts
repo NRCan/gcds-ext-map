@@ -17,20 +17,20 @@ test.describe('Control Layer Panel Tests', () => {
 
   test('Control panel hidden when no layers/all layers hidden', async () => {
     const controlsHidden = await page.$eval(
-      'body > gcds-map >> .leaflet-control-container > .leaflet-top.leaflet-right > .leaflet-control-layers',
+      'body > gcds-ext-map >> .leaflet-control-container > .leaflet-top.leaflet-right > .leaflet-control-layers',
       (elem) => elem.hasAttribute('hidden')
     );
     expect(controlsHidden).toEqual(true);
   });
 
   test('Control panel shown when layers are on map', async () => {
-    const map = await page.locator('body > gcds-map');
+    const map = await page.locator('body > gcds-ext-map');
     await map.evaluate((map) =>
       map.querySelector('map-layer').removeAttribute('hidden')
     );
     await page.waitForTimeout(1000);
     const controlsHidden = await page.$eval(
-      'body > gcds-map >> .leaflet-control-container > .leaflet-top.leaflet-right > .leaflet-control-layers',
+      'body > gcds-ext-map >> .leaflet-control-container > .leaflet-top.leaflet-right > .leaflet-control-layers',
       (elem) => elem.hasAttribute('hidden')
     );
     expect(controlsHidden).toEqual(false);

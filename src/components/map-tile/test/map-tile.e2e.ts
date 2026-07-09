@@ -20,7 +20,7 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
     // Debug: Check initial state
     const debugInfo = await page.evaluate(() => {
       const tiles = document.querySelectorAll('map-tile') as any;
-      const mapZoom = (document.querySelector('gcds-map') as any)._map.getZoom();
+      const mapZoom = (document.querySelector('gcds-ext-map') as any)._map.getZoom();
 
       const tileInfo = Array.from(tiles).map((tile: any) => ({
         zoom: tile.getAttribute('zoom'),
@@ -60,7 +60,7 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
 
     // Remove specific tiles that are currently at the map zoom level
     const removedTiles = await page.evaluate(() => {
-      const mapZoom = (document.querySelector('gcds-map') as any)._map.getZoom();
+      const mapZoom = (document.querySelector('gcds-ext-map') as any)._map.getZoom();
       const tiles = (document.querySelectorAll(`map-tile[zoom="${mapZoom}"]`) as any);
       const removed = [];
 
@@ -88,7 +88,7 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
     // Check final state
     await page.evaluate(() => {
       const tiles = document.querySelectorAll('map-tile');
-      const mapZoom = (document.querySelector('gcds-map') as any)._map.getZoom();
+      const mapZoom = (document.querySelector('gcds-ext-map') as any)._map.getZoom();
 
       const tileInfo = Array.from(tiles).map((tile: any) => ({
         zoom: tile.getAttribute('zoom'),
@@ -224,7 +224,7 @@ test.describe('Map Tile Dynamic Updates Tests', () => {
     await page.waitForTimeout(1500);
     // Find a tile and get initial src
     const initialState = await page.evaluate(() => {
-      const mapZoom = (document.querySelector('gcds-map') as any)._map.getZoom();
+      const mapZoom = (document.querySelector('gcds-ext-map') as any)._map.getZoom();
       const tile: any = document.querySelector(`map-tile[zoom="${mapZoom}"]`);
 
       if (!tile) return null;

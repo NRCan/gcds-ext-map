@@ -43,16 +43,16 @@ test.describe('<map-span> test', () => {
 
   test('<map-span> hides tile boundaries', async ({ page }) => {
     const total = await page.$eval(
-      'body > gcds-map:nth-child(1) > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-overlay-pane > div > div.leaflet-layer.mapml-extentlayer-container > div > div > div:nth-child(1) > svg > g > g:nth-child(1) > path:nth-child(2)',
+      'body > gcds-ext-map:nth-child(1) > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-overlay-pane > div > div.leaflet-layer.mapml-extentlayer-container > div > div > div:nth-child(1) > svg > g > g:nth-child(1) > path:nth-child(2)',
       (path) => path.getAttribute('style')
     );
 
     const featureOutline = await page.$(
-      'body > gcds-map:nth-child(1) > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-overlay-pane > div > div.leaflet-layer.mapml-extentlayer-container > div > div > div:nth-child(1) > svg > g > g:nth-child(1) > path.fclass._2.mapml-feature-outline'
+      'body > gcds-ext-map:nth-child(1) > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-overlay-pane > div > div.leaflet-layer.mapml-extentlayer-container > div > div > div:nth-child(1) > svg > g > g:nth-child(1) > path.fclass._2.mapml-feature-outline'
     );
 
     const hidden = await page.$eval(
-      'body > gcds-map:nth-child(1) > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-overlay-pane > div > div.leaflet-layer.mapml-extentlayer-container > div > div > div:nth-child(1) > svg > g > g:nth-child(1) > path.noline.fclass._2',
+      'body > gcds-ext-map:nth-child(1) > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-overlay-pane > div > div.leaflet-layer.mapml-extentlayer-container > div > div > div:nth-child(1) > svg > g > g:nth-child(1) > path.noline.fclass._2',
       (path) => path.getAttribute('d')
     );
     expect(featureOutline).not.toBe(null);
@@ -69,7 +69,7 @@ test.describe('<map-span> test', () => {
   //https://github.com/Maps4HTML/MapML.js/issues/559#issuecomment-959805896
   test('White space parsing for map-coordinates', async ({ page }) => {
     const feature = await page.$eval(
-      'body > gcds-map:nth-child(2) > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-overlay-pane > div > div.leaflet-layer.mapml-extentlayer-container > div > div > div:nth-child(1) > svg > g > g > path.fclass.mapml-feature-outline',
+      'body > gcds-ext-map:nth-child(2) > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-overlay-pane > div > div.leaflet-layer.mapml-extentlayer-container > div > div > div:nth-child(1) > svg > g > g > path.fclass.mapml-feature-outline',
       (path) => path.getAttribute('d')
     );
 

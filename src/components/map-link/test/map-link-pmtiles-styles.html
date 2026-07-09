@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>map-link-pmtiles-styles.html</title>
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   </head>
   <body>
-    <gcds-map data-testid="viewer" controls style="width: 500px;height: 500px;"  projection="OSMTILE" zoom="10" lat="44.5" lon="-103.8">
+    <gcds-ext-map data-testid="viewer" controls style="width: 500px;height: 500px;"  projection="OSMTILE" zoom="10" lat="44.5" lon="-103.8">
       <map-layer data-testid="dark" src="/test/map-link/dark.mapml" ></map-layer>
       <map-layer data-testid="local-layer">
         <map-link data-testid="local-operative-light" rel="stylesheet" type="application/pmtiles+stylesheet" href="lightTheme.js"></map-link>
@@ -30,6 +30,6 @@
 
         </map-extent>
       </map-layer>
-    </gcds-map>
+    </gcds-ext-map>
   </body>
 </html>

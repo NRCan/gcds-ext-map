@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Custom Projection map-extent and feature Layers</title>
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
 	</script>
 
 	<!-- Now the map markup can use the BNG projection -->
-	<gcds-map width="500" height="500" zoom="0" lat="51.437097" lon="0" controls="" role="application" projection="BNG">
+	<gcds-ext-map width="500" height="500" zoom="0" lat="51.437097" lon="0" controls="" role="application" projection="BNG">
 		<map-layer label="OS Roads tile map in BNG custom projection" checked="">
 		  <map-meta name="projection" content="BNG"></map-meta>
 		  <map-extent units="BNG" hidden="" checked="">
@@ -62,7 +62,7 @@
 		      <map-properties>London Point!</map-properties>
 		   </map-feature>
 		</map-layer>
-	</gcds-map>
+	</gcds-ext-map>
 </body>
 
 </html>

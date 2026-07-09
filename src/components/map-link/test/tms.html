@@ -4,19 +4,19 @@
         <title>TMS Tile Order Test</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="module" src="/build/gcds-map.esm.js"></script>
+        <script type="module" src="/build/gcds-ext-map.esm.js"></script>
         <style>
             html {height: 100%} 
             body {height: inherit} 
             * {margin: 0; padding: 0;}
-            gcds-map {
+            gcds-ext-map {
                 width: 600px;
                 height: 600px;
             }
         </style>
     </head>
     <body>
-        <gcds-map projection="WGS84" zoom="1" lat="-10" lon="-112" controls>
+        <gcds-ext-map projection="WGS84" zoom="1" lat="-10" lon="-112" controls>
  
             <map-layer label="Inline Countries" checked>
                 <map-meta name="zoom" content="min=0,max=4"></map-meta>
@@ -30,6 +30,6 @@
 
                 </map-extent>
             </map-layer>
-        </gcds-map>
+        </gcds-ext-map>
     </body>
 </html>

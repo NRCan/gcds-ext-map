@@ -5,7 +5,7 @@
   <title>Meta Default Test</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   <style>
     .transparency {
       opacity: 0.2;
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <gcds-map style="width: 500px; height: 500px;" projection="CBMTILE" zoom="0" lat="45.5052040" lon="-75.2202344"
+  <gcds-ext-map style="width: 500px; height: 500px;" projection="CBMTILE" zoom="0" lat="45.5052040" lon="-75.2202344"
     controls>
     <map-layer label="Map Layer" src="/test/data/tiles/cbmt/missing_min_max.mapml" checked></map-layer>
 
@@ -44,7 +44,7 @@
       </map-feature>
     </map-layer>
     <map-layer data-testid="defaultMetaFetched" id="defaultMetaFetched" src="/test/data/noMapMeta.mapml" checked></map-layer>
-  </gcds-map>
+  </gcds-ext-map>
 
 </body>
 

@@ -6,7 +6,7 @@ import { test, expect } from '@playwright/test';
       await page.goto('/test/map-feature/featureLinks.html', { waitUntil: 'networkidle' });
       await page.waitForTimeout(1000);
       const layers = await page.$eval(
-        'body > gcds-map',
+        'body > gcds-ext-map',
         (map: any) => map.layers.length
       );
       expect(layers).toEqual(1);
@@ -22,7 +22,7 @@ import { test, expect } from '@playwright/test';
       await page.waitForLoadState('networkidle');
       await page.waitForTimeout(3000);
       expect( await page.$eval(
-        'body > gcds-map',
+        'body > gcds-ext-map',
         (map: any) => map.layers.length
       )).toEqual(layers+1);
     });
@@ -30,28 +30,28 @@ import { test, expect } from '@playwright/test';
     test('Nested inplace link adds new layer, does not change the map location', async ({ page }) => {
       await page.goto('/test/map-feature/featureLinks.html', { waitUntil: 'networkidle' });
       await page.waitForTimeout(1000);
-      await page.click('body > gcds-map');
+      await page.click('body > gcds-ext-map');
       await page.keyboard.press('Tab');
       for (let i = 0; i < 6; i++) {
         await page.keyboard.press('ArrowDown');
         await page.waitForTimeout(200);
       }
       const extentBeforeLink = await page.$eval(
-        'body > gcds-map',
+        'body > gcds-ext-map',
         (map: any) => map.extent
       );
       const layers = await page.$eval(
-        'body > gcds-map',
+        'body > gcds-ext-map',
         (map: any) => map.layers.length
       );
       await page.keyboard.press('Enter'); // Press enter on the `inplace` link (a point)
       await page.waitForTimeout(3000);
       const layerName = await page.$eval(
-        '//html/body/gcds-map/map-layer[2]',
+        '//html/body/gcds-ext-map/map-layer[2]',
         (layer: any) => layer.label
       );
       const extentAfterLink = await page.$eval(
-        'body > gcds-map',
+        'body > gcds-ext-map',
         (map: any) => map.extent
       );
       // inplace link traversal should not move the map...
@@ -62,7 +62,7 @@ import { test, expect } from '@playwright/test';
         extentBeforeLink.bottomRight.gcrs
       );
       expect(await page.$eval(
-        'body > gcds-map',
+        'body > gcds-ext-map',
         (map: any) => map.layers.length
       )).toEqual(layers+1);
       expect(layerName).toEqual('Fire Danger (forecast)');
@@ -70,28 +70,28 @@ import { test, expect } from '@playwright/test';
     test('Outermost of 2 nested links adds new layer, map zooms to it', async ({ page }) => {
       await page.goto('/test/map-feature/featureLinks.html', { waitUntil: 'networkidle' });
       await page.waitForTimeout(1000);
-      await page.click('body > gcds-map');
+      await page.click('body > gcds-ext-map');
       await page.keyboard.press('Tab');
       for (let i = 0; i < 5; i++) {
         await page.keyboard.press('ArrowDown');
         await page.waitForTimeout(200);
       }
       const layers = await page.$eval(
-        'body > gcds-map',
+        'body > gcds-ext-map',
         (map: any) => map.layers.length
       );
       await page.keyboard.press('Enter'); // follow outermost link of 2 nested links (not inplace)
       await page.waitForTimeout(5000);
       const layerName = await page.$eval(
-        '//html/body/gcds-map/map-layer[2]',
+        '//html/body/gcds-ext-map/map-layer[2]',
         (layer: any) => layer.label
       );
       // extent should have changed to new layer's extent (not `inplace`)
-      const extent = await page.$eval('body > gcds-map', (map: any) => map.extent);
+      const extent = await page.$eval('body > gcds-ext-map', (map: any) => map.extent);
       const cbmtExtent = await page.evaluate(async () => {
         (document.querySelector('map-layer:nth-last-of-type(1)') as any).zoomTo();
          await new Promise(resolve => setTimeout(resolve, 1000));
-        const map = document.querySelector('gcds-map') as any;
+        const map = document.querySelector('gcds-ext-map') as any;
         return map.extent;
       });
       // Extent after link traversal should match the CBMT layer extent
@@ -100,7 +100,7 @@ import { test, expect } from '@playwright/test';
       expect(extent.bottomRight.gcrs.horizontal).toBeCloseTo(cbmtExtent.bottomRight.gcrs.horizontal, 5);
       expect(extent.bottomRight.gcrs.vertical).toBeCloseTo(cbmtExtent.bottomRight.gcrs.vertical, 5);
       expect(await page.$eval(
-        'body > gcds-map',
+        'body > gcds-ext-map',
         (map: any) => map.layers.length
       )).toEqual(layers+1);
       expect(layerName).toEqual('Canada Base Map - Geometry');

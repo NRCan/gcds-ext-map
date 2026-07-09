@@ -32,13 +32,13 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
 
   test('Shadowroot tests of <map-layer> with src attribute', async ({ page }) => {
     let shadowAttached = await page.$eval(
-      'body > gcds-map',
+      'body > gcds-ext-map',
       (map) => (map as any).layers[1].shadowRoot !== null
     );
     expect(shadowAttached).toEqual(true);
 
     // remove and then re-add <map-layer> element
-    shadowAttached = await page.$eval('body > gcds-map', (map: any) => {
+    shadowAttached = await page.$eval('body > gcds-ext-map', (map: any) => {
       let layer = map.layers[1];
       map.removeChild(layer);
       map.appendChild(layer);
@@ -55,14 +55,14 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
     await expect(buttonFeatureRendering).toHaveCount(1);
 
     // change <map-feature> attributes
-    await page.$eval('body > gcds-map', async (map) => {
+    await page.$eval('body > gcds-ext-map', async (map) => {
       let layer = map.querySelector('map-layer'),
         mapFeature = layer.querySelector('map-feature');
       mapFeature.setAttribute('zoom', '4');
       (mapFeature as any).zoomTo();
     });
     await page.waitForTimeout(200);
-    let mapZoom = await page.$eval('body > gcds-map', (map) =>
+    let mapZoom = await page.$eval('body > gcds-ext-map', (map) =>
       map.getAttribute('zoom')
     );
     // expect the associated <g> el to re-render and re-attach to the map
@@ -70,12 +70,12 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
 
     // change <map-coordinates>
     await page.reload({ waitUntil: 'networkidle' });
-    let prevExtentBR = await page.$eval('body > gcds-map', (map) => {
+    let prevExtentBR = await page.$eval('body > gcds-ext-map', (map) => {
       let layer = map.querySelector('map-layer'),
         mapFeature = layer.querySelector('map-feature');
       return (mapFeature as any).extent.bottomRight.pcrs;
     });
-    let newExtentBR = await page.$eval('body > gcds-map', (map) => {
+    let newExtentBR = await page.$eval('body > gcds-ext-map', (map) => {
       let layer = map.querySelector('map-layer'),
         mapFeature = layer.querySelector('map-feature'),
         mapCoord = mapFeature.querySelector('map-coordinates');
@@ -86,12 +86,12 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
     expect(newExtentBR === prevExtentBR).toBe(false);
 
     // remove <map-properties>
-    await page.$eval('body > gcds-map', (map) => {
+    await page.$eval('body > gcds-ext-map', (map) => {
       let layer = map.querySelector('map-layer'),
         mapFeature = layer.querySelector('map-feature');
       mapFeature.querySelector('map-properties').remove();
     });
-    await page.$eval('body > gcds-map', (map) => {
+    await page.$eval('body > gcds-ext-map', (map) => {
       let layer = map.querySelector('map-layer'),
         mapFeature = layer.querySelector('map-feature');
       return (mapFeature as any).click();
@@ -106,14 +106,14 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
 
   test('Get extent of <map-point> with zoom attribute = 2', async ({ page }) => {
     const extent = await page.$eval(
-      'body > gcds-map',
+      'body > gcds-ext-map',
       (map) => (map.querySelector('.point_1') as any).extent
     );
     expect(extent).toEqual(data.pointExtentwithZoom);
   });
 
   test('Zoom to <map-point> with zoom attribute = 2', async ({ page }) => {
-    const mapZoom = await page.$eval('body > gcds-map', (map: any) => {
+    const mapZoom = await page.$eval('body > gcds-ext-map', (map: any) => {
       map.querySelector('.point_1').zoomTo();
       return +map.zoom;
     });
@@ -122,14 +122,14 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
 
   test('Get extent of <map-point> with no zoom attribute', async ({ page }) => {
     const extent = await page.$eval(
-      'body > gcds-map',
+      'body > gcds-ext-map',
       (map) => (map.querySelector('.point_2') as any).extent
     );
     expect(extent).toEqual(data.pointExtentNoZoom);
   });
 
   test('Zoom to <map-point> with no zoom attribute', async ({ page }) => {
-    const mapZoom = await page.$eval('body > gcds-map', (map: any) => {
+    const mapZoom = await page.$eval('body > gcds-ext-map', (map: any) => {
       map.querySelector('.point_2').zoomTo();
       return +map.zoom;
     });
@@ -138,19 +138,19 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
 
   test('Get geojson representation of <map-geometry> with single geometry', async ({ page }) => {
     // options = {propertyFunction: null, transform: true} (default)
-    let geojson = await page.$eval('body > gcds-map', (map) =>
+    let geojson = await page.$eval('body > gcds-ext-map', (map) =>
       (map.querySelector('map-feature') as any).mapml2geojson()
     );
     expectGeojsonToMatch(geojson, data.geojsonData.withDefOptions);
 
     // options = {propertyFunction: null, transform: false}
-    geojson = await page.$eval('body > gcds-map', (map) =>
+    geojson = await page.$eval('body > gcds-ext-map', (map) =>
       (map.querySelector('map-feature') as any).mapml2geojson({ transform: false })
     );
     expectGeojsonToMatch(geojson, data.geojsonData.withNoTransform);
 
     // options = {propertyFunction: function (properties) {...}, transform: true}
-    geojson = await page.$eval('body > gcds-map', (map) => {
+    geojson = await page.$eval('body > gcds-ext-map', (map) => {
       return (map.querySelector('.table') as any).mapml2geojson({
         propertyFunction: function (properties) {
           let obj = {},
@@ -174,7 +174,7 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
 
   test('Get geojson representation of <map-geometry> with multiple geometries', async ({ page }) => {
     // multiple geometries (<map-geometrycollection>)
-    let geojson = await page.$eval('body > gcds-map', (map) =>
+    let geojson = await page.$eval('body > gcds-ext-map', (map) =>
       (map.querySelector('.link') as any).mapml2geojson()
     );
     expectGeojsonToMatch(geojson, data.geojsonData.withMultiGeo);
@@ -183,14 +183,14 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
   test('Default click method test', async ({ page }) => {
     // click method test
     // <map-feature> with role="button" should have popup opened after click
-    const popup = await page.$eval('body > gcds-map', (map) => {
+    const popup = await page.$eval('body > gcds-ext-map', (map) => {
       let feature = map.querySelector('.button') as any;
       feature.click();
       return feature._geometry.isPopupOpen();
     });
     expect(popup).toEqual(true);
     // <map-feature> with role="link" should add a new layer / jump to another page after click
-    const layerCount = await page.$eval('body > gcds-map', (map: any) => {
+    const layerCount = await page.$eval('body > gcds-ext-map', (map: any) => {
       map.querySelector('.link').click();
       return map.layers.length;
     });
@@ -213,7 +213,7 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
   });
 
   test('Custom click method test', async ({ page }) => {
-    const isClicked = await page.$eval('body > gcds-map', (map) => {
+    const isClicked = await page.$eval('body > gcds-ext-map', (map) => {
       let mapFeature = map.querySelector('map-feature') as any;
       // define custom click method
       mapFeature.onclick = function () {
@@ -226,7 +226,7 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
   });
 
   test('Default focus method test', async ({ page }) => {
-    await page.locator('gcds-map').click();
+    await page.locator('gcds-ext-map').click();
     await page.keyboard.press('Tab'); // focus first map-feature
     // vermont is closest to the map centre, so is the first in tab order
     const firstFeature = page.locator('map-feature').filter({
@@ -253,7 +253,7 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
   });
 
   test('Default blur method test', async ({ page }) => {
-    const loseFocus = await page.$eval('body > gcds-map', (map: any) => {
+    const loseFocus = await page.$eval('body > gcds-ext-map', (map: any) => {
       let feature = map.querySelector('map-feature');
       feature.focus();
       feature.blur();
@@ -265,7 +265,7 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
   });
 
   test('Custom focus method test', async ({ page }) => {
-    const isFocused = await page.$eval('body > gcds-map', (map) => {
+    const isFocused = await page.$eval('body > gcds-ext-map', (map) => {
       let mapFeature = map.querySelector('map-feature') as any;
       // define custom focus method
       mapFeature.onfocus = function () {
@@ -278,7 +278,7 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
   });
 
   test('Add event handler via HTML', async ({ page }) => {
-    const test = await page.$eval('body > gcds-map', (map) => {
+    const test = await page.$eval('body > gcds-ext-map', (map) => {
       let mapFeature = map.querySelector('.event') as any;
       mapFeature.setAttribute('onfocus', 'test_1()');
       mapFeature._groupEl.focus();
@@ -288,7 +288,7 @@ test.describe('Playwright MapFeature Custom Element Tests', () => {
   });
 
   test('Add event handler via Script', async ({ page }) => {
-    const test = await page.$eval('body > gcds-map', (map) => {
+    const test = await page.$eval('body > gcds-ext-map', (map) => {
       (window as any).test_1();
       let mapFeature = map.querySelector('.event') as any;
       mapFeature._groupEl.focus();

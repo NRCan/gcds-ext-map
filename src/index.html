@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>&lt;gcds-map&gt; component</title>
+    <title>&lt;gcds-ext-map&gt; component</title>
 
-    <!-- gcds-map component (this project's build output) -->
-    <script type="module" src="/build/gcds-map.esm.js"></script>
-    <script nomodule src="/build/gcds-map.js"></script>
+    <!-- gcds-ext-map component (this project's build output) -->
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
+    <script nomodule src="/build/gcds-ext-map.js"></script>
 
     <!--
-      GCDS dependency architecture for gcds-map:
+      GCDS dependency architecture for gcds-ext-map:
       
       1. @gcds-core/components (PEER DEPENDENCY — the consuming app must load it)
          - gcds.css:  defines :root CSS custom properties (design tokens) AND
                       styles for GCDS light-DOM components (gcds-button, etc.)
          - gcds.esm.js: registers GCDS custom elements used in the page
-         gcds-map uses var(--gcds-*, fallback) in its shadow DOM CSS; the token
+         gcds-ext-map uses var(--gcds-*, fallback) in its shadow DOM CSS; the token
          values inherit through the shadow boundary from :root when gcds.css is
          loaded.  If gcds.css is absent, the fallback values preserve the
          original MapML appearance.
@@ -28,14 +28,14 @@
 
       3. @gcds-core/fonts (DEV DEPENDENCY — build-time only)
          - Font files (Lato, Noto Sans, Noto Sans Mono, gcds-icons) are copied
-           into gcds-map's build output and loaded via @font-face rules inside
+           into gcds-ext-map's build output and loaded via @font-face rules inside
            the component's shadow DOM CSS (fonts don't inherit through shadow
            boundary, so they must be declared inside it).
     -->
     <link rel="stylesheet" href="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.css" >
     <script type="module" src="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.esm.js"></script>
 
-    <style>gcds-map { display: block; width: 100%; height: 400px;}</style>
+    <style>gcds-ext-map { display: block; width: 100%; height: 400px;}</style>
 
   </head>
   <body>
@@ -44,27 +44,27 @@
       <gcds-container size="xl" main-container centered tag="main">
 
       <gcds-text>
-        <code>gcds-map</code> uses <code>@gcds-core/components</code> as a
+        <code>gcds-ext-map</code> uses <code>@gcds-core/components</code> as a
         <strong>peer dependency</strong>.  The consuming app loads
         <code>gcds.css</code> (tokens on <code>:root</code>) and
         <code>gcds.esm.js</code> (GCDS custom elements).  Tokens inherit into
-        <code>gcds-map</code>'s shadow DOM via CSS custom properties; fonts are
+        <code>gcds-ext-map</code>'s shadow DOM via CSS custom properties; fonts are
         bundled inside the shadow DOM via <code>@font-face</code>.
       </gcds-text>
 
-      <gcds-heading tag="h2">&lt;gcds-map&gt; composant « plugin »</gcds-heading>
+      <gcds-heading tag="h2">&lt;gcds-ext-map&gt; composant « plugin »</gcds-heading>
 
-      <gcds-map id="map" width="640" height="480" lat="45.4215" lon="-75.6972" zoom="10" projection="CBMTILE" controls controlslist="search">
+      <gcds-ext-map id="map" width="640" height="480" lat="45.4215" lon="-75.6972" zoom="10" projection="CBMTILE" controls controlslist="search">
         <map-layer label="Test Layer"  src="/build/assets/mapml/fr/cbmtile/cbmt"  checked opacity="0.8">
 
         </map-layer>
-      </gcds-map>
+      </gcds-ext-map>
 
-      <gcds-map id="map2" width="640" height="480" lat="45.4215" lon="-75.6972" zoom="10" projection="OSMTILE" controls controlslist="search">
+      <gcds-ext-map id="map2" width="640" height="480" lat="45.4215" lon="-75.6972" zoom="10" projection="OSMTILE" controls controlslist="search">
         <map-layer label="Test Layer"  src="/build/assets/mapml/fr/osmtile/cbmt"  checked opacity="0.8">
 
         </map-layer>
-      </gcds-map>
+      </gcds-ext-map>
       <gcds-heading tag="h2">Button</gcds-heading>
 
         <gcds-button button-role="danger">Primary</gcds-button>

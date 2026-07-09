@@ -20,10 +20,10 @@ test.describe('Multiple Extent Query Tests', () => {
 
   test('Query on overlapping extents returns features from both extents', async () => {
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(85, 147, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(85, 147, 0)
     );
     await page.waitForTimeout(1000);
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
     const popupFeatureCount = page.locator('.mapml-feature-count');
     await expect(popupFeatureCount).toHaveText('1/12', { useInnerText: true });
   });
@@ -38,7 +38,7 @@ test.describe('Multiple Extent Query Tests', () => {
     // turn layer back on
     await page.click("text='Multiple Query Extents'");
 
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
     const popupFeatureCount = page.locator('.mapml-feature-count');
     await expect(popupFeatureCount).toHaveText('1/12', { useInnerText: true });
     await page.waitForTimeout(100);
@@ -96,10 +96,10 @@ test.describe('Multiple Extent Query Tests', () => {
 
   test('Popup comes up when non overlapping bounds clicked', async () => {
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(10, 5, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(10, 5, 0)
     );
     await page.waitForTimeout(1000);
-    await page.locator('gcds-map').click({ position: { x: 250, y: 250 } });
+    await page.locator('gcds-ext-map').click({ position: { x: 250, y: 250 } });
     const popups = await page
       .locator('.leaflet-popup-pane')
       .evaluate((popup) => popup.childElementCount);
@@ -108,13 +108,13 @@ test.describe('Multiple Extent Query Tests', () => {
 
   test('Only features from one extent are returned for queries inside its (non overlapping) bounds', async () => {
     await page.getByRole('button', { name: 'Close popup' }).click();
-    const viewer = await page.locator('gcds-map');
+    const viewer = await page.locator('gcds-ext-map');
     await viewer.evaluate((viewer) => {
       viewer.reload();
     });
     // panning / zooming takes time...
     await page.waitForTimeout(1000);
-    await page.locator('gcds-map').click({ position: { x: 450, y: 150 } });
+    await page.locator('gcds-ext-map').click({ position: { x: 450, y: 150 } });
     await page.getByTitle('Next feature').click();
     await page.waitForTimeout(100);
     await page.getByTitle('Next feature').click();
@@ -140,41 +140,41 @@ test.describe('Multiple Extent Query Tests', () => {
   test('No features returned when queried outside of bounds of all extents', async () => {
     await page.keyboard.press('Escape');
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(-18, 5, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(-18, 5, 0)
     );
     // panning / zooming takes time...
     await page.waitForTimeout(300);
-    await page.locator('gcds-map').click({ position: { x: 400, y: 250 } });
+    await page.locator('gcds-ext-map').click({ position: { x: 400, y: 250 } });
     const popupNumRight = await page.$eval(
       'div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-popup-pane',
       (div) => div.childElementCount
     );
 
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(-16, -40, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(-16, -40, 0)
     );
     await page.waitForTimeout(300);
-    await page.locator('gcds-map').click({ position: { x: 250, y: 400 } });
+    await page.locator('gcds-ext-map').click({ position: { x: 250, y: 400 } });
     const popupNumBottom = await page.$eval(
       'div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-popup-pane',
       (div) => div.childElementCount
     );
 
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(33, -170, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(33, -170, 0)
     );
     await page.waitForTimeout(300);
-    await page.locator('gcds-map').click({ position: { x: 50, y: 250 } });
+    await page.locator('gcds-ext-map').click({ position: { x: 50, y: 250 } });
     const popupNumLeft = await page.$eval(
       'div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-popup-pane',
       (div) => div.childElementCount
     );
 
     await page.evaluateHandle(() =>
-      (document.querySelector('gcds-map') as any).zoomTo(30, 98, 0)
+      (document.querySelector('gcds-ext-map') as any).zoomTo(30, 98, 0)
     );
     await page.waitForTimeout(300);
-    await page.locator('gcds-map').click({ position: { x: 250, y: 50 } });
+    await page.locator('gcds-ext-map').click({ position: { x: 250, y: 50 } });
     const popupNumTop = await page.$eval(
       'div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-popup-pane',
       (div) => div.childElementCount

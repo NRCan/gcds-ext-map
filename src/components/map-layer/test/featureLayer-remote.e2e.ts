@@ -54,7 +54,7 @@ test.describe('Retrieved Static Features Tests', () => {
     );
     
     const layerExtent = await page.$eval(
-      'body > gcds-map > map-layer:nth-child(3)',
+      'body > gcds-ext-map > map-layer:nth-child(3)',
       (layer) => layer.extent
     );
     

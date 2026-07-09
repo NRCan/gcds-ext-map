@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>templatedPMTilesCBMTILETest.html</title>
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   </head>
   <body>
 
   <!-- pmtiles / pmtiles-mvt layers only work in OSMTILE projecton -->
-  <gcds-map data-testid="viewer" projection="CBMTILE" zoom="0" lat="52" lon="-93" width="400" height="400">
+  <gcds-ext-map data-testid="viewer" projection="CBMTILE" zoom="0" lat="52" lon="-93" width="400" height="400">
     <!-- on load, this layer should be enabled, because one extent is enabled -->
     <map-layer data-testid="flexible-projection-layer" checked>
       <!-- on load, this  extent is enabled, because the map projection is CBMTILE -->
@@ -40,6 +40,6 @@
         <map-link rel="tile" type="application/vnd.mapbox-vector-tile" tref="/test/data/tiles/osmtile/{beans}/{foo}/{bar}.mvt?theme=light"></map-link>
       </map-extent>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
 </body>
 </html>

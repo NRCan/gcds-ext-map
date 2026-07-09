@@ -18,14 +18,14 @@ test.describe('Layer Label Tests', () => {
   test('Name of unnamed layer is Layer', async () => {
     await page.waitForTimeout(500);
     const label = await page
-      .locator('body > gcds-map > map-layer')
+      .locator('body > gcds-ext-map > map-layer')
       .evaluate((elem) => elem.label);
     expect(label).toEqual('Layer');
   });
 
   test('Unnamed layer shows up as Layer in layer control', async () => {
     const text = await page
-      .locator('body > gcds-map >> css=div > label.mapml-layer-item-toggle')
+      .locator('body > gcds-ext-map >> css=div > label.mapml-layer-item-toggle')
       .evaluate((text) => text.textContent);
     expect(text).toEqual('Layer');
   });

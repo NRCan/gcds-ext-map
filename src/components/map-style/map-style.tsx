@@ -23,7 +23,7 @@ export class MapStyle {
   }
 
   getMapEl() {
-    return (window as any).M?.Util?.getClosest?.(this.el, 'gcds-map') || this.el.closest('gcds-map');
+    return (window as any).M?.Util?.getClosest?.(this.el, 'gcds-ext-map') || this.el.closest('gcds-ext-map');
   }
 
   private _connect() {

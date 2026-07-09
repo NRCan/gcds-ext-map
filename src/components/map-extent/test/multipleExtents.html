@@ -4,12 +4,12 @@
 <head>
   <title>Multiple Extents Test</title>
   <meta charset="UTF-8">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
 
 </head>
 
 <body>
-  <gcds-map data-testid="themap" style="width: 500px;height: 500px;" projection="CBMTILE" zoom="2" lat="47" lon="-92" controls>
+  <gcds-ext-map data-testid="themap" style="width: 500px;height: 500px;" projection="CBMTILE" zoom="2" lat="47" lon="-92" controls>
     <map-layer data-testid="multiple-extents" label="Multiple Extents" checked>
       <map-extent data-testid="cbmt-extent" label="cbmt" units="CBMTILE" checked>
         <map-input name="zoomLevel" type="zoom" value="3" min="0" max="3" ></map-input>
@@ -39,7 +39,7 @@
           tref="/test/data/images/toporama_en.jpg?SERVICE=WMS&REQUEST=GetMap&FORMAT=image/jpeg&TRANSPARENT=FALSE&STYLES=&VERSION=1.3.0&LAYERS=WMS-Toporama&WIDTH={w}&HEIGHT={h}&CRS=EPSG:3978&BBOX={xmin},{ymin},{xmax},{ymax}&m4h=t" ></map-link>
       </map-extent>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
   <textarea name="message" rows="10" cols="100"></textarea>
 </body>
 

@@ -15,7 +15,7 @@ export class MapCaption {
 
   connectedCallback() {
     if (
-      this.el.parentElement.nodeName === 'GCDS-MAP'
+      this.el.parentElement.nodeName === 'GCDS-EXT-MAP'
     ) {
       // Wait a tick for Stencil to finish rendering/hydrating the element's content
       setTimeout(() => {

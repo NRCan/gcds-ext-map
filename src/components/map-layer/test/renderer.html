@@ -3,10 +3,10 @@
   <head>
     <title>renderer.html</title>
     <meta charset="UTF-8">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   </head>
   <body>
-    <gcds-map data-testid="map" style="width: 500px;height: 500px;" projection="CBMTILE" zoom="0" lat="45.5052040" lon="-75.2202344" controls>
+    <gcds-ext-map data-testid="map" style="width: 500px;height: 500px;" projection="CBMTILE" zoom="0" lat="45.5052040" lon="-75.2202344" controls>
       <map-layer data-testid="test-layer" checked >
        <map-extent data-test-id="test-extent" units="CBMTILE" checked="checked" >
           <map-meta name="extent" content="top-left-easting=-6093972, top-left-northing=5350661, bottom-right-easting=5150842, bottom-right-northing=-5894153"></map-meta>
@@ -18,6 +18,6 @@
           <map-link data-testid="test-link" rel="features" tref="/test/data/tiles/cbmt/us_pop_density.mapml?{xmin}{ymin}{xmax}{ymax}{z}" ></map-link>
         </map-extent>
       </map-layer>
-    </gcds-map>
+    </gcds-ext-map>
   </body>
 </html>

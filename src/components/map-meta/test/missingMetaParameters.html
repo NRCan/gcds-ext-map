@@ -5,9 +5,9 @@
   <title>Missing Meta Parameters Test</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   <style>
-    gcds-map {
+    gcds-ext-map {
       width: 100%;
       height: 400px;
       max-width: 100%;
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <gcds-map projection="CBMTILE" zoom="2" lat="45.5052040" lon="-75.2202344" controls>
+  <gcds-ext-map projection="CBMTILE" zoom="2" lat="45.5052040" lon="-75.2202344" controls>
 
     <map-layer label="Arizona" checked>
       <map-meta name="projection" content="CBMTILE"></map-meta>
@@ -112,8 +112,8 @@
       <map-tile row="11" col="9" src="/test/data/tiles/cbmt/2/c9_r11.png"></map-tile>
     </map-layer>
     <map-layer label="Toporama" src="/test/data/tiles/cbmt/templatedImage.mapml" checked></map-layer>
-  </gcds-map>
-  <gcds-map projection="WGS84" zoom="0" lat="0" lon="0" controls>
+  </gcds-ext-map>
+  <gcds-ext-map projection="WGS84" zoom="0" lat="0" lon="0" controls>
 
     <map-layer label="Inline Countries" checked>
       <map-link rel="stylesheet" href="styleOrder.css"></map-link>
@@ -133,7 +133,7 @@
 
       </map-extent>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
 </body>
 
 </html>

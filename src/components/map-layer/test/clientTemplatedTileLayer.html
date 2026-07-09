@@ -4,7 +4,7 @@
 <head>
   <title>clientTemplatedTileLayer.html</title>
   <meta charset="UTF-8">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   <style>
     html {
       height: 100%
@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  <gcds-map width="500" height="500" projection="WGS84" zoom="1" lat="59.87304909" lon="-53.22587225" controls>
+  <gcds-ext-map width="500" height="500" projection="WGS84" zoom="1" lat="59.87304909" lon="-53.22587225" controls>
 
     <map-layer label="Inline Templated Tile" checked>
       <map-meta name="zoom" content="min=0,max=5"></map-meta>
@@ -35,9 +35,9 @@
 
       </map-extent>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
   <script>
-    let layer = document.querySelector("body > gcds-map > map-layer > map-extent > map-link");
+    let layer = document.querySelector("body > gcds-ext-map > map-layer > map-extent > map-link");
     layer.addEventListener("tileloadstart", (e) => {
       let cust = document.createElement("P");
       cust.textContent = `${e.detail.x}${e.detail.y}${e.detail.zoom}`;

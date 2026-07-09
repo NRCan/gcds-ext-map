@@ -13,10 +13,10 @@ test.describe('Linked Feature Projection Change Tests', () => {
     }
     await page.keyboard.press('Enter');
     await page.waitForTimeout(2000);
-    const isChecked = await page.locator('gcds-map:nth-of-type(1) > map-layer').evaluate(
+    const isChecked = await page.locator('gcds-ext-map:nth-of-type(1) > map-layer').evaluate(
       (layer: any) => layer.checked
     );
-    const isDisabled = await page.locator('gcds-map:nth-of-type(1) > map-layer').evaluate(
+    const isDisabled = await page.locator('gcds-ext-map:nth-of-type(1) > map-layer').evaluate(
       (layer: any) => layer.disabled
     );
     expect(isChecked).toBeTruthy();
@@ -30,10 +30,10 @@ test.describe('Linked Feature Projection Change Tests', () => {
     }
     await page.keyboard.press('Enter');
     await page.waitForTimeout(2000);
-    const isChecked = await page.locator('gcds-map:nth-of-type(1) > map-layer').evaluate(
+    const isChecked = await page.locator('gcds-ext-map:nth-of-type(1) > map-layer').evaluate(
       (layer: any) => layer.checked
     );
-    const isDisabled = await page.locator('gcds-map:nth-of-type(1) > map-layer').evaluate(
+    const isDisabled = await page.locator('gcds-ext-map:nth-of-type(1) > map-layer').evaluate(
       (layer: any) => layer.disabled
     );
     expect(isChecked).toBeTruthy();
@@ -41,16 +41,16 @@ test.describe('Linked Feature Projection Change Tests', () => {
   });
 
   test('Debug components update with projection changes', async ({ page }) => {
-    await page.locator('gcds-map:nth-of-type(1)').evaluate((map: any) => map.toggleDebug());
+    await page.locator('gcds-ext-map:nth-of-type(1)').evaluate((map: any) => map.toggleDebug());
     const viewer = page.getByTestId('viewer-one');
 
-    const colBefore = await page.locator('xpath=//html/body/gcds-map[1] >> css=div > div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
+    const colBefore = await page.locator('xpath=//html/body/gcds-ext-map[1] >> css=div > div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
       (tile: any) => tile.getAttribute('col')
     );
-    const rowBefore = await page.locator('xpath=//html/body/gcds-map[1] >> css=div > div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
+    const rowBefore = await page.locator('xpath=//html/body/gcds-ext-map[1] >> css=div > div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
       (tile: any) => tile.getAttribute('row')
     );
-    const zoomBefore = await page.locator('xpath=//html/body/gcds-map[1] >> css=div > div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
+    const zoomBefore = await page.locator('xpath=//html/body/gcds-ext-map[1] >> css=div > div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
       (tile: any) => tile.getAttribute('zoom')
     );
 
@@ -67,13 +67,13 @@ test.describe('Linked Feature Projection Change Tests', () => {
     // Wait for the map to finish zooming to layer extent
     await page.waitForTimeout(2000);
 
-    const colAfter = await page.locator('xpath=//html/body/gcds-map[1] >> css=div > div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
+    const colAfter = await page.locator('xpath=//html/body/gcds-ext-map[1] >> css=div > div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
       (tile: any) => tile.getAttribute('col')
     );
-    const rowAfter = await page.locator('xpath=//html/body/gcds-map[1] >> css=div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
+    const rowAfter = await page.locator('xpath=//html/body/gcds-ext-map[1] >> css=div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
       (tile: any) => tile.getAttribute('row')
     );
-    const zoomAfter = await page.locator('xpath=//html/body/gcds-map[1] >> css=div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
+    const zoomAfter = await page.locator('xpath=//html/body/gcds-ext-map[1] >> css=div.leaflet-pane.leaflet-map-pane > div.leaflet-layer.mapml-debug-grid > div > div:nth-child(1)').evaluate(
       (tile: any) => tile.getAttribute('zoom')
     );
 

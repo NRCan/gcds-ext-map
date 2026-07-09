@@ -2,7 +2,7 @@ const express = require('express');
 const serveStatic = require('serve-static');
 const path = require('path');
 
-// this is a simple express server to serve test files for gcds-map PMtiles testing because the stencil
+// this is a simple express server to serve test files for gcds-ext-map PMtiles testing because the stencil
 // dev server does not support byte range requests needed for PMTiles
 const app = express();
 const PORT = 3333;
@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   }
 });
 
-// Serve the build directory (gcds-map components)
+// Serve the build directory (gcds-ext-map components)
 app.use('/build', express.static(path.join(__dirname, 'www/build')));
 
 // serveStatic enables byte range requests, required for PMTiles

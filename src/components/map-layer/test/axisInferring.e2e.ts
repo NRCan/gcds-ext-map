@@ -29,7 +29,7 @@ test.describe('Axis Inferring Test', () => {
   test('TileMatrix inferring', async () => {
     await page.waitForTimeout(1000);
     const layerExtent = await page.$eval(
-      'body > gcds-map > map-layer:nth-child(1)',
+      'body > gcds-ext-map > map-layer:nth-child(1)',
       (layer) => layer.extent
     );
 
@@ -45,7 +45,7 @@ test.describe('Axis Inferring Test', () => {
 
   test('TCRS inferring', async () => {
     const layerExtent = await page.$eval(
-      'body > gcds-map > map-layer:nth-child(2)',
+      'body > gcds-ext-map > map-layer:nth-child(2)',
       (layer) => layer.extent
     );
 
@@ -61,7 +61,7 @@ test.describe('Axis Inferring Test', () => {
 
   test('PCRS inferring', async () => {
     const layerExtent = await page.$eval(
-      'body > gcds-map > map-layer:nth-child(3)',
+      'body > gcds-ext-map > map-layer:nth-child(3)',
       (layer) => layer.extent
     );
     // the top left corner is that of the map-meta[name=extent]
@@ -78,7 +78,7 @@ test.describe('Axis Inferring Test', () => {
 
   test('GCRS inferring', async () => {
     const layerExtent = await page.$eval(
-      'body > gcds-map > map-layer:nth-child(4)',
+      'body > gcds-ext-map > map-layer:nth-child(4)',
       (layer) => layer.extent
     );
     let expectedTopLeftLongitude = -114.815198;

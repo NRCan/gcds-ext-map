@@ -141,7 +141,7 @@ export class MapLink {
   }
 
   getMapEl() {
-    return Util.getClosest(this.el, 'gcds-map');
+    return Util.getClosest(this.el, 'gcds-ext-map');
   }
 
   getLayerEl() {

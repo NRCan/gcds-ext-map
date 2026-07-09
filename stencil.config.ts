@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 export const config: Config = {
-  namespace: 'gcds-map',
+  namespace: 'gcds-ext-map',
   taskQueue: 'async',
   globalScript: 'src/global/mapml-globals.js',
   outputTargets: [
@@ -11,14 +11,14 @@ export const config: Config = {
       esmLoaderPath: '../loader',
       copy: [
         {
-          src: 'components/gcds-map/assets',
+          src: 'components/gcds-ext-map/assets',
           dest: 'assets',
           warn: true
         },
         // Copy test HTML and mapml files to build output so they're accessible via dev server
         {
-          src: 'components/gcds-map/test/*.{html,mapml,css,js}',
-          dest: 'test/gcds-map'
+          src: 'components/gcds-ext-map/test/*.{html,mapml,css,js}',
+          dest: 'test/gcds-ext-map'
         },
         {
           src: 'components/map-layer/test/*.{html,mapml,css,js,pmtiles}',
@@ -106,14 +106,14 @@ export const config: Config = {
           dest: 'gcds',
         },
         {
-          src: 'components/gcds-map/assets',
+          src: 'components/gcds-ext-map/assets',
           dest: 'build/assets',
           warn: true
         },
         // Copy test HTML and mapml files to build output so they're accessible via dev server
         {
-          src: 'components/gcds-map/test/*.{html,mapml,css,js}',
-          dest: 'test/gcds-map'
+          src: 'components/gcds-ext-map/test/*.{html,mapml,css,js}',
+          dest: 'test/gcds-ext-map'
         },
         {
           src: 'components/map-layer/test/*.{html,mapml,css,js,pmtiles}',

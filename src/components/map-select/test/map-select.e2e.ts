@@ -17,12 +17,12 @@ test.describe('map-select tests', () => {
     await page.waitForTimeout(1000);
     
     // Open the layer control by clicking the layers button
-    const layersButton = page.locator('gcds-map .leaflet-control-layers');
+    const layersButton = page.locator('gcds-ext-map .leaflet-control-layers');
     await layersButton.hover();
     await page.waitForTimeout(300);
     
     // Click the extent settings button (the three dots icon) to reveal the select
-    const layerSettingsButton = page.locator('gcds-map .mapml-layer-item-settings-control').first();
+    const layerSettingsButton = page.locator('gcds-ext-map .mapml-layer-item-settings-control').first();
     await layerSettingsButton.click();
     await page.waitForTimeout(300);
 

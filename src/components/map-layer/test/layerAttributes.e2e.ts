@@ -6,7 +6,7 @@ test.describe('Layer Attributes Tests', () => {
   });
 
   test('Check attribute removed', async ({ page }) => {
-    await page.$eval('body > gcds-map > map-layer', (layer) =>
+    await page.$eval('body > gcds-ext-map > map-layer', (layer) =>
       layer.removeAttribute('checked')
     );
     await page.hover(
@@ -21,7 +21,7 @@ test.describe('Layer Attributes Tests', () => {
   });
 
   test('Check attribute added', async ({ page }) => {
-    await page.$eval('body > gcds-map > map-layer', (layer) =>
+    await page.$eval('body > gcds-ext-map > map-layer', (layer) =>
       layer.setAttribute('checked', '')
     );
     const layerController = await page.$eval(
@@ -34,33 +34,33 @@ test.describe('Layer Attributes Tests', () => {
 
   test.describe('Hidden attribute tests', () => {
     test('Control panel hidden when no layers/all layers hidden', async ({ page }) => {
-      await page.$eval('body > gcds-map > map-layer', (layer) =>
+      await page.$eval('body > gcds-ext-map > map-layer', (layer) =>
         layer.setAttribute('hidden', '')
       );
       const controlsHidden = await page.$eval(
-        'css=body > gcds-map:nth-child(1) >> css=div > div.leaflet-control-container >> .leaflet-control-layers.leaflet-control',
+        'css=body > gcds-ext-map:nth-child(1) >> css=div > div.leaflet-control-container >> .leaflet-control-layers.leaflet-control',
         (elem) => elem.hasAttribute('hidden')
       );
       expect(controlsHidden).toEqual(true);
     });
 
     test('Control panel unhidden when at least one layer with no hidden attribute', async ({ page }) => {
-      await page.$eval('body > gcds-map > map-layer', (layer) =>
+      await page.$eval('body > gcds-ext-map > map-layer', (layer) =>
         layer.setAttribute('hidden', '')
       );
       // there's a single layer in the page, so the layer control
       // should disappear (is hidden) when the last layer in it is hidden
       let controlsHidden = await page.$eval(
-        'css=body > gcds-map:nth-child(1) >> css=div > div.leaflet-control-container >> .leaflet-control-layers.leaflet-control',
+        'css=body > gcds-ext-map:nth-child(1) >> css=div > div.leaflet-control-container >> .leaflet-control-layers.leaflet-control',
         (elem) => elem.hasAttribute('hidden')
       );
       expect(controlsHidden).toEqual(true);
       // so far so good
-      await page.$eval('body > gcds-map > map-layer', (layer) =>
+      await page.$eval('body > gcds-ext-map > map-layer', (layer) =>
         layer.removeAttribute('hidden')
       );
       controlsHidden = await page.$eval(
-        'css=body > gcds-map:nth-child(1) >> css=div > div.leaflet-control-container >> .leaflet-control-layers.leaflet-control',
+        'css=body > gcds-ext-map:nth-child(1) >> css=div > div.leaflet-control-container >> .leaflet-control-layers.leaflet-control',
         (elem) => elem.hasAttribute('hidden')
       );
       expect(controlsHidden).toEqual(false);

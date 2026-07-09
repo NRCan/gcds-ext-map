@@ -9,7 +9,7 @@ test.describe('Custom Projection Feature & Extent Tests', () => {
       context.pages().find((page) => page.url() === 'about:blank') ||
       (await context.newPage());
     await page.goto('/test/map-layer/CustomProjectionLayers.html', { waitUntil: 'networkidle' });
-    const map = page.locator('gcds-map');
+    const map = page.locator('gcds-ext-map');
     await map.evaluate((map) => map.whenLayersReady());
   });
 
@@ -20,7 +20,7 @@ test.describe('Custom Projection Feature & Extent Tests', () => {
   test('map-extent access ._extentLayer property', async () => {
     // access the map-extent._layer property
     const layer = await page.$eval(
-      'gcds-map',
+      'gcds-ext-map',
       (map) => typeof map.getElementsByTagName('map-extent')[0]._extentLayer
     );
     expect(layer).toEqual('object');
@@ -30,7 +30,7 @@ test.describe('Custom Projection Feature & Extent Tests', () => {
     test('access static map-feature._featureLayer', async () => {
       // access the feature._layer property
       const layer = await page.$eval(
-        'gcds-map',
+        'gcds-ext-map',
         (map) => typeof map.getElementsByTagName('map-feature')[0]._featureLayer
       );
       expect(layer).toEqual('object');
@@ -39,14 +39,14 @@ test.describe('Custom Projection Feature & Extent Tests', () => {
     test('feature method - ZoomTo()', async () => {
       await page.$eval('#LondonPoint', (f) => f.zoomTo());
       const zoom = await page.evaluate(
-        `document.querySelector('gcds-map').zoom`
+        `document.querySelector('gcds-ext-map').zoom`
       );
       expect(zoom).toEqual(2);
       let endTopLeft = await page.evaluate(
-        `document.querySelector('gcds-map').extent.topLeft.gcrs`
+        `document.querySelector('gcds-ext-map').extent.topLeft.gcrs`
       );
       let endBottomRight = await page.evaluate(
-        `document.querySelector('gcds-map').extent.bottomRight.gcrs`
+        `document.querySelector('gcds-ext-map').extent.bottomRight.gcrs`
       );
       expect(endTopLeft.horizontal).toBeCloseTo(-0.9410810217335936, 7);
       expect(endTopLeft.vertical).toBeCloseTo(51.98599427568946, 7);
@@ -55,7 +55,7 @@ test.describe('Custom Projection Feature & Extent Tests', () => {
     });
 
     test('Popup displays Zoom link', async () => {
-      await page.focus('body > gcds-map');
+      await page.focus('body > gcds-ext-map');
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
       await page.keyboard.press('Enter');

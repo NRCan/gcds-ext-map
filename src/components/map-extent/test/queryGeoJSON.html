@@ -4,12 +4,12 @@
 <head>
   <title>GeoJSON Query Response Test</title>
   <meta charset="UTF-8">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
-  <script nomodule src="/build/gcds-map.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
+  <script nomodule src="/build/gcds-ext-map.js"></script>
 </head>
 
 <body>
-  <gcds-map style="width: 500px;height: 500px;" projection="OSMTILE" zoom="10" lat="45.4" lon="-75.7" controls>
+  <gcds-ext-map style="width: 500px;height: 500px;" projection="OSMTILE" zoom="10" lat="45.4" lon="-75.7" controls>
     <map-layer label="GeoJSON Query Layer" checked>
       <map-extent label="GeoJSON CRS:84 query" units="OSMTILE" checked>
         <map-input name="i" type="location" units="map" axis="i"></map-input>
@@ -67,7 +67,7 @@
         <map-link rel="query" tref="http://localhost:3333/data/query/geojsonErroneousMediaType?{i}{j}{xmin}{ymin}{xmax}{ymax}{w}{h}"></map-link>
       </map-extent>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
 </body>
 
 </html>

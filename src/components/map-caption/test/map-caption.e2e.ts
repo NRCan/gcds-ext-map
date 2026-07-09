@@ -17,9 +17,9 @@ test.describe('map-caption tests', () => {
 
   test('Aria-label matches map-caption', async () => {
     let arialabel = await page.evaluate(
-      `document.querySelector('gcds-map').getAttribute('aria-label')`
+      `document.querySelector('gcds-ext-map').getAttribute('aria-label')`
     );
-    expect(arialabel).toEqual('This is a test for gcds-map');
+    expect(arialabel).toEqual('This is a test for gcds-ext-map');
   });
 
   test('Changing first map-caption changes aria-label', async () => {
@@ -27,7 +27,7 @@ test.describe('map-caption tests', () => {
       () => (document.querySelector('map-caption').innerHTML = 'Testing 1')
     );
     let arialabel = await page.evaluate(
-      `document.querySelector('gcds-map').getAttribute('aria-label')`
+      `document.querySelector('gcds-ext-map').getAttribute('aria-label')`
     );
     expect(arialabel).toEqual('Testing 1');
   });
@@ -37,7 +37,7 @@ test.describe('map-caption tests', () => {
       () => (document.getElementById('test2').innerHTML = 'Testing 2')
     );
     let arialabel = await page.evaluate(
-      `document.querySelector('gcds-map').getAttribute('aria-label')`
+      `document.querySelector('gcds-ext-map').getAttribute('aria-label')`
     );
     expect(arialabel).toEqual('Testing 1'); // since aria-label didn't change, should still = "Testing 1" from previous test
   });
@@ -45,7 +45,7 @@ test.describe('map-caption tests', () => {
   test("Removing not-first map-caption doesn't remove aria-label", async () => {
     await page.evaluateHandle(() => document.getElementById('test3').remove());
     let arialabel = await page.evaluate(
-      `document.querySelector('gcds-map').getAttribute('aria-label')`
+      `document.querySelector('gcds-ext-map').getAttribute('aria-label')`
     );
     expect(arialabel).toEqual('Testing 1'); // since aria-label is still there, should still = "Testing 1" from previous test
   });
@@ -55,7 +55,7 @@ test.describe('map-caption tests', () => {
       document.querySelector('map-caption').remove()
     );
     let arialabel = await page.evaluate(
-      `document.querySelector('gcds-map').getAttribute('aria-label')`
+      `document.querySelector('gcds-ext-map').getAttribute('aria-label')`
     );
     expect(arialabel).toEqual(null); // since aria-label is removed, should = null
   });

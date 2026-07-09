@@ -21,7 +21,7 @@ test.describe('Playwright Remote Queryable layer with multiple <map-extent>', ()
     page.on('pageerror', (err) => {
       errorLogs.push(err.message);
     });
-    await page.click('gcds-map');
+    await page.click('gcds-ext-map');
 
     await page.waitForTimeout(2000);
     await page.getByTitle('Next Feature').click();

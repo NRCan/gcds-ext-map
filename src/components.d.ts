@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface GcdsMap {
+    interface GcdsExtMap {
         "_controlslist"?: string;
         /**
           * @default false
@@ -153,11 +153,11 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLGcdsMapElement extends Components.GcdsMap, HTMLStencilElement {
+    interface HTMLGcdsExtMapElement extends Components.GcdsExtMap, HTMLStencilElement {
     }
-    var HTMLGcdsMapElement: {
-        prototype: HTMLGcdsMapElement;
-        new (): HTMLGcdsMapElement;
+    var HTMLGcdsExtMapElement: {
+        prototype: HTMLGcdsExtMapElement;
+        new (): HTMLGcdsExtMapElement;
     };
     interface HTMLMapAElement extends Components.MapA, HTMLStencilElement {
     }
@@ -250,7 +250,7 @@ declare global {
         new (): HTMLMapTileElement;
     };
     interface HTMLElementTagNameMap {
-        "gcds-map": HTMLGcdsMapElement;
+        "gcds-ext-map": HTMLGcdsExtMapElement;
         "map-a": HTMLMapAElement;
         "map-caption": HTMLMapCaptionElement;
         "map-extent": HTMLMapExtentElement;
@@ -271,7 +271,7 @@ declare global {
 declare namespace LocalJSX {
     type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
 
-    interface GcdsMap {
+    interface GcdsExtMap {
         "_controlslist"?: string;
         /**
           * @default false
@@ -396,7 +396,7 @@ declare namespace LocalJSX {
         "zoom"?: number;
     }
 
-    interface GcdsMapAttributes {
+    interface GcdsExtMapAttributes {
         "lat": number;
         "lon": number;
         "zoom": number;
@@ -478,7 +478,7 @@ declare namespace LocalJSX {
     }
 
     interface IntrinsicElements {
-        "gcds-map": Omit<GcdsMap, keyof GcdsMapAttributes> & { [K in keyof GcdsMap & keyof GcdsMapAttributes]?: GcdsMap[K] } & { [K in keyof GcdsMap & keyof GcdsMapAttributes as `attr:${K}`]?: GcdsMapAttributes[K] } & { [K in keyof GcdsMap & keyof GcdsMapAttributes as `prop:${K}`]?: GcdsMap[K] };
+        "gcds-ext-map": Omit<GcdsExtMap, keyof GcdsExtMapAttributes> & { [K in keyof GcdsExtMap & keyof GcdsExtMapAttributes]?: GcdsExtMap[K] } & { [K in keyof GcdsExtMap & keyof GcdsExtMapAttributes as `attr:${K}`]?: GcdsExtMapAttributes[K] } & { [K in keyof GcdsExtMap & keyof GcdsExtMapAttributes as `prop:${K}`]?: GcdsExtMap[K] };
         "map-a": Omit<MapA, keyof MapAAttributes> & { [K in keyof MapA & keyof MapAAttributes]?: MapA[K] } & { [K in keyof MapA & keyof MapAAttributes as `attr:${K}`]?: MapAAttributes[K] } & { [K in keyof MapA & keyof MapAAttributes as `prop:${K}`]?: MapA[K] };
         "map-caption": MapCaption;
         "map-extent": Omit<MapExtent, keyof MapExtentAttributes> & { [K in keyof MapExtent & keyof MapExtentAttributes]?: MapExtent[K] } & { [K in keyof MapExtent & keyof MapExtentAttributes as `attr:${K}`]?: MapExtentAttributes[K] } & { [K in keyof MapExtent & keyof MapExtentAttributes as `prop:${K}`]?: MapExtent[K] } & OneOf<"units", MapExtent["units"], MapExtentAttributes["units"]>;
@@ -500,7 +500,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "gcds-map": LocalJSX.IntrinsicElements["gcds-map"] & JSXBase.HTMLAttributes<HTMLGcdsMapElement>;
+            "gcds-ext-map": LocalJSX.IntrinsicElements["gcds-ext-map"] & JSXBase.HTMLAttributes<HTMLGcdsExtMapElement>;
             "map-a": LocalJSX.IntrinsicElements["map-a"] & JSXBase.HTMLAttributes<HTMLMapAElement>;
             "map-caption": LocalJSX.IntrinsicElements["map-caption"] & JSXBase.HTMLAttributes<HTMLMapCaptionElement>;
             "map-extent": LocalJSX.IntrinsicElements["map-extent"] & JSXBase.HTMLAttributes<HTMLMapExtentElement>;

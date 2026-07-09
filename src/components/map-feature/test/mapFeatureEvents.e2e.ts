@@ -10,11 +10,11 @@ test.describe('MapFeature Events', () => {
     // Click on polygon
     await page
       .locator(
-        'gcds-map[role="application"]:has-text("Polygon -75.5859375 45.4656690 -75.6813812 45.4533876 -75.6961441 45.4239978 -75")'
+        'gcds-ext-map[role="application"]:has-text("Polygon -75.5859375 45.4656690 -75.6813812 45.4533876 -75.6961441 45.4239978 -75")'
       )
       .click();
     const popupCount = await page.$eval(
-      'body > gcds-map > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-popup-pane',
+      'body > gcds-ext-map > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-popup-pane',
       (popupPane) => popupPane.childElementCount
     );
     // expect no popup is binded
@@ -34,12 +34,12 @@ test.describe('MapFeature Events', () => {
   test('click() method - stopPropagation', async ({ page }) => {
     // click() method on line feature
     await page.$eval(
-      'body > gcds-map > map-layer > map-feature#line',
+      'body > gcds-ext-map > map-layer > map-feature#line',
       (line) => (line as any).click()
     );
 
     const popupCount = await page.$eval(
-      'body > gcds-map > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-popup-pane',
+      'body > gcds-ext-map > div > div.leaflet-pane.leaflet-map-pane > div.leaflet-pane.leaflet-popup-pane',
       (popupPane) => popupPane.childElementCount
     );
     // expect no popup is binded

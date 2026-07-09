@@ -7,7 +7,7 @@ test.describe('Missing Parameters Test', () => {
 
   test("Static features with missing <map-meta name='zoom'></map-meta> & <map-meta name='extent'></map-meta>", async ({ page }) => {
     await page.waitForTimeout(1000);
-    const layerController = await page.locator('gcds-map:nth-of-type(1) > map-layer:nth-of-type(1)').evaluate(
+    const layerController = await page.locator('gcds-ext-map:nth-of-type(1) > map-layer:nth-of-type(1)').evaluate(
       (controller: any) => controller.extent
     );
 
@@ -29,7 +29,7 @@ test.describe('Missing Parameters Test', () => {
 
   test("Static tiles with missing <map-meta name='zoom'></map-meta>", async ({ page }) => {
     await page.waitForTimeout(1000);
-    const layerController = await page.locator('gcds-map:nth-of-type(1) > map-layer:nth-of-type(3)').evaluate(
+    const layerController = await page.locator('gcds-ext-map:nth-of-type(1) > map-layer:nth-of-type(3)').evaluate(
       (controller: any) => controller.extent
     );
 
@@ -51,7 +51,7 @@ test.describe('Missing Parameters Test', () => {
 
   test("Templated features with missing <map-meta name='zoom'></map-meta>", async ({ page }) => {
     await page.waitForTimeout(1000);
-    const layerController = await page.locator('gcds-map:nth-of-type(1) > map-layer:nth-of-type(2)').evaluate(
+    const layerController = await page.locator('gcds-ext-map:nth-of-type(1) > map-layer:nth-of-type(2)').evaluate(
       (controller: any) => controller.extent
     );
 
@@ -73,7 +73,7 @@ test.describe('Missing Parameters Test', () => {
 
   test("Templated tiles with missing <map-meta name='zoom'></map-meta> & extent", async ({ page }) => {
     await page.waitForTimeout(1000);
-    const layerController = await page.locator('gcds-map:nth-of-type(2) > map-layer').evaluate(
+    const layerController = await page.locator('gcds-ext-map:nth-of-type(2) > map-layer').evaluate(
       (controller: any) => controller.extent
     );
 
@@ -95,7 +95,7 @@ test.describe('Missing Parameters Test', () => {
 
   test("Templated image with missing <map-meta name='zoom'></map-meta>", async ({ page }) => {
     await page.waitForTimeout(1000);
-    const layerController = await page.locator('gcds-map:nth-of-type(1) > map-layer:nth-of-type(4)').evaluate(
+    const layerController = await page.locator('gcds-ext-map:nth-of-type(1) > map-layer:nth-of-type(4)').evaluate(
       (controller: any) => controller.extent
     );
 

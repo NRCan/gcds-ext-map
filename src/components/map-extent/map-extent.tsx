@@ -232,7 +232,7 @@ export class GcdsMapExtent {
   }
 
   getMapEl() {
-    return Util.getClosest(this.el, 'gcds-map');
+    return Util.getClosest(this.el, 'gcds-ext-map');
   }
   getLayerEl() {
     return Util.getClosest(this.el, 'map-layer,layer-');

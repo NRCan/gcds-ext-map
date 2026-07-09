@@ -16,7 +16,7 @@ test.describe('HTMLLayerElement DOM API Tests', () => {
     await context.close();
   });
   test('Setting HTMLLayerElement.label sets the layer name per spec', async () => {
-    const viewer = await page.locator('gcds-map');
+    const viewer = await page.locator('gcds-ext-map');
     await viewer.evaluate((viewer) => {
       return viewer.whenLayersReady();
     });

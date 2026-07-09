@@ -26,7 +26,7 @@ test.describe('Playwright templatedImage Layer Tests - Inline', () => {
   });
 
   test('Templated image layer position when turn it off then on', async () => {
-    await page.click('body > gcds-map');
+    await page.click('body > gcds-ext-map');
     await page.waitForTimeout(200);
     for (let i = 0; i < 5; ++i) {
       await page.keyboard.press('ArrowUp');
@@ -44,7 +44,7 @@ test.describe('Playwright templatedImage Layer Tests - Inline', () => {
       'div > div.leaflet-control-container > div.leaflet-top.leaflet-right > div > section > div.leaflet-control-layers-overlays > fieldset:nth-child(1) > div:nth-child(1) > label > input'
     );
     await page.waitForTimeout(500);
-    const imagePos = await page.$eval('body > gcds-map', (map) => {
+    const imagePos = await page.$eval('body > gcds-ext-map', (map) => {
       let layers = map._map._layers;
       let keys = Object.keys(layers);
       return layers[keys[keys.length - 1]]._location;
@@ -57,7 +57,7 @@ test.describe('Playwright templatedImage Layer Tests - Inline', () => {
   });
 
   test('Templated image layer - remove previous image on moveend', async () => {
-    await page.click('body > gcds-map');
+    await page.click('body > gcds-ext-map');
     await page.waitForTimeout(200);
     // generate a few map moves
     await page.keyboard.press('ArrowUp');

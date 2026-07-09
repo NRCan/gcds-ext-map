@@ -10,16 +10,16 @@ test.describe('TMS tile ordering tests', () => {
     const tileOrder = ['1/0/1', '1/0/0', '1/1/1', '1/1/0'];
     
     const firstTile = await page
-      .locator('gcds-map .mapml-tile-group:nth-child(1) > img')
+      .locator('gcds-ext-map .mapml-tile-group:nth-child(1) > img')
       .evaluate((img: HTMLImageElement) => img.src);
     const secondTile = await page
-      .locator('gcds-map .mapml-tile-group:nth-child(2) > img')
+      .locator('gcds-ext-map .mapml-tile-group:nth-child(2) > img')
       .evaluate((img: HTMLImageElement) => img.src);
     const thirdTile = await page
-      .locator('gcds-map .mapml-tile-group:nth-child(3) > img')
+      .locator('gcds-ext-map .mapml-tile-group:nth-child(3) > img')
       .evaluate((img: HTMLImageElement) => img.src);
     const fourthTile = await page
-      .locator('gcds-map .mapml-tile-group:nth-child(4) > img')
+      .locator('gcds-ext-map .mapml-tile-group:nth-child(4) > img')
       .evaluate((img: HTMLImageElement) => img.src);
     
     expect(firstTile).toContain(tileOrder[0]);

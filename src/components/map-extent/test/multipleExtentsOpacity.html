@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>index-map.html</title>
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
      <style> 
        html, 
        body { 
@@ -19,7 +19,7 @@
        element, such that styles don't apply when fallback content is in use 
        (e.g. when scripting is disabled or when custom/built-in elements isn't 
        supported in the browser). */ 
-       gcds-map:defined { 
+       gcds-ext-map:defined { 
          /* Responsive map. */ 
           max-width: 100%;  
           
@@ -34,12 +34,12 @@
        } 
         
        /* Pre-style to avoid FOUC of inline map-layer and fallback content. */ 
-       gcds-map:not(:defined) > * { 
+       gcds-ext-map:not(:defined) > * { 
          display: none; 
        } 
        
        /* Pre-style to avoid Layout Shift. */
-       gcds-map:not(:defined) {
+       gcds-ext-map:not(:defined) {
          display: inline-block;
          contain: size;
          contain-intrinsic-size: 304px 154px;
@@ -57,13 +57,13 @@
        <style> 
          /* Ensure fallback content (children of the map element) is displayed if 
          custom/built-in elements is supported but javascript is disabled. */ 
-         gcds-map:not(:defined) > :not(map-layer) { 
+         gcds-ext-map:not(:defined) > :not(map-layer) { 
            display: initial; 
          } 
          
          /* "Reset" the properties used to pre-style (to avoid Layout Shift) if
          custom/built-in elements is supported but javascript is disabled. */
-         gcds-map:not(:defined) {
+         gcds-ext-map:not(:defined) {
            display: initial;
            contain: initial;
            contain-intrinsic-size: initial;
@@ -72,7 +72,7 @@
      </noscript> 
   </head>
   <body>
-    <gcds-map zoom="15" lon="-75.703611" lat="45.411105" controls="" projection="OSMTILE" role="application">    
+    <gcds-ext-map zoom="15" lon="-75.703611" lat="45.411105" controls="" projection="OSMTILE" role="application">    
       <map-layer opacity = "0.5" label="National Geographic" checked="">
             <map-extent opacity = "0.9" label="National Geographic" units="OSMTILE" checked hidden>
               <map-input name="TileMatrix" type="zoom" value="18" min="0" max="18"></map-input>
@@ -95,6 +95,6 @@
               <map-link rel="tile" ></map-link>
             </map-extent>
           </map-layer>
-        </gcds-map>
+        </gcds-ext-map>
   </body>
 </html>

@@ -5,7 +5,7 @@
   <title>map-tile-test.html</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   <style>
     map-layer {
         display: none;
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <gcds-map data-testid="viewer" width="500" height="500" projection="CBMTILE" zoom="2" lat="45.5052040" lon="-75.2202344" controls>
+  <gcds-ext-map data-testid="viewer" width="500" height="500" projection="CBMTILE" zoom="2" lat="45.5052040" lon="-75.2202344" controls>
 
     <map-layer label="Static Tile Test Layer" checked>
       <map-meta name="zoom" content="min=0,max=10"></map-meta>
@@ -42,7 +42,7 @@
       
     </map-layer>
 
-  </gcds-map>
+  </gcds-ext-map>
 
 </body>
 

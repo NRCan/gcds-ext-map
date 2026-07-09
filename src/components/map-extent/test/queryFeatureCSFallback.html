@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Remote queryable map extents in mapml document</title>
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
 </head>
 
 <body>
-  <gcds-map style="width: 500px;height: 500px;" projection="CBMTILE" zoom="2" lat="35" lon="-90" controls>
+  <gcds-ext-map style="width: 500px;height: 500px;" projection="CBMTILE" zoom="2" lat="35" lon="-90" controls>
 
     <map-layer label="remote queryable mapml document with multiple queryable extents" src="/test/map-extent/queryFeatureCSFallback.mapml" checked></map-layer>
-  </gcds-map>
+  </gcds-ext-map>
 </body>
 
 </html>

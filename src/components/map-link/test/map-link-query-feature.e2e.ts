@@ -51,12 +51,12 @@ test.describe('Queried Feature Tests', () => {
     expect(href).toEqual('#6,32.62418749999957,-86.6801555');
 
     const elementCount = await page.evaluate(
-      `document.querySelector('gcds-map > map-layer > map-extent > map-link').shadowRoot.children.length`
+      `document.querySelector('gcds-ext-map > map-layer > map-extent > map-link').shadowRoot.children.length`
     );
     // shadowRoot contains 1 map-feature and 3 map-meta (cs, zoom, projection)
     expect(elementCount).toEqual(4);
     const property = await page.evaluate(
-      `document.querySelector('gcds-map > map-layer > map-extent > map-link').shadowRoot.querySelector('map-properties').innerText.trim()`
+      `document.querySelector('gcds-ext-map > map-layer > map-extent > map-link').shadowRoot.querySelector('map-properties').innerText.trim()`
     );
     expect(property).toEqual('Alabama');
   });
@@ -85,12 +85,12 @@ test.describe('Queried Feature Tests', () => {
     expect(href).toEqual('#0,34.168684499999635,-111.9288505');
 
     const elementCount = await page.evaluate(
-      `document.querySelector('gcds-map > map-layer > map-extent > map-link').shadowRoot.children.length`
+      `document.querySelector('gcds-ext-map > map-layer > map-extent > map-link').shadowRoot.children.length`
     );
     // shadowRoot contains 1 map-feature and 3 map-meta (cs, zoom, projection)
     expect(elementCount).toEqual(4);
     const property = await page.evaluate(
-      `document.querySelector('gcds-map > map-layer > map-extent > map-link').shadowRoot.querySelector('map-properties').innerText.trim()`
+      `document.querySelector('gcds-ext-map > map-layer > map-extent > map-link').shadowRoot.querySelector('map-properties').innerText.trim()`
     );
     expect(property).toEqual('Arizona');
   });
@@ -121,12 +121,12 @@ test.describe('Queried Feature Tests', () => {
     expect(href).toEqual('#6,32.62418749999957,-86.6801555');
 
     const elementCount = await page.evaluate(
-      `document.querySelector('gcds-map > map-layer > map-extent > map-link').shadowRoot.children.length`
+      `document.querySelector('gcds-ext-map > map-layer > map-extent > map-link').shadowRoot.children.length`
     );
     // shadowRoot contains 1 map-feature and 3 map-meta (cs, zoom, projection)
     expect(elementCount).toEqual(4);
     const property = await page.evaluate(
-      `document.querySelector('gcds-map > map-layer > map-extent > map-link').shadowRoot.querySelector('map-properties').innerText.trim()`
+      `document.querySelector('gcds-ext-map > map-layer > map-extent > map-link').shadowRoot.querySelector('map-properties').innerText.trim()`
     );
     expect(property).toEqual('Alabama');
   });
@@ -207,13 +207,13 @@ test.describe('Queried Feature Tests', () => {
     await page.waitForTimeout(1000);
 
     const startTopLeft = await page.evaluate(
-      `document.querySelector('gcds-map').extent.topLeft.pcrs`
+      `document.querySelector('gcds-ext-map').extent.topLeft.pcrs`
     );
     const startBottomRight = await page.evaluate(
-      `document.querySelector('gcds-map').extent.bottomRight.pcrs`
+      `document.querySelector('gcds-ext-map').extent.bottomRight.pcrs`
     );
     const startZoomLevel = await page.evaluate(
-      `document.querySelector('gcds-map').zoom`
+      `document.querySelector('gcds-ext-map').zoom`
     );
     expect(startTopLeft.horizontal).toBe(-9181665.718398102);
     expect(startTopLeft.vertical).toBe(9155377.19075438);
@@ -231,18 +231,18 @@ test.describe('Queried Feature Tests', () => {
 
     // zoom to here link closes popup
     const popupCount = await page.evaluate(
-      `document.querySelector("gcds-map").shadowRoot.querySelector(".leaflet-popup-pane").childElementCount`
+      `document.querySelector("gcds-ext-map").shadowRoot.querySelector(".leaflet-popup-pane").childElementCount`
     );
     expect(popupCount).toBe(0);
 
     const endTopLeft = await page.evaluate(
-      `document.querySelector('gcds-map').extent.topLeft.pcrs`
+      `document.querySelector('gcds-ext-map').extent.topLeft.pcrs`
     );
     const endBottomRight = await page.evaluate(
-      `document.querySelector('gcds-map').extent.bottomRight.pcrs`
+      `document.querySelector('gcds-ext-map').extent.bottomRight.pcrs`
     );
     const endZoomLevel = await page.evaluate(
-      `document.querySelector('gcds-map').zoom`
+      `document.querySelector('gcds-ext-map').zoom`
     );
     expect(endTopLeft.horizontal).toBe(448657.7089154199);
     expect(endTopLeft.vertical).toBe(-1444381.5087630227);

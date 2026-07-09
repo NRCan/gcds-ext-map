@@ -3,10 +3,10 @@
   <head>
     <title>&lt;map-layer&gt; test</title>
     <meta charset="UTF-8">
-    <script type="module" src="/build/gcds-map.esm.js"></script> 
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script> 
   </head>
   <body>
-    <gcds-map data-testid="viewer" style="height: 500px;width:500px;" controls zoom="2" lat="68" lon="-87" controls projection="CBMTILE">
+    <gcds-ext-map data-testid="viewer" style="height: 500px;width:500px;" controls zoom="2" lat="68" lon="-87" controls projection="CBMTILE">
       <map-layer data-testid="remote-layer" label="Remote content" src="dummy-cbmtile-cbmt-layer-extent.mapml" checked></map-layer>
       <map-layer data-testid="inline-layer" label="Local content" checked>
         <map-extent data-testid="inline-extent" units="CBMTILE"  checked="checked">
@@ -25,6 +25,6 @@
         </map-extent>
         
       </map-layer>
-    </gcds-map>
+    </gcds-ext-map>
   </body>
 </html>

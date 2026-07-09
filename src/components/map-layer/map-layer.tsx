@@ -204,7 +204,7 @@ export class GcdsMapLayer {
   }
 
   getMapEl() {
-    return Util.getClosest(this.el, 'gcds-map');
+    return Util.getClosest(this.el, 'gcds-ext-map');
   }
   // Note: Stencil handles constructor automatically, but we can use componentWillLoad for initialization
   componentWillLoad() {

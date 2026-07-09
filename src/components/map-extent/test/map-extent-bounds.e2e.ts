@@ -163,7 +163,7 @@ test.describe('Multiple Extents Bounds Tests', () => {
   });
 
   test('Extent is individually disabled in layer control when out of bounds', async () => {
-    const map = await page.locator('gcds-map');
+    const map = await page.locator('gcds-ext-map');
     await map.evaluate((map) => map.zoomTo(1.6, -90, 2));
 
     // 'alabama' bounds still overlap viewport

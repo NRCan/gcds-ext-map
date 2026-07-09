@@ -2,11 +2,11 @@
 #
 # deploy-gh-pages.sh
 #
-# Builds gcds-map (Stencil + Storybook) and gcds-docs (Eleventy), then
+# Builds gcds-ext-map (Stencil + Storybook) and gcds-docs (Eleventy), then
 # assembles the artifacts into the gh-pages branch's docs/ folder.
 #
 # Prerequisites:
-#   - Run from the gcds-map repo root, on the main branch
+#   - Run from the gcds-ext-map repo root, on the main branch
 #   - ../gcds-docs sibling repo must exist
 #   - npm dependencies installed in both repos
 #
@@ -19,8 +19,8 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 GCDS_DOCS_DIR="$(cd "$REPO_ROOT/../gcds-docs" 2>/dev/null && pwd || echo "")"
-WORKTREE_DIR="/tmp/gcds-map-gh-pages"
-STORYBOOK_TMP="/tmp/gcds-map-storybook-build"
+WORKTREE_DIR="/tmp/gcds-ext-map-gh-pages"
+STORYBOOK_TMP="/tmp/gcds-ext-map-storybook-build"
 SKIP_BUILD=false
 
 # ---------------------------------------------------------------------------
@@ -76,14 +76,14 @@ if ! git show-ref --verify --quiet refs/heads/gh-pages; then
 fi
 
 info "Preflight checks passed."
-info "  gcds-map:  $REPO_ROOT (branch: main)"
+info "  gcds-ext-map:  $REPO_ROOT (branch: main)"
 info "  gcds-docs: $GCDS_DOCS_DIR"
 
 # ---------------------------------------------------------------------------
-# Phase 1: Build gcds-map (Stencil + Storybook)
+# Phase 1: Build gcds-ext-map (Stencil + Storybook)
 # ---------------------------------------------------------------------------
 if [ "$SKIP_BUILD" = false ]; then
-  info "Building gcds-map (npm run build)..."
+  info "Building gcds-ext-map (npm run build)..."
   cd "$REPO_ROOT"
   npm run build
 
@@ -105,14 +105,14 @@ if [ "$SKIP_BUILD" = false ]; then
   info "Building gcds-docs (PATH_PREFIX=/gcds-map)..."
   cd "$GCDS_DOCS_DIR"
 
-  # Force gcds-docs to use the just-built gcds-map dist from the local repo,
+  # Force gcds-docs to use the just-built gcds-ext-map dist from the local repo,
   # not a stale cached version from GitHub. Remove old copy and reinstall.
-  info "Updating gcds-map in gcds-docs to match local build..."
-  rm -rf node_modules/gcds-map
+  info "Updating gcds-ext-map in gcds-docs to match local build..."
+  rm -rf node_modules/@gcds-extensions/gcds-ext-map
   npm install
-  # Overwrite the npm-installed gcds-map dist with our local build
-  rm -rf node_modules/gcds-map/dist
-  cp -a "$REPO_ROOT/dist" node_modules/gcds-map/dist
+  # Overwrite the npm-installed gcds-ext-map dist with our local build
+  rm -rf node_modules/@gcds-extensions/gcds-ext-map/dist
+  cp -a "$REPO_ROOT/dist" node_modules/@gcds-extensions/gcds-ext-map/dist
 
   PATH_PREFIX=/gcds-map npm run build
 fi

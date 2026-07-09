@@ -21,7 +21,7 @@ test.describe('map-link media attribute', () => {
 
   test('map-link is disabled when media attribute does not match', async () => {
     await page.waitForTimeout(500);
-    // const map = page.locator('gcds-map');
+    // const map = page.locator('gcds-ext-map');
     const layer = page.locator('map-layer');
     const mapLink = page.locator('map-link').first();
     await expect(layer).not.toHaveAttribute('disabled');
@@ -29,7 +29,7 @@ test.describe('map-link media attribute', () => {
 
     // zoom out so that media attribute no longer matches, features should be disabled
     await page.evaluate(() => {
-      const map = document.querySelector('gcds-map');
+      const map = document.querySelector('gcds-ext-map');
       (map as any).zoomTo(map.lat, map.lon, 10);
     });
     await expect(layer).toHaveAttribute('disabled');
@@ -37,7 +37,7 @@ test.describe('map-link media attribute', () => {
 
     // zoom in so that media attribute matches, features should not be disabled
     await page.evaluate(() => {
-      const map = document.querySelector('gcds-map');
+      const map = document.querySelector('gcds-ext-map');
       (map as any).zoomTo(map.lat, map.lon, 15);
     });
     await expect(layer).not.toHaveAttribute('disabled');
@@ -53,7 +53,7 @@ test.describe('map-link media attribute', () => {
 
     // zooming out no longer disables features
     await page.evaluate(() => {
-      const map = document.querySelector('gcds-map');
+      const map = document.querySelector('gcds-ext-map');
       (map as any).zoomTo(map.lat, map.lon, 10);
     });
     await expect(layer).not.toHaveAttribute('disabled');
@@ -69,7 +69,7 @@ test.describe('map-link media attribute', () => {
 
     // zoom out so that media attribute no longer matches, features should be disabled
     await page.evaluate(() => {
-      const map = document.querySelector('gcds-map');
+      const map = document.querySelector('gcds-ext-map');
       (map as any).zoomTo(map.lat, map.lon, 10);
     });
     await expect(layer).toHaveAttribute('disabled');
@@ -77,7 +77,7 @@ test.describe('map-link media attribute', () => {
 
     // zoom in so that media attribute matches, features should not be disabled
     await page.evaluate(() => {
-      const map = document.querySelector('gcds-map');
+      const map = document.querySelector('gcds-ext-map');
       (map as any).zoomTo(map.lat, map.lon, 15);
     });
     await expect(layer).not.toHaveAttribute('disabled');
@@ -97,7 +97,7 @@ test.describe('map-link media attribute', () => {
 
     // zoom in so that media attribute matches, features should not be disabled
     await page.evaluate(() => {
-      const map = document.querySelector('gcds-map');
+      const map = document.querySelector('gcds-ext-map');
       (map as any).zoomTo(map.lat, map.lon, 16);
     });
     await expect(layer).not.toHaveAttribute('disabled');

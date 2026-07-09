@@ -9,7 +9,7 @@
     options.innerHTML = '{"announceMovement":true}';
     document.head.appendChild(options);
   </script>
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   <style>
     html {
       height: 100%
@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  <gcds-map data-testid="testviewer" style="height: 600px;width:500px;" projection="CBMTILE" zoom="0" lat="47" lon="-92" controls>
+  <gcds-ext-map data-testid="testviewer" style="height: 600px;width:500px;" projection="CBMTILE" zoom="0" lat="47" lon="-92" controls>
     <map-layer data-testid="testlayer" label="CBMT - INLINE" checked>
       <map-meta name="zoom" content="min=0,max=25"></map-meta>
       <map-extent units="CBMTILE" checked hidden>
@@ -37,7 +37,7 @@
         <map-link rel='tile' tref='/test/data/cbmt/{zoomLevel}/c{col}_r{row}.png' ></map-link>
       </map-extent>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
 </body>
 
 </html>

@@ -3,7 +3,7 @@
   <head>
     <title>Various map-link elements representing templated layers and queries</title>
     <meta charset="UTF-8">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
     <style>
       html {
         height: 100%
@@ -20,7 +20,7 @@
     </style>
   </head>
   <body>
-    <gcds-map data-testid="viewer" style="height: 500px;width:500px;" controls zoom="1" lat="0" lon="0" >
+    <gcds-ext-map data-testid="viewer" style="height: 500px;width:500px;" controls zoom="1" lat="0" lon="0" >
       <map-layer data-testid="inline-tiles" label="inline content" >
         <map-title>OpenStreetMap image tiles</map-title>
         <map-link rel="license" href="https://www.openstreetmap.org/copyright" title="© OpenStreetMap contributors CC BY-SA"></map-link>  
@@ -128,6 +128,6 @@
           <map-link rel="query"></map-link>-->
       <map-layer data-testid="remote-image" label="remote non-queryable content" src="remote-non-queryable-layer-map-link.mapml" checked></map-layer>
       <map-layer data-testid="remote-image-queryable" label="remote queryable content" src="remote-queryable-layer-map-link.mapml" checked></map-layer>
-    </gcds-map>
+    </gcds-ext-map>
   </body>
 </html>

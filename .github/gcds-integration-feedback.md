@@ -1,10 +1,10 @@
 # GCDS Integration Feedback — Constraints & Decisions for Discussion
 
-This document summarizes constraints encountered while applying the GCDS tokens, fonts, and styling request to the `gcds-map` Stencil component project. We'd appreciate your input on the decisions below.
+This document summarizes constraints encountered while applying the GCDS tokens, fonts, and styling request to the `gcds-ext-map` Stencil component project. We'd appreciate your input on the decisions below.
 
 ## Context
 
-The `gcds-map` component uses **Shadow DOM** (`shadow: true` in Stencil). All map UI — controls, popups, layer panel, context menu — renders inside the shadow root. This has significant implications for how GCDS styles can be integrated.
+The `gcds-ext-map` component uses **Shadow DOM** (`shadow: true` in Stencil). All map UI — controls, popups, layer panel, context menu — renders inside the shadow root. This has significant implications for how GCDS styles can be integrated.
 
 We also note the request referenced `@cdssnc/gcds-tokens` and `@cdssnc/gcds-fonts-icons`, which are deprecated. We've used `@gcds-core/tokens` (v1.2.0) instead, consistent with our existing `@gcds-core/components` peer dependency.
 
@@ -12,9 +12,9 @@ We also note the request referenced `@cdssnc/gcds-tokens` and `@cdssnc/gcds-font
 
 ## Constraint 1: Fonts Cannot Be Loaded Inside Shadow DOM
 
-**Problem:** `@font-face` declarations inside a shadow root do not register fonts with the browser. The request asks us to `@import` font CSS into our component stylesheet (`gcds-map.css`), but since that stylesheet is scoped to the shadow DOM, any `@font-face` rules would be silently ignored.
+**Problem:** `@font-face` declarations inside a shadow root do not register fonts with the browser. The request asks us to `@import` font CSS into our component stylesheet (`gcds-ext-map.css`), but since that stylesheet is scoped to the shadow DOM, any `@font-face` rules would be silently ignored.
 
-**Our decision:** Require the host page to load GCDS fonts (via `<link>` tags or their own CSS). This is already the pattern — our demo pages load GCDS from CDN. We will document this as a requirement for consumers of `gcds-map`.
+**Our decision:** Require the host page to load GCDS fonts (via `<link>` tags or their own CSS). This is already the pattern — our demo pages load GCDS from CDN. We will document this as a requirement for consumers of `gcds-ext-map`.
 
 **Question for GCDS team:** Is this acceptable, or do you have a preferred pattern for web components that use Shadow DOM? Some approaches include:
 - Constructable/adoptable stylesheets injected into `document` from `connectedCallback()`
@@ -63,7 +63,7 @@ We also note the request referenced `@cdssnc/gcds-tokens` and `@cdssnc/gcds-font
 
 ## Constraint 4: MapML.js Source Correspondence
 
-**Problem:** `gcds-map.css` is a port of `mapml.css` from the upstream MapML.js project. We maintain source-order correspondence to enable diffing and selective patch application. Adding `var()` wrappers and converting to logical properties creates divergence that complicates future maintenance.
+**Problem:** `gcds-ext-map.css` is a port of `mapml.css` from the upstream MapML.js project. We maintain source-order correspondence to enable diffing and selective patch application. Adding `var()` wrappers and converting to logical properties creates divergence that complicates future maintenance.
 
 **Our decision:** Proceed with the changes but preserve source order and add a comment block at the top of the file documenting the GCDS token mapping for maintainability.
 

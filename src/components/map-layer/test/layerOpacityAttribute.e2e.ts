@@ -18,11 +18,11 @@ test.describe('Test the map-layer opacity attribute', () => {
 
   test('Setting Opacity Attibute to map-layer Element', async () => {
     let opacity_attribute_value = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.getAttribute('opacity')
     );
     let layer_opacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.opacity
     );
     expect(layer_opacity).toEqual(+opacity_attribute_value);
@@ -30,7 +30,7 @@ test.describe('Test the map-layer opacity attribute', () => {
   test('Layer control opacity slider reflected to map-layer.opacity property', async () => {
     let opacity_slider_value = await page.getByTestId('layer-item-opacity').inputValue();
     let layer_opacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.opacity
     );
     expect(layer_opacity).toEqual(+opacity_slider_value);
@@ -49,7 +49,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Check that the layer.opacity property was updated
     const layerOpacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.opacity
     );
     
@@ -60,7 +60,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Get initial attribute value
     const initialAttribute = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.getAttribute('opacity')
     );
     
@@ -75,7 +75,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Check that the attribute was NOT changed (should remain the same as initial)
     const newAttribute = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.getAttribute('opacity')
     );
     
@@ -84,7 +84,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // But the property should have changed
     const layerOpacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.opacity
     );
     expect(layerOpacity).toEqual(0.5);
@@ -94,7 +94,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Set the layer opacity property programmatically
     await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => {
         layer.opacity = 0.6;
       }
@@ -111,7 +111,7 @@ test.describe('Test the map-layer opacity attribute', () => {
   test('Changing map-layer.opacity value sets the map-layer._layer container style.opacity value', async () => {
     // Set the layer opacity property programmatically
     await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => {
         layer.opacity = 0.4;
       }
@@ -122,7 +122,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Check that the underlying layer container style was updated
     const layerContainerOpacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => {
         return layer._layer && layer._layer._container 
           ? layer._layer._container.style.opacity 
@@ -135,7 +135,7 @@ test.describe('Test the map-layer opacity attribute', () => {
   test('Turn controls off, change opacity via .opacity, turn controls on, opacity changes are reflected in layer control slider', async () => {
     // First, turn controls off by removing the controls attribute
     await page.$eval(
-      'body > gcds-map',
+      'body > gcds-ext-map',
       (map) => {
         map.removeAttribute('controls');
       }
@@ -150,7 +150,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Change opacity programmatically while controls are off
     await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => {
         layer.opacity = 0.7;
       }
@@ -161,7 +161,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Turn controls back on
     await page.$eval(
-      'body > gcds-map',
+      'body > gcds-ext-map',
       (map) => {
         map.setAttribute('controls', '');
       }
@@ -177,7 +177,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Also verify that the layer's opacity property still matches
     const layerOpacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.opacity
     );
     expect(layerOpacity).toEqual(0.7);
@@ -189,7 +189,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Check what the current opacity is (should be 0.7 from previous test)
     const currentOpacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.opacity
     );
 
@@ -210,7 +210,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     await page.pause();
     // Since the DOM element's opacity getter is unreliable, test _opacity directly
     const finalOpacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.opacity
     );
     
@@ -218,7 +218,7 @@ test.describe('Test the map-layer opacity attribute', () => {
   });
   test("Using the slider input, change the layer opacity. Validate that the slider's value is reflected to the map-Layer.opacity", async () => {
     // Ensure controls are enabled and wait for proper initialization
-    await page.$eval('body > gcds-map', (map) => map.setAttribute('controls', ''));
+    await page.$eval('body > gcds-ext-map', (map) => map.setAttribute('controls', ''));
 
     await page.waitForTimeout(500);
         
@@ -242,7 +242,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Get initial opacity value to ensure we're changing it to something different
     const initialOpacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.opacity
     );
    
@@ -258,7 +258,7 @@ test.describe('Test the map-layer opacity attribute', () => {
 
     // Verify the change
     let layer_opacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => layer.opacity
     );
     
@@ -266,7 +266,7 @@ test.describe('Test the map-layer opacity attribute', () => {
     
     // Verify that the underlying layer container style was also updated
     const layerContainerOpacity = await page.$eval(
-      'body > gcds-map > map-layer',
+      'body > gcds-ext-map > map-layer',
       (layer) => {
         return layer._layer && layer._layer._container 
           ? +(layer._layer._container.style.opacity)

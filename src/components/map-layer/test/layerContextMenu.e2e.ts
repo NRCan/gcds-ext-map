@@ -25,7 +25,7 @@ test.describe('Layer Context Menu Tests', () => {
 
     await page.waitForTimeout(500);
     const aHandle = await page.evaluateHandle(() =>
-      document.querySelector('gcds-map')
+      document.querySelector('gcds-ext-map')
     );
     const nextHandle = await page.evaluateHandle(
       (doc) => doc.shadowRoot,
@@ -81,11 +81,11 @@ test.describe('Layer Context Menu Tests', () => {
     await page.keyboard.press('z');
     await page.waitForTimeout(1000);
     const mapZoom = await page
-      .locator('gcds-map')
+      .locator('gcds-ext-map')
       .evaluate((viewer) => (viewer as any).zoom);
     expect(mapZoom).toEqual(11);
     const mapLocation = await page
-      .locator('gcds-map')
+      .locator('gcds-ext-map')
       .evaluate((viewer) => (viewer as any)._map.getPixelBounds());
     expect(mapLocation).toEqual({
       max: { x: 43380, y: 43130 },
@@ -101,12 +101,12 @@ test.describe('Layer Context Menu Tests', () => {
 
     await page.keyboard.press('z');
     await page.waitForTimeout(3000);
-    const mapLocation = await page.$eval('body > gcds-map', (text) =>
+    const mapLocation = await page.$eval('body > gcds-ext-map', (text) =>
       (text as any)._map.getPixelBounds()
     );
 
     const mapZoom = await page
-      .locator('gcds-map')
+      .locator('gcds-ext-map')
       .evaluate((viewer) => (viewer as any).zoom);
     expect(mapZoom).toEqual(11);
 
@@ -124,12 +124,12 @@ test.describe('Layer Context Menu Tests', () => {
 
     await page.keyboard.press('z');
     await page.waitForTimeout(3000);
-    const mapLocation = await page.$eval('body > gcds-map', (text) =>
+    const mapLocation = await page.$eval('body > gcds-ext-map', (text) =>
       (text as any)._map.getPixelBounds()
     );
 
     const mapZoom = await page
-      .locator('gcds-map')
+      .locator('gcds-ext-map')
       .evaluate((viewer) => (viewer as any).zoom);
     expect(mapZoom).toEqual(5);
     expect(mapLocation).toEqual({
@@ -179,7 +179,7 @@ test.describe('Layer Context Menu Tests', () => {
       });
 
     const aHandle = await page.evaluateHandle(() =>
-      document.querySelector('gcds-map')
+      document.querySelector('gcds-ext-map')
     );
     const nextHandle = await page.evaluateHandle(
       (doc) => doc.shadowRoot,
@@ -237,11 +237,11 @@ test.describe('Layer Context Menu Tests', () => {
     await page.keyboard.press('z');
     await page.waitForTimeout(1000);
     const mapZoom = await page
-      .locator('gcds-map')
+      .locator('gcds-ext-map')
       .evaluate((viewer) => (viewer as any).zoom);
     expect(mapZoom).toEqual(0);
     const mapLocation = await page
-      .locator('gcds-map')
+      .locator('gcds-ext-map')
       .evaluate((viewer) => (viewer as any)._map.getPixelBounds());
     expect(mapLocation).toEqual({
       max: { x: 1374, y: 1177 },

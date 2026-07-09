@@ -3,7 +3,7 @@
   <head>
     <title>Various map-link elements representing templated layers and queries</title>
     <meta charset="UTF-8">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
     <style>
       html {
         height: 100%
@@ -63,10 +63,10 @@
     </template>    
   </head>
   <body>
-    <gcds-map data-testid="viewer" style="height: 500px;width:500px;" controls zoom="1" lat="0" lon="0" >
+    <gcds-ext-map data-testid="viewer" style="height: 500px;width:500px;" controls zoom="1" lat="0" lon="0" >
       <map-layer data-testid="initially-empty" label='Initally empty' checked>
         <map-meta name='projection' content='OSMTILE'></map-meta>
       </map-layer>
-    </gcds-map>
+    </gcds-ext-map>
   </body>
 </html>

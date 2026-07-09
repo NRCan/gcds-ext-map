@@ -5,7 +5,7 @@
     <title>Layer Control Tests</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
     <style>
       html, body {
         height: 100%;
@@ -20,7 +20,7 @@
          element, such that styles don't apply when fallback content is in use 
          (e.g. when scripting is disabled or when custom/built-in elements isn't 
          supported in the browser). */
-      gcds-map:defined {
+      gcds-ext-map:defined {
         /* Responsive map. */
         max-width: 100%;
   
@@ -33,7 +33,7 @@
       }
   
       /* Pre-style to avoid FOUC of inline map-layer and fallback content. */
-      gcds-map:not(:defined)>* {
+      gcds-ext-map:not(:defined)>* {
         display: none;
       }
   
@@ -48,7 +48,7 @@
 </head>
 
 <body>
-    <gcds-map projection="OSMTILE" zoom="14" lat="45.406314" lon="-75.6883335" controls=""
+    <gcds-ext-map projection="OSMTILE" zoom="14" lat="45.406314" lon="-75.6883335" controls=""
         controlslist="geolocation">
         <map-layer data-testid="osm-layer" label="OpenStreetMap" checked="" hidden="">
             <map-link rel="license" title="Â© OpenStreetMap contributors CC BY-SA"
@@ -60,7 +60,7 @@
                 <map-link rel="tile" tref="https://tile.openstreetmap.org/{z}/{x}/{y}.png"></map-link>
             </map-extent>
         </map-layer>
-    </gcds-map>
+    </gcds-ext-map>
 </body>
 
 </html>

@@ -4,14 +4,14 @@
 <head>
   <title>Templated Image Test</title>
   <meta charset="utf-8" >
-  <script type="module" src="/build/gcds-map.esm.js"></script>
+  <script type="module" src="/build/gcds-ext-map.esm.js"></script>
   <style>
     html {
       height: 100%
     }
 
     body,
-    gcds-map:defined {
+    gcds-ext-map:defined {
       height: inherit;
       max-width: 100%;
       width: 100%
@@ -25,7 +25,7 @@
 </head>
 
 <body>
-  <gcds-map projection="CBMTILE" zoom="4" lat="53.331" lon="-91.667" controls>
+  <gcds-ext-map projection="CBMTILE" zoom="4" lat="53.331" lon="-91.667" controls>
 
     <map-layer label="Toporama" checked>
       <map-meta name="zoom" content="min=4,max=5"></map-meta>
@@ -53,7 +53,7 @@
         title="Canada Base Map © Natural Resources Canada"></map-link>
       <map-tile zoom="0" row="3" col="3" src="/test/data/tiles/cbmt/0/c3_r3.png"></map-tile>
     </map-layer>
-  </gcds-map>
+  </gcds-ext-map>
 </body>
 
 </html>

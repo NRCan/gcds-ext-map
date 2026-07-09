@@ -9,10 +9,10 @@ const lang =
     : 'en';
 
 const LAYER_OPTIONS: [string, string, string][] = [
-  [`./dist/gcds-map/assets/mapml/${lang}/cbmtile/toporama`, 'Toporama', 'Toporama'],
-  [`./dist/gcds-map/assets/mapml/${lang}/cbmtile/cbmt`, 'Canada Base Map - Transportation', 'Carte de base du Canada - Transport'],
-  [`./dist/gcds-map/assets/mapml/${lang}/osmtile/osm`, 'OpenStreetMap', 'OpenStreetMap'],
-  [`./dist/gcds-map/assets/mapml/${lang}/osmtile/current_conditions`, 'Current Weather Conditions', 'Conditions météorologiques actuelles'],
+  [`./dist/gcds-ext-map/assets/mapml/${lang}/cbmtile/toporama`, 'Toporama', 'Toporama'],
+  [`./dist/gcds-ext-map/assets/mapml/${lang}/cbmtile/cbmt`, 'Canada Base Map - Transportation', 'Carte de base du Canada - Transport'],
+  [`./dist/gcds-ext-map/assets/mapml/${lang}/osmtile/osm`, 'OpenStreetMap', 'OpenStreetMap'],
+  [`./dist/gcds-ext-map/assets/mapml/${lang}/osmtile/current_conditions`, 'Current Weather Conditions', 'Conditions météorologiques actuelles'],
 ];
 
 const layerMap = LAYER_OPTIONS.reduce((obj, [url, titleEn, titleFr]) => {
@@ -98,16 +98,16 @@ export default {
 // spacing and indentation is visually significant in the template (it's visible in the
 // "Show Code" disclosure widget; don't change it without testing the result...)
 const TemplateRemote = (args) => {
-  return `<gcds-map lang="${lang}" lat="53.087426" lon="-91.27533" zoom="4" projection="OSMTILE" controls controlslist="search geolocation">
+  return `<gcds-ext-map lang="${lang}" lat="53.087426" lon="-91.27533" zoom="4" projection="OSMTILE" controls controlslist="search geolocation">
 
   <map-layer src="${args.src}"${args.label ? ` label="${args.label}"` : ''}${args.checked ? ' checked' : ''}${args.hidden ? ' hidden' : ''}${args.opacity < 1 ? ` opacity="${args.opacity}"` : ''}${args.media ? ` media="${args.media}"` : ''}></map-layer>
 
-</gcds-map>`;
+</gcds-ext-map>`;
 };
 
 export const RemoteLayer: any = TemplateRemote.bind({});
 RemoteLayer.args = {
-  src: `./dist/gcds-map/assets/mapml/${lang}/osmtile/cbmt`,
+  src: `./dist/gcds-ext-map/assets/mapml/${lang}/osmtile/cbmt`,
   label: '',
   checked: true,
   hidden: false,

@@ -3,7 +3,7 @@
   <head>
     <title>Remote layer with map-link rel=features</title>
     <meta charset="UTF-8">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
     <style>
       html {
         height: 100%
@@ -17,13 +17,13 @@
         margin: 0;
         padding: 0;
       }
-      gcds-map:not(:defined) {
+      gcds-ext-map:not(:defined) {
         display: none;
       }
     </style>
   </head>
   <body>
-    <gcds-map projection="OSMTILE" data-testid="viewer" style="height: 500px;width:500px;" controls zoom="18" lat="40.7075" lon="-74.011" >
+    <gcds-ext-map projection="OSMTILE" data-testid="viewer" style="height: 500px;width:500px;" controls zoom="18" lat="40.7075" lon="-74.011" >
       <map-layer data-testid="inline-features" label="inline-features" checked>
         <map-meta name="projection" content="OSMTILE"></map-meta>
         <map-meta name="cs" content="pcrs"></map-meta>
@@ -97,6 +97,6 @@
         </map-extent>
       </map-layer>
       <map-layer data-testid="remote-templated" src="remote-rel-features.mapml" checked ></map-layer>
-    </gcds-map>
+    </gcds-ext-map>
   </body>
 </html>

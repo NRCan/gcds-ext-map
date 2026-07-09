@@ -5,9 +5,9 @@
     <title>&lt;map-feature-extent&gt; Test</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="/build/gcds-map.esm.js"></script>
+    <script type="module" src="/build/gcds-ext-map.esm.js"></script>
     <style>
-      gcds-map {
+      gcds-ext-map {
         width: 500px;
         height: 500px;
       }
@@ -36,7 +36,7 @@
   </head>
 
   <body>
-  <gcds-map data-testid="viewer" zoom="10" lon="-75.6" lat="45.4" controls>
+  <gcds-ext-map data-testid="viewer" zoom="10" lon="-75.6" lat="45.4" controls>
 
     <map-layer data-testid="layer1" label="Polygon" checked>
       <map-meta name="projection" content="OSMTILE"></map-meta>
@@ -86,7 +86,7 @@ zoom values of the feature f1.
       </map-feature>
     </map-layer>
 
-  </gcds-map>
+  </gcds-ext-map>
 </body>
 
 </html>

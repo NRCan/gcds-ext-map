@@ -30,15 +30,15 @@ The `map-layer` component represents a layer in a MapML map. It extends the `Bas
 <map-layer src="mobile.mapml" media="(max-width: 768px)" label="Mobile Layer" checked></map-layer>
 ```
 
-## Integration with gcds-map
+## Integration with gcds-ext-map
 
-The `map-layer` component must be used within a `gcds-map` component:
+The `map-layer` component must be used within a `gcds-ext-map` component:
 
 ```html
-<gcds-map lat="45.4215" lon="-75.6972" zoom="10" projection="OSMTILE" controls>
+<gcds-ext-map lat="45.4215" lon="-75.6972" zoom="10" projection="OSMTILE" controls>
   <map-layer src="canada-base.mapml" label="Canada Base" checked></map-layer>
   <map-layer src="population.mapml" label="Population Data" opacity="0.7"></map-layer>
-</gcds-map>
+</gcds-ext-map>
 ```
 
 <!-- Auto Generated Below -->

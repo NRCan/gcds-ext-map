@@ -1,5 +1,5 @@
 {
-  "name": "gcds-map",
+  "name": "@gcds-extensions/gcds-ext-map",
   "version": "1.0.0-rc",
   "description": "Government of Canada Design System map component suite",
   "main": "dist/index.cjs.js",
