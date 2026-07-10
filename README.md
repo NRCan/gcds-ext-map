@@ -26,11 +26,12 @@ Open http://localhost:8080/demo/ — you should see an interactive map.
 
 ```html
 
-<!-- If installed locally, per above, use node_modules folder: -->
-      <script type="module" src="/node_modules/@gcds-extensions/gcds-ext-map/dist/gcds-ext-map.esm.js"></script>
+<!-- If installed locally, per above, use sibling node_modules' dist folder: -->
+      <script type="module" src="../dist/gcds-ext-map/gcds-ext-map.esm.js"></script>
       <!-- Optionally, to use the full GCDS component system, also include: -->
-      <script type="module" src="/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"></script>
-      <link rel="stylesheet" href="/node_modules/@gcds-core/components/dist/gcds/gcds.css">
+      <script type="module" src="../../../@gcds-core/components/dist/gcds/gcds.esm.js"></script>
+      <link rel="stylesheet" href="../../../@gcds-core/components/dist/gcds/gcds.css">
+
 <!--
     Else If using a CDN, use the tags below:
       <script type="module" src="https://cdn.design-system.canada.ca/@gcds-extensions/gcds-ext-map@latest/dist/gcds-ext-map.esm.js"></script>
@@ -63,7 +64,7 @@ See [the map components documentation](https://nrcan.github.io/gcds-ext-map/en/c
 
 ## Architecture
 
-The `<gcds-ext-map>` component replaces the usage of the `<mapml-viewer>` element. See the [MapML documentation](https://maps4html.org/web-map-doc/) for how to use MapML. When using GCDS, you must use `<gcds-ext-map>` in place of `<mapml-viewer>` (it supports all the same attributes). All other MapML elements work as described.
+The `<gcds-ext-map>` component replaces the usage of the `<mapml-viewer>` element. See the [MapML documentation](https://maps4html.org/web-map-doc/) for how to use MapML. When using GCDS, you use `<gcds-ext-map>` in place of `<mapml-viewer>` (it supports all the same attributes). All other MapML elements work as described.
 
 `<gcds-ext-map>` and associated MapML children are implemented as Stencil components, like other GCDS components.  `<gcds-ext-map>` is
 a self-contained component that renders map content in a shadow root, and does not expose slots for including content besides 
