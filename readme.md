@@ -49,7 +49,7 @@ npm install @gcds-extensions/gcds-ext-map
 </gcds-ext-map>
 ```
 
-See [the map components documentation](https://nrcan.github.io/gcds-map/en/components/map-components/) for further usage examples.
+See [the map components documentation](https://nrcan.github.io/gcds-ext-map/en/components/map-components/) for further usage examples.
 
 ## Architecture
 

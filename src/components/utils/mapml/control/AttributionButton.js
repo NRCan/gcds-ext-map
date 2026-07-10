@@ -86,8 +86,8 @@ export var attributionButton = function (opts) {
   const flagIcon = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDE1NS4zOCA3NS4wMSI+PHBhdGggZD0iTTAsMCAzNi44NCwwIDM2Ljg0LDc1LjAxIDAsNzUuMDF6IE0xMTguNTQsMCAxNTUuMzgsMCAxNTUuMzgsNzUuMDEgMTE4LjU0LDc1LjAxeiBNNzIuNTgsMTUuNjEsNzcuODQsNC45bDUuMjIsMTAuMzJjLjY1LDEuMDksMS4xOCwxLDIuMjIuNDhsNC40OS0yLjIyTDg2Ljg1LDI3Ljg5Yy0uNjEsMi44MywxLDMuNjYsMi43NSwxLjc0TDk2LDIyLjc5bDEuNywzLjg3Yy41NywxLjE3LDEuNDMsMSwyLjU3Ljc5bDYuNjEtMS4zOS0yLjIyLDguMzUsMCwuMThjLS4yNiwxLjA5LS43OCwyLC40NCwyLjUzbDIuMzUsMS4xN0w5My43Nyw0OS44MmMtMS4zOSwxLjQzLS45MSwxLjg3LS4zOSwzLjQ4bDEuMjYsMy44Ny0xMi43MS0yLjNjLTEuNTctLjM5LTIuNjYtLjM5LTIuNy44N2wuNTIsMTQuNThINzUuOTNsLjUyLTE0LjU0YzAtMS40My0xLjA5LTEuMzktMy42Ni0uODZMNjEsNTcuMThsMS41Mi0zLjg3Yy41Mi0xLjQ4LjY2LTIuNDgtLjUyLTMuNDhMNDguMTEsMzguNDZsMi41Ny0xLjU3Yy43NC0uNTcuNzgtMS4xNy4zOS0yLjQ0TDQ4LjQ2LDI2bDYuNywxLjQzYzEuODcuNDQsMi4zOSwwLDIuODctMWwxLjg3LTMuODNMNjYuNTIsMzBjMS4xNywxLjM5LDIuODMuNDgsMi4zMS0xLjUyTDY1LjY1LDEyLjg2bDQuOTIsMi44M2MuNzguNDgsMS42MS42MSwyLjA5LS4zIiBmaWxsPSIjRUIyRDM3Ii8+PC9zdmc+';
   const isFr = opts.mapEl && opts.mapEl.closest && opts.mapEl.closest(':lang(fr)') === opts.mapEl;
   const gcdsHref = isFr
-    ? 'https://nrcan.github.io/gcds-map/fr/composants/composants-de-carte/'
-    : 'https://nrcan.github.io/gcds-map/en/components/map-components/';
+    ? 'https://nrcan.github.io/gcds-ext-map/fr/composants/composants-de-carte/'
+    : 'https://nrcan.github.io/gcds-ext-map/en/components/map-components/';
   const gcdsLabel = isFr
     ? 'Système de design GC - Cartes'
     : 'GC Design System - Maps';

@@ -102,7 +102,7 @@ cp -a "$REPO_ROOT/docs" "$STORYBOOK_TMP"
 # Phase 2: Build gcds-docs with PATH_PREFIX
 # ---------------------------------------------------------------------------
 if [ "$SKIP_BUILD" = false ]; then
-  info "Building gcds-docs (PATH_PREFIX=/gcds-map)..."
+  info "Building gcds-docs (PATH_PREFIX=/gcds-ext-map)..."
   cd "$GCDS_DOCS_DIR"
 
   # Force gcds-docs to use the just-built gcds-ext-map dist from the local repo,
@@ -114,7 +114,7 @@ if [ "$SKIP_BUILD" = false ]; then
   rm -rf node_modules/@gcds-extensions/gcds-ext-map/dist
   cp -a "$REPO_ROOT/dist" node_modules/@gcds-extensions/gcds-ext-map/dist
 
-  PATH_PREFIX=/gcds-map npm run build
+  PATH_PREFIX=/gcds-ext-map npm run build
 fi
 
 cd "$REPO_ROOT"

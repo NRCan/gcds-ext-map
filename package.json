@@ -9,7 +9,7 @@
   "collection:main": "dist/collection/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NRCan/gcds-map.git"
+    "url": "https://github.com/NRCan/gcds-ext-map.git"
   },
   "files": [
     "dist/"
