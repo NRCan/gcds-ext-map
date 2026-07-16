@@ -108,11 +108,11 @@ if [ "$SKIP_BUILD" = false ]; then
   # Force gcds-docs to use the just-built gcds-ext-map dist from the local repo,
   # not a stale cached version from GitHub. Remove old copy and reinstall.
   info "Updating gcds-ext-map in gcds-docs to match local build..."
-  rm -rf node_modules/@gcds-extensions/gcds-ext-map
+  rm -rf node_modules/@gcds-extensions/map
   npm install
   # Overwrite the npm-installed gcds-ext-map dist with our local build
-  rm -rf node_modules/@gcds-extensions/gcds-ext-map/dist
-  cp -a "$REPO_ROOT/dist" node_modules/@gcds-extensions/gcds-ext-map/dist
+  rm -rf node_modules/@gcds-extensions/map/dist
+  cp -a "$REPO_ROOT/dist" node_modules/@gcds-extensions/map/dist
 
   PATH_PREFIX=/gcds-ext-map npm run build
 fi

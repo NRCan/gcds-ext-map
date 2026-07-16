@@ -7,7 +7,7 @@ A Government of Canada Design System (GCDS) extension map component that provide
 Install and use locally:
 
 ```bash
-npm install @gcds-extensions/gcds-ext-map
+npm install @gcds-extensions/map
 ```
 
 ## Verify your installation
@@ -15,7 +15,7 @@ npm install @gcds-extensions/gcds-ext-map
 Run:
 
 ```bash
-npx http-server node_modules/@gcds-extensions/gcds-ext-map -p 8080 -c-1
+npx http-server node_modules/@gcds-extensions/map -p 8080 -c-1
 ```
 
 Open http://localhost:8080/demo/ — you should see an interactive map.
@@ -34,7 +34,7 @@ Open http://localhost:8080/demo/ — you should see an interactive map.
 
 <!--
     Else If using a CDN, use the tags below:
-      <script type="module" src="https://cdn.design-system.canada.ca/@gcds-extensions/gcds-ext-map@latest/dist/gcds-ext-map.esm.js"></script>
+      <script type="module" src="https://cdn.design-system.canada.ca/@gcds-extensions/map@latest/dist/gcds-ext-map.esm.js"></script>
       <link rel="stylesheet" href="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.css">
       <script type="module" src="https://cdn.design-system.canada.ca/@gcds-core/components@latest/dist/gcds/gcds.esm.js"></script>
 -->
@@ -60,7 +60,7 @@ Open http://localhost:8080/demo/ — you should see an interactive map.
 </gcds-ext-map>
 ```
 
-See [the map components documentation](https://nrcan.github.io/gcds-ext-map/en/components/map-components/) for further usage examples.
+See [the map components documentation](https://nrcan.github.io/map/en/components/map-components/) for further usage examples.
 
 ## Architecture
 
@@ -78,7 +78,7 @@ The `<gcds-ext-map>` component includes several accessibility features:
 - ARIA labels and descriptions
 - Focus management
 
-If you notice things that could be improved, please [open an issue](https://github.com/gcds-extensions/gcds-ext-map/issues/new).
+If you notice things that could be improved, please [open an issue](https://github.com/gcds-extensions/map/issues/new).
 
 ## License
 

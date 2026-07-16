@@ -1,5 +1,5 @@
 {
-  "name": "@gcds-extensions/gcds-ext-map",
+  "name": "@gcds-extensions/map",
   "version": "1.0.0-rc",
   "description": "Government of Canada Design System extension - Map component (MapML) suite",
   "main": "dist/index.cjs.js",
@@ -9,12 +9,12 @@
   "collection:main": "dist/collection/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gcds-extensions/gcds-ext-map.git"
+    "url": "git+https://github.com/gcds-extensions/map.git"
   },
   "bugs": {
-     "url": "https://github.com/gcds-extensions/gcds-ext-map/issues"
+     "url": "https://github.com/gcds-extensions/map/issues"
   },
-  "homepage": "https://gcds-extensions.github.io/gcds-ext-map/en/",
+  "homepage": "https://gcds-extensions.github.io/map/en/",
   "files": [
     "dist/",
     "loader/",
