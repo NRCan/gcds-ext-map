@@ -1,5 +1,7 @@
 ---
-name: mapml-extent-markup
+name: map-extent-markup
+metadata:
+  package: "@gcds-extensions/map"
 description: Tells you how to correctly create and edit the markup for a <map-extent> element. Use it when generating MapML output markup in an HTML page.
 ---
 

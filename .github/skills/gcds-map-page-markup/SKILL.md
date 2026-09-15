@@ -1,5 +1,7 @@
 ---
 name: gcds-map-page-markup
+metadata:
+  package: "@gcds-extensions/map"
 description: Tells you how to build a complete, accessible, bilingual (English + French) Government of Canada web page — based on the GC Design System (GCDS) "Basic page" template — that embeds a <gcds-ext-map> CBMTILE map using the bundled, language-specific Canada Base Map - Transportation (CBMT) assets. Use it when a user asks for a whole HTML page or web site (not just a bare map element) that presents a map of Canada inside GCDS header/footer chrome, or asks for a bilingual GCDS map page.
 ---
 

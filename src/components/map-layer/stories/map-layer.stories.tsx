@@ -98,7 +98,7 @@ export default {
 // spacing and indentation is visually significant in the template (it's visible in the
 // "Show Code" disclosure widget; don't change it without testing the result...)
 const TemplateRemote = (args) => {
-  return `<gcds-ext-map lang="${lang}" lat="53.087426" lon="-91.27533" zoom="4" projection="OSMTILE" controls controlslist="search geolocation">
+  return `<gcds-ext-map lang="${lang}" lat="53.087426" lon="-91.27533" zoom="4" projection="OSMTILE" controls static controlslist="search geolocation static">
 
   <map-layer src="${args.src}"${args.label ? ` label="${args.label}"` : ''}${args.checked ? ' checked' : ''}${args.hidden ? ' hidden' : ''}${args.opacity < 1 ? ` opacity="${args.opacity}"` : ''}${args.media ? ` media="${args.media}"` : ''}></map-layer>
 

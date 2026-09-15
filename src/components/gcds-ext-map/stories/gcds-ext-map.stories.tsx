@@ -104,7 +104,7 @@ export default {
     controlslist: {
       name: 'controlslist',
       control: 'multi-select',
-      options: ['geolocation', 'search', 'nofullscreen', 'nozoom', 'nolayer', 'noreload', 'noscale'],
+      options: ['geolocation', 'search', 'nofullscreen', 'nozoom', 'nolayer', 'noreload', 'noscale', 'static'],
       description: 'Space-separated list of case-insensitive string tokens of control name or "no"+control name. | Liste de jetons de chaîne insensibles à la casse séparés par des espaces, composée du nom du contrôle ou de « no » + le nom du contrôle.',
       table: {
         type: { summary: 'string' },
@@ -142,15 +142,15 @@ Default.args = {
   zoom: 11,
   projection: 'OSMTILE',
   controls: true,
-  static: false,
+  static: true,
   lang: lang,
-  controlslist: ['geolocation', 'search'],
+  controlslist: ['geolocation', 'search', 'static'],
   layer: `./dist/gcds-ext-map/assets/mapml/${lang}/osmtile/cbmt`,
   caption: lang === 'fr' ? 'Une carte de Victoria, Canada' : 'A map of Victoria, Canada'
 };
 
 export const HiddenBasemap = (args) => {
-  return `<gcds-ext-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" projection="${args.projection}"${args.controls ? ' controls' : ''}>
+  return `<gcds-ext-map lat="${args.lat}" lon="${args.lon}" zoom="${args.zoom}" projection="${args.projection}"${args.controls ? ' controls' : ''}${args.static ? ' static' : ''}>
 
   <map-layer src="${args.layer}" checked hidden></map-layer>
 
@@ -164,6 +164,8 @@ HiddenBasemap.args = {
   zoom: 4,
   projection: 'OSMTILE',
   controls: true,
+  static: true,
+  controlslist: ['search', 'static'],
   layer: `./dist/gcds-ext-map/assets/mapml/${lang}/osmtile/cbmt`,
   caption: lang === 'fr' ? 'Conditions météorologiques actuelles au Canada' : "Canada's current weather conditions"
 };
@@ -182,9 +184,9 @@ Playground.args = {
   zoom: 4,
   projection: 'OSMTILE',
   controls: true,
-  static: false,
+  static: true,
   lang: lang,
-  controlslist: ['geolocation', 'search'],
+  controlslist: ['geolocation', 'search', 'static'],
   layer: `./dist/gcds-ext-map/assets/mapml/${lang}/osmtile/cbmt`,
   caption: lang === 'fr' ? 'Conditions météorologiques actuelles au Canada' : "Canada's current weather conditions"
 };
@@ -279,9 +281,9 @@ export const GeoJSON2MapMLExample = {
   zoom: 4,
   projection: 'OSMTILE',
   controls: true,
-  static: false,
+  static: true,
   lang: lang,
-  controlslist: ['geolocation', 'search'],
+  controlslist: ['geolocation', 'search', 'static'],
   layer: `./dist/gcds-ext-map/assets/mapml/${lang}/osmtile/cbmt`,
   caption: lang === 'fr' ? 'Provinces et territoires du Canada en GeoJSON stylisé' : "Canada's Provinces and Territories in styled GeoJSON"
   },
@@ -356,9 +358,9 @@ export const DarkMode = {
   zoom: 4,
   projection: 'OSMTILE',
   controls: true,
-  static: false,
+  static: true,
   lang: lang,
-  controlslist: ['geolocation', 'search'],
+  controlslist: ['geolocation', 'search', 'static'],
   caption: lang === 'fr' ? "OpenStreetMap au format d'archive pmtiles, démontrant les cartes en mode clair et sombre" : "OpenStreetMap in pmtiles archive format, demonstrating light and dark mode maps"
   }
 };

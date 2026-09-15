@@ -1,5 +1,7 @@
 ---
 name: map-span-markup
+metadata:
+  package: "@gcds-extensions/map"
 description: Tells you how to correctly create and edit the markup for a <map-span> element. Use it when generating MapML output markup in an HTML page, especially when styling vector `<map-feature>` data descendant `<map-coordinates>` coordinate strings, where you can wrap sequences of coordinate pairs to allow them to be styled differently than the overall geometry which they're part of.
 ---
 

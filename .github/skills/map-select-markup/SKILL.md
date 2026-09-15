@@ -1,5 +1,7 @@
 ---
 name: map-select-markup
+metadata:
+  package: "@gcds-extensions/map"
 description: Tells you how to correctly create and edit the markup for a <map-select> element. Use it when generating MapML output markup in an HTML page, especially when creating a template variable for dimensional data with discrete values selectable by the user.
 ---
 

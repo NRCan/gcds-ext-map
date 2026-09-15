@@ -23,6 +23,7 @@
     "loader/",
     "demo/",
     "skills/",
+    "plugin.json",
     "!dist/**/test/**",
     "!dist/**/*.map"
   ],

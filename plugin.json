@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "gcds-ext-map",
+  "version": "1.0.0-rc",
+  "description": "MapML markup skills for the <gcds-ext-map> GC Design System map component.",
+  "homepage": "https://gcds-extensions.github.io/map/en/",
+  "repository": "https://github.com/gcds-extensions/map",
+  "license": "MIT",
+  "keywords": ["mapml", "map", "gcds", "gc-design-system", "markup", "cartography"]
+}
