@@ -7,10 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-preview.7] - 2026-09-16
+
 ### Added
 
 - Static map control.
 - MapML markup guidance and a GCDS map page template in the npm package.
+- `npx gcds-ext-map-skills` CLI to install and remove the bundled markup skills.
 
 ### Changed
 
@@ -29,5 +32,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Preview release of the GC Design System Map Extension.
 
-[Unreleased]: https://github.com/nrcan/gcds-ext-map/compare/v1.0.0-preview.2...HEAD
+[Unreleased]: https://github.com/nrcan/gcds-ext-map/compare/v1.0.0-preview.7...HEAD
+[1.0.0-preview.7]: https://github.com/nrcan/gcds-ext-map/compare/v1.0.0-preview.2...v1.0.0-preview.7
 [1.0.0-preview.2]: https://github.com/nrcan/gcds-ext-map/releases/tag/v1.0.0-preview.2

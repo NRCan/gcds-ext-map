@@ -4,8 +4,6 @@ A Government of Canada Design System (GCDS) extension map component that provide
 
 ## Installation
 
-Install and use locally:
-
 ```bash
 npm install @gcds-extensions/map
 ```
@@ -19,6 +17,22 @@ npx http-server node_modules/@gcds-extensions/map -p 8080 -c-1
 ```
 
 Open http://localhost:8080/demo/ — you should see an interactive map.
+
+## MapML authoring skills (optional)
+
+The package ships a set of MapML markup skills for AI coding agents. Install them
+into the current project with:
+
+```bash
+npx gcds-ext-map-skills
+```
+
+Restart your editor afterwards so the agent discovers them. To remove only the
+skills this package installed:
+
+```bash
+npx gcds-ext-map-skills --remove
+```
 
 ## Usage
 
@@ -40,7 +54,7 @@ Open http://localhost:8080/demo/ — you should see an interactive map.
 -->
 
 <!-- important: use CSS to define the width and height of the map (default size is quite small!) -->
-<gcds-ext-map projection="CBMTILE" lat="45.4215" lon="-75.6972" zoom="10" style="width: 60%&height: 400px">
+<gcds-ext-map projection="CBMTILE" lat="45.4215" lon="-75.6972" zoom="10" style="width: 60%; height: 400px">
   <map-layer checked>
     <map-title>Canada Base Map - Transportation (CBMT)</map-title>
     <map-link rel="license" href="https://open.canada.ca/en/open-government-licence-canada" title="Open Government Licence - Canada"></map-link>
