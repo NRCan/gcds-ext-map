@@ -14,17 +14,17 @@ export default create({
   fontCode: 'monospace',
 
   // UI
-  appContentBg: '#fff',
-  appBorderColor: '#7d828b',
-  appBorderRadius: 0,
+  appContentBg: 'var(--gcds-bg-white, #ffffff)',
+  appBorderColor: 'var(--gcds-color-grayscale-200, #cccccc)',
+  appBorderRadius: 'var(--gcds-border-radius-md, 0.375rem)',
 
   // Toolbar default and active colors
-  barTextColor: '#000',
+  barTextColor: 'var(--gcds-text-primary, #333333)',
 
   // Text colors
-  textColor: '#000',
-  textInverseColor: 'green',
+  textColor: 'var(--gcds-text-primary, #333333)',
+  textInverseColor: 'var(--gcds-color-white, #ffffff)',
 
   // Form colors
-  inputBorderRadius: '0.1875rem',
+  inputBorderRadius: 'var(--gcds-border-radius-md, 0.375rem)',
 });

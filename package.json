@@ -22,7 +22,6 @@
     "dist/",
     "loader/",
     "demo/",
-    "skills/",
     "bin/",
     "plugin.json",
     "!dist/**/test/**",
