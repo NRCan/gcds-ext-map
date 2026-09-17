@@ -269,7 +269,9 @@ export var FeatureRenderer = SVG.extend({
       if (options.link) {
         path.setAttribute(
           'stroke',
-          options.link.visited ? '#6c00a2' : '#0000EE'
+          options.link.visited
+            ? 'var(--gcds-link-visited, #4b248f)'
+            : 'var(--gcds-link-default, #1f497a)'
         );
         path.setAttribute('stroke-opacity', '1');
         path.setAttribute('stroke-width', '1px');
