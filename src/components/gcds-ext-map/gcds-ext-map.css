@@ -123,53 +123,6 @@
   font-style: normal;
 }
 
-/* -- GC Design System Fonts - Icons -- */
-@font-face {
-  font-family: 'gcds-icons';
-  src: url('fonts/icons/gcds-icons.eot');
-  src: url('fonts/icons/gcds-icons.eot#iefix') format('embedded-opentype'),
-    url('fonts/icons/gcds-icons.ttf') format('truetype'),
-    url('fonts/icons/gcds-icons.woff') format('woff'),
-    url('fonts/icons/gcds-icons.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-[class^='gcds-icon-'],
-[class*=' gcds-icon-'] {
-  font-family: 'gcds-icons' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.gcds-icon-arrow-down:before { content: '\f013'; }
-.gcds-icon-arrow-up:before { content: '\f011'; }
-.gcds-icon-arrow-up-down:before { content: '\f012'; }
-.gcds-icon-checkmark-circle:before { content: '\f021'; }
-.gcds-icon-chevron-down:before { content: '\f020'; }
-.gcds-icon-chevron-left:before { content: '\f01f'; }
-.gcds-icon-chevron-right:before { content: '\f01e'; }
-.gcds-icon-chevron-up:before { content: '\f01d'; }
-.gcds-icon-close:before { content: '\f01c'; }
-.gcds-icon-download:before { content: '\f01b'; }
-.gcds-icon-email:before { content: '\f01a'; }
-.gcds-icon-exclamation-circle:before { content: '\f019'; }
-.gcds-icon-external:before { content: '\f018'; }
-.gcds-icon-filter:before { content: '\f005'; }
-.gcds-icon-info-circle:before { content: '\f017'; }
-.gcds-icon-phone:before { content: '\f016'; }
-.gcds-icon-search:before { content: '\f002'; }
-.gcds-icon-sort:before { content: '\f003'; }
-.gcds-icon-tune:before { content: '\f000'; }
-.gcds-icon-warning-triangle:before { content: '\f014'; }
-
 /* copy of original mapml.css from MapML.js submodule */
 
 .leaflet-container {
@@ -177,7 +130,7 @@
      the map or <body> element (same as iframes) to give the author more control. */
   background-color: transparent;
   /* Override Leaflet's Helvetica Neue/Arial stack with GCDS body font */
-  font-family: var(--gcds-font-families-body, 'Noto Sans', sans-serif);
+  font-family: var(--gcds-font-families-body, 'Noto Sans', sans-serif), sans-serif;
   max-height: 100%;
   max-width: 100%;
   min-height: 100%;
@@ -226,7 +179,7 @@
 }
 @container leafletmap (max-height: 250px) {
     .mapml-control-scale {
-        inset-inline-start: 45px; /* clear the ~44px zoom control; no GCDS token */
+        inset-inline-start: var(--gcds-spacing-600, 45px); /* clear the ~44px zoom control; */
     }
 }
 
@@ -266,7 +219,7 @@ the browser)' */
 .leaflet-control-container a,
 .leaflet-container a.leaflet-popup-close-button,
 .leaflet-container a.leaflet-popup-close-button:hover {
-  color: var(--gcds-color-grayscale-1000, #000000);
+  color: var(--gcds-color-black, #000000);
 }
 /* Revert above `color: #000` for legendlinks. */
 .mapml-layer-item-name a {
@@ -283,12 +236,12 @@ the browser)' */
 
 .leaflet-bar a,
 .mapml-reload-button {
-  background-color: var(--gcds-color-grayscale-0, #ffffff);
+  background-color: var(--gcds-color-white, #ffffff);
   box-sizing: border-box;
-  /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
-  width: 44px !important;
-  height: 44px !important;
-  line-height: 44px !important;
+  /* WCAG 2.5.5 min touch target; */
+  width: var(--gcds-spacing-550, 44px) !important;
+  height: var(--gcds-spacing-550, 44px) !important;
+  line-height: var(--gcds-spacing-550, 44px) !important;
   font-size: var(--gcds-icon-font-size-h2-mobile, 34px) !important; /* zoom/reload control glyphs */
   font-weight: var(--gcds-font-weights-bold, bold);
   text-align: center;
@@ -313,9 +266,9 @@ button.mapml-contextmenu-item:disabled {
 }
 
 .leaflet-control-layers-toggle {
-  /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
-  width: 44px !important;
-  height: 44px !important;
+  /* WCAG 2.5.5 min touch target */
+  width: var(--gcds-spacing-550, 44px) !important;
+  height: var(--gcds-spacing-550, 44px) !important;
 }
 
 .leaflet-bar a,
@@ -389,39 +342,61 @@ button.mapml-contextmenu-item:disabled {
  */
 
 .leaflet-container .leaflet-control-attribution {
+  --mapml-attribution-toggle-size: var(--gcds-icon-font-size-h2, 2.4375rem);
   background-color: var(--gcds-bg-white, #ffffff);
-  border-radius: 1.5em; /* pill shape; no GCDS radius token */
+  border-radius: var(--gcds-spacing-300, 1.5rem); /* pill shape */
   color: currentColor;
   margin: var(--gcds-spacing-50, 5px);
-  /* 30px is the attribution toggle-circle min size; no GCDS token */
-  /*min-height: 30px;*/
-  /*min-width: 30px;*/
-  min-height: var(--gcds-spacing-400, 30px);
-  min-width: var(--gcds-spacing-400, 30px);
+
+  min-height: var(--mapml-attribution-toggle-size);
+  min-width: var(--mapml-attribution-toggle-size);
 
   padding: 0;
 }
 
+/*
+ * Attribution toggle button size uses the mobile font-size token for smaller screens
+ */
+@media only screen and (width < 48em) {
+  .leaflet-container .leaflet-control-attribution {
+    --mapml-attribution-toggle-size: var(--gcds-icon-font-size-h2-mobile, 2.1875rem);
+  }
+}
+
 .leaflet-control-attribution summary {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   list-style: none;
+  margin: 0;
+  padding: 0;
   border-radius: 100%;
   position: absolute;
   bottom: 0;
-  left: calc(100% - 30px);
-  /* 30px is the attribution toggle-circle diameter; no GCDS token */
-  width: 30px;
-  height: 30px;
+  left: calc(100% - var(--mapml-attribution-toggle-size));
+  width: var(--mapml-attribution-toggle-size);
+  height: var(--mapml-attribution-toggle-size);
 }
 
-.leaflet-control-attribution summary .gcds-icon-info-circle {
-  font-size: var(--gcds-icon-font-size-h2-mobile, 35px); /* fill the 30px attribution toggle */
+.leaflet-control-attribution summary::-webkit-details-marker {
+  display: none;
+}
+
+.leaflet-control-attribution summary::marker {
+  content: '';
+}
+
+.leaflet-control-attribution summary gcds-icon {
+  display: block;
+  line-height: 1;
 }
 
 .mapml-attribution-container {
-  padding: 5px 35px 5px 10px;
+  padding: 5px calc(var(--mapml-attribution-toggle-size) + var(--gcds-spacing-50, 0.25rem)) 5px 10px;
 }
 
 /*
@@ -1128,7 +1103,7 @@ label.mapml-layer-item-toggle {
 }
 
 .mapml-feature-index {
-  outline: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-1000, #000000);
+  outline: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-black, #000000);
   contain: content;
   border-radius: var(--gcds-border-radius-md, 4px);
   background-color: var(--gcds-bg-white, #ffffff);
