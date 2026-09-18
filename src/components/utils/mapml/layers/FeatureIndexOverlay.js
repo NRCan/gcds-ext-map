@@ -3,7 +3,7 @@ import { Util } from '../Util.js';
 
 export var FeatureIndexOverlay = Layer.extend({
   onAdd: function (map) {
-    let svgInnerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 100 100"><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M0 0h100v100H0z" color="#000" overflow="visible"/></svg>`;
+    let svgInnerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 100 100"><path fill="none" stroke="var(--gcds-color-black, #000000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M0 0h100v100H0z" color="var(--gcds-color-black, #000000)" overflow="visible"/></svg>`;
 
     this._container = DomUtil.create(
       'div',

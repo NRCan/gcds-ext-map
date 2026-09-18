@@ -60,7 +60,7 @@ export var AttributionButton = Control.Attribution.extend({
     }
     let locale = this._getLocale();
     this._container.innerHTML =
-      `<summary title="${locale.btnAttribution}" aria-label="${locale.btnAttribution}"><span class="gcds-icon-info-circle" aria-hidden="true"></span></summary>` +
+      `<summary title="${locale.btnAttribution}" aria-label="${locale.btnAttribution}"><gcds-icon name="info-circle" aria-hidden="true" size="h2"></gcds-icon></summary>` +
       '<div class="mapml-attribution-container">' +
       `<button onclick="this.closest(\'.leaflet-container\').querySelector(\'.shortcuts-dialog\').showModal()" class="shortcuts-button mapml-button">${locale.kbdShortcuts}</button> | ` +
       prefixAndAttribs.join(' <span aria-hidden="true">|</span> ') +

@@ -102,7 +102,7 @@ export var Path = LeafletPath.extend({
         );
         if (dist <= 5) {
           link.visited = true;
-          elem.setAttribute('stroke', '#6c00a2');
+          elem.setAttribute('stroke', 'var(--gcds-link-visited, #4b248f)');
           elem.classList.add('map-a-visited');
           Util._handleLink(link, leafletLayer);
         }
@@ -116,7 +116,7 @@ export var Path = LeafletPath.extend({
         DomEvent.stop(e);
         if (e.keyCode === 13 || e.keyCode === 32) {
           link.visited = true;
-          elem.setAttribute('stroke', '#6c00a2');
+          elem.setAttribute('stroke', 'var(--gcds-link-visited, #4b248f)');
           elem.classList.add('map-a-visited');
           Util._handleLink(link, leafletLayer);
         }

@@ -23,7 +23,7 @@ export const Util = {
     };
     var fontFamily = read('--gcds-font-families-body', "'Noto Sans', sans-serif");
     var fontSize = read('--gcds-font-sizes-text-small-mobile', '0.75rem');
-    var color = read('--gcds-text-primary', '#333');
+    var color = read('--gcds-text-primary', '#333333');
     return (
       '<style>html{font-family:' +
       fontFamily +

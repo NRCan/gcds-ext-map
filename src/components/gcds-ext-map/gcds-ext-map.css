@@ -1,12 +1,12 @@
 /*
  * GCDS Map Component CSS
- * 
+ *
  * This file composes the complete map styling by importing:
  * 1. Leaflet core CSS (essential for map layout)
  * 2. Leaflet.locatecontrol CSS (geolocation control)
  * 3. Original MapML CSS (MapML-specific features)
  * 4. GCDS-specific overrides (design system integration)
- * 
+ *
  * This mirrors the original mapml.js Gruntfile.js CSS composition.
  */
 
@@ -123,53 +123,6 @@
   font-style: normal;
 }
 
-/* -- GC Design System Fonts - Icons -- */
-@font-face {
-  font-family: 'gcds-icons';
-  src: url('fonts/icons/gcds-icons.eot');
-  src: url('fonts/icons/gcds-icons.eot#iefix') format('embedded-opentype'),
-    url('fonts/icons/gcds-icons.ttf') format('truetype'),
-    url('fonts/icons/gcds-icons.woff') format('woff'),
-    url('fonts/icons/gcds-icons.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-[class^='gcds-icon-'],
-[class*=' gcds-icon-'] {
-  font-family: 'gcds-icons' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.gcds-icon-arrow-down:before { content: '\f013'; }
-.gcds-icon-arrow-up:before { content: '\f011'; }
-.gcds-icon-arrow-up-down:before { content: '\f012'; }
-.gcds-icon-checkmark-circle:before { content: '\f021'; }
-.gcds-icon-chevron-down:before { content: '\f020'; }
-.gcds-icon-chevron-left:before { content: '\f01f'; }
-.gcds-icon-chevron-right:before { content: '\f01e'; }
-.gcds-icon-chevron-up:before { content: '\f01d'; }
-.gcds-icon-close:before { content: '\f01c'; }
-.gcds-icon-download:before { content: '\f01b'; }
-.gcds-icon-email:before { content: '\f01a'; }
-.gcds-icon-exclamation-circle:before { content: '\f019'; }
-.gcds-icon-external:before { content: '\f018'; }
-.gcds-icon-filter:before { content: '\f005'; }
-.gcds-icon-info-circle:before { content: '\f017'; }
-.gcds-icon-phone:before { content: '\f016'; }
-.gcds-icon-search:before { content: '\f002'; }
-.gcds-icon-sort:before { content: '\f003'; }
-.gcds-icon-tune:before { content: '\f000'; }
-.gcds-icon-warning-triangle:before { content: '\f014'; }
-
 /* copy of original mapml.css from MapML.js submodule */
 
 .leaflet-container {
@@ -177,7 +130,7 @@
      the map or <body> element (same as iframes) to give the author more control. */
   background-color: transparent;
   /* Override Leaflet's Helvetica Neue/Arial stack with GCDS body font */
-  font-family: var(--gcds-font-families-body, 'Noto Sans', sans-serif);
+  font-family: var(--gcds-font-families-body, 'Noto Sans', sans-serif), sans-serif;
   max-height: 100%;
   max-width: 100%;
   min-height: 100%;
@@ -196,7 +149,7 @@
 .leaflet-fade-anim .leaflet-image-layer {
         will-change: opacity;
 	}
-        
+
 .leaflet-image-layer {
         visibility: hidden;
 }
@@ -218,7 +171,7 @@
  */
 .leaflet-container {
     container: leafletmap / size;
-} 
+}
 /* Scale bar */
  .mapml-control-scale {
   inset-block-end: var(--gcds-spacing-100, 8px); /* Make room for map-a links */
@@ -226,13 +179,13 @@
 }
 @container leafletmap (max-height: 250px) {
     .mapml-control-scale {
-        inset-inline-start: 45px; /* clear the ~44px zoom control; no GCDS token */
+        inset-inline-start: var(--gcds-spacing-600, 45px); /* clear the ~44px zoom control; */
     }
 }
 
 /* for extents that don't overlap the viewport, the  extent and it's layer
-control fieldset become disabled.  The descendant fieldsets also become 
-disabled (but they / their descendant content are not explicitly italicized by 
+control fieldset become disabled.  The descendant fieldsets also become
+disabled (but they / their descendant content are not explicitly italicized by
 the browser)' */
 .leaflet-control-layers-overlays fieldset:disabled span.mapml-layer-item-name {
     font-style: italic;
@@ -266,7 +219,7 @@ the browser)' */
 .leaflet-control-container a,
 .leaflet-container a.leaflet-popup-close-button,
 .leaflet-container a.leaflet-popup-close-button:hover {
-  color: var(--gcds-color-grayscale-1000, #000);
+  color: var(--gcds-color-black, #000000);
 }
 /* Revert above `color: #000` for legendlinks. */
 .mapml-layer-item-name a {
@@ -274,21 +227,21 @@ the browser)' */
 }
 
  .leaflet-top .leaflet-control {
-   margin-top: var(--gcds-spacing-50, 5px);
+   margin-block-start: var(--gcds-spacing-50, 5px);
  }
- 
+
  .leaflet-left .leaflet-control {
-   margin-left: var(--gcds-spacing-50, 5px);
+   margin-inline-start: var(--gcds-spacing-50, 5px);
  }
 
 .leaflet-bar a,
 .mapml-reload-button {
-  background-color: var(--gcds-color-grayscale-0, #fff);
+  background-color: var(--gcds-color-white, #ffffff);
   box-sizing: border-box;
-  /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
-  width: 44px !important;
-  height: 44px !important;
-  line-height: 44px !important;
+  /* WCAG 2.5.5 min touch target; */
+  width: var(--gcds-spacing-550, 44px) !important;
+  height: var(--gcds-spacing-550, 44px) !important;
+  line-height: var(--gcds-spacing-550, 44px) !important;
   font-size: var(--gcds-icon-font-size-h2-mobile, 34px) !important; /* zoom/reload control glyphs */
   font-weight: var(--gcds-font-weights-bold, bold);
   text-align: center;
@@ -296,7 +249,7 @@ the browser)' */
 
 .mapml-reload-button:hover,
 .mapml-reload-button[aria-disabled="true"] {
-  background-color: var(--gcds-bg-light, #f4f4f4);
+  background-color: var(--gcds-bg-light, #f2f2f2);
 }
 
 .mapml-reload-button[aria-disabled="true"] {
@@ -305,7 +258,7 @@ the browser)' */
 
 button.mapml-button:disabled,
 .mapml-button[aria-disabled="true"] {
-  color: var(--gcds-disabled-text, #bbb);
+  color: var(--gcds-disabled-text, #808080);
 }
 
 button.mapml-contextmenu-item:disabled {
@@ -313,15 +266,15 @@ button.mapml-contextmenu-item:disabled {
 }
 
 .leaflet-control-layers-toggle {
-  /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
-  width: 44px !important;
-  height: 44px !important;
+  /* WCAG 2.5.5 min touch target */
+  width: var(--gcds-spacing-550, 44px) !important;
+  height: var(--gcds-spacing-550, 44px) !important;
 }
 
 .leaflet-bar a,
 .leaflet-control-layers,
 .mapml-reload-button {
-  border-color: var(--gcds-color-grayscale-100, #e3e3e3) !important;
+  border-color: var(--gcds-color-grayscale-100, #e6e6e6) !important;
 }
 
 .leaflet-control-layers,
@@ -389,36 +342,61 @@ button.mapml-contextmenu-item:disabled {
  */
 
 .leaflet-container .leaflet-control-attribution {
-  background-color: var(--gcds-bg-white, #fff);
-  border-radius: 1.5em; /* pill shape; no GCDS radius token */
+  --mapml-attribution-toggle-size: var(--gcds-icon-font-size-h2, 2.4375rem);
+  background-color: var(--gcds-bg-white, #ffffff);
+  border-radius: var(--gcds-spacing-300, 1.5rem); /* pill shape */
   color: currentColor;
   margin: var(--gcds-spacing-50, 5px);
-  /* 30px is the attribution toggle-circle min size; no GCDS token */
-  min-height: 30px;
-  min-width: 30px;
+
+  min-height: var(--mapml-attribution-toggle-size);
+  min-width: var(--mapml-attribution-toggle-size);
+
   padding: 0;
 }
 
+/*
+ * Attribution toggle button size uses the mobile font-size token for smaller screens
+ */
+@media only screen and (width < 48em) {
+  .leaflet-container .leaflet-control-attribution {
+    --mapml-attribution-toggle-size: var(--gcds-icon-font-size-h2-mobile, 2.1875rem);
+  }
+}
+
 .leaflet-control-attribution summary {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   list-style: none;
+  margin: 0;
+  padding: 0;
   border-radius: 100%;
   position: absolute;
   bottom: 0;
-  left: calc(100% - 30px);
-  /* 30px is the attribution toggle-circle diameter; no GCDS token */
-  width: 30px;
-  height: 30px;
+  left: calc(100% - var(--mapml-attribution-toggle-size));
+  width: var(--mapml-attribution-toggle-size);
+  height: var(--mapml-attribution-toggle-size);
 }
 
-.leaflet-control-attribution summary .gcds-icon-info-circle {
-  font-size: var(--gcds-icon-font-size-h2-mobile, 35px); /* fill the 30px attribution toggle */
+.leaflet-control-attribution summary::-webkit-details-marker {
+  display: none;
+}
+
+.leaflet-control-attribution summary::marker {
+  content: '';
+}
+
+.leaflet-control-attribution summary gcds-icon {
+  display: block;
+  line-height: var(--gcds-base-line-height);
 }
 
 .mapml-attribution-container {
-  padding: 5px 35px 5px 10px;
+  padding: 5px calc(var(--mapml-attribution-toggle-size) + var(--gcds-spacing-50, 0.25rem)) 5px 10px;
 }
 
 /*
@@ -435,7 +413,7 @@ button.mapml-contextmenu-item:disabled {
  * the background-position property
  */
 
-.leaflet-control-fullscreen a {  
+.leaflet-control-fullscreen a {
   background-image: url("data:image/svg+xml,%0A%3Csvg width='26' height='52' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg transform='translate(0 -1000.4)'%3E%3Cuse transform='translate(0 26)' width='100%25' height='100%25' xlink:href='%23a'/%3E%3Cuse transform='translate(0 26)' width='100%25' height='100%25' xlink:href='%23b'/%3E%3Cuse transform='translate(0 26)' width='100%25' height='100%25' xlink:href='%23c'/%3E%3Cuse transform='translate(0 26)' width='100%25' height='100%25' xlink:href='%23d'/%3E%3Cpath id='a' transform='translate(0 1000.4)' d='M5 15v6h6v-2H7v-4z' color='%23000' fill='%23000'/%3E%3Cpath id='b' transform='translate(0 1000.4)' d='M21 15v6h-6v-2h4v-4z' color='%23000' fill='%23000'/%3E%3Cpath d='M10 1037.4v4l1 1h4l1-1v-4l-1-1h-4z' color='%23000' fill='%23000'/%3E%3Cpath id='d' d='M5 1011.4v-6h6v2H7v4z' color='%23000' fill='%23000'/%3E%3Cpath id='c' d='M21 1011.4v-6h-6v2h4v4z' color='%23000' fill='%23000'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 38px 76px; /* sprite sheet dimensions; no GCDS token */
@@ -484,7 +462,7 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
   /* Invisible (white) default fieldset border adds ~1.6px, shifting controls
      below when a single-layer control expands on hover; remove it. */
   border: 0;
-  min-height: 44px;
+  min-height: var(--gcds-spacing-550, 44px);
 }
 
 .leaflet-control-layers label {
@@ -508,12 +486,12 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 
 .leaflet-control .leaflet-control-layers-toggle {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='m11.99 18.54-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16zm0-11.47L17.74 9 12 13.47 6.26 9 12 4.53z'/%3E%3C/svg%3E");
-  background-size: 34px; /* control icon size; no GCDS token */
+  background-size: var(--gcds-spacing-450, 34px); /* control icon size; size up to 36px for gcds token */
 }
 
 /* Revert Leaflet styles that are causing misalignment. */
 .leaflet-control-layers-selector {
-  margin-top: revert;
+  margin-block-start: revert;
   position: revert;
 }
 
@@ -524,7 +502,7 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 .mapml-contextmenu {
   border-radius: var(--gcds-border-radius-md, 4px);
   padding: var(--gcds-spacing-50, 4px) 0;
-  background-color: var(--gcds-bg-white, #fff);
+  background-color: var(--gcds-bg-white, #ffffff);
   cursor: default;
   position: absolute;
   width: fit-content;
@@ -533,9 +511,9 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 }
 
 .mapml-contextmenu button.mapml-contextmenu-item {
-  color: var(--gcds-text-primary, #333);
+  color: var(--gcds-text-primary, #333333);
   font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* smallest GCDS body text; 12px fallback matches upstream */
-  line-height: 20px; /* fixed control line-height; no GCDS token */
+  line-height: var(--gcds-base-line-height, 1.6);
   text-decoration: none;
   padding: 0 var(--gcds-spacing-150, 12px);
   border-block-start: var(--gcds-border-width-sm, 1px) solid transparent;
@@ -546,13 +524,13 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 }
 
 .mapml-contextmenu button.mapml-contextmenu-item.over {
-  background-color: var(--gcds-bg-light, #f1f2f3);
-  border-block-start: var(--gcds-border-width-sm, 1px) solid var(--gcds-bg-light, #f1f2f3);
-  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-bg-light, #f1f2f3);
+  background-color: var(--gcds-bg-light, #f2f2f2);
+  border-block-start: var(--gcds-border-width-sm, 1px) solid var(--gcds-bg-light, #f2f2f2);
+  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-bg-light, #f2f2f2);
 }
-      
+
 .mapml-contextmenu-separator {
-  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e3e3e3);
+  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
   margin: var(--gcds-spacing-50, 0.25rem) 0;
 }
 
@@ -596,7 +574,7 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
   max-width: 100%;
   border-radius: var(--gcds-border-radius-md, 4px);
   padding: var(--gcds-spacing-50, 5px) var(--gcds-spacing-125, 10px);
-  background-color: var(--gcds-bg-white, #fff);
+  background-color: var(--gcds-bg-white, #ffffff);
   cursor: default;
   z-index: 1000;
   position: absolute;
@@ -649,22 +627,22 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 }
 
 :host(.mapml-fullscreen-on) .mapml-debug-grid {
-  color: var(--gcds-color-grayscale-0, #fff);
+  color: var(--gcds-color-white, #ffffff);
   /* 1px shadow offsets/blur are graphic dims; no GCDS shadow token */
-  text-shadow: 1px 1px 1px var(--gcds-color-grayscale-1000, #000), 1px 1px 1px var(--gcds-color-grayscale-1000, #000);
+  text-shadow: 1px 1px 1px var(--gcds-color-black, #000000), 1px 1px 1px var(--gcds-color-black, #000000);
 }
 
 /*
  * User interaction.
  */
- 
+
  :host(.leaflet-drag-target) .leaflet-grab {
    cursor: move;
    cursor: -webkit-grabbing;
    cursor:    -moz-grabbing;
    cursor:         grabbing;
  }
- 
+
  /* Prevent `:hover` styles from applying to controls when the user is panning
  the map display and the cursor happens to move over a control. */
 :host(.leaflet-drag-target) .leaflet-control {
@@ -775,9 +753,9 @@ summary {
 
 .mapml-crosshair {
   /* centre the 72px crosshair overlay; 72/36px are graphic dims, no GCDS token */
-  margin: -36px 0 0 -36px;
-  width: 72px;
-  height: 72px;
+  margin: calc(var(--gcds-spacing-450, 36px) * -1) 0 0 calc(var(--gcds-spacing-450, 36px) * -1);
+  width: var(--gcds-spacing-900, 72px);
+  height: var(--gcds-spacing-900, 72px);
   left: 50%;
   inset-block-start: 50%;
   position: absolute;
@@ -789,17 +767,16 @@ summary {
 	border: none;
 	text-align: center;
 	font-size: var(--gcds-icon-font-size-text-small-mobile, 16px); /* popup nav control glyphs */
-	line-height: 14px; /* control glyph leading; no GCDS token */
 	color: inherit;
 	text-decoration: none;
 	font-weight: var(--gcds-font-weights-bold, bold);
   background: transparent;
   white-space: nowrap;
   box-sizing: border-box;
-  /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
-  width: 44px;
-  height: 44px;
-  line-height: 44px;
+  /* WCAG 2.5.5 min touch target */
+  width: var(--gcds-spacing-550, 44px);
+  height: var(--gcds-spacing-550, 44px);
+  line-height: var(--gcds-spacing-550, 44px);
 }
 
 .mapml-zoom-link {
@@ -822,12 +799,12 @@ summary {
 
 .mapml-focus-buttons button,
 .leaflet-container a.leaflet-popup-close-button {
-  /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
-  line-height: 44px;
+  /* WCAG 2.5.5 min touch target; */
+  width: var(--gcds-spacing-550, 44px);
+  height: var(--gcds-spacing-550, 44px);
+  min-width: var(--gcds-spacing-550, 44px);
+  min-height: var(--gcds-spacing-550, 44px);
+  line-height: var(--gcds-spacing-550, 44px);
 }
 .leaflet-popup-content {
   margin: 0;
@@ -836,7 +813,7 @@ summary {
   font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match layer control / context menu */
 }
 .mapml-popup-content {
-  padding-block-start: 44px; /* clears the 44px focus-button row; no GCDS token WCAG 2.5.5 minimum touch-target size */
+  padding-block-start: var(--gcds-spacing-550, 44px); /* clears the 44px focus-button row; WCAG 2.5.5 minimum touch-target size */
 }
 .mapml-focus-buttons {
   display: block;
@@ -857,12 +834,12 @@ summary {
 .leaflet-popup-content .mapml-feature-count {
   margin: 0;
   padding: 0 var(--gcds-spacing-50, 5px);
-  line-height: 44px; /* matches 44px touch-target height; no GCDS token */
+  line-height: var(--gcds-spacing-550, 44px); /* matches 44px touch-target height */
 }
 .mapml-popup-content hr:last-of-type {
   margin-block-end: 0;
   border-block-end: 0;
-  border-block-start: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e3e3e3);
+  border-block-start: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
 }
 .mapml-popup-content :first-child {
   margin-block-start: 0;
@@ -872,7 +849,7 @@ summary {
   padding: 0 var(--gcds-spacing-200, 1rem);
 }
 .leaflet-popup-tip-container {
-  margin-top: -1px;
+  margin-block-start: -1px;
 }
 
 .mapml-outline {
@@ -885,7 +862,7 @@ summary {
   width: 100%;
   color: initial;
 }
- 
+
  /* Force printers to include background-images of controls for printing.
    (https://github.com/Maps4HTML/MapML.js/issues/294) */
 @media print {
@@ -907,7 +884,7 @@ svg.leaflet-image-layer.leaflet-interactive g {
   inset-block-end: 0;
   background-color: var(--gcds-color-grayscale-100, rgb(222, 225, 230));
   border-start-end-radius: 5px; /* no 5px GCDS border-radius token (sm=2px, md=6px) */
-  z-index: 1050;  
+  z-index: 1050;
   max-width: 60%;
 }
 
@@ -942,18 +919,18 @@ svg.leaflet-image-layer.leaflet-interactive g {
 .mapml-layer-item,
 .mapml-layer-grouped-extents,
 .mapml-layer-extent {
-  background-color: var(--gcds-bg-white, #fff);
-  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-bg-white, #fff);
+  background-color: var(--gcds-bg-white, #ffffff);
+  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-bg-white, #ffffff);
   margin: 0;
   padding: 0;
 }
 
 .mapml-layer-item:not(:last-of-type) {
-  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e3e3e3);
+  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
 }
 .mapml-layer-item[aria-grabbed="true"],
 .mapml-layer-extent[aria-grabbed="true"] {
-  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e3e3e3);
+  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
   border-radius: 0;
 }
 .mapml-layer-item:first-of-type,
@@ -1000,18 +977,18 @@ svg.leaflet-image-layer.leaflet-interactive g {
 
 .mapml-layer-item-remove-control,
 .mapml-layer-item-settings-control {
-  /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
-  min-height: 44px;
-  min-width: 44px;
-  height: 44px;
-  width: 44px;
+  /* WCAG 2.5.5 min touch target */
+  min-height: var(--gcds-spacing-550, 44px);
+  min-width: var(--gcds-spacing-550, 44px);
+  height: var(--gcds-spacing-550, 44px);
+  width: var(--gcds-spacing-550, 44px);
 }
 
 label.mapml-layer-item-toggle {
   display: inline-flex;
   align-items: center;
   width: 100%; /* have the clickable area take up all available width */
-  min-height: 44px; /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
+  min-height: var(--gcds-spacing-550, 44px); /* WCAG 2.5.5 min touch target */
 }
 
 .mapml-layer-item-name {
@@ -1068,7 +1045,7 @@ label.mapml-layer-item-toggle {
   [role="button"] path:hover,
   path[tabindex="0"]:focus
   ) {
-  stroke: #0000EE;
+  stroke: var(--gcds-link-default, #1f497a);
   stroke: LinkText;
 }
 .mapml-vector-container svg :is(
@@ -1109,7 +1086,7 @@ label.mapml-layer-item-toggle {
   top: 50%;
   position: absolute;
   z-index: 10000;
-  outline: var(--gcds-border-width-md, 2px) solid var(--gcds-bg-white, #fff);
+  outline: var(--gcds-border-width-md, 2px) solid var(--gcds-bg-white, #ffffff);
 }
 
 .mapml-feature-index-box:after{
@@ -1125,10 +1102,10 @@ label.mapml-layer-item-toggle {
 }
 
 .mapml-feature-index {
-  outline: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-1000, #000);
+  outline: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-black, #000000);
   contain: content;
   border-radius: var(--gcds-border-radius-md, 4px);
-  background-color: var(--gcds-bg-white, #fff);
+  background-color: var(--gcds-bg-white, #ffffff);
   cursor: default;
   z-index: 1000;
   position: absolute;
@@ -1166,7 +1143,7 @@ label.mapml-layer-item-toggle {
 
 .shortcuts-dialog > ul > li > kbd,
 .mapml-feature-index-content > span > kbd{
-  background-color: var(--gcds-color-grayscale-150, lightgrey);
+  background-color: var(--gcds-color-grayscale-150, #d9d9d9);
   padding-inline-end: var(--gcds-spacing-50, 4px);
   padding-inline-start: var(--gcds-spacing-50, 4px);
   border-radius: var(--gcds-border-radius-md, 4px);
@@ -1201,23 +1178,23 @@ label.mapml-layer-item-toggle {
 
 .shortcuts-dialog > ul {
   padding: 0;
-  list-style-type:none;
+  list-style-type: none;
 }
 
-.mapml-tile-group > svg { 
+.mapml-tile-group > svg {
     overflow: visible;
 }
 /* ===== ESSENTIAL HOST DEFAULTS (immediate application for getBoundingClientRect) ===== */
 :host {
   /* Reset first, then apply critical MapML defaults */
   all: initial;
-  
+
   /* Critical MapML defaults that must be available immediately */
   display: inline-block;
-  background-color: var(--gcds-bg-white, white);
+background-color: var(--gcds-bg-white, #ffffff);
   /* Default dimensions - will be overridden by JavaScript based on CSS rules or attributes */
-  height: 150px;        
-  width: 300px;         
+  height: 150px;
+  width: 300px;
   contain: layout size;
   border-width: var(--gcds-border-width-md, 2px);
   border-style: inset; /* no GCDS border-style token */
@@ -1225,7 +1202,7 @@ label.mapml-layer-item-toggle {
 
 /* Ensure white background persists in fullscreen */
 :host(.mapml-fullscreen-on) {
-  background-color: var(--gcds-bg-white, white);
+background-color: var(--gcds-bg-white, #ffffff);
 }
 /* Ensure container fills the host element */
 .mapml-map-container {
@@ -1241,9 +1218,9 @@ label.mapml-layer-item-toggle {
   :host {
     /* GCDS responsive overrides (when CSS loads) */
     position: relative;
-    
+
     /* Aspect ratio support for responsive design */
-    aspect-ratio: var(--map-aspect);
+    aspect-ratio: var(--map-aspect); /* TODO: Invalid token */
   }
 }
 
@@ -1254,12 +1231,12 @@ label.mapml-layer-item-toggle {
     cursor: pointer;
     transition: all 0.35s; /* no GCDS motion/duration token */
   }
-  
+
   /* Attribute-based styling */
   :host([frameborder="0"]) {
     border-width: 0;
   }
-  
+
   :host([hidden]) {
     display: none !important;
   }
@@ -1272,27 +1249,27 @@ label.mapml-layer-item-toggle {
   z-index: 1000;
 }
 .mapml-search-button {
-  /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
-  width: 44px;
-  height: 44px;
-  line-height: 44px;
+  /* WCAG 2.5.5 min touch target */
+  width: var(--gcds-spacing-550, 44px);
+  height: var(--gcds-spacing-550, 44px);
+  line-height: var(--gcds-spacing-550, 44px);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: var(--gcds-bg-white, #fff);
+  background: var(--gcds-bg-white, #ffffff);
   border: none;
   border-radius: var(--gcds-border-radius-md, 4px);
   padding: 0;
 }
 .mapml-search-button:hover {
-  background: var(--gcds-bg-light, #f4f4f4);
+  background: var(--gcds-bg-light, #f2f2f2);
 }
 .mapml-search-button[aria-disabled="true"] {
   cursor: default;
 }
 .mapml-search-button[aria-disabled="true"]:hover {
-  background: var(--gcds-bg-white, #fff);
+  background: var(--gcds-bg-white, #ffffff);
 }
 .mapml-search-panel[hidden] {
   display: none !important;
@@ -1303,8 +1280,9 @@ label.mapml-layer-item-toggle {
   inset-inline-start: 0;
   width: 250px; /* search panel width; no GCDS token */
   height: 100%;
-  background: var(--gcds-bg-white, #fff);
-  box-shadow: 2px 0 5px rgba(0,0,0,0.2); /* no GCDS shadow token matches */
+  background: var(--gcds-bg-white, #ffffff);
+  /*box-shadow: 2px 0 5px rgba(0,0,0,0.2); !* no GCDS shadow token matches *!*/
+  box-shadow: var(--gcds-spacing-25, 2px) 0 var(--gcds-spacing-75, 6px) rgba(0,0,0,0.2); /* no GCDS shadow token matches */
   display: flex;
   flex-direction: column;
   transform: translateX(-100%);
@@ -1319,15 +1297,15 @@ label.mapml-layer-item-toggle {
   margin: var(--gcds-spacing-100, 8px);
   padding-block: var(--gcds-spacing-75, 6px);
   padding-inline: var(--gcds-spacing-100, 8px);
-  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-200, #ccc);
+  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-200, #cccccc);
   border-radius: var(--gcds-border-radius-md, 4px);
   font-family: inherit;
   font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match layer control / context menu */
   box-sizing: border-box;
 }
 .mapml-search-input:focus {
-  outline: var(--gcds-border-width-md, 2px) solid var(--gcds-input-focus-border, #4A90D9);
-  border-color: var(--gcds-input-focus-border, #4A90D9);
+  outline: var(--gcds-border-width-md, 2px) solid var(--gcds-input-focus-border, #1354ec);
+  border-color: var(--gcds-input-focus-border, #1354ec);
 }
 .mapml-search-results {
   flex: 1;
@@ -1341,8 +1319,8 @@ label.mapml-layer-item-toggle {
   width: 100%;
   padding: var(--gcds-spacing-100, 8px);
   border: none;
-  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #eee);
-  background: var(--gcds-bg-white, #fff);
+  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
+  background: var(--gcds-bg-white, #ffffff);
   text-align: start;
   font-family: inherit;
   font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match layer control / context menu */
@@ -1352,31 +1330,32 @@ label.mapml-layer-item-toggle {
   text-overflow: ellipsis;
 }
 .mapml-search-result:hover {
-  background: var(--gcds-bg-light, #f0f0f0);
+  background: var(--gcds-bg-light, #f2f2f2);
 }
 .mapml-search-result:focus {
-  outline: var(--gcds-border-width-md, 2px) solid var(--gcds-focus-border, #4A90D9);
+  outline: var(--gcds-border-width-md, 2px) solid var(--gcds-focus-border, #1354ec);
   outline-offset: calc(-1 * var(--gcds-border-width-md, 2px));
 }
 .mapml-search-close {
   position: absolute;
-  inset-inline-end: -24px; /* pull the tab out by its own width; no GCDS token */
+  inset-inline-end: calc(var(--gcds-spacing-300, 24px) * -1); /* pull the tab out by its own width; no GCDS token */
   inset-block-start: 50%;
   transform: translateY(-50%);
-  width: 24px; /* close-tab width; no GCDS token */
-  height: 36px; /* close-tab height; no GCDS token */
+  width: var(--gcds-spacing-300, 24px); /* close-tab width */
+  height: var(--gcds-spacing-450, 36px); /* close-tab height  */
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: var(--gcds-bg-white, #fff);
-  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-200, #ccc);
+  background: var(--gcds-bg-white, #ffffff);
+  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-200, #cccccc);
   border-inline-start: none;
   border-start-start-radius: 0;
   border-start-end-radius: var(--gcds-border-radius-md, 4px);
   border-end-end-radius: var(--gcds-border-radius-md, 4px);
   border-end-start-radius: 0;
-  box-shadow: 2px 0 3px rgba(0,0,0,0.1); /* no GCDS shadow token matches */
+  box-shadow: var(--gcds-spacing-25, 2px) 0 var(--gcds-spacing-50, 4px) rgba(0,0,0,0.1); /* no GCDS shadow token matches */
+  /*box-shadow: 2px 0 3px rgba(0,0,0,0.1); !* no GCDS shadow token matches *!*/
   visibility: hidden;
 }
 .mapml-search-panel-open .mapml-search-close {
@@ -1388,20 +1367,20 @@ label.mapml-layer-item-toggle {
   margin-inline-end: var(--gcds-spacing-50, 5px);
 }
 button.mapml-static-button {
-  /* WCAG 2.5.5 min touch target; no GCDS token, keep hardcoded */
-  width: 44px;
-  height: 44px;
-  line-height: 44px;
+  /* WCAG 2.5.5 min touch target */
+  width: var(--gcds-spacing-550, 44px);
+  height: var(--gcds-spacing-550, 44px);
+  line-height: var(--gcds-spacing-550, 44px);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: var(--gcds-bg-white, #fff);
+  background: var(--gcds-bg-white, #ffffff);
   border: none;
   border-radius: var(--gcds-border-radius-md, 4px);
   padding: 0;
-  color: var(--gcds-text-primary, #000);
+  color: var(--gcds-text-primary, #000000);
 }
 button.mapml-static-button:hover {
-  background: var(--gcds-bg-light, #f4f4f4);
+  background: var(--gcds-bg-light, #f2f2f2);
 }
