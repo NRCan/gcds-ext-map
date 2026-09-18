@@ -227,11 +227,11 @@ the browser)' */
 }
 
  .leaflet-top .leaflet-control {
-   margin-top: var(--gcds-spacing-50, 5px);
+   margin-block-start: var(--gcds-spacing-50, 5px);
  }
 
  .leaflet-left .leaflet-control {
-   margin-left: var(--gcds-spacing-50, 5px);
+   margin-inline-start: var(--gcds-spacing-50, 5px);
  }
 
 .leaflet-bar a,
@@ -392,7 +392,7 @@ button.mapml-contextmenu-item:disabled {
 
 .leaflet-control-attribution summary gcds-icon {
   display: block;
-  line-height: 1;
+  line-height: var(--gcds-base-line-height);
 }
 
 .mapml-attribution-container {
@@ -491,7 +491,7 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 
 /* Revert Leaflet styles that are causing misalignment. */
 .leaflet-control-layers-selector {
-  margin-top: revert;
+  margin-block-start: revert;
   position: revert;
 }
 
@@ -513,7 +513,7 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 .mapml-contextmenu button.mapml-contextmenu-item {
   color: var(--gcds-text-primary, #333333);
   font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* smallest GCDS body text; 12px fallback matches upstream */
-  line-height: var(--gcds-line-heights-text-small-mobile, 1.5); /* 20px fixed control line-height; changed to 1.5 */
+  line-height: var(--gcds-base-line-height, 1.6);
   text-decoration: none;
   padding: 0 var(--gcds-spacing-150, 12px);
   border-block-start: var(--gcds-border-width-sm, 1px) solid transparent;
@@ -767,7 +767,6 @@ summary {
 	border: none;
 	text-align: center;
 	font-size: var(--gcds-icon-font-size-text-small-mobile, 16px); /* popup nav control glyphs */
-	/*line-height: 14px; !* control glyph leading; no GCDS token *!*/
 	color: inherit;
 	text-decoration: none;
 	font-weight: var(--gcds-font-weights-bold, bold);
@@ -850,7 +849,7 @@ summary {
   padding: 0 var(--gcds-spacing-200, 1rem);
 }
 .leaflet-popup-tip-container {
-  margin-top: -1px;
+  margin-block-start: -1px;
 }
 
 .mapml-outline {
