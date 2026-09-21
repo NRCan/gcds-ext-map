@@ -14,17 +14,19 @@ export default create({
   fontCode: 'monospace',
 
   // UI
-  appContentBg: 'var(--gcds-bg-white, #ffffff)',
-  appBorderColor: 'var(--gcds-color-grayscale-200, #cccccc)',
-  appBorderRadius: 'var(--gcds-border-radius-md, 0.375rem)',
+  // Storybook's theming runs these through `polished`, which cannot parse
+  // CSS custom properties - use literal colours / numeric radii only.
+  appContentBg: '#ffffff',
+  appBorderColor: '#cccccc',
+  appBorderRadius: 6,
 
   // Toolbar default and active colors
-  barTextColor: 'var(--gcds-text-primary, #333333)',
+  barTextColor: '#333333',
 
   // Text colors
-  textColor: 'var(--gcds-text-primary, #333333)',
-  textInverseColor: 'var(--gcds-color-white, #ffffff)',
+  textColor: '#333333',
+  textInverseColor: '#ffffff',
 
   // Form colors
-  inputBorderRadius: 'var(--gcds-border-radius-md, 0.375rem)',
+  inputBorderRadius: 6,
 });
