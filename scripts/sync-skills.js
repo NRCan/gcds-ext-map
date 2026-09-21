@@ -9,6 +9,12 @@ const src = path.resolve(__dirname, '../.github/skills');
 const dest = path.resolve(__dirname, '../skills');
 
 if (!fs.existsSync(src)) {
+  // .github/ is not part of the published tarball, so packing a copy of the package
+  // is fine as long as the already-mirrored skills/ folder is there.
+  if (fs.existsSync(dest)) {
+    console.log('[sync-skills] no .github/skills to mirror; keeping the existing skills/ folder.');
+    process.exit(0);
+  }
   console.error(`[sync-skills] source not found: ${src}`);
   process.exit(1);
 }
