@@ -19,7 +19,8 @@
 /* -- GC Design System Fonts - Lato -- */
 @font-face {
   font-family: 'Lato';
-  src: url('fonts/lato/gcds-lato.woff2') format('woff2'),
+  src:
+    url('fonts/lato/gcds-lato.woff2') format('woff2'),
     url('fonts/lato/gcds-lato.woff') format('woff');
   font-weight: 700;
   font-style: normal;
@@ -27,7 +28,8 @@
 
 @font-face {
   font-family: 'Lato';
-  src: url('fonts/lato/gcds-lato-italic.woff2') format('woff2'),
+  src:
+    url('fonts/lato/gcds-lato-italic.woff2') format('woff2'),
     url('fonts/lato/gcds-lato-italic.woff') format('woff');
   font-weight: 700;
   font-style: italic;
@@ -36,7 +38,8 @@
 /* -- GC Design System Fonts - Noto Sans -- */
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-light.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-light.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
@@ -44,7 +47,8 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-light-italic.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-light-italic.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-light-italic.woff') format('woff');
   font-weight: 300;
   font-style: italic;
@@ -52,7 +56,8 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-regular.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-regular.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
@@ -60,7 +65,8 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-regular-italic.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-regular-italic.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-regular-italic.woff') format('woff');
   font-weight: 400;
   font-style: italic;
@@ -68,7 +74,8 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-medium.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-medium.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
@@ -76,7 +83,8 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-medium-italic.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-medium-italic.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-medium-italic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
@@ -84,7 +92,8 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-semibold.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-semibold.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-semibold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
@@ -92,7 +101,8 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-semibold-italic.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-semibold-italic.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-semibold-italic.woff') format('woff');
   font-weight: 600;
   font-style: italic;
@@ -100,7 +110,8 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-bold.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-bold.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
@@ -108,7 +119,8 @@
 
 @font-face {
   font-family: 'Noto Sans';
-  src: url('fonts/noto-sans/gcds-noto-sans-bold-italic.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans/gcds-noto-sans-bold-italic.woff2') format('woff2'),
     url('fonts/noto-sans/gcds-noto-sans-bold-italic.woff') format('woff');
   font-weight: 700;
   font-style: italic;
@@ -117,10 +129,28 @@
 /* -- GC Design System Fonts - Noto Sans Mono -- */
 @font-face {
   font-family: 'Noto Sans Mono';
-  src: url('fonts/noto-sans-mono/gcds-noto-sans-mono.woff2') format('woff2'),
+  src:
+    url('fonts/noto-sans-mono/gcds-noto-sans-mono.woff2') format('woff2'),
     url('fonts/noto-sans-mono/gcds-noto-sans-mono.woff') format('woff');
   font-weight: 400;
   font-style: normal;
+}
+
+/* -- Component-level custom properties --
+  Declared once so the values GCDS has no token for are easy to audit.
+*/
+
+:host {
+  --mapml-control-font-size: var(--gcds-font-sizes-text-small, 1.125rem);
+  --mapml-control-shadow: 0 0.0625rem 0.25rem -0.0625rem rgb(0 0 0 / 30%);
+  --mapml-panel-shadow: 0.125rem 0 0.3125rem rgb(0 0 0 / 20%);
+  --mapml-panel-tab-shadow: 0.125rem 0 0.1875rem rgb(0 0 0 / 10%);
+}
+
+@media only screen and (width < 48em) {
+  :host {
+    --mapml-control-font-size: var(--gcds-font-sizes-text-small-mobile, 1rem);
+  }
 }
 
 /* copy of original mapml.css from MapML.js submodule */
@@ -130,7 +160,7 @@
      the map or <body> element (same as iframes) to give the author more control. */
   background-color: transparent;
   /* Override Leaflet's Helvetica Neue/Arial stack with GCDS body font */
-  font-family: var(--gcds-font-families-body, 'Noto Sans', sans-serif), sans-serif;
+  font-family: var(--gcds-font-families-body, 'Noto Sans', sans-serif);
   max-height: 100%;
   max-width: 100%;
   min-height: 100%;
@@ -141,46 +171,46 @@
 
 /* this is required by tiles which are actually divs with multiple images in them */
 .leaflet-tile img {
-        position: absolute;
-        left: 0;
-        top: 0;
-	}
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 /* MapML treats images like map layers, so far as fade animation is concerned */
 .leaflet-fade-anim .leaflet-image-layer {
-        will-change: opacity;
-	}
+  will-change: opacity;
+}
 
 .leaflet-image-layer {
-        visibility: hidden;
+  visibility: hidden;
 }
 .leaflet-image-loaded {
-        visibility: inherit;
+  visibility: inherit;
 }
 
 /* Use legible font-sizes (Leaflet upstream PR: https://github.com/Leaflet/Leaflet/pull/7346). */
 .leaflet-control-scale-line,
 .leaflet-container .leaflet-control-scale {
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match other control text */
+  font-size: var(--mapml-control-font-size);
 }
 .leaflet-container .leaflet-control-attribution {
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* smallest GCDS body text; 12px fallback matches upstream */
+  font-size: var(--mapml-control-font-size);
 }
 
 /*
  * Controls.
  */
 .leaflet-container {
-    container: leafletmap / size;
+  container: leafletmap / size;
 }
 /* Scale bar */
- .mapml-control-scale {
-  inset-block-end: var(--gcds-spacing-100, 8px); /* Make room for map-a links */
+.mapml-control-scale {
+  inset-block-end: var(--gcds-spacing-100, 0.5rem); /* Make room for map-a links */
   inset-inline-start: 0;
 }
 @container leafletmap (max-height: 250px) {
-    .mapml-control-scale {
-        inset-inline-start: var(--gcds-spacing-600, 45px); /* clear the ~44px zoom control; */
-    }
+  .mapml-control-scale {
+    inset-inline-start: var(--gcds-spacing-600, 3rem); /* clear the ~44px zoom control; */
+  }
 }
 
 /* for extents that don't overlap the viewport, the  extent and it's layer
@@ -188,11 +218,11 @@ control fieldset become disabled.  The descendant fieldsets also become
 disabled (but they / their descendant content are not explicitly italicized by
 the browser)' */
 .leaflet-control-layers-overlays fieldset:disabled span.mapml-layer-item-name {
-    font-style: italic;
+  font-style: italic;
 }
 
- /* Generic class for seamless buttons */
- .mapml-button {
+/* Generic class for seamless buttons */
+.mapml-button {
   background-color: transparent;
   border: none;
   border-radius: 0;
@@ -205,8 +235,8 @@ the browser)' */
   text-align: inherit;
   text-transform: none;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /* Remove opinionated link colors set by Leaflet. */
@@ -219,56 +249,56 @@ the browser)' */
 .leaflet-control-container a,
 .leaflet-container a.leaflet-popup-close-button,
 .leaflet-container a.leaflet-popup-close-button:hover {
-  color: var(--gcds-color-black, #000000);
+  color: var(--gcds-color-black, #000);
 }
 /* Revert above `color: #000` for legendlinks. */
 .mapml-layer-item-name a {
   color: revert;
 }
 
- .leaflet-top .leaflet-control {
-   margin-block-start: var(--gcds-spacing-50, 5px);
- }
+.leaflet-top .leaflet-control {
+  margin-block-start: var(--gcds-spacing-50, 0.25rem);
+}
 
- .leaflet-left .leaflet-control {
-   margin-inline-start: var(--gcds-spacing-50, 5px);
- }
+.leaflet-left .leaflet-control {
+  margin-inline-start: var(--gcds-spacing-50, 0.25rem);
+}
 
 .leaflet-bar a,
 .mapml-reload-button {
-  background-color: var(--gcds-color-white, #ffffff);
+  background-color: var(--gcds-color-white, #fff);
   box-sizing: border-box;
   /* WCAG 2.5.5 min touch target; */
-  width: var(--gcds-spacing-550, 44px) !important;
-  height: var(--gcds-spacing-550, 44px) !important;
-  line-height: var(--gcds-spacing-550, 44px) !important;
-  font-size: var(--gcds-icon-font-size-h2-mobile, 34px) !important; /* zoom/reload control glyphs */
-  font-weight: var(--gcds-font-weights-bold, bold);
+  width: var(--gcds-spacing-550, 2.75rem) !important;
+  height: var(--gcds-spacing-550, 2.75rem) !important;
+  line-height: var(--gcds-spacing-550, 2.75rem) !important;
+  font-size: var(--gcds-icon-font-size-h2-mobile, 2.1875rem) !important; /* zoom/reload control glyphs */
+  font-weight: var(--gcds-font-weights-bold, 700);
   text-align: center;
 }
 
 .mapml-reload-button:hover,
-.mapml-reload-button[aria-disabled="true"] {
+.mapml-reload-button[aria-disabled='true'] {
   background-color: var(--gcds-bg-light, #f2f2f2);
 }
 
-.mapml-reload-button[aria-disabled="true"] {
+.mapml-reload-button[aria-disabled='true'] {
   cursor: default;
 }
 
 button.mapml-button:disabled,
-.mapml-button[aria-disabled="true"] {
+.mapml-button[aria-disabled='true'] {
   color: var(--gcds-disabled-text, #808080);
 }
 
 button.mapml-contextmenu-item:disabled {
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .leaflet-control-layers-toggle {
   /* WCAG 2.5.5 min touch target */
-  width: var(--gcds-spacing-550, 44px) !important;
-  height: var(--gcds-spacing-550, 44px) !important;
+  width: var(--gcds-spacing-550, 2.75rem) !important;
+  height: var(--gcds-spacing-550, 2.75rem) !important;
 }
 
 .leaflet-bar a,
@@ -279,15 +309,15 @@ button.mapml-contextmenu-item:disabled {
 
 .leaflet-control-layers,
 .mapml-reload-button {
-  border-radius: var(--gcds-border-radius-md, 4px) !important;
+  border-radius: var(--gcds-border-radius-md, 0.375rem) !important;
 }
 .leaflet-touch .leaflet-bar a:last-child {
-  border-end-start-radius: var(--gcds-border-radius-md, 4px) !important;
-  border-end-end-radius: var(--gcds-border-radius-md, 4px) !important;
+  border-end-start-radius: var(--gcds-border-radius-md, 0.375rem) !important;
+  border-end-end-radius: var(--gcds-border-radius-md, 0.375rem) !important;
 }
 .leaflet-touch .leaflet-bar a:first-child {
-  border-start-start-radius: var(--gcds-border-radius-md, 4px) !important;
-  border-start-end-radius: var(--gcds-border-radius-md, 4px) !important;
+  border-start-start-radius: var(--gcds-border-radius-md, 0.375rem) !important;
+  border-start-end-radius: var(--gcds-border-radius-md, 0.375rem) !important;
 }
 .leaflet-touch .leaflet-control-layers,
 .leaflet-touch .leaflet-bar {
@@ -305,7 +335,7 @@ button.mapml-contextmenu-item:disabled {
 .leaflet-touch .leaflet-bar,
 .leaflet-popup-tip,
 .leaflet-container .leaflet-control-attribution {
-  box-shadow: rgb(0 0 0 / 30%) 0px 1px 4px -1px; /* no GCDS shadow token matches */
+  box-shadow: var(--mapml-control-shadow);
 }
 
 /* GCDS link styles for attribution links. */
@@ -329,13 +359,11 @@ button.mapml-contextmenu-item:disabled {
     color: var(--gcds-link-focus-text);
     border-radius: var(--gcds-link-focus-border-radius);
     box-shadow: var(--gcds-link-focus-box-shadow);
-    outline: var(--gcds-link-focus-outline-width) solid
-      var(--gcds-link-focus-background);
+    outline: var(--gcds-link-focus-outline-width) solid var(--gcds-link-focus-background);
     outline-offset: var(--gcds-link-focus-outline-offset);
     text-decoration: none;
   }
 }
-
 
 /*
  * Attribution.
@@ -343,10 +371,10 @@ button.mapml-contextmenu-item:disabled {
 
 .leaflet-container .leaflet-control-attribution {
   --mapml-attribution-toggle-size: var(--gcds-icon-font-size-h2, 2.4375rem);
-  background-color: var(--gcds-bg-white, #ffffff);
+  background-color: var(--gcds-bg-white, #fff);
   border-radius: var(--gcds-spacing-300, 1.5rem); /* pill shape */
   color: currentColor;
-  margin: var(--gcds-spacing-50, 5px);
+  margin: var(--gcds-spacing-50, 0.25rem);
 
   min-height: var(--mapml-attribution-toggle-size);
   min-width: var(--mapml-attribution-toggle-size);
@@ -376,8 +404,8 @@ button.mapml-contextmenu-item:disabled {
   padding: 0;
   border-radius: 100%;
   position: absolute;
-  bottom: 0;
-  left: calc(100% - var(--mapml-attribution-toggle-size));
+  inset-block-end: 0;
+  inset-inline-end: 0;
   width: var(--mapml-attribution-toggle-size);
   height: var(--mapml-attribution-toggle-size);
 }
@@ -396,7 +424,9 @@ button.mapml-contextmenu-item:disabled {
 }
 
 .mapml-attribution-container {
-  padding: 5px calc(var(--mapml-attribution-toggle-size) + var(--gcds-spacing-50, 0.25rem)) 5px 10px;
+  padding-block: var(--gcds-spacing-50, 0.25rem);
+  padding-inline-end: calc(var(--mapml-attribution-toggle-size) + var(--gcds-spacing-50, 0.25rem));
+  padding-inline-start: var(--gcds-spacing-125, 0.625rem);
 }
 
 /*
@@ -416,28 +446,28 @@ button.mapml-contextmenu-item:disabled {
 .leaflet-control-fullscreen a {
   background-image: url("data:image/svg+xml,%0A%3Csvg width='26' height='52' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg transform='translate(0 -1000.4)'%3E%3Cuse transform='translate(0 26)' width='100%25' height='100%25' xlink:href='%23a'/%3E%3Cuse transform='translate(0 26)' width='100%25' height='100%25' xlink:href='%23b'/%3E%3Cuse transform='translate(0 26)' width='100%25' height='100%25' xlink:href='%23c'/%3E%3Cuse transform='translate(0 26)' width='100%25' height='100%25' xlink:href='%23d'/%3E%3Cpath id='a' transform='translate(0 1000.4)' d='M5 15v6h6v-2H7v-4z' color='%23000' fill='%23000'/%3E%3Cpath id='b' transform='translate(0 1000.4)' d='M21 15v6h-6v-2h4v-4z' color='%23000' fill='%23000'/%3E%3Cpath d='M10 1037.4v4l1 1h4l1-1v-4l-1-1h-4z' color='%23000' fill='%23000'/%3E%3Cpath id='d' d='M5 1011.4v-6h6v2H7v4z' color='%23000' fill='%23000'/%3E%3Cpath id='c' d='M21 1011.4v-6h-6v2h4v4z' color='%23000' fill='%23000'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: 38px 76px; /* sprite sheet dimensions; no GCDS token */
-  background-position: 3px 3px; /* sprite offset for fullscreen-off icon; no GCDS token */
+  background-size: 2.375rem 4.75rem; /* sprite sheet dimensions; no GCDS token */
+  background-position: 0.1875rem 0.1875rem; /* sprite offset for fullscreen-off icon; no GCDS token */
 }
 
 /*
 * See: https://developer.mozilla.org/en-US/docs/Web/CSS/:host_function
 and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 :host(:fullscreen) .leaflet-control-fullscreen a {
-  background-position: 3px -35px; /* sprite offset for fullscreen-on icon; no GCDS token */
+  background-position: 0.1875rem -2.1875rem; /* sprite offset for fullscreen-on icon; no GCDS token */
 }
 
 :host(:-webkit-full-screen) {
-  width: 100%!important;
-  height: 100%!important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 :host(.leaflet-pseudo-fullscreen) {
-  position: fixed!important;
-  width: 100%!important;
-  height: 100%!important;
-  top: 0!important;
-  left: 0!important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+  inset-block-start: 0 !important;
+  inset-inline-start: 0 !important;
   z-index: 99999;
 }
 
@@ -446,10 +476,9 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
  */
 
 .leaflet-control-layers.leaflet-control {
-  margin-inline-end: 5px;
-  margin-inline-start: 5px;
+  margin-inline: var(--gcds-spacing-50, 0.25rem);
   padding: 0;
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* smallest GCDS body text; trial for layer control */
+  font-size: var(--mapml-control-font-size);
 }
 
 .leaflet-control-layers-list {
@@ -462,7 +491,7 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
   /* Invisible (white) default fieldset border adds ~1.6px, shifting controls
      below when a single-layer control expands on hover; remove it. */
   border: 0;
-  min-height: var(--gcds-spacing-550, 44px);
+  min-height: var(--gcds-spacing-550, 2.75rem);
 }
 
 .leaflet-control-layers label {
@@ -471,9 +500,9 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 
 .mapml-control-layers > :not(summary) {
   display: block;
-  margin-block-start: var(--gcds-spacing-50, 5px);
-  margin-inline-start: var(--gcds-spacing-175, 15px);
-  width: calc(100% - var(--gcds-spacing-175, 15px));
+  margin-block-start: var(--gcds-spacing-50, 0.25rem);
+  margin-inline-start: var(--gcds-spacing-175, 0.875rem);
+  width: calc(100% - var(--gcds-spacing-175, 0.875rem));
 }
 
 .mapml-layer-item-style > div {
@@ -486,7 +515,7 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 
 .leaflet-control .leaflet-control-layers-toggle {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' width='24'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='m11.99 18.54-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16zm0-11.47L17.74 9 12 13.47 6.26 9 12 4.53z'/%3E%3C/svg%3E");
-  background-size: var(--gcds-spacing-450, 34px); /* control icon size; size up to 36px for gcds token */
+  background-size: var(--gcds-spacing-450, 2.25rem); /* control icon size; size up to 36px for gcds token */
 }
 
 /* Revert Leaflet styles that are causing misalignment. */
@@ -500,9 +529,9 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
  */
 
 .mapml-contextmenu {
-  border-radius: var(--gcds-border-radius-md, 4px);
-  padding: var(--gcds-spacing-50, 4px) 0;
-  background-color: var(--gcds-bg-white, #ffffff);
+  border-radius: var(--gcds-border-radius-md, 0.375rem);
+  padding: var(--gcds-spacing-50, 0.25rem) 0;
+  background-color: var(--gcds-bg-white, #fff);
   cursor: default;
   position: absolute;
   width: fit-content;
@@ -511,13 +540,13 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 }
 
 .mapml-contextmenu button.mapml-contextmenu-item {
-  color: var(--gcds-text-primary, #333333);
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* smallest GCDS body text; 12px fallback matches upstream */
+  color: var(--gcds-text-primary, #333);
+  font-size: var(--mapml-control-font-size);
   line-height: var(--gcds-base-line-height, 1.6);
   text-decoration: none;
-  padding: 0 var(--gcds-spacing-150, 12px);
-  border-block-start: var(--gcds-border-width-sm, 1px) solid transparent;
-  border-block-end: var(--gcds-border-width-sm, 1px) solid transparent;
+  padding: 0 var(--gcds-spacing-150, 0.75rem);
+  border-block-start: var(--gcds-border-width-sm, 0.0625rem) solid transparent;
+  border-block-end: var(--gcds-border-width-sm, 0.0625rem) solid transparent;
   cursor: default;
   width: 100%;
   display: block;
@@ -525,17 +554,17 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 
 .mapml-contextmenu button.mapml-contextmenu-item.over {
   background-color: var(--gcds-bg-light, #f2f2f2);
-  border-block-start: var(--gcds-border-width-sm, 1px) solid var(--gcds-bg-light, #f2f2f2);
-  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-bg-light, #f2f2f2);
+  border-block-start: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-bg-light, #f2f2f2);
+  border-block-end: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-bg-light, #f2f2f2);
 }
 
 .mapml-contextmenu-separator {
-  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
+  border-block-end: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-color-grayscale-100, #e6e6e6);
   margin: var(--gcds-spacing-50, 0.25rem) 0;
 }
 
 .mapml-contextmenu.mapml-submenu {
-  width: 80px; /* fallback for browsers without fit-content; no GCDS width token */
+  width: 5rem; /* fallback for browsers without fit-content; no GCDS width token */
   margin-block-end: calc(-1 * var(--gcds-spacing-400, 2rem));
   width: fit-content;
 }
@@ -550,17 +579,17 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 }
 
 .mapml-contextmenu-item[aria-controls] span::after {
-  content:">";
+  content: '>';
 }
 @supports (list-style-type: disclosure-open) {
   .mapml-contextmenu-item[aria-controls] span {
     display: inline-block;
   }
   .mapml-contextmenu-item[aria-controls] span::after {
-    content:"";
+    content: '';
     display: list-item;
     list-style-type: disclosure-closed;
-    margin-inline-start: var(--gcds-spacing-250, 20px);
+    margin-inline-start: var(--gcds-spacing-250, 1.25rem);
   }
 }
 
@@ -572,17 +601,18 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
   contain: content;
   max-height: 100%;
   max-width: 100%;
-  border-radius: var(--gcds-border-radius-md, 4px);
-  padding: var(--gcds-spacing-50, 5px) var(--gcds-spacing-125, 10px);
-  background-color: var(--gcds-bg-white, #ffffff);
+  border-radius: var(--gcds-border-radius-md, 0.375rem);
+  padding-block: var(--gcds-spacing-50, 0.25rem);
+  padding-inline: var(--gcds-spacing-125, 0.625rem);
+  background-color: var(--gcds-bg-white, #fff);
   cursor: default;
   z-index: 1000;
   position: absolute;
   display: block;
-  top: auto;
-  inset-inline-end: var(--gcds-spacing-50, 5px);
-  inset-block-end: var(--gcds-spacing-50, 5px);
-  inset-inline-start: var(--gcds-spacing-50, 5px);
+  inset-block-start: auto;
+  inset-inline-end: var(--gcds-spacing-50, 0.25rem);
+  inset-block-end: var(--gcds-spacing-50, 0.25rem);
+  inset-inline-start: var(--gcds-spacing-50, 0.25rem);
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -590,26 +620,26 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 }
 
 .mapml-debug-banner {
-  font-weight: var(--gcds-font-weights-bold, bold);
+  font-weight: var(--gcds-font-weights-bold, 700);
   text-transform: uppercase;
   display: inline-block;
-  text-align: inline-start;
-  line-height: 2;
+  text-align: start;
+  line-height: var(--gcds-line-heights-text-small, 155%);
 }
 
 .mapml-debug-panel,
 .mapml-debug-grid {
-  font-family: var(--gcds-font-families-monospace, monospace);
+  font-family: var(--gcds-font-families-monospace, 'Noto Sans Mono', monospace);
 }
 
 .mapml-debug-tile {
-  text-indent: var(--gcds-spacing-75, 6px);
-  line-height: 1.8;
+  text-indent: var(--gcds-spacing-75, 0.375rem);
+  line-height: var(--gcds-line-heights-text-small, 155%);
 }
 
 .mapml-debug-coordinates {
-  padding-inline-start: var(--gcds-spacing-50, 4px);
-  padding-inline-end: var(--gcds-spacing-50, 4px);
+  padding-inline-start: var(--gcds-spacing-50, 0.25rem);
+  padding-inline-end: var(--gcds-spacing-50, 0.25rem);
 }
 
 .mapml-debug,
@@ -627,23 +657,25 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 }
 
 :host(.mapml-fullscreen-on) .mapml-debug-grid {
-  color: var(--gcds-color-white, #ffffff);
+  color: var(--gcds-color-white, #fff);
   /* 1px shadow offsets/blur are graphic dims; no GCDS shadow token */
-  text-shadow: 1px 1px 1px var(--gcds-color-black, #000000), 1px 1px 1px var(--gcds-color-black, #000000);
+  text-shadow:
+    0.0625rem 0.0625rem 0.0625rem var(--gcds-color-black, #000),
+    0.0625rem 0.0625rem 0.0625rem var(--gcds-color-black, #000);
 }
 
 /*
  * User interaction.
  */
 
- :host(.leaflet-drag-target) .leaflet-grab {
-   cursor: move;
-   cursor: -webkit-grabbing;
-   cursor:    -moz-grabbing;
-   cursor:         grabbing;
- }
+:host(.leaflet-drag-target) .leaflet-grab {
+  cursor: move;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
 
- /* Prevent `:hover` styles from applying to controls when the user is panning
+/* Prevent `:hover` styles from applying to controls when the user is panning
  the map display and the cursor happens to move over a control. */
 :host(.leaflet-drag-target) .leaflet-control {
   pointer-events: none;
@@ -652,8 +684,8 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 /* Disable dragging of controls. */
 .mapml-popup-button,
 .leaflet-popup-close-button,
-.leaflet-control :not([draggable="true"]),
-.mapml-contextmenu :not([draggable="true"]) {
+.leaflet-control :not([draggable='true']),
+.mapml-contextmenu :not([draggable='true']) {
   -webkit-user-drag: none;
 }
 
@@ -685,7 +717,7 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 .mapml-layer-item-settings .mapml-control-layers summary label,
 .mapml-contextmenu-item > *,
 .mapml-link-preview {
-  pointer-events: none!important;
+  pointer-events: none !important;
 }
 
 /* Restore the default focus outline of UA stylesheets,
@@ -717,7 +749,7 @@ and: https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen */
 /* Less opinionated styles for the zoom box than inherited from leaflet.css. */
 .leaflet-zoom-box {
   border: thin dotted;
-  background-color: rgba(255,255,255,0.33); /* 33% white overlay; no GCDS alpha token */
+  background-color: rgba(255, 255, 255, 0.33); /* 33% white overlay; no GCDS alpha token */
 }
 
 label,
@@ -737,7 +769,7 @@ summary {
 }
 
 [hidden] {
-  display: none!important;
+  display: none !important;
 }
 
 /*
@@ -748,41 +780,42 @@ summary {
 /* Unset `visibility: hidden` (inherited from mapml.js). */
 .leaflet-container .mapml-contextmenu,
 .leaflet-container .leaflet-control-container {
-  visibility: unset!important;
+  visibility: unset !important;
 }
 
 .mapml-crosshair {
-  /* centre the 72px crosshair overlay; 72/36px are graphic dims, no GCDS token */
-  margin: calc(var(--gcds-spacing-450, 36px) * -1) 0 0 calc(var(--gcds-spacing-450, 36px) * -1);
-  width: var(--gcds-spacing-900, 72px);
-  height: var(--gcds-spacing-900, 72px);
-  left: 50%;
+  margin-block-start: calc(var(--gcds-spacing-450, 2.25rem) * -1);
+  margin-inline-start: calc(var(--gcds-spacing-450, 2.25rem) * -1);
+  width: var(--gcds-spacing-900, 4.5rem);
+  height: var(--gcds-spacing-900, 4.5rem);
+  inset-inline-start: 50%;
   inset-block-start: 50%;
   position: absolute;
   z-index: 10000;
 }
 
 .mapml-popup-button {
-	padding: 0 var(--gcds-spacing-50, 4px) 0 var(--gcds-spacing-50, 4px);
-	border: none;
-	text-align: center;
-	font-size: var(--gcds-icon-font-size-text-small-mobile, 16px); /* popup nav control glyphs */
-	color: inherit;
-	text-decoration: none;
-	font-weight: var(--gcds-font-weights-bold, bold);
+  padding-block: 0;
+  padding-inline: var(--gcds-spacing-50, 0.25rem);
+  border: none;
+  text-align: center;
+  font-size: var(--gcds-icon-font-size-text-small-mobile, 1rem); /* popup nav control glyphs */
+  color: inherit;
+  text-decoration: none;
+  font-weight: var(--gcds-font-weights-bold, 700);
   background: transparent;
   white-space: nowrap;
   box-sizing: border-box;
   /* WCAG 2.5.5 min touch target */
-  width: var(--gcds-spacing-550, 44px);
-  height: var(--gcds-spacing-550, 44px);
-  line-height: var(--gcds-spacing-550, 44px);
+  width: var(--gcds-spacing-550, 2.75rem);
+  height: var(--gcds-spacing-550, 2.75rem);
+  line-height: var(--gcds-spacing-550, 2.75rem);
 }
 
 .mapml-zoom-link {
   display: block;
   text-align: center;
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match layer control / context menu */
+  font-size: var(--mapml-control-font-size);
 }
 
 .mapml-focus-buttons {
@@ -790,30 +823,30 @@ summary {
 }
 
 .mapml-feature-count {
-  display:inline;
+  display: inline;
   white-space: nowrap;
   text-align: center;
-  padding: var(--gcds-spacing-25, 2px);
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match layer control / context menu */
+  padding: var(--gcds-spacing-25, 0.125rem);
+  font-size: var(--mapml-control-font-size);
 }
 
 .mapml-focus-buttons button,
 .leaflet-container a.leaflet-popup-close-button {
   /* WCAG 2.5.5 min touch target; */
-  width: var(--gcds-spacing-550, 44px);
-  height: var(--gcds-spacing-550, 44px);
-  min-width: var(--gcds-spacing-550, 44px);
-  min-height: var(--gcds-spacing-550, 44px);
-  line-height: var(--gcds-spacing-550, 44px);
+  width: var(--gcds-spacing-550, 2.75rem);
+  height: var(--gcds-spacing-550, 2.75rem);
+  min-width: var(--gcds-spacing-550, 2.75rem);
+  min-height: var(--gcds-spacing-550, 2.75rem);
+  line-height: var(--gcds-spacing-550, 2.75rem);
 }
 .leaflet-popup-content {
   margin: 0;
   min-width: min-content;
   scrollbar-width: thin;
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match layer control / context menu */
+  font-size: var(--mapml-control-font-size);
 }
 .mapml-popup-content {
-  padding-block-start: var(--gcds-spacing-550, 44px); /* clears the 44px focus-button row; WCAG 2.5.5 minimum touch-target size */
+  padding-block-start: var(--gcds-spacing-550, 2.75rem); /* clears the 44px focus-button row; WCAG 2.5.5 minimum touch-target size */
 }
 .mapml-focus-buttons {
   display: block;
@@ -833,13 +866,13 @@ summary {
 }
 .leaflet-popup-content .mapml-feature-count {
   margin: 0;
-  padding: 0 var(--gcds-spacing-50, 5px);
-  line-height: var(--gcds-spacing-550, 44px); /* matches 44px touch-target height */
+  padding: 0 var(--gcds-spacing-50, 0.25rem);
+  line-height: var(--gcds-spacing-550, 2.75rem); /* matches 44px touch-target height */
 }
 .mapml-popup-content hr:last-of-type {
   margin-block-end: 0;
   border-block-end: 0;
-  border-block-start: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
+  border-block-start: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-color-grayscale-100, #e6e6e6);
 }
 .mapml-popup-content :first-child {
   margin-block-start: 0;
@@ -849,12 +882,12 @@ summary {
   padding: 0 var(--gcds-spacing-200, 1rem);
 }
 .leaflet-popup-tip-container {
-  margin-block-start: -1px;
+  margin-block-start: -0.0625rem;
 }
 
 .mapml-outline {
   outline-style: auto;
-  outline-offset: -2px;
+  outline-offset: -0.125rem;
   z-index: 1000;
   pointer-events: none;
   position: absolute;
@@ -863,7 +896,7 @@ summary {
   color: initial;
 }
 
- /* Force printers to include background-images of controls for printing.
+/* Force printers to include background-images of controls for printing.
    (https://github.com/Maps4HTML/MapML.js/issues/294) */
 @media print {
   .leaflet-control {
@@ -882,18 +915,18 @@ svg.leaflet-image-layer.leaflet-interactive g {
   position: absolute;
   inset-inline-start: 0;
   inset-block-end: 0;
-  background-color: var(--gcds-color-grayscale-100, rgb(222, 225, 230));
-  border-start-end-radius: 5px; /* no 5px GCDS border-radius token (sm=2px, md=6px) */
+  background-color: var(--gcds-color-grayscale-100, #e6e6e6);
+  border-start-end-radius: var(--gcds-border-radius-md, 0.375rem);
   z-index: 1050;
   max-width: 60%;
 }
 
 .mapml-link-preview > p {
-  margin-block-start: 3px; /* no 3px GCDS spacing token (25=2px, 50=4px) */
-  margin-inline-end: var(--gcds-spacing-50, 5px);
-  margin-block-end: var(--gcds-spacing-25, 2px);
-  margin-inline-start: 3px; /* no 3px GCDS spacing token (25=2px, 50=4px) */
-  color: var(--gcds-text-secondary, rgb(60, 64, 67));
+  margin-block-start: var(--gcds-spacing-50, 0.25rem);
+  margin-inline-end: var(--gcds-spacing-50, 0.25rem);
+  margin-block-end: var(--gcds-spacing-25, 0.125rem);
+  margin-inline-start: var(--gcds-spacing-50, 0.25rem);
+  color: var(--gcds-text-secondary, #595959);
   text-overflow: ellipsis;
   overflow-x: hidden;
   white-space: nowrap;
@@ -919,29 +952,29 @@ svg.leaflet-image-layer.leaflet-interactive g {
 .mapml-layer-item,
 .mapml-layer-grouped-extents,
 .mapml-layer-extent {
-  background-color: var(--gcds-bg-white, #ffffff);
-  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-bg-white, #ffffff);
+  background-color: var(--gcds-bg-white, #fff);
+  border: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-bg-white, #fff);
   margin: 0;
   padding: 0;
 }
 
 .mapml-layer-item:not(:last-of-type) {
-  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
+  border-block-end: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-color-grayscale-100, #e6e6e6);
 }
-.mapml-layer-item[aria-grabbed="true"],
-.mapml-layer-extent[aria-grabbed="true"] {
-  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
+.mapml-layer-item[aria-grabbed='true'],
+.mapml-layer-extent[aria-grabbed='true'] {
+  border: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-color-grayscale-100, #e6e6e6);
   border-radius: 0;
 }
 .mapml-layer-item:first-of-type,
 .mapml-layer-extent:first-of-type {
-  border-start-start-radius: var(--gcds-border-radius-md, 4px);
-  border-start-end-radius: var(--gcds-border-radius-md, 4px);
+  border-start-start-radius: var(--gcds-border-radius-md, 0.375rem);
+  border-start-end-radius: var(--gcds-border-radius-md, 0.375rem);
 }
 .mapml-layer-item:last-of-type,
 .mapml-layer-extent:last-of-type {
-  border-end-start-radius: var(--gcds-border-radius-md, 4px);
-  border-end-end-radius: var(--gcds-border-radius-md, 4px);
+  border-end-start-radius: var(--gcds-border-radius-md, 0.375rem);
+  border-end-end-radius: var(--gcds-border-radius-md, 0.375rem);
 }
 
 .mapml-layer-item-properties {
@@ -954,11 +987,10 @@ svg.leaflet-image-layer.leaflet-interactive g {
   margin-inline-start: auto;
 }
 
-
 .mapml-layer-item-controls button span {
   font-size: var(--gcds-icon-font-size-text-small, 1.125rem); /* shared ✕ glyph size */
   /* upstream value is 900, but GCDS tops out at bold (700) */
-  font-weight: var(--gcds-font-weights-bold, 900);
+  font-weight: var(--gcds-font-weights-bold, 700);
   vertical-align: middle;
 }
 
@@ -974,21 +1006,20 @@ svg.leaflet-image-layer.leaflet-interactive g {
   justify-content: center;
 }
 
-
 .mapml-layer-item-remove-control,
 .mapml-layer-item-settings-control {
   /* WCAG 2.5.5 min touch target */
-  min-height: var(--gcds-spacing-550, 44px);
-  min-width: var(--gcds-spacing-550, 44px);
-  height: var(--gcds-spacing-550, 44px);
-  width: var(--gcds-spacing-550, 44px);
+  min-height: var(--gcds-spacing-550, 2.75rem);
+  min-width: var(--gcds-spacing-550, 2.75rem);
+  height: var(--gcds-spacing-550, 2.75rem);
+  width: var(--gcds-spacing-550, 2.75rem);
 }
 
 label.mapml-layer-item-toggle {
   display: inline-flex;
   align-items: center;
   width: 100%; /* have the clickable area take up all available width */
-  min-height: var(--gcds-spacing-550, 44px); /* WCAG 2.5.5 min touch target */
+  min-height: var(--gcds-spacing-550, 2.75rem); /* WCAG 2.5.5 min touch target */
 }
 
 .mapml-layer-item-name {
@@ -1010,54 +1041,58 @@ label.mapml-layer-item-toggle {
 .mapml-screen-reader-output {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
+  height: 0.0625rem;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
+  width: 0.0625rem;
 }
 
 .mapml-screen-reader-output-scale {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
+  height: 0.0625rem;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px
+  width: 0.0625rem;
 }
 /*
  * Feature styles.
  */
 
-.mapml-vector-container svg :is(
-  [role="link"]:focus,
-  [role="link"]:hover,
-  [role="link"]:focus path,
-  [role="link"]:hover path,
-  [role="link"] path:focus,
-  [role="link"] path:hover,
-  [role="button"]:focus,
-  [role="button"]:hover,
-  [role="button"]:focus path,
-  [role="button"]:hover path,
-  [role="button"] path:focus,
-  [role="button"] path:hover,
-  path[tabindex="0"]:focus
+.mapml-vector-container
+  svg
+  :is(
+    [role='link']:focus,
+    [role='link']:hover,
+    [role='link']:focus path,
+    [role='link']:hover path,
+    [role='link'] path:focus,
+    [role='link'] path:hover,
+    [role='button']:focus,
+    [role='button']:hover,
+    [role='button']:focus path,
+    [role='button']:hover path,
+    [role='button'] path:focus,
+    [role='button'] path:hover,
+    path[tabindex='0']:focus
   ) {
   stroke: var(--gcds-link-default, #1f497a);
   stroke: LinkText;
 }
-.mapml-vector-container svg :is(
-  [role="link"]:focus:not(:focus-visible),
-  [role="link"]:focus:not(:focus-visible) path,
-  [role="link"] path:focus:not(:focus-visible),
-  [role="button"]:focus:not(:focus-visible),
-  [role="button"]:focus:not(:focus-visible) path,
-  [role="button"] path:focus:not(:focus-visible),
-  path[tabindex="0"]:focus:not(:focus-visible)
+.mapml-vector-container
+  svg
+  :is(
+    [role='link']:focus:not(:focus-visible),
+    [role='link']:focus:not(:focus-visible) path,
+    [role='link'] path:focus:not(:focus-visible),
+    [role='button']:focus:not(:focus-visible),
+    [role='button']:focus:not(:focus-visible) path,
+    [role='button'] path:focus:not(:focus-visible),
+    path[tabindex='0']:focus:not(:focus-visible)
   ) {
-  outline: 0!important;
+  outline: 0 !important;
 }
 
 /*
@@ -1065,31 +1100,32 @@ label.mapml-layer-item-toggle {
 */
 
 .mapml-layer-item-settings .mapml-layer-extent {
-  padding-inline-start: 1.8rem;
+  padding-inline-start: var(--gcds-spacing-350, 1.75rem);
 }
 
-.mapml-layer-item-settings .mapml-layer-extent .mapml-layer-item-properties{
+.mapml-layer-item-settings .mapml-layer-extent .mapml-layer-item-properties {
   padding-inline-start: 0;
 }
 
 .mapml-layer-item-settings .mapml-layer-extent .mapml-layer-item-details {
-  padding-inline-start: 1.6rem;
+  padding-inline-start: var(--gcds-spacing-300, 1.5rem);
 }
 
 /**
 * Feature Index
  */
 .mapml-feature-index-box {
-  margin: -8% 0 0 -8%;
+  margin-block-start: -8%;
+  margin-inline-start: -8%;
   width: 16%;
-  left: 50%;
-  top: 50%;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
   position: absolute;
   z-index: 10000;
-  outline: var(--gcds-border-width-md, 2px) solid var(--gcds-bg-white, #ffffff);
+  outline: var(--gcds-border-width-md, 0.125rem) solid var(--gcds-bg-white, #fff);
 }
 
-.mapml-feature-index-box:after{
+.mapml-feature-index-box:after {
   display: block;
   content: '';
   padding-block-start: 100%;
@@ -1102,78 +1138,75 @@ label.mapml-layer-item-toggle {
 }
 
 .mapml-feature-index {
-  outline: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-black, #000000);
+  outline: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-color-black, #000);
   contain: content;
-  border-radius: var(--gcds-border-radius-md, 4px);
-  background-color: var(--gcds-bg-white, #ffffff);
+  border-radius: var(--gcds-border-radius-md, 0.375rem);
+  background-color: var(--gcds-bg-white, #fff);
   cursor: default;
   z-index: 1000;
   position: absolute;
   inset-block-start: auto;
-  /* `left: 50%` + `translateX(-50%)` is an LTR centering technique;
-     kept physical so RTL behaviour matches the upstream original. */
-  left: 50%;
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  inset-block-end: var(--gcds-spacing-350, 30px);
-  padding-block-start: var(--gcds-spacing-50, 5px);
-  height: 92px;
-  width: 450px;
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match other control text */
+  inset-inline: 0;
+  margin-inline: auto;
+  inset-block-end: var(--gcds-spacing-350, 1.75rem);
+  padding-block-start: var(--gcds-spacing-50, 0.25rem);
+  height: var(--gcds-spacing-1150, 5.75rem);
+  width: 28.125rem;
+  font-size: var(--mapml-control-font-size);
 }
 @container leafletmap (max-width: 650px ) {
-    .mapml-feature-index {
-        width: 70cqw;
-    }
+  .mapml-feature-index {
+    width: 70cqw;
+  }
 }
 @container leafletmap (max-width: 390px ) {
-    .mapml-feature-index {
-        inset-block-end: 100px;
-    }
+  .mapml-feature-index {
+    inset-block-end: var(--gcds-spacing-1250, 6.25rem);
+  }
 }
-.mapml-feature-index-content > span{
-  width: 140px;
+.mapml-feature-index-content > span {
+  width: 8.75rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
-  padding-inline-start: var(--gcds-spacing-50, 5px);
-  padding-inline-end: var(--gcds-spacing-50, 5px);
+  padding-inline-start: var(--gcds-spacing-50, 0.25rem);
+  padding-inline-end: var(--gcds-spacing-50, 0.25rem);
 }
 
 .shortcuts-dialog > ul > li > kbd,
-.mapml-feature-index-content > span > kbd{
+.mapml-feature-index-content > span > kbd {
   background-color: var(--gcds-color-grayscale-150, #d9d9d9);
-  padding-inline-end: var(--gcds-spacing-50, 4px);
-  padding-inline-start: var(--gcds-spacing-50, 4px);
-  border-radius: var(--gcds-border-radius-md, 4px);
+  padding-inline-end: var(--gcds-spacing-50, 0.25rem);
+  padding-inline-start: var(--gcds-spacing-50, 0.25rem);
+  border-radius: var(--gcds-border-radius-md, 0.375rem);
 }
 
-.mapml-feature-index-content > span > span{
+.mapml-feature-index-content > span > span {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
+  height: 0.0625rem;
   overflow: hidden;
   position: absolute;
   white-space: pre;
-  width: 1px;
+  width: 0.0625rem;
 }
 
-.shortcuts-dialog > button{
+.shortcuts-dialog > button {
   position: absolute;
-  inset-inline-end: var(--gcds-spacing-100, 8px);
-  inset-block-start: var(--gcds-spacing-100, 8px);
+  inset-inline-end: var(--gcds-spacing-100, 0.5rem);
+  inset-block-start: var(--gcds-spacing-100, 0.5rem);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: var(--gcds-icon-font-size-text-small, 1.125rem); /* shared ✕ glyph size */
-  padding: var(--gcds-spacing-50, 4px);
+  padding: var(--gcds-spacing-50, 0.25rem);
   line-height: 1;
 }
 
 .shortcuts-dialog {
   position: relative;
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* smallest GCDS body text; trial for shortcuts dialog */
+  font-size: var(--mapml-control-font-size);
 }
 
 .shortcuts-dialog > ul {
@@ -1182,7 +1215,7 @@ label.mapml-layer-item-toggle {
 }
 
 .mapml-tile-group > svg {
-    overflow: visible;
+  overflow: visible;
 }
 /* ===== ESSENTIAL HOST DEFAULTS (immediate application for getBoundingClientRect) ===== */
 :host {
@@ -1191,18 +1224,18 @@ label.mapml-layer-item-toggle {
 
   /* Critical MapML defaults that must be available immediately */
   display: inline-block;
-background-color: var(--gcds-bg-white, #ffffff);
+  background-color: var(--gcds-bg-white, #fff);
   /* Default dimensions - will be overridden by JavaScript based on CSS rules or attributes */
-  height: 150px;
-  width: 300px;
+  height: 9.375rem;
+  width: 18.75rem;
   contain: layout size;
-  border-width: var(--gcds-border-width-md, 2px);
+  border-width: var(--gcds-border-width-md, 0.125rem);
   border-style: inset; /* no GCDS border-style token */
 }
 
 /* Ensure white background persists in fullscreen */
 :host(.mapml-fullscreen-on) {
-background-color: var(--gcds-bg-white, #ffffff);
+  background-color: var(--gcds-bg-white, #fff);
 }
 /* Ensure container fills the host element */
 .mapml-map-container {
@@ -1220,27 +1253,27 @@ background-color: var(--gcds-bg-white, #ffffff);
     position: relative;
 
     /* Aspect ratio support for responsive design */
-    aspect-ratio: var(--map-aspect); /* TODO: Invalid token */
+    aspect-ratio: var(--map-aspect, auto);
   }
 }
 
 @layer default {
   :host {
     /* Visual styling */
-    border: var(--gcds-border-width-md, 2px) inset;
+    border: var(--gcds-border-width-md, 0.125rem) inset;
     cursor: pointer;
     transition: all 0.35s; /* no GCDS motion/duration token */
   }
 
   /* Attribute-based styling */
-  :host([frameborder="0"]) {
+  :host([frameborder='0']) {
     border-width: 0;
   }
 
   :host([hidden]) {
     display: none !important;
   }
-}/* Remaining layers: size, variant, hover, visited, focus remain unchanged */
+} /* Remaining layers: size, variant, hover, visited, focus remain unchanged */
 /* Optional: Add any gcds-specific styling here */
 /* You may want to import gcds design tokens if available */
 
@@ -1250,26 +1283,26 @@ background-color: var(--gcds-bg-white, #ffffff);
 }
 .mapml-search-button {
   /* WCAG 2.5.5 min touch target */
-  width: var(--gcds-spacing-550, 44px);
-  height: var(--gcds-spacing-550, 44px);
-  line-height: var(--gcds-spacing-550, 44px);
+  width: var(--gcds-spacing-550, 2.75rem);
+  height: var(--gcds-spacing-550, 2.75rem);
+  line-height: var(--gcds-spacing-550, 2.75rem);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: var(--gcds-bg-white, #ffffff);
+  background: var(--gcds-bg-white, #fff);
   border: none;
-  border-radius: var(--gcds-border-radius-md, 4px);
+  border-radius: var(--gcds-border-radius-md, 0.375rem);
   padding: 0;
 }
 .mapml-search-button:hover {
   background: var(--gcds-bg-light, #f2f2f2);
 }
-.mapml-search-button[aria-disabled="true"] {
+.mapml-search-button[aria-disabled='true'] {
   cursor: default;
 }
-.mapml-search-button[aria-disabled="true"]:hover {
-  background: var(--gcds-bg-white, #ffffff);
+.mapml-search-button[aria-disabled='true']:hover {
+  background: var(--gcds-bg-white, #fff);
 }
 .mapml-search-panel[hidden] {
   display: none !important;
@@ -1278,52 +1311,55 @@ background-color: var(--gcds-bg-white, #ffffff);
   position: absolute;
   inset-block-start: 0;
   inset-inline-start: 0;
-  width: 250px; /* search panel width; no GCDS token */
+  width: 15.625rem; /* search panel width; no GCDS token */
   height: 100%;
-  background: var(--gcds-bg-white, #ffffff);
-  /*box-shadow: 2px 0 5px rgba(0,0,0,0.2); !* no GCDS shadow token matches *!*/
-  box-shadow: var(--gcds-spacing-25, 2px) 0 var(--gcds-spacing-75, 6px) rgba(0,0,0,0.2); /* no GCDS shadow token matches */
+  background: var(--gcds-bg-white, #fff);
+  box-shadow: var(--mapml-panel-shadow);
   display: flex;
   flex-direction: column;
-  transform: translateX(-100%);
+  --mapml-search-panel-offset: -100%;
+  transform: translateX(var(--mapml-search-panel-offset));
   transition: transform 0.2s ease-in-out; /* no GCDS motion/duration token */
   z-index: 10000;
 }
-.mapml-search-panel-open {
-  transform: translateX(0);
+.mapml-search-panel:dir(rtl) {
+  --mapml-search-panel-offset: 100%;
+}
+.mapml-search-panel.mapml-search-panel-open {
+  --mapml-search-panel-offset: 0;
 }
 .mapml-search-input {
-  width: calc(100% - 2 * var(--gcds-spacing-100, 8px)); /* subtract the two horizontal margins */
-  margin: var(--gcds-spacing-100, 8px);
-  padding-block: var(--gcds-spacing-75, 6px);
-  padding-inline: var(--gcds-spacing-100, 8px);
-  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-200, #cccccc);
-  border-radius: var(--gcds-border-radius-md, 4px);
+  width: calc(100% - 2 * var(--gcds-spacing-100, 0.5rem)); /* subtract the two horizontal margins */
+  margin: var(--gcds-spacing-100, 0.5rem);
+  padding-block: var(--gcds-spacing-75, 0.375rem);
+  padding-inline: var(--gcds-spacing-100, 0.5rem);
+  border: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-color-grayscale-200, #ccc);
+  border-radius: var(--gcds-border-radius-md, 0.375rem);
   font-family: inherit;
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match layer control / context menu */
+  font-size: var(--mapml-control-font-size);
   box-sizing: border-box;
 }
 .mapml-search-input:focus {
-  outline: var(--gcds-border-width-md, 2px) solid var(--gcds-input-focus-border, #1354ec);
+  outline: var(--gcds-border-width-md, 0.125rem) solid var(--gcds-input-focus-border, #1354ec);
   border-color: var(--gcds-input-focus-border, #1354ec);
 }
 .mapml-search-results {
   flex: 1;
   overflow-y: auto;
   padding-block-start: 0;
-  padding-inline: var(--gcds-spacing-100, 8px);
-  padding-block-end: var(--gcds-spacing-100, 8px);
+  padding-inline: var(--gcds-spacing-100, 0.5rem);
+  padding-block-end: var(--gcds-spacing-100, 0.5rem);
 }
 .mapml-search-result {
   display: block;
   width: 100%;
-  padding: var(--gcds-spacing-100, 8px);
+  padding: var(--gcds-spacing-100, 0.5rem);
   border: none;
-  border-block-end: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-100, #e6e6e6);
-  background: var(--gcds-bg-white, #ffffff);
+  border-block-end: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-color-grayscale-100, #e6e6e6);
+  background: var(--gcds-bg-white, #fff);
   text-align: start;
   font-family: inherit;
-  font-size: var(--gcds-font-sizes-text-small-mobile, 0.75rem); /* match layer control / context menu */
+  font-size: var(--mapml-control-font-size);
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
@@ -1333,29 +1369,28 @@ background-color: var(--gcds-bg-white, #ffffff);
   background: var(--gcds-bg-light, #f2f2f2);
 }
 .mapml-search-result:focus {
-  outline: var(--gcds-border-width-md, 2px) solid var(--gcds-focus-border, #1354ec);
-  outline-offset: calc(-1 * var(--gcds-border-width-md, 2px));
+  outline: var(--gcds-border-width-md, 0.125rem) solid var(--gcds-focus-border, #1354ec);
+  outline-offset: calc(-1 * var(--gcds-border-width-md, 0.125rem));
 }
 .mapml-search-close {
   position: absolute;
-  inset-inline-end: calc(var(--gcds-spacing-300, 24px) * -1); /* pull the tab out by its own width; no GCDS token */
+  inset-inline-end: calc(var(--gcds-spacing-300, 1.5rem) * -1); /* pull the tab out by its own width; no GCDS token */
   inset-block-start: 50%;
   transform: translateY(-50%);
-  width: var(--gcds-spacing-300, 24px); /* close-tab width */
-  height: var(--gcds-spacing-450, 36px); /* close-tab height  */
+  width: var(--gcds-spacing-300, 1.5rem); /* close-tab width */
+  height: var(--gcds-spacing-450, 2.25rem); /* close-tab height  */
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: var(--gcds-bg-white, #ffffff);
-  border: var(--gcds-border-width-sm, 1px) solid var(--gcds-color-grayscale-200, #cccccc);
+  background: var(--gcds-bg-white, #fff);
+  border: var(--gcds-border-width-sm, 0.0625rem) solid var(--gcds-color-grayscale-200, #ccc);
   border-inline-start: none;
   border-start-start-radius: 0;
-  border-start-end-radius: var(--gcds-border-radius-md, 4px);
-  border-end-end-radius: var(--gcds-border-radius-md, 4px);
+  border-start-end-radius: var(--gcds-border-radius-md, 0.375rem);
+  border-end-end-radius: var(--gcds-border-radius-md, 0.375rem);
   border-end-start-radius: 0;
-  box-shadow: var(--gcds-spacing-25, 2px) 0 var(--gcds-spacing-50, 4px) rgba(0,0,0,0.1); /* no GCDS shadow token matches */
-  /*box-shadow: 2px 0 3px rgba(0,0,0,0.1); !* no GCDS shadow token matches *!*/
+  box-shadow: var(--mapml-panel-tab-shadow);
   visibility: hidden;
 }
 .mapml-search-panel-open .mapml-search-close {
@@ -1364,22 +1399,22 @@ background-color: var(--gcds-bg-white, #ffffff);
 
 /* Static control */
 .mapml-static-control.leaflet-control {
-  margin-inline-end: var(--gcds-spacing-50, 5px);
+  margin-inline-end: var(--gcds-spacing-50, 0.25rem);
 }
 button.mapml-static-button {
   /* WCAG 2.5.5 min touch target */
-  width: var(--gcds-spacing-550, 44px);
-  height: var(--gcds-spacing-550, 44px);
-  line-height: var(--gcds-spacing-550, 44px);
+  width: var(--gcds-spacing-550, 2.75rem);
+  height: var(--gcds-spacing-550, 2.75rem);
+  line-height: var(--gcds-spacing-550, 2.75rem);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: var(--gcds-bg-white, #ffffff);
+  background: var(--gcds-bg-white, #fff);
   border: none;
-  border-radius: var(--gcds-border-radius-md, 4px);
+  border-radius: var(--gcds-border-radius-md, 0.375rem);
   padding: 0;
-  color: var(--gcds-text-primary, #000000);
+  color: var(--gcds-text-primary, #333);
 }
 button.mapml-static-button:hover {
   background: var(--gcds-bg-light, #f2f2f2);
