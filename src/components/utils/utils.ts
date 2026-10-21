@@ -1,3 +1,10 @@
+/*
+ * This file is derived from @gcds-core/components
+ * <https://github.com/cds-snc/gcds-components>.
+ * Copyright (c) Government of Canada / Gouvernement du Canada.
+ * SPDX-License-Identifier: MIT
+ * See the NOTICE file in the root of this distribution.
+ */
 export const assignLanguage = (el: HTMLElement) => {
   let lang = '';
   if (!el.getAttribute('lang')) {

@@ -1,6 +1,43 @@
 import { Config } from '@stencil/core';
 import nodePolyfills from 'rollup-plugin-node-polyfills';
 
+/**
+ * The W3C Software and Document License requires its notice to be reproduced
+ * in a location viewable to users of a redistributed or derivative work.
+ * Prepend a legal-comment banner to every entry chunk so the attribution
+ * survives into the shipped bundles, not just the NOTICE file in the package.
+ */
+const LICENSE_BANNER = `/*!
+ * @gcds-extensions/map -- the <gcds-ext-map> component suite.
+ * Copyright (c) 2026 Natural Resources Canada.
+ * @license MIT AND W3C-20150513
+ *
+ * Includes material copied from or derived from MapML.js
+ * (https://github.com/Maps4HTML/MapML.js), copyright 2015-2024 Canada Centre
+ * for Mapping and Earth Observation, Natural Resources Canada, and the
+ * MapML.js contributors, licensed under the W3C Software and Document License
+ * (http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document),
+ * and modified by Natural Resources Canada.
+ *
+ * Bundles Leaflet (BSD-2-Clause), proj4 (MIT), Proj4Leaflet (BSD-2-Clause),
+ * Leaflet.Locate (MIT), protomaps-leaflet and PMTiles (BSD-3-Clause), and
+ * media-query-parser/-solver (MIT).
+ *
+ * Full notices, which must be retained on redistribution:
+ * https://github.com/gcds-extensions/map/blob/main/NOTICE
+ */
+`;
+
+const licenseBanner = () => ({
+  name: 'gcds-license-banner',
+  renderChunk(code: string, chunk: { isEntry?: boolean }) {
+    if (!chunk.isEntry || code.startsWith('/*!')) {
+      return null;
+    }
+    return { code: LICENSE_BANNER + code, map: null };
+  }
+});
+
 export const config: Config = {
   namespace: 'gcds-ext-map',
   taskQueue: 'async',
@@ -198,6 +235,6 @@ export const config: Config = {
     browserHeadless: 'shell',
   },
   rollupPlugins: {
-    after: [nodePolyfills()],
+    after: [nodePolyfills(), licenseBanner()],
   },
 };

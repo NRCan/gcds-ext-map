@@ -96,4 +96,18 @@ If you notice things that could be improved, please [open an issue](https://gith
 
 ## License
 
-MIT License
+The original portions of `@gcds-extensions/map` are licensed under the [MIT License](./LICENSE).
+
+This package is **not** solely MIT-licensed. It is a fork and re-implementation of
+[MapML.js](https://github.com/Maps4HTML/MapML.js), which is licensed by its contributors under the
+[W3C Software and Document License](http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document)
+(`W3C-20150513`). Material derived from MapML.js remains subject to that license, and its notice must be
+retained in all copies and derivative works. The built output also redistributes Leaflet (BSD-2-Clause),
+proj4 (MIT), Proj4Leaflet (BSD-2-Clause), Leaflet.Locate (MIT), protomaps-leaflet and PMTiles
+(BSD-3-Clause), and media-query-parser/-solver (MIT).
+
+The required notices and the full text of every applicable license are in [NOTICE](./NOTICE).
+**If you redistribute this software, in whole or in part, modified or unmodified, you must retain
+the `NOTICE` file.**
+
+SPDX: `MIT AND W3C-20150513`

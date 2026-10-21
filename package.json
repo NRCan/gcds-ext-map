@@ -24,6 +24,7 @@
     "demo/",
     "bin/",
     "plugin.json",
+    "NOTICE",
     "!dist/**/test/**",
     "!dist/**/*.map"
   ],
@@ -40,6 +41,7 @@
     "build-storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build -o ./docs",
     "deploy": "bash scripts/deploy-gh-pages.sh",
     "sync-skills": "node scripts/sync-skills.js",
+    "license-headers": "node scripts/add-license-headers.js",
     "prepack": "node scripts/sync-skills.js"
   },
   "devDependencies": {
@@ -84,7 +86,7 @@
   "peerDependencies": {
     "@gcds-core/components": "^1.3.0"
   },
-  "license": "MIT",
+  "license": "MIT AND W3C-20150513",
   "allowScripts": {
     "esbuild@0.25.12": true
   }

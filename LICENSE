@@ -1,3 +1,18 @@
+@gcds-extensions/map is licensed under the MIT License, set out below.
+
+IMPORTANT: this package is not solely MIT-licensed. It contains material
+derived from MapML.js, which is licensed under the W3C Software and Document
+License, and it redistributes third-party libraries under the BSD-2-Clause,
+BSD-3-Clause and MIT licenses. Those works remain governed by their own terms,
+which the MIT License below does not supersede. The required notices, and the
+full text of those licenses, are in the NOTICE file accompanying this
+distribution. You must retain the NOTICE file when redistributing this
+software, with or without modification.
+
+SPDX-License-Identifier: MIT AND W3C-20150513
+
+-------------------------------------------------------------------------------
+
 MIT License
 
 Copyright (c) 2026 Natural Resources Canada
