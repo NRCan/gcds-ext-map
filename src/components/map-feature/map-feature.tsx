@@ -369,7 +369,7 @@ export class MapFeature {
                 const popupOptions = {
                   autoClose: false,
                   autoPan: true,
-                  maxHeight: map.getSize().y * 0.5 - 50,
+                  maxHeight: Util.popupContentMaxHeight(map),
                   maxWidth: map.getSize().x * 0.7,
                   minWidth: 165
                 };

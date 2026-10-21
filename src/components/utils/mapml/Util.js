@@ -19,6 +19,23 @@ import proj4 from 'proj4';
 
 export const Util = {
   /**
+   * Leaflet's `maxHeight` popup option constrains the scrollable content div
+   * only. The surrounding popup chrome -- the "Zoom to here" link, the
+   * separator and the 44px navigation button row -- is added on top of it, so
+   * budgeting purely on content lets the rendered popup exceed the space
+   * available above the click point. When that happens the popup is laid out
+   * off the top of the map and its close button becomes unreachable.
+   *
+   * Subtract the chrome so the *rendered* popup honours the height budget.
+   */
+  popupChromeHeight: 85,
+
+  popupContentMaxHeight: function (map) {
+    const budget = map.getSize().y * 0.5 - 50;
+    return Math.max(budget - this.popupChromeHeight, 100);
+  },
+
+  /**
    * Build a `<style>` string for the query-result popup `<iframe srcdoc>`.
    *
    * The iframe is a separate document, so the component's shadow-DOM CSS

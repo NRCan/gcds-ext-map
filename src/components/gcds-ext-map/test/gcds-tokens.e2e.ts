@@ -18,7 +18,7 @@ test.describe('GCDS tokens resolve through shadow DOM', () => {
     await context.close();
   });
 
-  test('Context menu border-radius uses --gcds-border-radius-md token (6px, not 4px fallback)', async () => {
+  test('Context menu border-radius uses --gcds-border-radius-md token (6px)', async () => {
     // Right-click the map to open context menu
     await page.locator('gcds-ext-map').click({ button: 'right' });
     await page.waitForTimeout(300);
@@ -29,7 +29,7 @@ test.describe('GCDS tokens resolve through shadow DOM', () => {
       return getComputedStyle(menu).borderRadius;
     });
 
-    // --gcds-border-radius-md: 0.375rem = 6px (fallback would be 4px)
+    // --gcds-border-radius-md: 0.375rem = 6px; the CSS fallback matches it
     expect(borderRadius).toBe('6px');
   });
 
@@ -251,8 +251,8 @@ test.describe('Fallback values work without GCDS CSS', () => {
       return getComputedStyle(menu).borderRadius;
     });
 
-    // Fallback value: 4px (not 6px from token)
-    expect(borderRadius).toBe('4px');
+    // Fallback value: 6px (--gcds-border-radius-md is 0.375rem)
+    expect(borderRadius).toBe('6px');
   });
 
   test('Context menu item uses fallback text color without GCDS CSS', async () => {

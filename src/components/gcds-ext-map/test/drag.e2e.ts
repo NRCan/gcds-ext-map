@@ -3,6 +3,33 @@ import { test, expect, chromium } from '@playwright/test';
 test.describe('UI Drag&Drop Test', () => {
   let page;
   let context;
+
+  // The layer control only swaps two entries when the drag distance exceeds
+  // the height of the fieldset under the cursor (see createLayerControlForLayer).
+  // Row heights depend on the label text wrapping, so derive the drag offset
+  // from live geometry rather than assuming a fixed row height.
+  async function dragRowPastNeighbour(fromIndex, direction) {
+    const boxes = await page.$$eval(
+      '.leaflet-control-layers-overlays > fieldset',
+      (els) =>
+        els.map((e) => {
+          const r = e.getBoundingClientRect();
+          return { x: r.x, y: r.y, width: r.width, height: r.height };
+        })
+    );
+    const from = boxes[fromIndex];
+    const neighbour = boxes[direction === 'down' ? fromIndex + 1 : fromIndex - 1];
+    // Must clear the neighbour's height, while leaving the cursor inside it.
+    const offset = neighbour.height + from.height / 4;
+    const startX = from.x + from.width / 2;
+    const startY = from.y + from.height / 2;
+    const endY = direction === 'down' ? startY + offset : startY - offset;
+
+    await page.mouse.move(startX, startY);
+    await page.mouse.down();
+    await page.mouse.move(startX, endY);
+    await page.mouse.up();
+  }
   test.beforeEach(async () => {
     context = await chromium.launchPersistentContext('');
     page =
@@ -55,20 +82,7 @@ test.describe('UI Drag&Drop Test', () => {
   test('Moving layer down one in control overlay', async () => {
     await page.waitForTimeout(500);
     await page.hover('.leaflet-top.leaflet-right',{force: true});
-    let control = await page.$(
-      '.leaflet-control-layers-overlays > fieldset:nth-child(1)'
-    );
-    let controlBBox = await control.boundingBox();
-    await page.mouse.move(
-      controlBBox.x + controlBBox.width / 2,
-      controlBBox.y + controlBBox.height / 2
-    );
-    await page.mouse.down();
-    await page.mouse.move(
-      controlBBox.x + controlBBox.width / 2,
-      controlBBox.y + controlBBox.height / 2 + 48
-    );
-    await page.mouse.up();
+    await dragRowPastNeighbour(0, 'down');
     await page.hover('.leaflet-top.leaflet-right',{force: true});
     await page.waitForTimeout(500);
 
@@ -93,20 +107,7 @@ test.describe('UI Drag&Drop Test', () => {
   test('Moving layer up one in control overlay', async () => {
     await page.waitForTimeout(500);
     await page.hover('.leaflet-top.leaflet-right',{force: true});
-    let control = await page.$(
-      '.leaflet-control-layers-overlays > fieldset:nth-child(2)'
-    );
-    let controlBBox = await control.boundingBox();
-    await page.mouse.move(
-      controlBBox.x + controlBBox.width / 2,
-      controlBBox.y + controlBBox.height / 2
-    );
-    await page.mouse.down();
-    await page.mouse.move(
-      controlBBox.x + controlBBox.width / 2,
-      controlBBox.y + controlBBox.height / 2 - 48
-    );
-    await page.mouse.up();
+    await dragRowPastNeighbour(1, 'up');
     await page.waitForTimeout(500);
     await page.hover('.leaflet-top.leaflet-right',{force: true});
 
@@ -135,6 +136,7 @@ test.describe('UI Drag&Drop Test', () => {
     const startingLowestLayer = overlaysList
       .getByRole('group', { name: 'Canada Base Map - Transportation (CBMT)' })
       .first();
+    expect(await startingLowestLayer.count()).toBeGreaterThan(0);
 
     // assert that CBMT is first of three layers
     const cbmtIsFirstInLayerControl = await overlaysList.evaluate((l) => {
@@ -145,23 +147,12 @@ test.describe('UI Drag&Drop Test', () => {
     });
     expect(cbmtIsFirstInLayerControl).toBe(true);
 
-    const fromBox = await startingLowestLayer.boundingBox();
-    const fromPos = {
-      x: fromBox.x + fromBox.width / 2,
-      y: fromBox.y + fromBox.height / 3
-    };
-    let toPos = { x: fromPos.x, y: fromPos.y + fromBox.height * 1.1 };
-
-    // move (drag/drop) CBMT to the top of the layer stack
-    await page.mouse.move(fromPos.x, fromPos.y);
-    await page.mouse.down();
-    await page.mouse.move(toPos.x, toPos.y);
-    await page.mouse.up();
-    await page.mouse.move(toPos.x, toPos.y);
-    toPos = { x: toPos.x, y: toPos.y + fromBox.height * 1.1 };
-    await page.mouse.down();
-    await page.mouse.move(toPos.x, toPos.y);
-    await page.mouse.up();
+    // move (drag/drop) CBMT to the top of the layer stack, one row at a time;
+    // geometry is re-measured on each step because the rows reflow after a swap
+    await dragRowPastNeighbour(0, 'down');
+    await page.waitForTimeout(200);
+    await dragRowPastNeighbour(1, 'down');
+    await page.waitForTimeout(200);
 
     let cbmtIsTopOfLayerControl = await overlaysList.evaluate((l) => {
       return (
