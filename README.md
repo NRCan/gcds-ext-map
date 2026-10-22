@@ -106,6 +106,13 @@ retained in all copies and derivative works. The built output also redistributes
 proj4 (MIT), Proj4Leaflet (BSD-2-Clause), Leaflet.Locate (MIT), protomaps-leaflet and PMTiles
 (BSD-3-Clause), and media-query-parser/-solver (MIT).
 
+The MapML authoring skills are derived from the MapML.js documentation,
+[web-map-doc](https://github.com/Maps4HTML/web-map-doc), under the W3C Software and Document
+License. Because `npx gcds-ext-map-skills` copies them out of this package and into your
+`.github/skills/` folder, where this package's `NOTICE` does not follow them, the installer writes
+`GCDS-EXT-MAP-SKILLS-NOTICE.md` alongside them. **Keep that file with the installed skills**; the
+`--remove` option deletes it along with the skills it covers.
+
 The required notices and the full text of every applicable license are in [NOTICE](./NOTICE).
 **If you redistribute this software, in whole or in part, modified or unmodified, you must retain
 the `NOTICE` file.**

@@ -10,6 +10,12 @@ const path = require('path');
 // Agent Skills has no namespacing, so ownership is tracked via `metadata.package` in each SKILL.md.
 const PACKAGE_TAG = '@gcds-extensions/map';
 
+// Travels with the skills: they are derived from web-map-doc and carry a W3C
+// Software and Document License notice obligation that the package's root
+// NOTICE file cannot satisfy once the skills are copied out. Maintained by
+// scripts/add-license-headers.js.
+const NOTICE_FILE = 'GCDS-EXT-MAP-SKILLS-NOTICE.md';
+
 const pkgRoot = path.resolve(__dirname, '..');
 // Prefer the published mirror; fall back to the source folder when run from a checkout.
 const src = [path.join(pkgRoot, 'skills'), path.join(pkgRoot, '.github', 'skills')].find(
@@ -36,6 +42,11 @@ function installSkills() {
   fs.cpSync(src, dest, { recursive: true });
 
   console.log(`[gcds-ext-map-skills] Copied markup skills into ${relDest}/`);
+  if (fs.existsSync(path.join(dest, NOTICE_FILE))) {
+    console.log(
+      `[gcds-ext-map-skills] The skills are derived from web-map-doc; keep ${relDest}/${NOTICE_FILE} alongside them.`
+    );
+  }
   console.log('[gcds-ext-map-skills] Restart your editor so the agent can discover the new skills.');
   console.log('[gcds-ext-map-skills] To remove them later, run: npx gcds-ext-map-skills --remove');
 }
@@ -51,6 +62,11 @@ function removeSkills() {
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
     .filter((name) => isOwnedByThisPackage(path.join(dest, name)));
+
+  // The notice is only required while the derived skills are present, so it goes
+  // whenever they do -- including when they were already removed by hand.
+  const notice = path.join(dest, NOTICE_FILE);
+  if (fs.existsSync(notice)) fs.rmSync(notice, { force: true });
 
   if (owned.length === 0) {
     console.log(`[gcds-ext-map-skills] No ${PACKAGE_TAG} skills found in ${relDest}/`);

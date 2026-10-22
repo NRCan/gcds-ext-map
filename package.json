@@ -23,6 +23,7 @@
     "loader/",
     "demo/",
     "bin/",
+    "skills/",
     "plugin.json",
     "NOTICE",
     "!dist/**/test/**",

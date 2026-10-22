@@ -135,6 +135,47 @@ SOFTWARE.
 
 
 =============================================================================
+PART 1C -- MATERIAL DERIVED FROM web-map-doc (THE MARKUP SKILLS)
+=============================================================================
+
+The MapML authoring skills in this package -- `.github/skills/**` in the
+repository, mirrored to `skills/**` in the published tarball -- are derived,
+in whole or in part, from the MapML.js documentation, web-map-doc
+<https://github.com/Maps4HTML/web-map-doc>, published at
+<https://maps4html.org/web-map-doc/>. Most of the prose in each `SKILL.md` is
+copied from the corresponding element reference page under `docs/` in that
+repository.
+
+    Copyright 2021-2026 Canada Centre for Mapping and Earth Observation,
+    Natural Resources Canada, and Malvoz <https://github.com/Malvoz>, 
+    together with the other contributors to the web-map-doc repository
+    <https://github.com/Maps4HTML/web-map-doc/graphs/contributors>.
+
+That material is licensed under the W3C Software and Document License -- the
+same license that governs the material in PART 1, and whose full text is
+reproduced there. See
+<https://github.com/Maps4HTML/web-map-doc/blob/main/LICENSE.md>.
+
+Changes and modifications made by Natural Resources Canada in these derived
+skills include, but are not limited to: restructuring the documentation into
+the Agent Skills format, with YAML frontmatter and agent-directed usage
+instructions; condensing, reordering and omitting parts of the original
+prose; removing the documentation site's navigation, demonstration iframes
+and cross-references; substituting `<gcds-ext-map>` for `<mapml-viewer>`
+throughout; and adding guidance specific to this package.
+
+    .github/skills/<skill-name>/SKILL.md   (from docs/elements/*.md,
+    skills/<skill-name>/SKILL.md            docs/layers/*.md and related
+                                            pages in web-map-doc)
+
+Because the `npx gcds-ext-map-skills` installer copies these skill folders
+out of this package and into a consumer's `.github/skills/` directory, where
+this NOTICE file does not follow them, the installer also writes a copy of
+the notice above to `.github/skills/GCDS-EXT-MAP-SKILLS-NOTICE.md`. That file
+must be retained alongside the installed skills.
+
+
+=============================================================================
 PART 2 -- THIRD-PARTY SOFTWARE REDISTRIBUTED IN THE BUILT OUTPUT
 =============================================================================
 

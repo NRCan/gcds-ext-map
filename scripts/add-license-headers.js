@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /**
  * Prepends provenance headers to source files derived from MapML.js, as
- * required by the W3C Software and Document License (see NOTICE).
+ * required by the W3C Software and Document License (see NOTICE), and
+ * maintains the notice that travels with the web-map-doc derived skills.
  *
  * Idempotent: files that already carry the header are left untouched.
- * Run after importing new material from MapML.js.
+ * Run after importing new material from MapML.js or web-map-doc.
  */
 const fs = require('fs');
 const path = require('path');
@@ -38,6 +39,65 @@ const GCDS_HEADER = `/*
  * See the NOTICE file in the root of this distribution.
  */
 `;
+
+// The markup skills are derived from web-map-doc and are copied out of this
+// package into a consumer's .github/skills/ by `npx gcds-ext-map-skills`, where
+// the root NOTICE file does not follow them. This sidecar travels with them
+// instead: it lives in the skills folder, is mirrored into the published
+// skills/ folder by sync-skills.js, and is installed and removed alongside the
+// skills by bin/copy-skills.js.
+const SKILLS_NOTICE_FILE = 'GCDS-EXT-MAP-SKILLS-NOTICE.md';
+
+const SKILLS_NOTICE = `NOTICE -- MapML authoring skills from @gcds-extensions/map
+==========================================================
+
+The skill folders installed alongside this file are derived, in whole or in
+part, from the MapML.js documentation, web-map-doc
+<https://github.com/Maps4HTML/web-map-doc>, published at
+<https://maps4html.org/web-map-doc/>. Most of the prose in each \`SKILL.md\` is
+copied from the corresponding element reference page in that repository.
+
+    Copyright 2021-2026 Canada Centre for Mapping and Earth Observation,
+    Strategic Policy and Innovation Sector, Natural Resources Canada,
+    and Malvoz <https://github.com/Malvoz>, together with the other
+    contributors to the web-map-doc repository
+    <https://github.com/Maps4HTML/web-map-doc/graphs/contributors>.
+
+That material is licensed under the W3C Software and Document License
+<http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document>.
+
+SPDX-License-Identifier: W3C-20150513
+
+Changes and modifications made by Natural Resources Canada in these skills
+include, but are not limited to: restructuring the documentation into the
+Agent Skills format, with YAML frontmatter and agent-directed usage
+instructions; condensing, reordering and omitting parts of the original prose;
+removing the documentation site's navigation, demonstration iframes and
+cross-references; substituting \`<gcds-ext-map>\` for \`<mapml-viewer>\`
+throughout; and adding guidance specific to \`@gcds-extensions/map\`.
+
+The skill \`gcds-map-page-markup\` is original to \`@gcds-extensions/map\` and is
+not derived from web-map-doc.
+
+The W3C Software and Document License requires that this notice be retained,
+in a location viewable to users, in all copies and derivative works of this
+material, including modified copies. Keep this file alongside the skills.
+
+The full notice for \`@gcds-extensions/map\`, covering the other works it
+derives from and redistributes, is in the NOTICE file of that package
+<https://www.npmjs.com/package/@gcds-extensions/map>.
+`;
+
+function writeSkillsNotice() {
+  const skillsDir = path.join(root, '.github/skills');
+  if (!fs.existsSync(skillsDir)) return false;
+
+  const target = path.join(skillsDir, SKILLS_NOTICE_FILE);
+  if (fs.existsSync(target) && fs.readFileSync(target, 'utf8') === SKILLS_NOTICE) return false;
+
+  fs.writeFileSync(target, SKILLS_NOTICE);
+  return true;
+}
 
 function walk(dir, out = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -80,3 +140,9 @@ for (const file of gcdsDerived) {
 }
 
 console.log(`license headers: ${changed} file(s) updated, ` + `${mapmlDerived.length + gcdsDerived.length - changed} already current`);
+
+console.log(
+  writeSkillsNotice()
+    ? `skills notice: wrote .github/skills/${SKILLS_NOTICE_FILE}`
+    : `skills notice: .github/skills/${SKILLS_NOTICE_FILE} already current`
+);
